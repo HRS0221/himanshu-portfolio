@@ -6,7 +6,7 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
+  role: "GATE - 2026 Aspirant",
   avatar: "/images/avatar.jpg", // Path to your avatar image
   email: "contact.himanshusalunke@gmail.com",
   location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
@@ -63,8 +63,8 @@ const home = {
   },
   subline: (
     <>
-        I'm Himanshu — decoding data, designing intelligence.
-      <br /> Preparing for GATE 2026 while building AI that matters.
+        I'm Himanshu - decoding data, designing intelligence.
+      <br /> Preparing for GATE - 2026 while building AI that matters.
     </>
   ),
 };
@@ -84,7 +84,7 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://topmate.io/himanshu_salunke",
   },
   intro: {
     display: true,
