@@ -8,7 +8,8 @@ import { Background, Column, Flex, Meta, opacity, SpacingToken } from "@once-ui-
 import { Footer, Header, RouteGuard, Providers } from '@/components';
 import { baseURL, effects, fonts, style, dataStyle, home } from '@/resources';
 
-import { Analytics } from "@vercel/analytics/react"; // ✅ Added this line
+import { Analytics } from "@vercel/analytics/react"; // ✅ Analytics
+import { SpeedInsights } from "@vercel/speed-insights/next"; // ✅ Speed Insights
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -47,7 +48,7 @@ export default async function RootLayout({
                 try {
                   const root = document.documentElement;
                   const defaultTheme = 'system';
-                  
+
                   const config = ${JSON.stringify({
                     brand: style.brand,
                     accent: style.accent,
@@ -60,22 +61,22 @@ export default async function RootLayout({
                     scaling: style.scaling,
                     'viz-style': dataStyle.variant,
                   })};
-                  
+
                   Object.entries(config).forEach(([key, value]) => {
                     root.setAttribute('data-' + key, value);
                   });
-                  
+
                   const resolveTheme = (themeValue) => {
                     if (!themeValue || themeValue === 'system') {
                       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                     }
                     return themeValue;
                   };
-                  
+
                   const savedTheme = localStorage.getItem('data-theme');
                   const resolvedTheme = resolveTheme(savedTheme);
                   root.setAttribute('data-theme', resolvedTheme);
-                  
+
                   const styleKeys = Object.keys(config);
                   styleKeys.forEach(key => {
                     const value = localStorage.getItem('data-' + key);
@@ -151,7 +152,8 @@ export default async function RootLayout({
             </Flex>
           </Flex>
           <Footer />
-          <Analytics /> {/* ✅ Vercel Analytics added here */}
+          <Analytics /> {/* ✅ Vercel Analytics */}
+          <SpeedInsights /> {/* ✅ Vercel Speed Insights */}
         </Column>
       </Providers>
     </Flex>
