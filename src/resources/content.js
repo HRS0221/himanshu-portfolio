@@ -7,10 +7,10 @@ const person = {
     return `${this.firstName} ${this.lastName}`;
   },
   role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  avatar: "/images/IMG_20231001_210930.jpg", // Path to your avatar image
+  email: "contact.himanshusalunke@gmail.com",
+  location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["English", "Hindi", "Marathi"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
