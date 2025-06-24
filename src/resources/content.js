@@ -7,7 +7,7 @@ const person = {
     return `${this.firstName} ${this.lastName}`;
   },
   role: "Design Engineer",
-  avatar: "/images/IMG_20231001_210930.jpg", // Path to your avatar image
+  avatar: "/images/avatar.jpg", // Path to your avatar image
   email: "contact.himanshusalunke@gmail.com",
   location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Hindi", "Marathi"], // optional: Leave the array empty if you don't want to display languages
@@ -18,11 +18,11 @@ const newsletter = {
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
+      I write a monthly newsletter called <strong>The Minimalist Life</strong> where I share insights on personal growth, digital clarity, and mindful living in an AI-driven world.
     </>
   ),
 };
+
 
 const social = [
   // Links are automatically displayed.
@@ -35,12 +35,12 @@ const social = [
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/hr0221/",
   },
   {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    name: "X",
+    icon: "x",
+    link: "https://x.com/Wiser_0221",
   },
   {
     name: "Email",
