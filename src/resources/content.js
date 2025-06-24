@@ -55,19 +55,21 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Transforming raw data into real-world impact</>,
   featured: {
     display: true,
-    title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
-    href: "/work/building-once-ui-a-customizable-design-system",
+    title: <>Recent project: <strong className="ml-4">Moving Vehicle Registration Plate Detection</strong></>,
+    href: "https://github.com/HRS0221/Smart-India-Hackathon-2022", // Replace with actual link
   },
   subline: (
     <>
-      I'm Selene, a design engineer at <Logo icon="/trademarks/wordmark-dark.svg" style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}/>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Himanshu - a data scientist in the making, driven by curiosity and purpose.
+      <br /> Currently preparing for GATE - 2026 in Data Science while building real-world projects in AI, automation, and analytics.
+      <br /> From deep learning models to intelligent dashboards, I turn ideas into measurable impact.
     </>
   ),
 };
+
 
 const about = {
   path: "/about",
