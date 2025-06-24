@@ -63,9 +63,8 @@ const home = {
   },
   subline: (
     <>
-      I'm Himanshu - a data scientist in the making, driven by curiosity and purpose.
-      <br /> Currently preparing for GATE - 2026 in Data Science while building real-world projects in AI, automation, and analytics.
-      <br /> From deep learning models to intelligent dashboards, I turn ideas into measurable impact.
+        I'm Himanshu — decoding data, designing intelligence.
+      <br /> Preparing for GATE 2026 while building AI that matters.
     </>
   ),
 };
