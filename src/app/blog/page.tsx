@@ -1,9 +1,20 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
-// import { baseURL, articles, person } from "@/resources";
+'use client';
+
+import {
+  Column,
+  Row,
+  Card,
+  Heading,
+  Text,
+  Media,
+  Button,
+  Meta,
+  Schema,
+  RevealFx,
+} from "@once-ui-system/core";
+
 import { baseURL, person } from "@/resources";
 import { articles } from "@/resources/content";
-import Image from "next/image";
-import Link from "next/link";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -16,48 +27,68 @@ export async function generateMetadata() {
 }
 
 export default function BlogPage() {
+  const filteredArticles = articles.items.filter((article) => article.title && article.image && article.link);
+
   return (
-    <Column maxWidth="l">
+    <Column maxWidth="m" paddingTop="32" paddingBottom="64" gap="40">
       <Schema
         as="blogPosting"
         baseURL={baseURL}
+        path="/blog"
         title={articles.title}
         description="Explore 50+ thought-provoking articles on AI, machine learning, and data, written by Himanshu Salunke."
-        path="/blog"
-        image={`/api/og/generate?title=${encodeURIComponent(articles.title)}`}
+        image="/images/articles/Machine-Learning.png"
         author={{
           name: person.name,
-          url: `${baseURL}/blog`,
+          url: `${baseURL}/about`,
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="display-strong-s" align="center">
-        {articles.title}
-      </Heading>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
-        {articles.items.map((article, idx) => (
-          <Link
-            key={idx}
-            href={article.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 bg-white"
-          >
-            <div className="relative w-full h-48">
-              <Image
-                src={article.image}
-                alt={article.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="p-4 text-center text-base font-semibold">
-              {article.title}
-            </div>
-          </Link>
-        ))}
-      </div>
+      <RevealFx translateY="8" delay={0.1} fillWidth horizontal="center">
+        <Heading variant="display-strong-l" align="center">
+          {articles.title}
+        </Heading>
+      </RevealFx>
+
+      <RevealFx translateY="16" delay={0.2}>
+        <Row wrap gap="32" horizontal="center">
+          {filteredArticles.map((article, index) => (
+            <RevealFx key={index} translateY="12" delay={index * 0.05}>
+              <Card
+                radius="l"
+                padding="16"
+                background="neutral-alpha-weak"
+                border="neutral-strong"
+                style={{ width: 320 }}
+              >
+                <Media
+                  radius="m"
+                  src={article.image}
+                  alt={article.title}
+                  height={180}
+                  width={320}
+                  style={{ objectFit: 'cover' }}
+                />
+                <Column gap="8" paddingTop="12">
+                  <Text variant="heading-strong-s">{article.title}</Text>
+                  <Button
+                    href={article.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="secondary"
+                    size="s"
+                    arrowIcon
+                    data-border="rounded"
+                  >
+                    Read More
+                  </Button>
+                </Column>
+              </Card>
+            </RevealFx>
+          ))}
+        </Row>
+      </RevealFx>
     </Column>
   );
 }
