@@ -290,14 +290,241 @@ technical: {
 },
 };
 
-const blog = {
-  path: "/blog",
-  label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+/**Original CODE */
+
+// const blog = {
+//   path: "/blog",
+//   label: "Blog",
+//   title: "Writing about design and tech...",
+//   description: `Read what ${person.name} has been up to recently`,
+//   // Create new blog posts by adding a new .mdx file to app/blog/posts
+//   // All posts will be listed on the /blog route
+// };
+
+
+/**MY CODE */
+
+const articles = {
+  display: true,
+  title: "My AI Articles",
+  items: [
+    {
+      title: "What is Machine Learning?",
+      image: "/images/articles/Machine-Learning.png",
+      link: "https://www.linkedin.com/pulse/what-machine-learning-himanshu-salunke-dwgef/?trackingId=X4XnUN3VRbK89it6zk8mnA%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/what-hypothesis-inductive-bias-machine-learning-himanshu-salunke-yvqzf/?trackingId=X4XnUN3VRbK89it6zk8mnA%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/what-regression-machine-learning-himanshu-salunke-m0zff/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/what-least-mean-square-lms-machine-learning-himanshu-salunke-mtp3f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/what-gradient-descent-machine-learning-himanshu-salunke-ray0f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/what-lasso-ridge-regression-machine-learning-himanshu-salunke-eg3ff/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/what-polynomial-regression-machine-learning-himanshu-salunke-xfqgc/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/what-logistic-regression-machine-learning-himanshu-salunke-266zf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/maximum-likelihood-estimation-machine-learning-himanshu-salunke-igcbc/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/decision-tree-machine-learning-himanshu-salunke-y02mf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/cart-machine-learning-himanshu-salunke-jh3xf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/overfitting-underfitting-machine-learning-himanshu-salunke-aba5c/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/ensemble-methods-bagging-boosting-random-forest-xgboost-salunke-0j60f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/bayesian-learning-dive-probabilistic-modeling-himanshu-salunke-clctf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/support-vector-machine-svm-learning-himanshu-salunke-u0r1f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/k-means-clustering-centroid-inertia-convergence-more-himanshu-salunke-0rkxf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/adaptive-hierarchical-clustering-gaussian-mixture-models-salunke-e8b0f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/biological-neural-network-artificial-himanshu-salunke-slypf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/terminologies-ann-activation-function-weights-bias-learning-salunke-7dgnf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/mcculloch-pitts-neuron-hebb-network-himanshu-salunke-amaof/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/power-perceptron-training-rule-gradient-descent-delta-salunke-nd5nc/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/multilayer-network-threshold-unit-feedforward-himanshu-salunke-tti5f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/backpropagation-algorithm-convergence-local-minima-space-salunke-4ekze/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/regularization-parameter-norm-penalties-dataset-noise-salunke-oyg7f/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/training-deep-models-neural-network-optimization-basic-salunke-mghwf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/convolution-network-sparse-interactions-parameter-sharing-salunke-vpywf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/recurrent-neural-network-bidirectional-rnn-deep-networks-salunke-9f66f/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/unsupervised-learning-kohonen-self-organizing-feature-salunke-cj6tf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/linear-factor-methods-probabilistic-pca-analysis-sparse-salunke-mibdf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/undercomplete-autoencoders-regularized-stochastic-encoders-salunke-zhfaf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/generative-adversarial-networks-gan-vs-discriminative-salunke-lskif/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/explaining-interpreting-black-box-white-models-shap-shapley-salunke-cjldf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/reinforcement-learning-elements-vs-supervised-policy-based-salunke-ykhff/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/bandit-problems-value-action-based-methods-greedy-problem-salunke-xonef/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/linear-reward-penalty-algorithm-parameterized-policy-himanshu-salunke-mwtif/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/immediate-full-reinforcement-learning-agents-goals-rewards-salunke-njx4f/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/markov-decision-process-property-finite-value-bellmans-salunke-dfzof/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/policy-evaluation-improvement-iteration-value-dynamic-salunke-ci9af/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/monte-carlo-method-over-dynamic-programming-control-more-salunke-drcuf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/temporal-difference-learning-methods-over-monte-carlo-salunke-qbcmf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/function-approximation-tabular-implementation-gradient-salunke-q4nqf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+    {
+      title: "",
+      image: "",
+      link: "https://www.linkedin.com/pulse/deep-learning-reinforcement-training-workflow-more-himanshu-salunke-s7cgf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
+    },
+  ],
 };
+
+
+
+
+
 
 const work = {
   path: "/work",
@@ -359,4 +586,8 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+
+// export { person, social, newsletter, home, about, blog, work, gallery };
+
+export { person, social, newsletter, home, about, articles, work, gallery };
+
