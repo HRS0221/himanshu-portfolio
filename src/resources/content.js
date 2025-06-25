@@ -90,18 +90,13 @@ const about = {
     display: true,
     title: "Introduction",
     description: (
-      <>
-        description: (
-  <>
-    Beyond lines of code and models, I'm driven by a deeper question: 
-    “What if tech could think with empathy?” My approach blends precision 
-    with purpose,   valuing clarity over complexity and curiosity over convention. 
-    I believe in building quietly, learning relentlessly, and letting the work speak before the resume does.
-  </>
+      <>Beyond lines of code and models, I'm driven by a deeper question: 
+      “What if tech could think with empathy?” My approach blends precision 
+      with purpose,   valuing clarity over complexity and curiosity over convention. 
+      I believe in building quietly, learning relentlessly, and letting the work speak before the resume does.
+      </>
 ),
 
-      </>
-    ),
   },
 
   work: {
