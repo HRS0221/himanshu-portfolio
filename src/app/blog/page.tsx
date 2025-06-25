@@ -5,7 +5,6 @@ import {
   Heading,
   Text,
   Media,
-  Button,
   Meta,
   Schema,
   RevealFx,
@@ -50,38 +49,32 @@ export default function BlogPage() {
       </RevealFx>
 
       <RevealFx translateY="16" delay={0.2}>
-        <Row wrap gap="32" horizontal="center">
+        <Row wrap gap="40" horizontal="center">
           {filteredArticles.map((article, index) => (
             <RevealFx key={index} translateY="12" delay={index * 0.05}>
               <Card
-                radius="l"
-                padding="16"
+                radius="xl"
+                padding="0"
                 background="neutral-alpha-weak"
                 border="neutral-strong"
-                style={{ width: 320 }}
+                style={{ width: 360, overflow: "hidden" }}
               >
+                <a href={article.link} target="_blank" rel="noopener noreferrer">
                 <Media
-                  radius="m"
                   src={article.image}
                   alt={article.title}
-                  height={180}
-                  width={320}
-                  style={{ objectFit: 'cover' }}
+                  height={220}
+                  width={360}
+                  radius="m-4"
+                  style={{ objectFit: "cover" }}
                 />
-                <Column gap="8" paddingTop="12">
-                  <Text variant="heading-strong-s">{article.title}</Text>
-                  <Button
-                    href={article.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="secondary"
-                    size="s"
-                    arrowIcon
-                    data-border="rounded"
-                  >
-                    Read More
-                  </Button>
-                </Column>
+
+                  <Column align="center" gap="12" padding="16">
+                    <Text variant="heading-strong-m" align="center">
+                      {article.title}
+                    </Text>
+                  </Column>
+                </a>
               </Card>
             </RevealFx>
           ))}
