@@ -91,10 +91,15 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Beyond lines of code and models, Himanshu is driven by a deeper question: 
-        “What if tech could think with empathy?” His approach blends precision with 
-        purpose—valuing clarity over complexity and curiosity over convention. 
-        He believes in building quietly, learning relentlessly, and letting the work speak before the résumé does.
+        description: (
+  <>
+    Beyond lines of code and models, I'm driven by a deeper question: 
+    “What if tech could think with empathy?” My approach blends precision 
+    with purpose,   valuing clarity over complexity and curiosity over convention. 
+    I believe in building quietly, learning relentlessly, and letting the work speak before the resume does.
+  </>
+),
+
       </>
     ),
   },
@@ -150,53 +155,120 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "R. C. Patel Institute of Technology, Shirpur An Autonomous Institute",
+        description: <>Data Science</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "R. C. Patel Polytechnic, Shirpur",
+        description: <>Computer Engineering</>,
       },
     ],
   },
-  technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
-    skills: [
-      {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-      {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-    ],
-  },
+
+
+  /**Original Code*/
+
+  // technical: {
+  //   display: true, // set to false to hide this section
+  //   title: "Technical skills",
+  //   skills: [
+  //     {
+  //       title: "Figma",
+  //       description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
+  //       // optional: leave the array empty if you don't want to display images
+  //       images: [
+  //         {
+  //           src: "/images/projects/project-01/cover-02.jpg",
+  //           alt: "Project image",
+  //           width: 16,
+  //           height: 9,
+  //         },
+  //         {
+  //           src: "/images/projects/project-01/cover-03.jpg",
+  //           alt: "Project image",
+  //           width: 16,
+  //           height: 9,
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: "Next.js",
+  //       description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
+  //       // optional: leave the array empty if you don't want to display images
+  //       images: [
+  //         {
+  //           src: "/images/projects/project-01/cover-04.jpg",
+  //           alt: "Project image",
+  //           width: 16,
+  //           height: 9,
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+
+/** My code*/
+
+technical: {
+  display: true,
+  title: "Technical Skills",
+  skills: [
+    {
+      title: "Areas of Focus",
+      description: (
+        <>
+          Computer Vision, Image Processing, Machine Learning, Deep Learning, Data Analysis, Microsoft Excel
+        </>
+      ),
+      images: [],
+    },
+    {
+      title: "Languages",
+      description: (
+        <>
+          Python, SQL, Java, C, C++, HTML, CSS
+        </>
+      ),
+      images: [],
+    },
+    {
+      title: "Frameworks & Libraries",
+      description: (
+        <>
+          Flask, TensorFlow, PyTorch, Keras, YOLO, Scikit-learn
+        </>
+      ),
+      images: [],
+    },
+    {
+      title: "Cloud & Platforms",
+      description: (
+        <>
+          Amazon S3, Amazon Athena, AWS Glue, AWS Lambda, QuickSight, IBM Watson Studio, Docker
+        </>
+      ),
+      images: [],
+    },
+    {
+      title: "Data Visualization",
+      description: (
+        <>
+          Tableau, Power BI
+        </>
+      ),
+      images: [],
+    },
+    {
+      title: "Developer Tools",
+      description: (
+        <>
+          Git, GitHub, VS Code, Google Colab, Jupyter Notebook
+        </>
+      ),
+      images: [],
+    },
+  ],
+},
 };
 
 const blog = {
