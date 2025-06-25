@@ -91,12 +91,14 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Beyond lines of code and models, Himanshu is driven by a deeper question: 
+        “What if tech could think with empathy?” His approach blends precision with 
+        purpose—valuing clarity over complexity and curiosity over convention. 
+        He believes in building quietly, learning relentlessly, and letting the work speak before the résumé does.
       </>
     ),
   },
+
   work: {
     display: true, // set to false to hide this section
     title: "Work Experience",
