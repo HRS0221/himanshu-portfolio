@@ -150,21 +150,40 @@ const about = {
       },
     ],
   },
-  studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
-    institutions: [
-      {
-        name: "R. C. Patel Institute of Technology, Shirpur An Autonomous Institute",
-        description: <>Data Science</>,
-      },
-      {
-        name: "R. C. Patel Polytechnic, Shirpur",
-        description: <>Computer Engineering</>,
-      },
-    ],
-  },
 
+/**Original CODE */
+
+  // studies: {
+  //   display: true, // set to false to hide this section
+  //   title: "Studies",
+  //   institutions: [
+  //     {
+  //       name: "R. C. Patel Institute of Technology, Shirpur An Autonomous Institute",
+  //       description: <>Data Science</>,
+  //     },
+  //     {
+  //       name: "R. C. Patel Polytechnic, Shirpur",
+  //       description: <>Computer Engineering</>,
+  //     },
+  //   ],
+  // },
+
+/**MY CODE */
+
+studies: {
+  display: true,
+  title: "Studies",
+  institutions: [
+    {
+      name: "R. C. Patel Institute of Technology, Shirpur (An Autonomous Institute)",
+      description: <>Bachelor of Technology in Data Science (Dec 2021 - June 2024) | CGPA: 7.39</>,
+    },
+    {
+      name: "R. C. Patel Polytechnic, Shirpur",
+      description: <>Diploma in Computer Science (Aug 2017 - May 2021) | CGPA: 9.4</>,
+    },
+  ],
+},
 
   /**Original Code*/
 
@@ -244,7 +263,7 @@ technical: {
       title: "Cloud & Platforms",
       description: (
         <>
-          Amazon S3, Amazon Athena, AWS Glue, AWS Lambda, QuickSight, IBM Watson Studio, Docker
+          AWS (Amazon S3, Amazon Athena, AWS Glue, AWS Lambda, QuickSight), Google Cloud, IBM Watson Studio, Docker
         </>
       ),
       images: [],
