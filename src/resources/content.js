@@ -167,18 +167,23 @@ const about = {
 
 studies: {
   display: true,
-  title: "Studies",
+  title: "Education",
   institutions: [
     {
-      name: "R. C. Patel Institute of Technology, Shirpur (An Autonomous Institute)",
-      description: <>Bachelor of Technology in Data Science (Dec 2021 - June 2024) | CGPA: 7.39</>,
+      institution: "R. C. Patel Institute of Technology, Shirpur (An Autonomous Institute)",
+      degree: "Bachelor of Technology in Data Science",
+      timeframe: "Dec 2021 - June 2024",
+      cgpa: "CGPA: 7.39",
     },
     {
-      name: "R. C. Patel Polytechnic, Shirpur",
-      description: <>Diploma in Computer Science (Aug 2017 - May 2021) | CGPA: 9.4</>,
+      institution: "R. C. Patel Polytechnic, Shirpur",
+      degree: "Diploma in Computer Science",
+      timeframe: "Aug 2017 - May 2021",
+      cgpa: "CGPA: 9.4",
     },
   ],
 },
+
 
   /**Original Code*/
 
@@ -297,7 +302,7 @@ const blog = {
 const work = {
   path: "/work",
   label: "Work",
-  title: `Projects – ${person.name}`,
+  title: `Projects - ${person.name}`,
   description: `Design and dev projects by ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
