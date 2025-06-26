@@ -25,18 +25,17 @@ export default function BlogListClient() {
       <RevealFx translateY="16" delay={0.2}>
         <div
           style={{
+            width: "100%",
             display: "flex",
             justifyContent: "center",
-            width: "100%",
           }}
         >
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
               gap: "24px",
-              justifyContent: "center",
-              maxWidth: "1024px",
+              maxWidth: "100%",
               width: "100%",
             }}
           >
