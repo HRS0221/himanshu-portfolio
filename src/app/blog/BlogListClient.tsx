@@ -27,6 +27,7 @@ export default function BlogListClient() {
           style={{
             display: "flex",
             justifyContent: "center",
+            alignItems: "center", // 👈 vertical centering
             width: "100%",
           }}
         >
@@ -36,9 +37,9 @@ export default function BlogListClient() {
               gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
               gap: "24px",
               justifyContent: "center",
+              alignContent: "center", // 👈 vertical grid alignment
               maxWidth: "1024px",
               width: "100%",
-              padding: "0 16px", // ✅ Adds horizontal padding on mobile
             }}
           >
             {filteredArticles.map((article, index) => (
@@ -47,12 +48,7 @@ export default function BlogListClient() {
                   href={article.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    textDecoration: "none",
-                    color: "inherit",
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <Card
                     radius="xl"
