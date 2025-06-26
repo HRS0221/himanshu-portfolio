@@ -229,12 +229,12 @@ const articles = {
     },
     {
       title: "Hypothesis and Inductive Bias in Machine Learning",
-      image: "/images/articles/Machine-Learning.png",
+      image: "/images/articles/Hypothesis.png",
       link: "https://www.linkedin.com/pulse/what-hypothesis-inductive-bias-machine-learning-himanshu-salunke-yvqzf/?trackingId=X4XnUN3VRbK89it6zk8mnA%3D%3D",
     },
     {
       title: "Regression in Machine Learning",
-      image: "/images/articles/Machine-Learning.png",
+      image: "/images/articles/Linear Regression.png",
       link: "https://www.linkedin.com/pulse/what-regression-machine-learning-himanshu-salunke-m0zff/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
     },
     {
