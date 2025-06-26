@@ -2,7 +2,6 @@
 
 import {
   Column,
-  Row,
   Card,
   Heading,
   Text,
@@ -30,7 +29,8 @@ export default function BlogListClient() {
             gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
             gap: "24px",
             width: "100%",
-            justifyItems: "center",
+            placeItems: "center",
+            margin: "0 auto",
           }}
         >
           {filteredArticles.map((article, index) => (
