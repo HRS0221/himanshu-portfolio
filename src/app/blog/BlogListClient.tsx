@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Column,
@@ -6,7 +6,6 @@ import {
   Card,
   Heading,
   Text,
-  Media,
   RevealFx,
 } from "@once-ui-system/core";
 import { articles } from "@/resources/content";
@@ -17,7 +16,7 @@ export default function BlogListClient() {
   );
 
   return (
-    <Column maxWidth="m" paddingTop="32" paddingBottom="64" gap="40">
+    <Column maxWidth="xl" paddingTop="32" paddingBottom="64" gap="40">
       <RevealFx translateY="8" delay={0.1} fillWidth horizontal="center">
         <Heading variant="display-strong-l" align="center">
           {articles.title}
@@ -25,7 +24,15 @@ export default function BlogListClient() {
       </RevealFx>
 
       <RevealFx translateY="16" delay={0.2}>
-        <Row wrap gap="40" horizontal="center">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: "24px",
+            width: "100%",
+            justifyItems: "center",
+          }}
+        >
           {filteredArticles.map((article, index) => (
             <RevealFx key={index} translateY="12" delay={index * 0.05}>
               <a
@@ -40,7 +47,8 @@ export default function BlogListClient() {
                   background="neutral-alpha-weak"
                   border="neutral-strong"
                   style={{
-                    width: 360,
+                    width: "320px",
+                    maxWidth: "100%",
                     overflow: "hidden",
                     boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
                     transition: "transform 0.3s ease",
@@ -56,19 +64,25 @@ export default function BlogListClient() {
                     (e.currentTarget.style.transform = "scale(1)")
                   }
                 >
-                  <Media
+                  <img
                     src={article.image}
                     alt={article.title}
-                    height={220}
-                    width={360}
                     style={{
-                      objectFit: "cover",
+                      height: "180px",
                       width: "100%",
+                      objectFit: "cover",
                       borderBottom: "1px solid rgba(255,255,255,0.1)",
+                    }}
+                    onError={(e) => {
+                      console.error("Image failed to load:", article.image);
+                      e.currentTarget.style.display = "none";
+                    }}
+                    onLoad={() => {
+                      console.log("Image loaded successfully:", article.image);
                     }}
                   />
                   <Column align="center" gap="12" padding="20">
-                    <Text variant="heading-strong-m" align="center">
+                    <Text variant="heading-strong-s" align="center">
                       {article.title}
                     </Text>
                   </Column>
@@ -76,7 +90,7 @@ export default function BlogListClient() {
               </a>
             </RevealFx>
           ))}
-        </Row>
+        </div>
       </RevealFx>
     </Column>
   );
