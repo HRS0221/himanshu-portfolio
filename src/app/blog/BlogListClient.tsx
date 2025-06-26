@@ -25,18 +25,20 @@ export default function BlogListClient() {
       <RevealFx translateY="16" delay={0.2}>
         <div
           style={{
-            width: "100%",
             display: "flex",
             justifyContent: "center",
+            width: "100%",
           }}
         >
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
               gap: "24px",
-              maxWidth: "100%",
+              justifyContent: "center",
+              maxWidth: "1024px",
               width: "100%",
+              padding: "0 16px", // ✅ Adds horizontal padding on mobile
             }}
           >
             {filteredArticles.map((article, index) => (
@@ -45,7 +47,12 @@ export default function BlogListClient() {
                   href={article.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
                 >
                   <Card
                     radius="xl"
