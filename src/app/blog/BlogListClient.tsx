@@ -31,17 +31,17 @@ export default function BlogListClient() {
             width: "100%",
           }}
         >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "24px",
-              justifyContent: "center",
-              alignContent: "center", // 👈 vertical grid alignment
-              maxWidth: "1024px",
-              width: "100%",
-            }}
-          >
+        <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+          gap: "24px",
+          justifyContent: "center",
+          maxWidth: "1024px",
+          width: "100%",
+        }}
+        >
+
             {filteredArticles.map((article, index) => (
               <RevealFx key={index} translateY="12" delay={index * 0.05}>
                 <a
