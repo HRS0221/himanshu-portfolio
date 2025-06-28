@@ -222,228 +222,218 @@ const articles = {
   title: "My AI Articles",
   label: "Articles",
   items: [
-    {
-      title: "What is Machine Learning?",
-      image: "/images/articles/Machine-Learning.png",
-      link: "https://www.linkedin.com/pulse/what-machine-learning-himanshu-salunke-dwgef/?trackingId=X4XnUN3VRbK89it6zk8mnA%3D%3D",
-    },
-    {
-      title: "Hypothesis and Inductive Bias",
-      image: "/images/articles/Hypothesis.png",
-      link: "https://www.linkedin.com/pulse/what-hypothesis-inductive-bias-machine-learning-himanshu-salunke-yvqzf/?trackingId=X4XnUN3VRbK89it6zk8mnA%3D%3D",
-    },
-    {
-      title: "Linear Regression",
-      image: "/images/articles/Linear Regression.png",
-      link: "https://www.linkedin.com/pulse/what-regression-machine-learning-himanshu-salunke-m0zff/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Least Mean Square (LMS)",
-      image: "/images/articles/Least Mean Square.png",
-      link: "https://www.linkedin.com/pulse/what-least-mean-square-lms-machine-learning-himanshu-salunke-mtp3f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Gradient Descent",
-      image: "/images/articles/Gradient Descent.png",
-      link: "https://www.linkedin.com/pulse/what-gradient-descent-machine-learning-himanshu-salunke-ray0f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Lasso and Ridge Regression",
-      image: "/images/articles/Lasso and Ridge.png",
-      link: "https://www.linkedin.com/pulse/what-lasso-ridge-regression-machine-learning-himanshu-salunke-eg3ff/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Polynomial Regression",
-      image: "/images/articles/Polynomial Regression.png",
-      link: "https://www.linkedin.com/pulse/what-polynomial-regression-machine-learning-himanshu-salunke-xfqgc/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Logistic Regression",
-      image: "/images/articles/Logistic Regression.png",
-      link: "https://www.linkedin.com/pulse/what-logistic-regression-machine-learning-himanshu-salunke-266zf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Maximum Likelihood Estimation",
-      image: "/images/articles/Maximum Likelihood Estimation.png",
-      link: "https://www.linkedin.com/pulse/maximum-likelihood-estimation-machine-learning-himanshu-salunke-igcbc/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Decision Tree",
-      image: "/images/articles/Decision Tree.png",
-      link: "https://www.linkedin.com/pulse/decision-tree-machine-learning-himanshu-salunke-y02mf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "CART in Machine Learning",
-      image: "/images/articles/Classification and Regression Tree.png",
-      link: "https://www.linkedin.com/pulse/cart-machine-learning-himanshu-salunke-jh3xf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Overfitting and Underfitting",
-      image: "/images/articles/Overfitting and Underfitting.png",
-      link: "https://www.linkedin.com/pulse/overfitting-underfitting-machine-learning-himanshu-salunke-aba5c/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Ensemble Methods: Bagging, Boosting, Random Forest & XGBoost",
-      image: "/images/articles/Bagging and Boosting.png",
-      link: "https://www.linkedin.com/pulse/ensemble-methods-bagging-boosting-random-forest-xgboost-salunke-0j60f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Bayesian Learning: A Dive into Probabilistic Modeling",
-      image: "/images/articles/Bayesian Learning.png",
-      link: "https://www.linkedin.com/pulse/bayesian-learning-dive-probabilistic-modeling-himanshu-salunke-clctf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Support Vector Machine (SVM)",
-      image: "/images/articles/Support Vector Machine.png",
-      link: "https://www.linkedin.com/pulse/support-vector-machine-svm-learning-himanshu-salunke-u0r1f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "K-Means Clustering: Centroid, Inertia, Convergence & More",
-      image: "/images/articles/K-Means.png",
-      link: "https://www.linkedin.com/pulse/k-means-clustering-centroid-inertia-convergence-more-himanshu-salunke-0rkxf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Adaptive Hierarchical Clustering & Gaussian Mixture Models",
-      image: "/images/articles/Adaptive Hierarchical.png",
-      link: "https://www.linkedin.com/pulse/adaptive-hierarchical-clustering-gaussian-mixture-models-salunke-e8b0f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Biological Neural Network in Artificial Neural Network",
-      image: "/images/articles/Biological Neural Network.png",
-      link: "https://www.linkedin.com/pulse/biological-neural-network-artificial-himanshu-salunke-slypf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title:
-        "Terminologies in ANN: Activation Function, Weights, Bias & Learning Rate",
-      image: "/images/articles/Terminologies of ANN.png",
-      link: "https://www.linkedin.com/pulse/terminologies-ann-activation-function-weights-bias-learning-salunke-7dgnf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "McCulloch-Pitts Neuron & Hebb Network",
-      image: "/images/articles/Mcculloch and Hebb Network.png",
-      link: "https://www.linkedin.com/pulse/mcculloch-pitts-neuron-hebb-network-himanshu-salunke-amaof/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title:
-        "Power of Perceptron: Training Rule, Gradient Descent & Delta Rule",
-      image: "/images/articles/Perceptron, Gradient Descent, Delta Rule.png",
-      link: "https://www.linkedin.com/pulse/power-perceptron-training-rule-gradient-descent-delta-salunke-nd5nc/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title: "Multilayer Network: Threshold Unit & Feedforward Networks",
-      image: "/images/articles/Multilayer and feedforward.png",
-      link: "https://www.linkedin.com/pulse/multilayer-network-threshold-unit-feedforward-himanshu-salunke-tti5f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D",
-    },
-    {
-      title:
-        "Backpropagation Algorithm: Convergence, Local Minima & Space Complexity",
-      image: "/images/articles/BackPropagation.png",
-      link: "https://www.linkedin.com/pulse/backpropagation-algorithm-convergence-local-minima-space-salunke-4ekze/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title: "Regularization: Parameter Norm Penalties, Dataset Noise & More",
-      image: "/images/articles/Regularization Techniques.png",
-      link: "https://www.linkedin.com/pulse/regularization-parameter-norm-penalties-dataset-noise-salunke-oyg7f/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title:
-        "Training Deep Models: Neural Network Optimization & Basic Algorithms",
-      image: "/images/articles/Deep Models.png",
-      link: "https://www.linkedin.com/pulse/training-deep-models-neural-network-optimization-basic-salunke-mghwf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title: "Convolution Network: Sparse Interactions & Parameter Sharing",
-      image: "/images/articles/Convolution Network.png",
-      link: "https://www.linkedin.com/pulse/convolution-network-sparse-interactions-parameter-sharing-salunke-vpywf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title: "Recurrent Neural Network: Bidirectional RNN & Deep Networks",
-      image: "/images/articles/Recurrent Neural Network.png",
-      link: "https://www.linkedin.com/pulse/recurrent-neural-network-bidirectional-rnn-deep-networks-salunke-9f66f/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title: "Unsupervised Learning: Kohonen Self-Organizing Feature Maps",
-      image: "/images/articles/Kohonen Algorithm.png",
-      link: "https://www.linkedin.com/pulse/unsupervised-learning-kohonen-self-organizing-feature-salunke-cj6tf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title:
-        "Linear Factor Methods: Probabilistic PCA Analysis & Sparse Coding",
-      image: "/images/articles/Linear Factor Methods.png",
-      link: "https://www.linkedin.com/pulse/linear-factor-methods-probabilistic-pca-analysis-sparse-salunke-mibdf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title: "Undercomplete Autoencoders: Regularized & Stochastic Encoders",
-      image: "/images/articles/Autoencoders.png",
-      link: "https://www.linkedin.com/pulse/undercomplete-autoencoders-regularized-stochastic-encoders-salunke-zhfaf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title: "Generative Adversarial Networks (GAN) vs Discriminative Models",
-      image: "/images/articles/GAN.png",
-      link: "https://www.linkedin.com/pulse/generative-adversarial-networks-gan-vs-discriminative-salunke-lskif/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title:
-        "Explaining & Interpreting Black Box to White Box Models: SHAP & Shapley Values",
-      image: "/images/articles/Explainable AI.png",
-      link: "https://www.linkedin.com/pulse/explaining-interpreting-black-box-white-models-shap-shapley-salunke-cjldf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title:
-        "Reinforcement Learning Elements vs Supervised & Policy-based Methods",
-      image: "/images/articles/Reinforcement Learning.png",
-      link: "https://www.linkedin.com/pulse/reinforcement-learning-elements-vs-supervised-policy-based-salunke-ykhff/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title:
-        "Bandit Problems: Value & Action-based Methods, Greedy Problem Solving",
-      image: "/images/articles/Bandit Problems.png",
-      link: "https://www.linkedin.com/pulse/bandit-problems-value-action-based-methods-greedy-problem-salunke-xonef/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title: "Linear Reward Penalty Algorithm & Parameterized Policy Gradient",
-      image: "/images/articles/Linear Reward.png",
-      link: "https://www.linkedin.com/pulse/linear-reward-penalty-algorithm-parameterized-policy-himanshu-salunke-mwtif/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title: "Immediate & Full Reinforcement Learning: Agents, Goals & Rewards",
-      image: "/images/articles/Reinforcement Learning.png",
-      link: "https://www.linkedin.com/pulse/immediate-full-reinforcement-learning-agents-goals-rewards-salunke-njx4f/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title:
-        "Markov Decision Process: Property, Finite Value & Bellman's Equations",
-      image: "/images/articles/Markov Decision.png",
-      link: "https://www.linkedin.com/pulse/markov-decision-process-property-finite-value-bellmans-salunke-dfzof/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title:
-        "Policy Evaluation, Improvement & Iteration: Value & Dynamic Programming",
-      image: "/images/articles/Policy Evaluation.png",
-      link: "https://www.linkedin.com/pulse/policy-evaluation-improvement-iteration-value-dynamic-salunke-ci9af/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title: "Monte Carlo Method over Dynamic Programming: Control & More",
-      image: "/images/articles/Monte Carlo.png",
-      link: "https://www.linkedin.com/pulse/monte-carlo-method-over-dynamic-programming-control-more-salunke-drcuf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title: "Temporal Difference Learning Methods over Monte Carlo",
-      image: "/images/articles/Temporal Difference.png",
-      link: "https://www.linkedin.com/pulse/temporal-difference-learning-methods-over-monte-carlo-salunke-qbcmf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title:
-        "Function Approximation: Tabular Implementation & Gradient Methods",
-      image: "/images/articles/Function Approximation.png",
-      link: "https://www.linkedin.com/pulse/function-approximation-tabular-implementation-gradient-salunke-q4nqf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
-    {
-      title: "Deep Learning in Reinforcement: Training Workflow & More",
-      image: "/images/articles/Deep Learning.png",
-      link: "https://www.linkedin.com/pulse/deep-learning-reinforcement-training-workflow-more-himanshu-salunke-s7cgf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D",
-    },
+  {
+    "title": "What is Machine Learning?",
+    "image": "/images/articles/Machine-Learning.jpg",
+    "link": "https://www.linkedin.com/pulse/what-machine-learning-himanshu-salunke-dwgef/?trackingId=X4XnUN3VRbK89it6zk8mnA%3D%3D"
+  },
+  {
+    "title": "Hypothesis and Inductive Bias",
+    "image": "/images/articles/Hypothesis.jpg",
+    "link": "https://www.linkedin.com/pulse/what-hypothesis-inductive-bias-machine-learning-himanshu-salunke-yvqzf/?trackingId=X4XnUN3VRbK89it6zk8mnA%3D%3D"
+  },
+  {
+    "title": "Linear Regression",
+    "image": "/images/articles/Linear Regression.jpg",
+    "link": "https://www.linkedin.com/pulse/what-regression-machine-learning-himanshu-salunke-m0zff/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Least Mean Square (LMS)",
+    "image": "/images/articles/Least Mean Square.jpg",
+    "link": "https://www.linkedin.com/pulse/what-least-mean-square-lms-machine-learning-himanshu-salunke-mtp3f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Gradient Descent",
+    "image": "/images/articles/Gradient Descent.jpg",
+    "link": "https://www.linkedin.com/pulse/what-gradient-descent-machine-learning-himanshu-salunke-ray0f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Lasso and Ridge Regression",
+    "image": "/images/articles/Lasso and Ridge.jpg",
+    "link": "https://www.linkedin.com/pulse/what-lasso-ridge-regression-machine-learning-himanshu-salunke-eg3ff/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Polynomial Regression",
+    "image": "/images/articles/Polynomial Regression.jpg",
+    "link": "https://www.linkedin.com/pulse/what-polynomial-regression-machine-learning-himanshu-salunke-xfqgc/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Logistic Regression",
+    "image": "/images/articles/Logistic Regression.jpg",
+    "link": "https://www.linkedin.com/pulse/what-logistic-regression-machine-learning-himanshu-salunke-266zf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Maximum Likelihood Estimation",
+    "image": "/images/articles/Maximum Likelihood Estimation.jpg",
+    "link": "https://www.linkedin.com/pulse/maximum-likelihood-estimation-machine-learning-himanshu-salunke-igcbc/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Decision Tree",
+    "image": "/images/articles/Decision Tree.jpg",
+    "link": "https://www.linkedin.com/pulse/decision-tree-machine-learning-himanshu-salunke-y02mf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "CART in Machine Learning",
+    "image": "/images/articles/Classification and Regression Tree.jpg",
+    "link": "https://www.linkedin.com/pulse/cart-machine-learning-himanshu-salunke-jh3xf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Overfitting and Underfitting",
+    "image": "/images/articles/Overfitting and Underfitting.jpg",
+    "link": "https://www.linkedin.com/pulse/overfitting-underfitting-machine-learning-himanshu-salunke-aba5c/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Ensemble Methods: Bagging, Boosting, Random Forest & XGBoost",
+    "image": "/images/articles/Bagging and Boosting.jpg",
+    "link": "https://www.linkedin.com/pulse/ensemble-methods-bagging-boosting-random-forest-xgboost-salunke-0j60f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Bayesian Learning: A Dive into Probabilistic Modeling",
+    "image": "/images/articles/Bayesian Learning.jpg",
+    "link": "https://www.linkedin.com/pulse/bayesian-learning-dive-probabilistic-modeling-himanshu-salunke-clctf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Support Vector Machine (SVM)",
+    "image": "/images/articles/Support Vector Machine.jpg",
+    "link": "https://www.linkedin.com/pulse/support-vector-machine-svm-learning-himanshu-salunke-u0r1f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "K-Means Clustering: Centroid, Inertia, Convergence & More",
+    "image": "/images/articles/K-Means.jpg",
+    "link": "https://www.linkedin.com/pulse/k-means-clustering-centroid-inertia-convergence-more-himanshu-salunke-0rkxf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Adaptive Hierarchical Clustering & Gaussian Mixture Models",
+    "image": "/images/articles/Adaptive Hierarchical.jpg",
+    "link": "https://www.linkedin.com/pulse/adaptive-hierarchical-clustering-gaussian-mixture-models-salunke-e8b0f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Biological Neural Network in Artificial Neural Network",
+    "image": "/images/articles/Biological Neural Network.jpg",
+    "link": "https://www.linkedin.com/pulse/biological-neural-network-artificial-himanshu-salunke-slypf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Terminologies in ANN: Activation Function, Weights, Bias & Learning Rate",
+    "image": "/images/articles/Terminologies of ANN.jpg",
+    "link": "https://www.linkedin.com/pulse/terminologies-ann-activation-function-weights-bias-learning-salunke-7dgnf/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "McCulloch-Pitts Neuron & Hebb Network",
+    "image": "/images/articles/Mcculloch and Hebb Network.jpg",
+    "link": "https://www.linkedin.com/pulse/mcculloch-pitts-neuron-hebb-network-himanshu-salunke-amaof/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Power of Perceptron: Training Rule, Gradient Descent & Delta Rule",
+    "image": "/images/articles/Perceptron, Gradient Descent, Delta Rule.jpg",
+    "link": "https://www.linkedin.com/pulse/power-perceptron-training-rule-gradient-descent-delta-salunke-nd5nc/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Multilayer Network: Threshold Unit & Feedforward Networks",
+    "image": "/images/articles/Multilayer and feedforward.jpg",
+    "link": "https://www.linkedin.com/pulse/multilayer-network-threshold-unit-feedforward-himanshu-salunke-tti5f/?trackingId=MsXFqA49TmyrQBT0QZgClg%3D%3D"
+  },
+  {
+    "title": "Backpropagation Algorithm: Convergence, Local Minima & Space Complexity",
+    "image": "/images/articles/BackPropagation.jpg",
+    "link": "https://www.linkedin.com/pulse/backpropagation-algorithm-convergence-local-minima-space-salunke-4ekze/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Regularization: Parameter Norm Penalties, Dataset Noise & More",
+    "image": "/images/articles/Regularization Techniques.jpg",
+    "link": "https://www.linkedin.com/pulse/regularization-parameter-norm-penalties-dataset-noise-salunke-oyg7f/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Training Deep Models: Neural Network Optimization & Basic Algorithms",
+    "image": "/images/articles/Deep Models.jpg",
+    "link": "https://www.linkedin.com/pulse/training-deep-models-neural-network-optimization-basic-salunke-mghwf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Convolution Network: Sparse Interactions & Parameter Sharing",
+    "image": "/images/articles/Convolution Network.jpg",
+    "link": "https://www.linkedin.com/pulse/convolution-network-sparse-interactions-parameter-sharing-salunke-vpywf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Recurrent Neural Network: Bidirectional RNN & Deep Networks",
+    "image": "/images/articles/Recurrent Neural Network.jpg",
+    "link": "https://www.linkedin.com/pulse/recurrent-neural-network-bidirectional-rnn-deep-networks-salunke-9f66f/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Unsupervised Learning: Kohonen Self-Organizing Feature Maps",
+    "image": "/images/articles/Kohonen Algorithm.jpg",
+    "link": "https://www.linkedin.com/pulse/unsupervised-learning-kohonen-self-organizing-feature-salunke-cj6tf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Linear Factor Methods: Probabilistic PCA Analysis & Sparse Coding",
+    "image": "/images/articles/Linear Factor Methods.jpg",
+    "link": "https://www.linkedin.com/pulse/linear-factor-methods-probabilistic-pca-analysis-sparse-salunke-mibdf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Undercomplete Autoencoders: Regularized & Stochastic Encoders",
+    "image": "/images/articles/Autoencoders.jpg",
+    "link": "https://www.linkedin.com/pulse/undercomplete-autoencoders-regularized-stochastic-encoders-salunke-zhfaf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Generative Adversarial Networks (GAN) vs Discriminative Models",
+    "image": "/images/articles/GAN.jpg",
+    "link": "https://www.linkedin.com/pulse/generative-adversarial-networks-gan-vs-discriminative-salunke-lskif/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Explaining & Interpreting Black Box to White Box Models: SHAP & Shapley Values",
+    "image": "/images/articles/Explainable AI.jpg",
+    "link": "https://www.linkedin.com/pulse/explaining-interpreting-black-box-white-models-shap-shapley-salunke-cjldf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Reinforcement Learning Elements vs Supervised & Policy-based Methods",
+    "image": "/images/articles/Reinforcement Learning.jpg",
+    "link": "https://www.linkedin.com/pulse/reinforcement-learning-elements-vs-supervised-policy-based-salunke-ykhff/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Bandit Problems: Value & Action-based Methods, Greedy Problem Solving",
+    "image": "/images/articles/Bandit Problems.jpg",
+    "link": "https://www.linkedin.com/pulse/bandit-problems-value-action-based-methods-greedy-problem-salunke-xonef/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Linear Reward Penalty Algorithm & Parameterized Policy Gradient",
+    "image": "/images/articles/Linear Reward.jpg",
+    "link": "https://www.linkedin.com/pulse/linear-reward-penalty-algorithm-parameterized-policy-himanshu-salunke-mwtif/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Immediate & Full Reinforcement Learning: Agents, Goals & Rewards",
+    "image": "/images/articles/Reinforcement Learning.jpg",
+    "link": "https://www.linkedin.com/pulse/immediate-full-reinforcement-learning-agents-goals-rewards-salunke-njx4f/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Markov Decision Process: Property, Finite Value & Bellman's Equations",
+    "image": "/images/articles/Markov Decision.jpg",
+    "link": "https://www.linkedin.com/pulse/markov-decision-process-property-finite-value-bellmans-salunke-dfzof/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Policy Evaluation, Improvement & Iteration: Value & Dynamic Programming",
+    "image": "/images/articles/Policy Evaluation.jpg",
+    "link": "https://www.linkedin.com/pulse/policy-evaluation-improvement-iteration-value-dynamic-salunke-ci9af/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Monte Carlo Method over Dynamic Programming: Control & More",
+    "image": "/images/articles/Monte Carlo.jpg",
+    "link": "https://www.linkedin.com/pulse/monte-carlo-method-over-dynamic-programming-control-more-salunke-drcuf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Temporal Difference Learning Methods over Monte Carlo",
+    "image": "/images/articles/Temporal Difference.jpg",
+    "link": "https://www.linkedin.com/pulse/temporal-difference-learning-methods-over-monte-carlo-salunke-qbcmf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Function Approximation: Tabular Implementation & Gradient Methods",
+    "image": "/images/articles/Function Approximation.jpg",
+    "link": "https://www.linkedin.com/pulse/function-approximation-tabular-implementation-gradient-salunke-q4nqf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  },
+  {
+    "title": "Deep Learning in Reinforcement: Training Workflow & More",
+    "image": "/images/articles/Deep Learning.jpg",
+    "link": "https://www.linkedin.com/pulse/deep-learning-reinforcement-training-workflow-more-himanshu-salunke-s7cgf/?trackingId=OSfQ%2F3t3RK%2BhZtaaUxsUPw%3D%3D"
+  }
   ],
+
 };
 
 // 🧠 Alias for backward compatibility:
