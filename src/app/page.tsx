@@ -1,5 +1,6 @@
-import React from "react";
+// File: src/app/page.tsx
 
+import React from "react";
 import {
   Heading,
   Flex,
@@ -10,14 +11,13 @@ import {
   Column,
   Badge,
   Row,
-  Meta,
   Schema,
 } from "@once-ui-system/core";
 
-import { home, about, person, newsletter, baseURL } from "@/resources";
+import { home, about, person, newsletter, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
-// import { Articles } from "@/components/blog/Articles"; // Uncomment if you want to preview articles
+import { Articles } from "@/components/blog/Articles";
 
 export default function Home() {
   return (
@@ -102,12 +102,18 @@ export default function Home() {
         <Projects range={[1, 1]} />
       </RevealFx>
 
-      {/* Optional: Show AI article previews on homepage */}
-      {/*
-      <RevealFx translateY="16" delay={0.7}>
-        <Articles range={[0, 2]} columns="2" />
-      </RevealFx>
-      */}
+      {routes["/articles"] && (
+        <Flex fillWidth gap="24" mobileDirection="column">
+          <Flex flex={1} paddingLeft="l" paddingTop="24">
+            <Heading as="h2" variant="display-strong-xs" wrap="balance">
+              Latest Articles
+            </Heading>
+          </Flex>
+          <Flex flex={3} paddingX="20">
+            <Articles range={[1, 2]} columns="2" thumbnail={true} />
+          </Flex>
+        </Flex>
+      )}
 
       <Projects range={[2]} />
 

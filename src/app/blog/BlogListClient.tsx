@@ -27,21 +27,21 @@ export default function BlogListClient() {
           style={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center", // 👈 vertical centering
+            alignItems: "center",
             width: "100%",
           }}
         >
-        <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-          gap: "24px",
-          justifyContent: "center",
-          maxWidth: "1024px",
-          width: "100%",
-        }}
-        >
-
+          <div
+            style={{
+              display: "grid",
+              // 👇 THE FIX IS HERE: Removed 'minmax' and '1fr'
+              gridTemplateColumns: "repeat(auto-fit, 320px)",
+              gap: "24px",
+              justifyContent: "center", // This will now work perfectly on all screen sizes
+              maxWidth: "1024px",
+              width: "100%",
+            }}
+          >
             {filteredArticles.map((article, index) => (
               <RevealFx key={index} translateY="12" delay={index * 0.05}>
                 <a

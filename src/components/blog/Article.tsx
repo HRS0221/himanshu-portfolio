@@ -1,17 +1,21 @@
+// File: src/components/blog/Article.tsx
+
 "use client";
 
 import { Column, Flex, Heading, Media, SmartLink, Tag, Text } from '@once-ui-system/core';
-import styles from './Posts.module.scss'; // It's okay to reuse the same styles
+// We can reuse the same stylesheet
+import styles from './Posts.module.scss';
 import { formatDate } from '@/utils/formatDate';
 
-// 1. Interface renamed to ArticleProps
+// 1. Rename the interface
 interface ArticleProps {
-    article: any; // 2. Prop name changed from 'post' to 'article'
+    // 2. Rename the prop to 'article'
+    article: any; 
     thumbnail: boolean;
     direction?: "row" | "column";
 }
 
-// 3. Component renamed to Article and props updated
+// 3. Rename the component to 'Article'
 export default function Article({ article, thumbnail, direction }: ArticleProps) {
     return (
         <SmartLink
@@ -19,7 +23,7 @@ export default function Article({ article, thumbnail, direction }: ArticleProps)
             unstyled
             style={{ borderRadius: 'var(--radius-l)' }}
             key={article.slug}
-            // 4. CRITICAL CHANGE: The link now points to your articles section
+            // 4. IMPORTANT: Change the link to point to '/articles/'
             href={`/articles/${article.slug}`}>
             <Flex
                 position="relative"
@@ -29,7 +33,7 @@ export default function Article({ article, thumbnail, direction }: ArticleProps)
                 className={styles.hover}
                 mobileDirection="column"
                 fillWidth>
-                {/* 5. All internal references are updated from 'post' to 'article' */}
+                {/* 5. Update all 'post' references to 'article' */}
                 {article.metadata.image && thumbnail && (
                     <Media
                         priority
