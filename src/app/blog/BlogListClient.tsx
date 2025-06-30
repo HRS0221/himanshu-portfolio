@@ -1,3 +1,5 @@
+// Complete code for: src/app/blog/BlogListClient.tsx
+
 "use client";
 
 import {
@@ -10,6 +12,8 @@ import {
 import { articles } from "@/resources/content";
 
 export default function BlogListClient() {
+  // This line is now clean, without any .reverse() method.
+  // It will display the articles in the exact order they appear in content.js.
   const filteredArticles = articles.items.filter(
     (article) => article.title && article.image && article.link
   );
@@ -34,10 +38,9 @@ export default function BlogListClient() {
           <div
             style={{
               display: "grid",
-              // 👇 THE FIX IS HERE: Removed 'minmax' and '1fr'
               gridTemplateColumns: "repeat(auto-fit, 320px)",
               gap: "24px",
-              justifyContent: "center", // This will now work perfectly on all screen sizes
+              justifyContent: "center",
               maxWidth: "1024px",
               width: "100%",
             }}

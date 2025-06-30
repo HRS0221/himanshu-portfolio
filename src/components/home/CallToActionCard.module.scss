@@ -1,0 +1,23 @@
+// Complete code for the NEW file: src/components/home/CallToActionCard.module.scss
+
+.ctaCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 24px;
+  background-color: var(--color-background-neutral-weak-default);
+  border: 1px solid var(--color-border-neutral-alpha-weak);
+  border-radius: var(--radius-l);
+  min-height: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-border-brand-default);
+  }
+}

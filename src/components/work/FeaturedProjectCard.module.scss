@@ -1,0 +1,45 @@
+// Complete code for the NEW file: src/components/work/FeaturedProjectCard.module.scss
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  padding: 24px 0;
+
+  // On mobile, stack everything vertically
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+// Modifier for the reversed layout (image on the right)
+.cardContainer.reversed {
+  flex-direction: row-reverse;
+
+  @media (max-width: 768px) {
+    flex-direction: column; // Keep it stacked on mobile
+  }
+}
+
+.imageWrapper {
+  flex: 1.2; // Make the image column slightly larger
+  min-width: 0;
+
+  .projectImage {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.textWrapper {
+  flex: 1; // The text column
+  min-width: 0;
+}

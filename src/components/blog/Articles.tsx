@@ -1,54 +1,83 @@
-// File: src/components/blog/Articles.tsx
-// CRITICAL: Ensure the line "use client"; is NOT at the top of this file.
+// Complete code for: src/components/blog/Article.tsx
+// This includes the fix from before AND the new hydration warning suppression.
 
-import { getPosts } from '@/utils/utils';
-import { Grid } from '@once-ui-system/core';
-import Article from './Article';
+"use client";
 
-interface ArticlesProps {
-    range?: [number] | [number, number];
-    columns?: '1' | '2' | '3';
-    thumbnail?: boolean;
-    direction?: 'row' | 'column';
+import { Column, Flex, Heading, Media, SmartLink, Tag, Text } from '@once-ui-system/core';
+import styles from './Posts.module.scss';
+import { formatDate } from '@/utils/formatDate';
+import { MdxContent } from '@/utils/utils';
+
+interface ArticleProps {
+  article: MdxContent;
+  thumbnail: boolean;
+  direction?: "row" | "column";
 }
 
-export function Articles({
-    range,
-    columns = '1',
-    thumbnail = false,
-    direction
-}: ArticlesProps) {
-    // This function uses 'fs' and MUST run on the server.
-    let allArticles = getPosts(['src', 'app', 'articles']);
+export default function Article({ article, thumbnail, direction }: ArticleProps) {
+  if (!article.metadata.link) {
+    return null;
+  }
 
-    const sortedArticles = allArticles.sort((a, b) => {
-        if (!a.metadata.publishedAt || !b.metadata.publishedAt) return 0;
-        return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
-    });
+  return (
+    <SmartLink
+      fillWidth
+      unstyled
+      style={{ borderRadius: 'var(--radius-l)' }}
+      key={article.slug}
+      href={article.metadata.link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Flex
+        position="relative"
+        transition="micro-medium"
+        direction={direction}
+        radius="l"
+        className={styles.hover}
+        mobileDirection="column"
+        fillWidth>
+        {article.metadata.image && thumbnail && (
+          <Media
+            priority
+            className={styles.image}
+            sizes="(max-width: 768px) 100vw, 640px"
+            border="neutral-alpha-weak"
+            cursor="interactive"
+            radius="l"
+            src={article.metadata.image}
+            alt={'Thumbnail of ' + article.metadata.title}
+            aspectRatio="16 / 9"
+          />
+        )}
+        <Column
+          position="relative"
+          fillWidth gap="4"
+          padding="24"
+          vertical="center">
+          <Heading
+            as="h2"
+            variant="heading-strong-l"
+            wrap="balance">
+            {article.metadata.title}
+          </Heading>
 
-    const displayedArticles = range
-        ? sortedArticles.slice(
-              range[0] - 1,
-              range.length === 2 ? range[1] : sortedArticles.length
-          )
-        : sortedArticles;
-
-    return (
-        <>
-            {displayedArticles.length > 0 && (
-                <Grid
-                    columns={columns} mobileColumns="1"
-                    fillWidth marginBottom="40" gap="12">
-                    {displayedArticles.map((article) => (
-                        <Article
-                            key={article.slug}
-                            article={article}
-                            thumbnail={thumbnail}
-                            direction={direction}
-                        />
-                    ))}
-                </Grid>
-            )}
-        </>
-    );
+          {/* ✅ FIX: Added suppressHydrationWarning to the Text component that formats the date */}
+          <Text
+            suppressHydrationWarning={true}
+            variant="label-default-s"
+            onBackground="neutral-weak">
+            {formatDate(article.metadata.publishedAt, false)}
+          </Text>
+          
+          {article.metadata.tag &&
+            <Tag
+              className="mt-12"
+              label={article.metadata.tag}
+              variant="neutral" />
+          }
+        </Column>
+      </Flex>
+    </SmartLink>
+  );
 }
