@@ -1,191 +1,81 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import React, { ReactNode } from "react";
-
 import { 
-  Heading,
   HeadingLink,
   Text,
   InlineCode,
   CodeBlock,
-  TextProps,
-  MediaProps,
-  Accordion,
-  AccordionGroup,
-  Table,
-  Feedback,
-  Button,
-  Card,
-  Grid,
-  Row,
-  Column,
-  Icon,
   Media,
   SmartLink,
 } from "@once-ui-system/core";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  href: string;
-  children: ReactNode;
+  href?: string;
+  children?: ReactNode;
 };
 
 function CustomLink({ href, children, ...props }: CustomLinkProps) {
-  if (href.startsWith("/")) {
-    return (
-      <SmartLink href={href} {...props}>
-        {children}
-      </SmartLink>
-    );
-  }
+  if (!href) return <>{children}</>;
+  if (href.startsWith("/")) return <SmartLink href={href} {...props}>{children}</SmartLink>;
+  if (href.startsWith("#")) return <a href={href} {...props}>{children}</a>;
+  return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>;
+}
 
-  if (href.startsWith("#")) {
-    return (
-      <a href={href} {...props}>
-        {children}
-      </a>
-    );
-  }
-
+function createImage(props: React.ComponentProps<'img'>) {
+  const { src, alt, width, height } = props;
+  if (!src) return null;
+  const numericWidth = width ? parseInt(String(width), 10) : undefined;
+  const numericHeight = height ? parseInt(String(height), 10) : undefined;
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
-      {children}
-    </a>
+      <Media 
+          marginTop="8" marginBottom="16" enlarge radius="m" border="neutral-alpha-medium"
+          src={src} alt={alt || ''} width={numericWidth} height={numericHeight} 
+      />
   );
 }
 
-function createImage({ alt, src, ...props }: MediaProps & { src: string }) {
-  if (!src) {
-    console.error("Media requires a valid 'src' property.");
-    return null;
-  }
-
-  return (
-    <Media
-      marginTop="8"
-      marginBottom="16"
-      enlarge
-      radius="m"
-      aspectRatio="16 / 9"
-      border="neutral-alpha-medium"
-      sizes="(max-width: 960px) 100vw, 960px"
-      alt={alt}
-      src={src}
-      {...props}
-    />
-  );
+function slugify(node: React.ReactNode): string {
+    if (typeof node !== 'string') return '';
+    return node.toLowerCase().replace(/\s+/g, "-").replace(/[^\w\-]+/g, "");
 }
 
-function slugify(str: string): string {
-  return str
-    .toLowerCase()
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/&/g, "-and-") // Replace & with 'and'
-    .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
-    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
-}
-
-function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
-  const CustomHeading = ({ children, ...props }: Omit<React.ComponentProps<typeof HeadingLink>, 'as' | 'id'>) => {
-    const slug = slugify(children as string);
+function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
+  const CustomHeading = ({ children }: { children?: React.ReactNode }) => {
+    const slug = slugify(children);
     return (
-      <HeadingLink
-        marginTop="24"
-        marginBottom="12"
-        as={as}
-        id={slug}
-        {...props}
-      >
+      <HeadingLink as={`h${level}`} id={slug} marginTop="24" marginBottom="12">
         {children}
       </HeadingLink>
     );
   };
-
-  CustomHeading.displayName = `${as}`;
-
+  CustomHeading.displayName = `H${level}`;
   return CustomHeading;
 }
 
-function createParagraph({ children }: TextProps) {
-  return (
-    <Text
-      style={{ lineHeight: "175%" }}
-      variant="body-default-m"
-      onBackground="neutral-medium"
-      marginTop="8"
-      marginBottom="12"
-    >
-      {children}
-    </Text>
-  );
+function createParagraph({ children }: { children?: React.ReactNode }) {
+  return <Text as="p" style={{ lineHeight: "175%" }}>{children}</Text>;
 }
 
-function createInlineCode({ children }: { children: ReactNode }) {
+function createInlineCode({ children }: { children?: React.ReactNode }) {
   return <InlineCode>{children}</InlineCode>;
 }
 
 function createCodeBlock(props: any) {
-  // For pre tags that contain code blocks
-  if (props.children && props.children.props && props.children.props.className) {
+  if (props.children?.props?.className) {
     const { className, children } = props.children.props;
-    
-    // Extract language from className (format: language-xxx)
-    const language = className.replace('language-', '');
+    const language = String(className).replace('language-', '');
     const label = language.charAt(0).toUpperCase() + language.slice(1);
-    
-    return (
-      <CodeBlock
-        marginTop="8"
-        marginBottom="16"
-        codes={[
-          {
-            code: children,
-            language,
-            label
-          }
-        ]}
-        copyButton={true}
-      />
-    );
+    return <CodeBlock marginTop="8" marginBottom="16" codes={[{ code: String(children).trim(), language, label }]} copyButton={true} />;
   }
-  
-  // Fallback for other pre tags or empty code blocks
   return <pre {...props} />;
 }
 
 const components = {
-  p: createParagraph as any,
-  h1: createHeading("h1") as any,
-  h2: createHeading("h2") as any,
-  h3: createHeading("h3") as any,
-  h4: createHeading("h4") as any,
-  h5: createHeading("h5") as any,
-  h6: createHeading("h6") as any,
-  img: createImage as any,
-  a: CustomLink as any,
-  code: createInlineCode as any,
-  pre: createCodeBlock as any,
-  Heading,
-  Text,
-  CodeBlock,
-  InlineCode,
-  Accordion,
-  AccordionGroup,
-  Table,
-  Feedback,
-  Button,
-  Card,
-  Grid,
-  Row,
-  Column,
-  Icon,
-  Media,
-  SmartLink,
+  h1: createHeading(1), h2: createHeading(2), h3: createHeading(3), h4: createHeading(4), h5: createHeading(5), h6: createHeading(6),
+  p: createParagraph, a: CustomLink, img: createImage, code: createInlineCode, pre: createCodeBlock,
 };
 
-type CustomMDXProps = MDXRemoteProps & {
-  components?: typeof components;
-};
-
-export function CustomMDX(props: CustomMDXProps) {
+export function CustomMDX(props: MDXRemoteProps) {
   return (
     <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />
   );
