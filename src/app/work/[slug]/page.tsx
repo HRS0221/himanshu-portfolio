@@ -1,14 +1,14 @@
-import { notFound } from 'next/navigation';
-import { getAllProjects, getProjectBySlug } from '@/utils/utils';
-import { Column, Heading, Text, Meta, Schema } from '@once-ui-system/core';
-import { baseURL, person } from '@/resources';
-import { CustomMDX } from '@/components/mdx';
-import React, { Suspense } from 'react';
+import { notFound } from "next/navigation";
+import { getAllProjects, getProjectBySlug } from "@/utils/utils";
+import { Column, Heading, Text, Meta, Schema } from "@once-ui-system/core";
+import { baseURL, person } from "@/resources";
+import { CustomMDX } from "@/components/mdx";
+import React, { Suspense } from "react";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -19,19 +19,23 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const project = getProjectBySlug(params.slug);
-  if (!project) { return {}; }
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+  if (!project) {
+    return {};
+  }
   return Meta.generate({
     title: project.metadata.title,
-    description: project.metadata.summary || 'A project by ' + person.name,
+    description: project.metadata.summary || "A project by " + person.name,
     baseURL: baseURL,
-    image: project.metadata.images?.[0] || '',
+    image: project.metadata.images?.[0] || "",
     path: `/work/${project.slug}`,
   });
 }
 
 export default async function ProjectPage({ params }: PageProps) {
-  const project = getProjectBySlug(params.slug);
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
 
   if (!project) {
     notFound();
@@ -44,14 +48,14 @@ export default async function ProjectPage({ params }: PageProps) {
         baseURL={baseURL}
         path={`/work/${project.slug}`}
         title={project.metadata.title}
-        description={project.metadata.summary || ''}
-        image={project.metadata.images?.[0] || ''}
+        description={project.metadata.summary || ""}
+        image={project.metadata.images?.[0] || ""}
         author={{
           name: person.name,
           url: `${baseURL}/about`,
         }}
       />
-      
+
       <Column gap="16" paddingBottom="40">
         <Heading as="h1" variant="display-strong-l">
           {project.metadata.title}

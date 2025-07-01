@@ -1,8 +1,8 @@
 // Complete code for the NEW file: src/components/home/SkillCard.tsx
 
 import { Column, Flex, Heading, Text, Button } from "@once-ui-system/core";
-import Link from 'next/link';
-import styles from './SkillCard.module.scss'; // We will create this file next
+import Link from "next/link";
+import styles from "./SkillCard.module.scss"; // We will create this file next
 
 // Define the shape of the data this component will receive
 export interface Skill {
@@ -22,14 +22,13 @@ export default function SkillCard({ skill }: SkillCardProps) {
         <Heading as="h3" variant="heading-strong-l">
           {skill.name}
         </Heading>
-        <Text onBackground="neutral-weak">
-          {skill.description}
-        </Text>
+        <Text onBackground="neutral-weak">{skill.description}</Text>
       </Column>
-      <Link href={`/work/${skill.projectSlug}`} passHref legacyBehavior>
-        <a className={styles.viewProjectLink}>
-          View Project →
-        </a>
+      <Link
+        href={`/work/${skill.projectSlug}`}
+        className={styles.viewProjectLink}
+      >
+        View Project →
       </Link>
     </div>
   );
