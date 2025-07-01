@@ -83,7 +83,7 @@ Localization added by [François Hernandez](https://github.com/francoishernandez
 - Report a [bug](https://github.com/once-ui-system/magic-portfolio/issues/new?labels=bug&template=bug_report.md).
 
 # **License**
-
+/**/
 Distributed under the CC BY-NC 4.0 License.
 - Commercial usage is not allowed.
 - Attribution is required.
