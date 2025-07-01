@@ -1,0 +1,24 @@
+# Vercel ignore file to reduce serverless function size
+
+# Build cache and artifacts that shouldn't be deployed
+.next/cache/
+.next/trace
+
+# Development and source files
+.git/
+.github/
+node_modules/
+*.log
+.env*.local
+.DS_Store
+
+# Documentation and config files not needed in production
+*.md
+*.txt
+project-structure.txt
+README.md
+LICENSE
+next prompt.txt
+biome.json
+.eslintrc.json
+tsconfig.json 
