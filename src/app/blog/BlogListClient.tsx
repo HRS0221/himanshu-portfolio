@@ -1,13 +1,7 @@
 "use client";
 
-import {
-  Column,
-  Card,
-  Heading,
-  Text,
-  RevealFx,
-} from "@once-ui-system/core";
-import { articles } from "@/resources/content";
+import { Column, Card, Heading, Text, RevealFx } from "@once-ui-system/core";
+import { articles } from "@/resources";
 
 export default function BlogListClient() {
   const filteredArticles = articles.items.filter(
@@ -86,7 +80,10 @@ export default function BlogListClient() {
                         e.currentTarget.style.display = "none";
                       }}
                       onLoad={() => {
-                        console.log("Image loaded successfully:", article.image);
+                        console.log(
+                          "Image loaded successfully:",
+                          article.image
+                        );
                       }}
                     />
                     <Column align="center" gap="12" padding="20">

@@ -1,7 +1,7 @@
 import { home } from "./content";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "https://demo.magic-portfolio.com";
+const baseURL = "https://himanshu-portfolio-six.vercel.app/";
 
 const routes = {
   "/": true,
@@ -15,7 +15,7 @@ const routes = {
 const display = {
   location: true,
   time: true,
-  themeSwitcher: true
+  themeSwitcher: true,
 };
 
 // Enable password protection on selected routes
@@ -70,7 +70,7 @@ const style = {
   border: "playful", // rounded | playful | conservative
   surface: "translucent", // filled | translucent
   transition: "all", // all | micro | macro
-  scaling: "100" // 90 | 95 | 100 | 105 | 110
+  scaling: "100", // 90 | 95 | 100 | 105 | 110
 };
 
 const dataStyle = {
@@ -83,7 +83,7 @@ const dataStyle = {
   tick: {
     fill: "var(--neutral-on-background-weak)",
     fontSize: 11,
-    line: false
+    line: false,
   },
 };
 
@@ -169,7 +169,7 @@ const mailchimp = {
       thickness: 1,
       angle: 90,
     },
-  }
+  },
 };
 
 // default schema data
@@ -188,4 +188,16 @@ const sameAs = {
   discord: "https://discord.com/invite/5EyAQ4eNdS",
 };
 
-export { display, mailchimp, routes, protectedRoutes, baseURL, fonts, style, schema, sameAs, effects, dataStyle };
+export {
+  display,
+  mailchimp,
+  routes,
+  protectedRoutes,
+  baseURL,
+  fonts,
+  style,
+  schema,
+  sameAs,
+  effects,
+  dataStyle,
+};

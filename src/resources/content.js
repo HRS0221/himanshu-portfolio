@@ -107,9 +107,16 @@ const about = {
     title: "My Journey",
     description: (
       <>
-        My path to a B.Tech in Data Science has been unconventional. Early in my studies, I sustained a major leg fracture that required several years of recovery and multiple surgeries, which extended my academic timeline.
-        <br /><br />
-        This period was a profound test of discipline and resilience. I successfully returned to my studies with a renewed determination, completing both my diploma and my degree. This experience has given me a unique perspective on overcoming obstacles and a proven commitment to seeing complex challenges through to completion.
+        My path to a B.Tech in Data Science has been unconventional. Early in my
+        studies, I sustained a major leg fracture that required several years of
+        recovery and multiple surgeries, which extended my academic timeline.
+        <br />
+        <br />
+        This period was a profound test of discipline and resilience. I
+        successfully returned to my studies with a renewed determination,
+        completing both my diploma and my degree. This experience has given me a
+        unique perspective on overcoming obstacles and a proven commitment to
+        seeing complex challenges through to completion.
       </>
     ),
   },
@@ -122,8 +129,14 @@ const about = {
         timeframe: "2022 - Present",
         role: "Senior Design Engineer",
         achievements: [
-          <>Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user engagement and 30% faster load times.</>,
-          <>Spearheaded the integration of AI tools into design workflows, enabling designers to iterate 50% faster.</>,
+          <>
+            Redesigned the UI/UX for the FLY platform, resulting in a 20%
+            increase in user engagement and 30% faster load times.
+          </>,
+          <>
+            Spearheaded the integration of AI tools into design workflows,
+            enabling designers to iterate 50% faster.
+          </>,
         ],
         images: [],
       },
@@ -132,8 +145,14 @@ const about = {
         timeframe: "2018 - 2022",
         role: "Lead Designer",
         achievements: [
-          <>Developed a design system that unified the brand across multiple platforms, improving design consistency by 40%.</>,
-          <>Led a cross-functional team to launch a new product line, contributing to a 15% increase in overall company revenue.</>,
+          <>
+            Developed a design system that unified the brand across multiple
+            platforms, improving design consistency by 40%.
+          </>,
+          <>
+            Led a cross-functional team to launch a new product line,
+            contributing to a 15% increase in overall company revenue.
+          </>,
         ],
         images: [],
       },
@@ -144,7 +163,8 @@ const about = {
     title: "Education",
     institutions: [
       {
-        institution: "R. C. Patel Institute of Technology, An Autonomous Institute",
+        institution:
+          "R. C. Patel Institute of Technology, An Autonomous Institute",
         degree: "Bachelor of Technology in Data Science",
         timeframe: "Dec 2021 – June 2024",
         cgpa: "CGPA: 7.39",
@@ -163,7 +183,8 @@ const about = {
     skills: [
       {
         title: "Areas of Focus",
-        description: "Computer Vision, Image Processing, Machine Learning, Deep Learning, Data Analysis, Microsoft Excel",
+        description:
+          "Computer Vision, Image Processing, Machine Learning, Deep Learning, Data Analysis, Microsoft Excel",
         images: [],
       },
       {
@@ -178,7 +199,8 @@ const about = {
       },
       {
         title: "Technologies",
-        description: "QuickSight, Amazon Athena, AWS Glue, AWS Lambda, Amazon S3, IBM Watson Studio, Docker",
+        description:
+          "QuickSight, Amazon Athena, AWS Glue, AWS Lambda, Amazon S3, IBM Watson Studio, Docker",
         images: [],
       },
       {
@@ -196,33 +218,33 @@ const about = {
         name: "DataCamp Certified: Associate Data Analyst",
         issuer: "DataCamp",
         date: "May 2024",
-        link: "https://drive.google.com/file/d/1sRj_7Guc-tVBmw_bNZnBh6EcVmZUj1es/view"
+        link: "https://drive.google.com/file/d/1sRj_7Guc-tVBmw_bNZnBh6EcVmZUj1es/view",
       },
       {
         name: "DataCamp Certified: Associate Data Engineer",
         issuer: "DataCamp",
         date: "May 2024",
-        link: "https://drive.google.com/file/d/1JseSVzsLL9maBkDioIufZIjpuhb07bSX/view"
+        link: "https://drive.google.com/file/d/1JseSVzsLL9maBkDioIufZIjpuhb07bSX/view",
       },
       {
         name: "Google Business Intelligence Certification",
         issuer: "Google",
         date: "April 2024",
-        link: "https://drive.google.com/file/d/1CSfaO1kV1XpbChKfmWojA44Ge3xgVRvM/view"
+        link: "https://drive.google.com/file/d/1CSfaO1kV1XpbChKfmWojA44Ge3xgVRvM/view",
       },
       {
         name: "Google Data Analytics Certification",
         issuer: "Google",
         date: "February 2024",
-        link: "https://drive.google.com/file/d/1lrOPW3huOrYh1s5oakKSYOCJZHOKMq93/view"
+        link: "https://drive.google.com/file/d/1lrOPW3huOrYh1s5oakKSYOCJZHOKMq93/view",
       },
       {
         name: "Data Scientist Professional Certificate",
         issuer: "DataCamp",
         date: "October 2023",
-        link: "https://drive.google.com/file/d/1CQIOT7vUbOoVcX7dwVmBBZNH9FOPiKrm/view"
+        link: "https://drive.google.com/file/d/1CQIOT7vUbOoVcX7dwVmBBZNH9FOPiKrm/view",
       },
-    ]
+    ],
   },
   achievements: {
     display: true,
@@ -230,20 +252,22 @@ const about = {
     items: [
       {
         title: "Internal Hackathon Lead (SIH 2023)",
-        description: "Led and coordinated an Internal Hackathon for Smart India Hackathon 2023, overseeing 85 teams and fostering innovation and collaboration."
+        description:
+          "Led and coordinated an Internal Hackathon for Smart India Hackathon 2023, overseeing 85 teams and fostering innovation and collaboration.",
       },
       {
         title: "Grand Finalist (SUNHACKS 2022)",
-        description: "Spearheaded a cross-functional effort at SUNHACKS 2022, an International Level Hackathon, securing Grand Finalist recognition among 15 elite teams."
+        description:
+          "Spearheaded a cross-functional effort at SUNHACKS 2022, an International Level Hackathon, securing Grand Finalist recognition among 15 elite teams.",
       },
       {
         title: "Grand Finalist (SIH 2022)",
-        description: "Achieved Grand Finalist status at the National level in the Smart India Hackathon 2022, competing against 50 teams."
-      }
-    ]
-  }
+        description:
+          "Achieved Grand Finalist status at the National level in the Smart India Hackathon 2022, competing against 50 teams.",
+      },
+    ],
+  },
 };
-
 
 // ✅ This 'articles' object has been re-ordered from oldest to newest
 const articles = {
@@ -378,7 +402,8 @@ const articles = {
       slug: "biological-neural-network",
     },
     {
-      title: "Terminologies in ANN: Activation Function, Weights, Bias & Learning Rate",
+      title:
+        "Terminologies in ANN: Activation Function, Weights, Bias & Learning Rate",
       image: "/images/articles/Terminologies of ANN.jpg",
       link: "https://www.linkedin.com/pulse/terminologies-ann-activation-function-weights-bias-learning-salunke-7dgnf/",
       publishedAt: "2024-04-23",
@@ -392,7 +417,8 @@ const articles = {
       slug: "mcculloch-pitts-neuron-hebb-network",
     },
     {
-      title: "Power of Perceptron: Training Rule, Gradient Descent & Delta Rule",
+      title:
+        "Power of Perceptron: Training Rule, Gradient Descent & Delta Rule",
       image: "/images/articles/Perceptron, Gradient Descent, Delta Rule.jpg",
       link: "https://www.linkedin.com/pulse/power-perceptron-training-rule-gradient-descent-delta-salunke-nd5nc/",
       publishedAt: "2024-04-29",
@@ -406,7 +432,8 @@ const articles = {
       slug: "multilayer-network",
     },
     {
-      title: "Backpropagation Algorithm: Convergence, Local Minima & Space Complexity",
+      title:
+        "Backpropagation Algorithm: Convergence, Local Minima & Space Complexity",
       image: "/images/articles/BackPropagation.jpg",
       link: "https://www.linkedin.com/pulse/backpropagation-algorithm-convergence-local-minima-space-salunke-4ekze/",
       publishedAt: "2024-05-05",
@@ -420,7 +447,8 @@ const articles = {
       slug: "regularization-techniques",
     },
     {
-      title: "Training Deep Models: Neural Network Optimization & Basic Algorithms",
+      title:
+        "Training Deep Models: Neural Network Optimization & Basic Algorithms",
       image: "/images/articles/Deep Models.jpg",
       link: "https://www.linkedin.com/pulse/training-deep-models-neural-network-optimization-basic-salunke-mghwf/",
       publishedAt: "2024-05-11",
@@ -448,7 +476,8 @@ const articles = {
       slug: "kohonen-self-organizing-feature-maps",
     },
     {
-      title: "Linear Factor Methods: Probabilistic PCA Analysis & Sparse Coding",
+      title:
+        "Linear Factor Methods: Probabilistic PCA Analysis & Sparse Coding",
       image: "/images/articles/Linear Factor Methods.jpg",
       link: "https://www.linkedin.com/pulse/linear-factor-methods-probabilistic-pca-analysis-sparse-salunke-mibdf/",
       publishedAt: "2024-05-23",
@@ -469,21 +498,24 @@ const articles = {
       slug: "generative-adversarial-networks-gan",
     },
     {
-      title: "Explaining & Interpreting Black Box to White Box Models: SHAP & Shapley Values",
+      title:
+        "Explaining & Interpreting Black Box to White Box Models: SHAP & Shapley Values",
       image: "/images/articles/Explainable AI.jpg",
       link: "https://www.linkedin.com/pulse/explaining-interpreting-black-box-white-models-shap-shapley-salunke-cjldf/",
       publishedAt: "2024-06-01",
       slug: "explainable-ai-shap-shapley-values",
     },
     {
-      title: "Reinforcement Learning Elements vs Supervised & Policy-based Methods",
+      title:
+        "Reinforcement Learning Elements vs Supervised & Policy-based Methods",
       image: "/images/articles/Reinforcement Learning.jpg",
       link: "https://www.linkedin.com/pulse/reinforcement-learning-elements-vs-supervised-policy-based-salunke-ykhff/",
       publishedAt: "2024-06-04",
       slug: "reinforcement-learning-elements",
     },
     {
-      title: "Bandit Problems: Value & Action-based Methods, Greedy Problem Solving",
+      title:
+        "Bandit Problems: Value & Action-based Methods, Greedy Problem Solving",
       image: "/images/articles/Bandit Problems.jpg",
       link: "https://www.linkedin.com/pulse/bandit-problems-value-action-based-methods-greedy-problem-salunke-xonef/",
       publishedAt: "2024-06-07",
@@ -504,14 +536,16 @@ const articles = {
       slug: "immediate-full-reinforcement-learning",
     },
     {
-      title: "Markov Decision Process: Property, Finite Value & Bellman's Equations",
+      title:
+        "Markov Decision Process: Property, Finite Value & Bellman's Equations",
       image: "/images/articles/Markov Decision.jpg",
       link: "https://www.linkedin.com/pulse/markov-decision-process-property-finite-value-bellmans-salunke-dfzof/",
       publishedAt: "2024-06-15",
       slug: "markov-decision-process",
     },
     {
-      title: "Policy Evaluation, Improvement & Iteration: Value & Dynamic Programming",
+      title:
+        "Policy Evaluation, Improvement & Iteration: Value & Dynamic Programming",
       image: "/images/articles/Policy Evaluation.jpg",
       link: "https://www.linkedin.com/pulse/policy-evaluation-improvement-iteration-value-dynamic-salunke-ci9af/",
       publishedAt: "2024-06-18",
@@ -532,7 +566,8 @@ const articles = {
       slug: "temporal-difference-learning",
     },
     {
-      title: "Function Approximation: Tabular Implementation & Gradient Methods",
+      title:
+        "Function Approximation: Tabular Implementation & Gradient Methods",
       image: "/images/articles/Function Approximation.jpg",
       link: "https://www.linkedin.com/pulse/function-approximation-tabular-implementation-gradient-salunke-q4nqf/",
       publishedAt: "2024-06-25",
@@ -548,7 +583,6 @@ const articles = {
   ],
 };
 
-
 const blog = {
   ...articles,
   path: "/blog",
@@ -562,8 +596,6 @@ const work = {
   title: `Projects - ${person.name}`,
   description: `Design and dev projects by ${person.name}`,
 };
-
-
 
 const gallery = {
   path: "/gallery",
@@ -619,17 +651,20 @@ const gallery = {
 const skills = [
   {
     name: "Computer Vision",
-    description: "I applied advanced computer vision techniques using OpenCV to detect and recognize vehicle registration plates in real-time for the Smart India Hackathon.",
+    description:
+      "I applied advanced computer vision techniques using OpenCV to detect and recognize vehicle registration plates in real-time for the Smart India Hackathon.",
     projectSlug: "smart-india-hackathon-2022",
   },
   {
     name: "Deep Learning",
-    description: "Leveraged TensorFlow and Keras to build and train a convolutional neural network for classifying plant leaf diseases from images with high accuracy.",
+    description:
+      "Leveraged TensorFlow and Keras to build and train a convolutional neural network for classifying plant leaf diseases from images with high accuracy.",
     projectSlug: "plant-leaf-disease-prediction",
   },
   {
     name: "Data Analysis",
-    description: "Conducted a full-scale analysis of the Google Play Store dataset to uncover trends and insights about the Android app market.",
+    description:
+      "Conducted a full-scale analysis of the Google Play Store dataset to uncover trends and insights about the Android app market.",
     projectSlug: "android-app-market-analysis",
   },
 ];
@@ -645,5 +680,4 @@ export {
   work,
   gallery,
   skills,
-  baseURL
 };

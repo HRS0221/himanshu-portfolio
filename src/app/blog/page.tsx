@@ -1,5 +1,5 @@
 import { baseURL, person } from "@/resources";
-import { articles } from "@/resources/content";
+import { articles } from "@/resources";
 import BlogListClient from "./BlogListClient";
 import { Meta, Schema } from "@once-ui-system/core";
 

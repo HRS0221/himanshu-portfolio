@@ -8,6 +8,7 @@ export {
   blog, // ✅ Now exported
   work,
   gallery,
+  skills,
 } from "./content";
 
 export {

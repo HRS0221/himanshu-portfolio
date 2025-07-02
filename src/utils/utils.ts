@@ -1,18 +1,36 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { articles as articlesData } from '@/resources/content';
+import { articles as articlesData } from "@/resources";
 
-export type Team = { name: string; role: string; avatar: string; linkedIn: string; };
-export type Metadata = { title: string; publishedAt: string; summary?: string; image?: string; images?: string[]; tag?: string; team?: Team[]; link?: string; outputLink?: string; techStack?: string[]; };
-export type MdxContent = { metadata: Metadata; slug: string; content: string; };
+export type Team = {
+  name: string;
+  role: string;
+  avatar: string;
+  linkedIn: string;
+};
+export type Metadata = {
+  title: string;
+  publishedAt: string;
+  summary?: string;
+  image?: string;
+  images?: string[];
+  tag?: string;
+  team?: Team[];
+  link?: string;
+  outputLink?: string;
+  techStack?: string[];
+};
+export type MdxContent = { metadata: Metadata; slug: string; content: string };
 
 function getMDXFiles(dir: string) {
   const fullPath = path.join(process.cwd(), dir);
   if (!fs.existsSync(fullPath)) {
     return [];
   }
-  return fs.readdirSync(fullPath).filter((file) => path.extname(file) === ".mdx");
+  return fs
+    .readdirSync(fullPath)
+    .filter((file) => path.extname(file) === ".mdx");
 }
 
 function readMDXFile(filePath: string) {
@@ -43,7 +61,11 @@ function getMDXData(dir: string): MdxContent[] {
 
 export function getAllProjects(): MdxContent[] {
   const projects = getMDXData("src/app/work/projects");
-  return projects.sort((a, b) => new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime());
+  return projects.sort(
+    (a, b) =>
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime()
+  );
 }
 
 export function getProjectBySlug(slug: string): MdxContent | undefined {
@@ -54,7 +76,12 @@ export function getProjectBySlug(slug: string): MdxContent | undefined {
 export function getAllArticles() {
   return articlesData.items.map((article: any) => ({
     slug: article.slug,
-    metadata: { title: article.title, publishedAt: article.publishedAt, image: article.image, link: article.link },
-    content: ''
+    metadata: {
+      title: article.title,
+      publishedAt: article.publishedAt,
+      image: article.image,
+      link: article.link,
+    },
+    content: "",
   }));
 }
