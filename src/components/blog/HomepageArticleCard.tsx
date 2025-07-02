@@ -2,14 +2,8 @@
 
 "use client"; // This marks the component as interactive and safe for event handlers
 
-import {
-  Column,
-  Card,
-  Heading,
-  Text,
-  RevealFx,
-} from "@once-ui-system/core";
-import type { MdxContent } from "@/utils/utils"; // Import the type
+import { Column, Card, Heading, Text, RevealFx } from "@once-ui-system/core";
+import type { MdxContent } from "../../utils/utils"; // Import the type
 
 // Define props for this specific component
 interface HomepageArticleCardProps {
@@ -17,7 +11,10 @@ interface HomepageArticleCardProps {
   index: number;
 }
 
-export default function HomepageArticleCard({ article, index }: HomepageArticleCardProps) {
+export default function HomepageArticleCard({
+  article,
+  index,
+}: HomepageArticleCardProps) {
   return (
     <RevealFx key={article.slug} translateY="12" delay={index * 0.05}>
       <a
@@ -43,7 +40,9 @@ export default function HomepageArticleCard({ article, index }: HomepageArticleC
             justifyContent: "flex-start",
           }}
           // These event handlers are now safely inside a Client Component
-          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.transform = "scale(1.03)")
+          }
           onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
         >
           <img

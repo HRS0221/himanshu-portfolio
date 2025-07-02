@@ -1,7 +1,7 @@
 // Complete corrected code for: src/app/sitemap.ts
 
-import { getAllArticles, getAllProjects } from "@/utils/utils";
-import { baseURL, routes as routesConfig, blog, work } from "@/resources";
+import { getAllArticles, getAllProjects } from "../utils/utils";
+import { baseURL, routes as routesConfig, blog, work } from "../resources";
 
 export default async function sitemap() {
   // Use getAllArticles to fetch blog posts

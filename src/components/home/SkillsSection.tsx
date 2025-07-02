@@ -1,7 +1,7 @@
 // Complete code for the NEW file: src/components/home/SkillsSection.tsx
 
 import { Column, Heading, RevealFx } from "@once-ui-system/core";
-import { skills } from "@/resources";
+import { skills } from "../../resources";
 import SkillCard from "./SkillCard";
 import styles from "./SkillsSection.module.scss";
 

@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { articles as articlesData } from "@/resources";
+import { articles as articlesData } from "../resources";
 
 export type Team = {
   name: string;

@@ -3,7 +3,7 @@
 import React from "react";
 import { Heading, Flex, IconButton, useToast } from "@once-ui-system/core";
 
-import styles from "@/components/HeadingLink.module.scss";
+import styles from "./HeadingLink.module.scss";
 
 interface HeadingLinkProps {
   id: string;
@@ -12,7 +12,12 @@ interface HeadingLinkProps {
   style?: React.CSSProperties;
 }
 
-export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, style }) => {
+export const HeadingLink: React.FC<HeadingLinkProps> = ({
+  id,
+  level,
+  children,
+  style,
+}) => {
   const { addToast } = useToast();
 
   const copyURL = (id: string): void => {
@@ -29,7 +34,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, s
           variant: "danger",
           message: "Failed to copy link.",
         });
-      },
+      }
     );
   };
 

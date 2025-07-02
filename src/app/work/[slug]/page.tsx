@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
-import { getAllProjects, getProjectBySlug } from "@/utils/utils";
+import { getAllProjects, getProjectBySlug } from "../../../utils/utils";
 import { Column, Heading, Text, Meta, Schema } from "@once-ui-system/core";
-import { baseURL, person } from "@/resources";
-import { CustomMDX } from "@/components/mdx";
+import { baseURL, person } from "../../../resources";
+import { CustomMDX } from "../../../components/mdx";
 import React, { Suspense } from "react";
 
 interface PageProps {

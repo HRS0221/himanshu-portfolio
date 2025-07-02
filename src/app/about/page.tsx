@@ -11,9 +11,9 @@ import {
   Meta,
   Schema,
 } from "@once-ui-system/core";
-import { baseURL, about, person, social } from "@/resources";
-import TableOfContents from "@/components/about/TableOfContents";
-import styles from "@/components/about/about.module.scss";
+import { baseURL, about, person, social } from "../../resources";
+import TableOfContents from "../../components/about/TableOfContents";
+import styles from "../../components/about/about.module.scss";
 import React from "react";
 import { SiCodechef, SiLeetcode } from "react-icons/si";
 import { IconType } from "react-icons";

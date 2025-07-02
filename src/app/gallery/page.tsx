@@ -1,6 +1,6 @@
 import { Flex, Meta, Schema } from "@once-ui-system/core";
-import MasonryGrid from "@/components/gallery/MasonryGrid";
-import { baseURL, gallery, person } from "@/resources";
+import MasonryGrid from "../../components/gallery/MasonryGrid";
+import { baseURL, gallery, person } from "../../resources";
 
 export async function generateMetadata() {
   return Meta.generate({

@@ -3,7 +3,7 @@
 import Masonry from "react-masonry-css";
 import { Media } from "@once-ui-system/core";
 import styles from "./Gallery.module.scss";
-import { gallery } from "@/resources";
+import { gallery } from "../../resources";
 
 export default function MasonryGrid() {
   const breakpointColumnsObj = {

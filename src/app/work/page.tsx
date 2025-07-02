@@ -10,9 +10,9 @@ import {
   // ✅ FIX: Added 'Flex' to the import list
   Flex,
 } from "@once-ui-system/core";
-import { baseURL, person, work } from "@/resources";
-import { getAllProjects } from "@/utils/utils";
-import FeaturedProjectCard from "@/components/work/FeaturedProjectCard";
+import { baseURL, person, work } from "../../resources";
+import { getAllProjects } from "../../utils/utils";
+import FeaturedProjectCard from "../../components/work/FeaturedProjectCard";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -42,7 +42,7 @@ export default async function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      
+
       {/* Page Header */}
       <RevealFx>
         {/* This Flex container's only job is to center the column inside it. */}
@@ -52,7 +52,8 @@ export default async function Work() {
               My Work & Projects
             </Heading>
             <Text onBackground="neutral-weak" align="center">
-              Here are some of the projects I've worked on. Each one represents a challenge I was excited to solve.
+              Here are some of the projects I've worked on. Each one represents
+              a challenge I was excited to solve.
             </Text>
           </Column>
         </Flex>
@@ -61,7 +62,11 @@ export default async function Work() {
       {/* The new project list */}
       <Column gap="48">
         {allProjects.map((project, index) => (
-          <FeaturedProjectCard key={project.slug} project={project} index={index} />
+          <FeaturedProjectCard
+            key={project.slug}
+            project={project}
+            index={index}
+          />
         ))}
       </Column>
     </Column>

@@ -1,5 +1,5 @@
 import { Flex, IconButton, SmartLink, Text } from "@once-ui-system/core";
-import { person, social } from "@/resources";
+import { person, social } from "../resources";
 import styles from "./Footer.module.scss";
 import { SiCodechef, SiLeetcode } from "react-icons/si";
 import { IconType } from "react-icons"; // ✅ FIX: Import IconType
@@ -36,9 +36,7 @@ export const Footer = () => {
           <Text paddingX="4">{person.name}</Text>
           <Text onBackground="neutral-weak">
             / Build your portfolio with{" "}
-            <SmartLink
-              href="https://once-ui.com/products/magic-portfolio"
-            >
+            <SmartLink href="https://once-ui.com/products/magic-portfolio">
               Once UI
             </SmartLink>
           </Text>

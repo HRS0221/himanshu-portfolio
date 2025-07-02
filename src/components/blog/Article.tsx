@@ -2,10 +2,18 @@
 
 "use client";
 
-import { Column, Flex, Heading, Media, SmartLink, Tag, Text } from '@once-ui-system/core';
-import styles from './Posts.module.scss';
-import { formatDate } from '@/utils/formatDate';
-import { MdxContent } from '@/utils/utils'; // It's good practice to import the specific type
+import {
+  Column,
+  Flex,
+  Heading,
+  Media,
+  SmartLink,
+  Tag,
+  Text,
+} from "@once-ui-system/core";
+import styles from "./Posts.module.scss";
+import { formatDate } from "../../utils/formatDate";
+import { MdxContent } from "../../utils/utils"; // It's good practice to import the specific type
 
 interface ArticleProps {
   article: MdxContent; // Use the specific MdxContent type for better type safety
@@ -13,7 +21,11 @@ interface ArticleProps {
   direction?: "row" | "column";
 }
 
-export default function Article({ article, thumbnail, direction }: ArticleProps) {
+export default function Article({
+  article,
+  thumbnail,
+  direction,
+}: ArticleProps) {
   // A check to ensure we have a link before rendering
   if (!article.metadata.link) {
     return null; // Or render a non-clickable version
@@ -24,7 +36,7 @@ export default function Article({ article, thumbnail, direction }: ArticleProps)
     <SmartLink
       fillWidth
       unstyled
-      style={{ borderRadius: 'var(--radius-l)' }}
+      style={{ borderRadius: "var(--radius-l)" }}
       key={article.slug}
       // FIX 1: Use the correct external link from your data
       href={article.metadata.link}
@@ -39,7 +51,8 @@ export default function Article({ article, thumbnail, direction }: ArticleProps)
         radius="l"
         className={styles.hover}
         mobileDirection="column"
-        fillWidth>
+        fillWidth
+      >
         {article.metadata.image && thumbnail && (
           <Media
             priority
@@ -49,32 +62,30 @@ export default function Article({ article, thumbnail, direction }: ArticleProps)
             cursor="interactive"
             radius="l"
             src={article.metadata.image}
-            alt={'Thumbnail of ' + article.metadata.title}
+            alt={"Thumbnail of " + article.metadata.title}
             aspectRatio="16 / 9"
           />
         )}
         <Column
           position="relative"
-          fillWidth gap="4"
+          fillWidth
+          gap="4"
           padding="24"
-          vertical="center">
-          <Heading
-            as="h2"
-            variant="heading-strong-l"
-            wrap="balance">
+          vertical="center"
+        >
+          <Heading as="h2" variant="heading-strong-l" wrap="balance">
             {article.metadata.title}
           </Heading>
-          <Text
-            variant="label-default-s"
-            onBackground="neutral-weak">
+          <Text variant="label-default-s" onBackground="neutral-weak">
             {formatDate(article.metadata.publishedAt, false)}
           </Text>
-          {article.metadata.tag &&
+          {article.metadata.tag && (
             <Tag
               className="mt-12"
               label={article.metadata.tag}
-              variant="neutral" />
-          }
+              variant="neutral"
+            />
+          )}
         </Column>
       </Flex>
     </SmartLink>

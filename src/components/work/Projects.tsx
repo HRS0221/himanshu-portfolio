@@ -1,8 +1,8 @@
 // Complete corrected code for: src/components/work/Projects.tsx
 
 import { Column } from "@once-ui-system/core";
-import { ProjectCard } from "@/components";
-import { MdxContent } from "@/utils/utils";
+import { ProjectCard } from "../index";
+import { MdxContent } from "../../utils/utils";
 
 interface ProjectsProps {
   projects: MdxContent[];
@@ -19,7 +19,10 @@ export function Projects({ projects, range }: ProjectsProps) {
   // The rest of your code will now only run if `projects` is a valid array.
   const sortedProjects = projects.sort((a, b) => {
     if (!a.metadata.publishedAt || !b.metadata.publishedAt) return 0;
-    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
+    return (
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime()
+    );
   });
 
   const displayedProjects = range
@@ -35,9 +38,11 @@ export function Projects({ projects, range }: ProjectsProps) {
           href={`work/${post.slug}`}
           images={post.metadata.images || []}
           title={post.metadata.title}
-          description={post.metadata.summary || ''}
-          content={post.content || ''}
-          avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
+          description={post.metadata.summary || ""}
+          content={post.content || ""}
+          avatars={
+            post.metadata.team?.map((member) => ({ src: member.avatar })) || []
+          }
           link={post.metadata.link || ""}
         />
       ))}

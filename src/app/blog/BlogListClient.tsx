@@ -1,7 +1,7 @@
 "use client";
 
 import { Column, Card, Heading, Text, RevealFx } from "@once-ui-system/core";
-import { articles } from "@/resources";
+import { articles } from "../../resources";
 
 export default function BlogListClient() {
   const filteredArticles = articles.items.filter(

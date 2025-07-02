@@ -1,4 +1,4 @@
-import { getAllArticles } from "@/utils/utils";
+import { getAllArticles } from "../../utils/utils";
 import { Grid } from "@once-ui-system/core";
 import Article from "./Post";
 
