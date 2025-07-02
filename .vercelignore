@@ -1,58 +1,63 @@
 # Vercel ignore file to reduce serverless function size
 
-# Build cache and artifacts that shouldn't be deployed
+# Build cache and artifacts (CRITICAL - these are causing 800MB+ issue)
 .next/cache/
+.next/cache/**
+.next/cache/webpack/**
 .next/trace
+.next/standalone
+.turbo/
 
-# Development and source files
+# Development files that shouldn't be deployed
 .git/
 .github/
 node_modules/
-*.log
 .env*.local
 .DS_Store
+*.log
 
-# Documentation and config files not needed in production
+# Source files not needed in production
+src/
+!src/app/
+!src/components/
+!src/resources/
+!src/utils/
+
+# Documentation and config files
+README.md
+LICENSE
 *.md
 *.txt
 project-structure.txt
-README.md
-LICENSE
-next prompt.txt
 biome.json
 .eslintrc.json
 tsconfig.json
+"next prompt.txt"
 
-# Development files
-node_modules/
-.git/
-.next/cache/
-
-# Development and build artifacts  
-*.log
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# IDE files
+# IDE and development tools
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# Testing
+# Testing files
 coverage/
 .nyc_output/
+jest.config.*
+*.test.*
+*.spec.*
 
 # Temporary files
 *.tmp
 *.temp
+.cache/
 
-# Documentation (if not needed for deployment)
-README.md
-LICENSE
-*.md
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
-# Large images that are not optimized
-public/images/articles/*.webp
-public/images/projects/project-01/video-01.mp4 
+# Large media files that aren't needed
+public/images/**/*.webp
+public/images/**/*.mp4
+public/images/**/*.mov 
