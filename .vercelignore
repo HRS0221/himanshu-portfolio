@@ -21,4 +21,38 @@ LICENSE
 next prompt.txt
 biome.json
 .eslintrc.json
-tsconfig.json 
+tsconfig.json
+
+# Development files
+node_modules/
+.git/
+.next/cache/
+
+# Development and build artifacts  
+*.log
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files
+.vscode/
+.idea/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Documentation (if not needed for deployment)
+README.md
+LICENSE
+*.md
+
+# Large images that are not optimized
+public/images/articles/*.webp
+public/images/projects/project-01/video-01.mp4 
