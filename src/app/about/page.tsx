@@ -11,12 +11,12 @@ import {
   Meta,
   Schema,
 } from "@once-ui-system/core";
-import { baseURL, about, person, social } from "@/resources";
+import { baseURL, about, person, social } from "@/resources/content";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 import { SiCodechef, SiLeetcode } from "react-icons/si";
-import { IconType } from "react-icons"; // ✅ FIX: Import IconType
+import { IconType } from "react-icons";
 
 // Type Definitions
 interface Institution { institution: string; degree: string; timeframe: string; cgpa: string; }

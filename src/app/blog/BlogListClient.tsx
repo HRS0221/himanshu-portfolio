@@ -7,7 +7,7 @@ import {
   Text,
   RevealFx,
 } from "@once-ui-system/core";
-import { articles } from "@/resources/content.js";
+import { articles } from "@/resources/content";
 
 export default function BlogListClient() {
   const filteredArticles = articles.items.filter(

@@ -1,5 +1,8 @@
 import { Logo } from "@once-ui-system/core";
 
+// ✅ Add baseURL at the top
+const baseURL = "https://himanshu-portfolio.vercel.app"; // Change to your custom domain later
+
 const person = {
   firstName: "Himanshu",
   lastName: "Salunke",
@@ -25,17 +28,15 @@ const newsletter = {
   ),
 };
 
-
 const social = [
   {
     name: "GitHub",
     icon: "github",
     link: "https://github.com/HRS0221",
   },
-
   {
-  name: "CodeChef",
-  link: "https://www.codechef.com/users/hr0221", // 👈 Replace with your actual URL
+    name: "CodeChef",
+    link: "https://www.codechef.com/users/hr0221",
   },
   {
     name: "LeetCode",
@@ -57,8 +58,6 @@ const social = [
     link: `mailto:${person.email}`,
   },
 ];
-
-
 
 const home = {
   path: "/",
@@ -123,14 +122,8 @@ const about = {
         timeframe: "2022 - Present",
         role: "Senior Design Engineer",
         achievements: [
-          <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20%
-            increase in user engagement and 30% faster load times.
-          </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows,
-            enabling designers to iterate 50% faster.
-          </>,
+          <>Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user engagement and 30% faster load times.</>,
+          <>Spearheaded the integration of AI tools into design workflows, enabling designers to iterate 50% faster.</>,
         ],
         images: [],
       },
@@ -139,14 +132,8 @@ const about = {
         timeframe: "2018 - 2022",
         role: "Lead Designer",
         achievements: [
-          <>
-            Developed a design system that unified the brand across multiple
-            platforms, improving design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line,
-            contributing to a 15% increase in overall company revenue.
-          </>,
+          <>Developed a design system that unified the brand across multiple platforms, improving design consistency by 40%.</>,
+          <>Led a cross-functional team to launch a new product line, contributing to a 15% increase in overall company revenue.</>,
         ],
         images: [],
       },
@@ -157,8 +144,7 @@ const about = {
     title: "Education",
     institutions: [
       {
-        institution:
-          "R. C. Patel Institute of Technology, An Autonomous Institute",
+        institution: "R. C. Patel Institute of Technology, An Autonomous Institute",
         degree: "Bachelor of Technology in Data Science",
         timeframe: "Dec 2021 – June 2024",
         cgpa: "CGPA: 7.39",
@@ -648,8 +634,8 @@ const skills = [
   },
 ];
 
-
 export {
+  baseURL,
   person,
   social,
   newsletter,
@@ -661,4 +647,3 @@ export {
   gallery,
   skills
 };
-
