@@ -1,5 +1,3 @@
-// Complete code for: src/app/blog/BlogListClient.tsx
-
 "use client";
 
 import {
@@ -9,11 +7,9 @@ import {
   Text,
   RevealFx,
 } from "@once-ui-system/core";
-import { articles } from "@/resources/content";
+import { articles } from "@/resources/content.js";
 
 export default function BlogListClient() {
-  // This line is now clean, without any .reverse() method.
-  // It will display the articles in the exact order they appear in content.js.
   const filteredArticles = articles.items.filter(
     (article) => article.title && article.image && article.link
   );
