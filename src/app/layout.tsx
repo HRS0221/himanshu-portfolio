@@ -47,20 +47,16 @@ export default async function RootLayout({
       )}
     >
       <head>
-        {/* Preload Geist fonts for better performance */}
+        {/* Geist Font from Google Fonts - Modern Variable Font Format */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
+          crossOrigin=""
         />
         <link
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap"
         />
 
         <script
@@ -124,7 +120,7 @@ export default async function RootLayout({
           style={{
             minHeight: "100vh",
             fontFamily:
-              "var(--font-body), 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+              "'Geist', var(--font-body), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
           }}
           margin="0"
           padding="0"
