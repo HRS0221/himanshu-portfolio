@@ -5,7 +5,6 @@
 .next/cache/**
 .next/cache/webpack/**
 .next/trace
-.next/standalone
 .turbo/
 
 # Development files that shouldn't be deployed
@@ -16,14 +15,7 @@ node_modules/
 .DS_Store
 *.log
 
-# Source files not needed in production
-src/
-!src/app/
-!src/components/
-!src/resources/
-!src/utils/
-
-# Documentation and config files
+# Documentation and config files not needed for deployment
 README.md
 LICENSE
 *.md
@@ -31,7 +23,6 @@ LICENSE
 project-structure.txt
 biome.json
 .eslintrc.json
-tsconfig.json
 "next prompt.txt"
 
 # IDE and development tools
@@ -52,8 +43,7 @@ jest.config.*
 *.temp
 .cache/
 
-# Package manager files
-package-lock.json
+# Package manager files (Vercel will run npm install anyway)
 yarn.lock
 pnpm-lock.yaml
 

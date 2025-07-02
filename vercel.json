@@ -1,18 +1,7 @@
 {
-  "version": 2,
   "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
   "framework": "nextjs",
   "functions": {
-    "src/app/**/*.tsx": {
-      "maxDuration": 30,
-      "memory": 1024
-    },
-    "src/app/api/**/*.ts": {
-      "maxDuration": 30,
-      "memory": 512
-    },
     "app/work/[slug]/page.js": {
       "maxDuration": 30
     },
@@ -21,23 +10,6 @@
     }
   },
   "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        }
-      ]
-    },
     {
       "source": "/images/(.*)",
       "headers": [
