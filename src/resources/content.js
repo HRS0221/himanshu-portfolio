@@ -635,7 +635,6 @@ const skills = [
 ];
 
 export {
-  baseURL,
   person,
   social,
   newsletter,
@@ -645,5 +644,6 @@ export {
   blog,
   work,
   gallery,
-  skills
+  skills,
+  baseURL
 };
