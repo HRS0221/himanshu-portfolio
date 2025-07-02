@@ -1,8 +1,8 @@
 /* :root {
   /*
   /* Example setup for custom colors */
-  /* Generate at: https://once-ui.com/customize */
-  /*
+/* Generate at: https://once-ui.com/customize */
+/*
   --scheme-brand-100: #08002f;
   --scheme-brand-200:  #04025c;
   --scheme-brand-300:  #1f398e;
@@ -52,3 +52,106 @@
   --scheme-neutral-600-50: rgba(137,152,159,0.5);
   /*
 }*/
+
+/* Custom CSS for Himanshu's Portfolio */
+
+/* ===== GEIST FONT CONFIGURATION ===== */
+/* Ensure Geist font is applied to all text elements */
+
+:root {
+  /* Geist font family variables */
+  --font-geist-sans: var(--font-heading), var(--font-body), "Geist",
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-geist-mono: var(--font-code), "Geist Mono", "Monaco", "Menlo",
+    monospace;
+}
+
+/* Apply Geist to all text elements */
+html {
+  font-family: var(--font-geist-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-geist-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading,
+.title {
+  font-family: var(--font-geist-sans);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+/* Body text */
+p,
+span,
+div,
+a,
+li,
+td,
+th,
+.text,
+.body {
+  font-family: var(--font-geist-sans);
+}
+
+/* Labels and UI elements */
+label,
+button,
+input,
+select,
+textarea,
+.label,
+.button {
+  font-family: var(--font-geist-sans);
+  font-weight: 500;
+}
+
+/* Code elements */
+code,
+pre,
+.code {
+  font-family: var(--font-geist-mono);
+  font-weight: 400;
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* Improve font loading performance */
+.font-loading {
+  font-display: swap;
+}
+
+/* ===== RESPONSIVE FONT SCALING ===== */
+/* Ensure proper font sizes across devices */
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 769px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+/* Better text contrast and readability */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== CUSTOM STYLES ===== */
+/* Any additional custom styles can go here */
