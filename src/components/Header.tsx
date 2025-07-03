@@ -1,14 +1,12 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, ToggleButton } from "@once-ui-system/core";
 
 import {
   routes,
   display,
-  person,
   about,
   articles,
   work,
@@ -16,41 +14,6 @@ import {
 } from "../resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
-
-type TimeDisplayProps = {
-  timeZone: string;
-  locale?: string;
-};
-
-const TimeDisplay: React.FC<TimeDisplayProps> = ({
-  timeZone,
-  locale = "en-GB",
-}) => {
-  const [currentTime, setCurrentTime] = useState("");
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      };
-      const timeString = new Intl.DateTimeFormat(locale, options).format(now);
-      setCurrentTime(timeString);
-    };
-
-    updateTime();
-    const intervalId = setInterval(updateTime, 1000);
-    return () => clearInterval(intervalId);
-  }, [timeZone, locale]);
-
-  return <>{currentTime}</>;
-};
-
-export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
@@ -78,14 +41,13 @@ export const Header = () => {
         horizontal="center"
         data-border="rounded"
       >
+        {/* This Flex container is now empty but kept for layout structure. You can remove it if it's no longer needed. */}
         <Flex
           paddingLeft="12"
           fillWidth
           vertical="center"
           textVariant="body-default-s"
-        >
-          {display.location && <Flex hide="s">{person.location}</Flex>}
-        </Flex>
+        ></Flex>
         <Flex fillWidth horizontal="center">
           <Flex
             background="page"
@@ -187,6 +149,7 @@ export const Header = () => {
             </Flex>
           </Flex>
         </Flex>
+         {/* This Flex container is now empty but kept for layout structure. You can remove it if it's no longer needed. */}
         <Flex fillWidth horizontal="end" vertical="center">
           <Flex
             paddingRight="12"
@@ -194,11 +157,7 @@ export const Header = () => {
             vertical="center"
             textVariant="body-default-s"
             gap="20"
-          >
-            <Flex hide="s">
-              {display.time && <TimeDisplay timeZone={person.location} />}
-            </Flex>
-          </Flex>
+          ></Flex>
         </Flex>
       </Flex>
     </>

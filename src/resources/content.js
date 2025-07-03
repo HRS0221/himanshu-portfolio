@@ -12,7 +12,6 @@ const person = {
   role: "GATE - 2026 Aspirant",
   avatar: "/images/avatar.jpg",
   email: "contact.himanshusalunke@gmail.com",
-  location: "Asia/Kolkata",
   languages: ["English", "Hindi", "Marathi"],
 };
 
