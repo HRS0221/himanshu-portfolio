@@ -22,7 +22,7 @@ import SkillsSection from "../components/home/SkillsSection";
 
 export default function Home() {
   return (
-    <Column maxWidth="m" gap="xl" horizontal="center">
+    <Column maxWidth="m" gap="s" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}

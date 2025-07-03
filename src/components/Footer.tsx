@@ -2,10 +2,9 @@ import { Flex, IconButton, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "../resources";
 import styles from "./Footer.module.scss";
 import { SiCodechef, SiLeetcode } from "react-icons/si";
-import { IconType } from "react-icons"; // ✅ FIX: Import IconType
+import { IconType } from "react-icons";
 import React from "react";
 
-// ✅ FIX: Explicitly define the type for our lookup map
 const customIcons: { [key: string]: IconType } = {
   CodeChef: SiCodechef,
   LeetCode: SiLeetcode,
@@ -33,13 +32,13 @@ export const Footer = () => {
       >
         <Text variant="body-default-s" onBackground="neutral-strong">
           <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
-          <Text onBackground="neutral-weak">
-            / Build your portfolio with{" "}
-            <SmartLink href="https://once-ui.com/products/magic-portfolio">
-              Once UI
-            </SmartLink>
-          </Text>
+          <Text paddingX="4">Designed & Developed by {person.name}</Text>
+          {/* ✅ START: ADDED PERSONAL TEXT */}
+          {/* <Text onBackground="neutral-weak">
+            {" "}
+            / 
+          </Text> */}
+          {/* ✅ END: ADDED PERSONAL TEXT */}
         </Text>
         <Flex gap="16">
           {social.map((item) => {
