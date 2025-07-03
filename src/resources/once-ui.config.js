@@ -12,11 +12,11 @@ const routes = {
   "/gallery": true,
 };
 
-// const display = {
-//   location: true,
-//   time: true,
-//   themeSwitcher: true,
-// };
+const display = {
+  location: true,
+  time: true,
+  themeSwitcher: true,
+};
 
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
