@@ -14,7 +14,6 @@ import { getAllProjects } from "../../utils/utils";
 import FeaturedProjectCard from "../../components/work/FeaturedProjectCard";
 import ProjectGridCard from "../../components/work/ProjectGridCard";
 
-// The stylesheet is still needed for the item sizing
 import styles from "./WorkPage.module.scss";
 
 export async function generateMetadata() {
@@ -35,7 +34,6 @@ export default async function Work() {
 
   return (
     <Column maxWidth="m" gap="40" paddingY="64">
-      {/* Schema, Header, and Featured Section remain unchanged */}
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -65,34 +63,39 @@ export default async function Work() {
       
       {featuredProjects.length > 0 && (
         <Column gap="40">
-            <Flex vertical="center" gap="20">
+          <RevealFx>
+            {/* ✅ FIX: Added fillWidth to make the container expand */}
+            <Flex vertical="center" gap="20" fillWidth>
                 <Line fillWidth />
                 <Heading as="h2" variant="heading-strong-m" wrap="nowrap">
                     Featured Projects
                 </Heading>
                 <Line fillWidth />
             </Flex>
-            {featuredProjects.map((project, index) => (
-            <FeaturedProjectCard
-                key={project.slug}
-                project={project}
-                index={index}
-            />
-            ))}
+          </RevealFx>
+          {featuredProjects.map((project, index) => (
+          <FeaturedProjectCard
+              key={project.slug}
+              project={project}
+              index={index}
+          />
+          ))}
         </Column>
       )}
 
       {otherProjects.length > 0 && (
         <Column gap="40" paddingY="32">
-          <Flex vertical="center" gap="20">
-            <Line fillWidth />
-            <Heading as="h2" variant="heading-strong-m" wrap="nowrap">
-              Other Projects
-            </Heading>
-            <Line fillWidth />
-          </Flex>
+          <RevealFx>
+            {/* ✅ FIX: Added fillWidth to make the container expand */}
+            <Flex vertical="center" gap="20" fillWidth>
+              <Line fillWidth />
+              <Heading as="h2" variant="heading-strong-m" wrap="nowrap">
+                Other Projects
+              </Heading>
+              <Line fillWidth />
+            </Flex>
+          </RevealFx>
 
-          {/* This Flex container will act as our grid */}
           <Flex wrap gap="24" className={styles.gridContainer}>
             {otherProjects.map((project, index) => (
               <div key={project.slug} className={styles.gridItem}>
