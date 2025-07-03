@@ -1,0 +1,19 @@
+.gridContainer {
+  padding: 0; // No extra padding on the grid itself
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;                // Space between cards
+  justify-content: flex-start; // Align items to the left
+}
+
+.gridItem {
+  width: calc(50% - 12px);  // Two columns with gap
+  box-sizing: border-box;
+  padding: 0;               // No extra padding on the grid item itself
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+}

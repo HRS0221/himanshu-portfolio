@@ -1,5 +1,3 @@
-// Complete corrected code for: src/app/work/page.tsx
-
 import {
   Column,
   Meta,
@@ -7,12 +5,17 @@ import {
   Heading,
   Text,
   RevealFx,
-  // ✅ FIX: Added 'Flex' to the import list
   Flex,
+  Line,
 } from "@once-ui-system/core";
 import { baseURL, person, work } from "../../resources";
 import { getAllProjects } from "../../utils/utils";
+
 import FeaturedProjectCard from "../../components/work/FeaturedProjectCard";
+import ProjectGridCard from "../../components/work/ProjectGridCard";
+
+// The stylesheet is still needed for the item sizing
+import styles from "./WorkPage.module.scss";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -26,9 +29,13 @@ export async function generateMetadata() {
 
 export default async function Work() {
   const allProjects = getAllProjects();
+  const numberOfFeatured = 3;
+  const featuredProjects = allProjects.slice(0, numberOfFeatured);
+  const otherProjects = allProjects.slice(numberOfFeatured);
 
   return (
     <Column maxWidth="m" gap="40" paddingY="64">
+      {/* Schema, Header, and Featured Section remain unchanged */}
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -42,10 +49,7 @@ export default async function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-
-      {/* Page Header */}
       <RevealFx>
-        {/* This Flex container's only job is to center the column inside it. */}
         <Flex fillWidth horizontal="center">
           <Column horizontal="center" gap="16" maxWidth="s">
             <Heading as="h1" variant="display-strong-l" align="center">
@@ -58,17 +62,49 @@ export default async function Work() {
           </Column>
         </Flex>
       </RevealFx>
+      
+      {featuredProjects.length > 0 && (
+        <Column gap="40">
+            <Flex vertical="center" gap="20">
+                <Line fillWidth />
+                <Heading as="h2" variant="heading-strong-m" wrap="nowrap">
+                    Featured Projects
+                </Heading>
+                <Line fillWidth />
+            </Flex>
+            {featuredProjects.map((project, index) => (
+            <FeaturedProjectCard
+                key={project.slug}
+                project={project}
+                index={index}
+            />
+            ))}
+        </Column>
+      )}
 
-      {/* The new project list */}
-      <Column gap="48">
-        {allProjects.map((project, index) => (
-          <FeaturedProjectCard
-            key={project.slug}
-            project={project}
-            index={index}
-          />
-        ))}
-      </Column>
+      {otherProjects.length > 0 && (
+        <Column gap="40" paddingY="32">
+          <Flex vertical="center" gap="20">
+            <Line fillWidth />
+            <Heading as="h2" variant="heading-strong-m" wrap="nowrap">
+              Other Projects
+            </Heading>
+            <Line fillWidth />
+          </Flex>
+
+          {/* This Flex container will act as our grid */}
+          <Flex wrap gap="24" className={styles.gridContainer}>
+            {otherProjects.map((project, index) => (
+              <div key={project.slug} className={styles.gridItem}>
+                <ProjectGridCard
+                  project={project}
+                  index={index}
+                />
+              </div>
+            ))}
+          </Flex>
+        </Column>
+      )}
     </Column>
   );
 }

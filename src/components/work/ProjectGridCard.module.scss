@@ -1,0 +1,39 @@
+.card {
+  padding: 20px; // or var(--o-spacing-20) if you have it
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--o-shadow-l);
+  }
+}
+
+.projectImage {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 16px; // Space below image
+  object-fit: cover;
+
+  .card:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.contentWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; // Space between tag, title, summary, tech stack
+  margin-bottom: 16px; // Space below content before buttons
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px; // Space above buttons
+}
