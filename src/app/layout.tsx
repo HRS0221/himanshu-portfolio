@@ -62,7 +62,7 @@ export default async function RootLayout({
               (function() {
                 try {
                   const root = document.documentElement;
-                  const defaultTheme = 'system';
+                  const defaultTheme = 'dark';
                   const config = ${JSON.stringify({
                     brand: style.brand,
                     accent: style.accent,
