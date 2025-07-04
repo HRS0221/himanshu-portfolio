@@ -9,7 +9,7 @@ export async function generateMetadata() {
     description:
       "Explore 50+ thought-provoking articles on AI, machine learning, and data, written by Himanshu Salunke.",
     baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(articles.title)}`,
+    image: "/images/og/home.jpg", // ✅ FIX: Using static OG image
     path: "/blog",
   });
 }

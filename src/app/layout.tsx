@@ -24,7 +24,7 @@ export async function generateMetadata() {
     description: home.description,
     baseURL: baseURL,
     path: home.path,
-    image: home.image,
+    image: "/images/og/home.jpg", // ✅ FIX: Using static OG image
   });
 }
 
@@ -39,11 +39,9 @@ export default async function RootLayout({
       as="html"
       lang="en"
       fillWidth
-      // ❌ The old font variables have been removed from here.
       className={classNames()}
     >
       <head>
-        {/* ✅ ADD THESE THREE LINES for Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -59,47 +57,47 @@ export default async function RootLayout({
           id="theme-init"
           dangerouslySetInnerHTML={{
             __html: `
-              (function() {
-                try {
-                  const root = document.documentElement;
-                  const defaultTheme = 'dark';
-                  const config = ${JSON.stringify({
-                    brand: style.brand,
-                    accent: style.accent,
-                    neutral: style.neutral,
-                    solid: style.solid,
-                    "solid-style": style.solidStyle,
-                    border: style.border,
-                    surface: style.surface,
-                    transition: style.transition,
-                    scaling: style.scaling,
-                    "viz-style": dataStyle.variant,
-                  })};
-                  Object.entries(config).forEach(([key, value]) => {
-                    root.setAttribute('data-' + key, value);
-                  });
-                  const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === 'system') {
-                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                    }
-                    return themeValue;
-                  };
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
-                  root.setAttribute('data-theme', resolvedTheme);
-                  const styleKeys = Object.keys(config);
-                  styleKeys.forEach(key => {
-                    const value = localStorage.getItem('data-' + key);
-                    if (value) {
-                      root.setAttribute('data-' + key, value);
-                    }
-                  });
-                } catch (e) {
-                  console.error('Failed to initialize theme:', e);
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                }
-              })();
-            `,
+               (function() {
+                 try {
+                   const root = document.documentElement;
+                   const defaultTheme = 'dark';
+                   const config = ${JSON.stringify({
+                     brand: style.brand,
+                     accent: style.accent,
+                     neutral: style.neutral,
+                     solid: style.solid,
+                     "solid-style": style.solidStyle,
+                     border: style.border,
+                     surface: style.surface,
+                     transition: style.transition,
+                     scaling: style.scaling,
+                     "viz-style": dataStyle.variant,
+                   })};
+                   Object.entries(config).forEach(([key, value]) => {
+                     root.setAttribute('data-' + key, value);
+                   });
+                   const resolveTheme = (themeValue) => {
+                     if (!themeValue || themeValue === 'system') {
+                       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                     }
+                     return themeValue;
+                   };
+                   const savedTheme = localStorage.getItem('data-theme');
+                   const resolvedTheme = resolveTheme(savedTheme);
+                   root.setAttribute('data-theme', resolvedTheme);
+                   const styleKeys = Object.keys(config);
+                   styleKeys.forEach(key => {
+                     const value = localStorage.getItem('data-' + key);
+                     if (value) {
+                       root.setAttribute('data-' + key, value);
+                     }
+                   });
+                 } catch (e) {
+                   console.error('Failed to initialize theme:', e);
+                   document.documentElement.setAttribute('data-theme', 'dark');
+                 }
+               })();
+             `,
           }}
         />
       </head>

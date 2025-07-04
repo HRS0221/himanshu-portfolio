@@ -21,7 +21,7 @@ export async function generateMetadata() {
     title: work.title,
     description: work.description,
     baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(work.title)}`,
+    image: "/images/og/home.jpg", // ✅ FIX: Using static OG image
     path: work.path,
   });
 }
@@ -40,7 +40,7 @@ export default async function Work() {
         path={work.path}
         title={work.title}
         description={work.description}
-        image={`/api/og/generate?title=${encodeURIComponent(work.title)}`}
+        image="/images/og/home.jpg" // ✅ FIX: Using static OG image
         author={{
           name: person.name,
           url: `${baseURL}/about`,
@@ -64,7 +64,6 @@ export default async function Work() {
       {featuredProjects.length > 0 && (
         <Column gap="40">
           <RevealFx>
-            {/* ✅ FIX: Added fillWidth to make the container expand */}
             <Flex vertical="center" gap="20" fillWidth>
                 <Line fillWidth />
                 <Heading as="h2" variant="heading-strong-m" wrap="nowrap">
@@ -86,7 +85,6 @@ export default async function Work() {
       {otherProjects.length > 0 && (
         <Column gap="40" paddingY="32">
           <RevealFx>
-            {/* ✅ FIX: Added fillWidth to make the container expand */}
             <Flex vertical="center" gap="20" fillWidth>
               <Line fillWidth />
               <Heading as="h2" variant="heading-strong-m" wrap="nowrap">

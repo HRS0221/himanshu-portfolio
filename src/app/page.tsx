@@ -1,4 +1,4 @@
-// Complete final code for: src/app/page.tsx
+// src/app/page.tsx
 
 import React from "react";
 import {
@@ -17,8 +17,6 @@ import {
 import { home, about, person, newsletter, baseURL } from "../resources";
 import { Mailchimp } from "../components";
 import SkillsSection from "../components/home/SkillsSection";
-// We are no longer using the custom stylesheet
-// import styles from '@/components/home/HomepageIntro.module.scss';
 
 export default function Home() {
   return (
@@ -29,7 +27,7 @@ export default function Home() {
         path={home.path}
         title={home.title}
         description={home.description}
-        image={`/api/og/generate?title=${encodeURIComponent(home.title)}`}
+        image="/images/og/home.jpg" // ✅ FIX: Using static OG image
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
@@ -37,7 +35,6 @@ export default function Home() {
         }}
       />
 
-      {/* --- ✅ RESTORED INTRO SECTION --- */}
       {/* This structure uses the UI library's components for clean, left-aligned layout */}
       <Column fillWidth paddingY="24" gap="32" horizontal="start">
         {home.featured.display && (
@@ -81,7 +78,6 @@ export default function Home() {
           </RevealFx>
         </Column>
 
-        {/* ✅ START: BUTTON CODE RESTORED TO ORIGINAL */}
         <RevealFx delay={0.3}>
           <Button
             id="about"
@@ -105,7 +101,6 @@ export default function Home() {
             </Flex>
           </Button>
         </RevealFx>
-        {/* ✅ END: BUTTON CODE RESTORED */}
       </Column>
 
       {/* --- SKILLS IN ACTION SECTION --- */}

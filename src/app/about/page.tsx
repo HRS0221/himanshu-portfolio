@@ -108,7 +108,6 @@ const CredentialItem = ({
   </Flex>
 );
 
-// ✅ FIX: Explicitly define the type for our lookup map
 const customIcons: { [key: string]: IconType } = {
   CodeChef: SiCodechef,
   LeetCode: SiLeetcode,
@@ -119,7 +118,7 @@ export async function generateMetadata() {
     title: about.title,
     description: about.description,
     baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
+    image: "/images/og/home.jpg", // ✅ FIX: Using static OG image
     path: about.path,
   });
 }
