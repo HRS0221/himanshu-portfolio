@@ -7,7 +7,7 @@ export {
   articles,
   blog, // ✅ Now exported
   work,
-  gallery,
+  contact,
   skills,
 } from "./content";
 

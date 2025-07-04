@@ -9,7 +9,7 @@ const routes = {
   "/work": true,
   "/blog": true,
   "/articles": true, // This line has been added
-  "/gallery": true,
+  "/contact": true,
 };
 
 const display = {

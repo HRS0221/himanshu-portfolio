@@ -1,0 +1,28 @@
+// src/app/contact/page.module.scss
+
+.mainContent {
+  display: flex;
+  gap: 48px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.formColumn {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.sidebarColumn {
+  flex-basis: 320px;
+  flex-shrink: 0;
+}
+
+.submitButton {
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

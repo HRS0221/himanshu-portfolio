@@ -1,22 +1,31 @@
 "use client";
 
+import React from "react"; // ✅ FIX: Added the missing React import
 import { usePathname } from "next/navigation";
 
 import { Fade, Flex, Line, ToggleButton } from "@once-ui-system/core";
 
 import {
-  routes,
   display,
+  home,
   about,
-  articles,
+  blog,
   work,
-  gallery,
+  contact,
 } from "../resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+
+  const navLinks = [
+    { key: "home", href: "/", icon: "home", data: home, exact: true },
+    { key: "about", href: "/about", icon: "person", data: about, exact: true },
+    { key: "work", href: "/work", icon: "grid", data: work, exact: false },
+    { key: "blog", href: "/blog", icon: "book", data: blog, exact: false },
+    { key: "contact", href: "/contact", icon: "email", data: contact, exact: true },
+  ];
 
   return (
     <>
@@ -41,7 +50,6 @@ export const Header = () => {
         horizontal="center"
         data-border="rounded"
       >
-        {/* This Flex container is now empty but kept for layout structure. You can remove it if it's no longer needed. */}
         <Flex
           paddingLeft="12"
           fillWidth
@@ -64,82 +72,28 @@ export const Header = () => {
               textVariant="body-default-s"
               suppressHydrationWarning
             >
-              {routes["/"] && (
-                <ToggleButton
-                  prefixIcon="home"
-                  href="/"
-                  selected={pathname === "/"}
-                />
-              )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
-              {routes["/about"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="person"
-                    href="/about"
-                    label={about.label}
-                    selected={pathname === "/about"}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="person"
-                    href="/about"
-                    selected={pathname === "/about"}
-                  />
-                </>
-              )}
-              {routes["/work"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="grid"
-                    href="/work"
-                    label={work.label}
-                    selected={pathname.startsWith("/work")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="grid"
-                    href="/work"
-                    selected={pathname.startsWith("/work")}
-                  />
-                </>
-              )}
-              {routes["/blog"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="book"
-                    href="/blog"
-                    label={articles.label || "Articles"}
-                    selected={pathname.startsWith("/blog")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="book"
-                    href="/blog"
-                    selected={pathname.startsWith("/blog")}
-                  />
-                </>
-              )}
-              {routes["/gallery"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="gallery"
-                    href="/gallery"
-                    label={gallery.label}
-                    selected={pathname.startsWith("/gallery")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="gallery"
-                    href="/gallery"
-                    selected={pathname.startsWith("/gallery")}
-                  />
-                </>
-              )}
+              {navLinks.map((link, index) => (
+                link.data && (
+                  <React.Fragment key={link.key}>
+                    {index === 1 && <Line background="neutral-alpha-medium" vert maxHeight="24" />}
+                    
+                    <ToggleButton
+                      className="s-flex-hide"
+                      prefixIcon={link.icon}
+                      href={link.href}
+                      label={link.data.label}
+                      selected={link.exact ? pathname === link.href : pathname.startsWith(link.href)}
+                    />
+                    <ToggleButton
+                      className="s-flex-show"
+                      prefixIcon={link.icon}
+                      href={link.href}
+                      selected={link.exact ? pathname === link.href : pathname.startsWith(link.href)}
+                    />
+                  </React.Fragment>
+                )
+              ))}
+
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
@@ -149,7 +103,6 @@ export const Header = () => {
             </Flex>
           </Flex>
         </Flex>
-         {/* This Flex container is now empty but kept for layout structure. You can remove it if it's no longer needed. */}
         <Flex fillWidth horizontal="end" vertical="center">
           <Flex
             paddingRight="12"

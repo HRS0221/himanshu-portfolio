@@ -58,6 +58,7 @@ const social = [
   },
 ];
 
+
 const home = {
   path: "/",
   image: "/images/og/home.jpg",
@@ -596,56 +597,15 @@ const work = {
   description: `Design and dev projects by ${person.name}`,
 };
 
-const gallery = {
-  path: "/gallery",
-  label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-  ],
+const contact = {
+  path: "/contact",
+  label: "Contact",
+  title: "Get in Touch",
+  description: "Always excited to connect with new people. Feel free to reach out about projects, new opportunities, or anything else.",
 };
 
-// Paste this new array BEFORE the final 'export' block in src/resources/content.js
+
+
 
 const skills = [
   {
@@ -668,6 +628,8 @@ const skills = [
   },
 ];
 
+// At the bottom of src/resources/content.js
+
 export {
   person,
   social,
@@ -677,6 +639,6 @@ export {
   articles,
   blog,
   work,
-  gallery,
+  contact, // ✅ Make sure this line is here
   skills,
 };
