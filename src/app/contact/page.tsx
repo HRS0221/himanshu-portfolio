@@ -53,29 +53,35 @@ export default function Contact() {
 
       {/* --- Main Content Area (2-Column) --- */}
       <RevealFx delay={0.1}>
-        {/* ✅ This Flex wrapper ensures the two-column layout is centered */}
         <Flex fillWidth horizontal="center">
           <div className={styles.mainContent}>
 
             {/* --- Left Column: Contact Form --- */}
-            <Column as="form" className={styles.formColumn} gap="24">
-              <Heading as="h2" variant="heading-default-m">Send a Message</Heading>
-              <Column gap="16">
-                <Text as="label" htmlFor="name" variant="body-default-m">Name</Text>
-                <Input type="text" id="name" name="name" placeholder="Your Name" />
+            {/* ✅ FIX: Replaced <Column as="form"> with a standard <form> tag */}
+            <form
+              action="https://usebasin.com/f/5996bdcef23c"
+              method="POST"
+              className={styles.formColumn}
+            >
+              <Column gap="24">
+                <Heading as="h2" variant="heading-default-m">Send a Message</Heading>
+                <Column gap="16">
+                  <Text as="label" htmlFor="name" variant="body-default-m">Name</Text>
+                  <Input type="text" id="name" name="name" placeholder="Your Name" />
+                </Column>
+                <Column gap="16">
+                  <Text as="label" htmlFor="email" variant="body-default-m">Email</Text>
+                  <Input type="email" id="email" name="email" placeholder="your.email@example.com" />
+                </Column>
+                <Column gap="16">
+                  <Text as="label" htmlFor="message" variant="body-default-m">Message</Text>
+                  <Textarea id="message" name="message" placeholder="Your message..." rows={5} />
+                </Column>
+                <Flex horizontal="start" paddingTop="8">
+                  <Button type="submit" size="l" className={styles.submitButton}>Send Message</Button>
+                </Flex>
               </Column>
-              <Column gap="16">
-                <Text as="label" htmlFor="email" variant="body-default-m">Email</Text>
-                <Input type="email" id="email" name="email" placeholder="your.email@example.com" />
-              </Column>
-              <Column gap="16">
-                <Text as="label" htmlFor="message" variant="body-default-m">Message</Text>
-                <Textarea id="message" name="message" placeholder="Your message..." rows={5} />
-              </Column>
-              <Flex horizontal="start" paddingTop="8">
-                <Button type="submit" size="l" className={styles.submitButton}>Send Message</Button>
-              </Flex>
-            </Column>
+            </form>
 
             {/* --- Right Column: Other Info --- */}
             <Column className={styles.sidebarColumn} gap="32">
@@ -98,8 +104,8 @@ export default function Contact() {
                   I'll do my best to get back to you within 24-48 hours.
                 </Text>
               </Column>
-
             </Column>
+            
           </div>
         </Flex>
       </RevealFx>
