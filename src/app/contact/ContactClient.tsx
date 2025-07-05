@@ -1,4 +1,4 @@
-"use client"; // Marks this as a Client Component
+"use client";
 
 import { useState } from "react";
 import {
@@ -15,7 +15,6 @@ import {
 import { person } from "../../resources";
 import styles from "./page.module.scss";
 
-// All the form logic and state management now lives here
 export default function ContactClient() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -33,9 +32,10 @@ export default function ContactClient() {
     setStatus("submitting");
 
     try {
-      const response = await fetch("https://usebasin.com/f/5996bdcef23c", {
+      // ✅ THIS IS THE FINAL CHANGE: We are now calling your own API.
+      const response = await fetch("/api/submit-form", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -51,30 +51,60 @@ export default function ContactClient() {
     }
   };
 
+  const handleCloseModal = () => {
+    setStatus("idle");
+  };
+
   return (
     <>
-      {/* Success/error pop-up message */}
-      {status === "success" && (
-        <RevealFx>
-          <Flex background="accent-weak" padding="16" radius="l" gap="12" vertical="center" border="accent-alpha-medium">
-            <Icon name="check" onBackground="accent-strong" />
-            <Text onBackground="accent-strong">Your message has been sent successfully!</Text>
-          </Flex>
-        </RevealFx>
-      )}
-      {status === "error" && (
-         <RevealFx>
-          <Flex background="danger-weak" padding="16" radius="l" gap="12" vertical="center" border="danger-alpha-medium">
-            <Icon name="warning" onBackground="danger-strong" />
-            <Text onBackground="danger-strong">Something went wrong. Please try again.</Text>
-          </Flex>
-        </RevealFx>
+      {(status === "success" || status === "error") && (
+        <div className={styles.modalOverlay} onClick={handleCloseModal}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <Column horizontal="center" gap="16">
+              {status === "success" && (
+                <>
+                  <Icon name="check" onBackground="accent-strong" size="xl" />
+                  <Heading as="h3" variant="heading-default-m">Message Sent!</Heading>
+                  <Text onBackground="neutral-weak" align="center">
+                    Your message has been sent successfully. I'll get back to you shortly.
+                  </Text>
+                  <Button
+                    onClick={handleCloseModal}
+                    variant="primary"
+                    fillWidth
+                    className={styles.modalCloseButton}
+                    prefixIcon="close"
+                  >
+                    Close
+                  </Button>
+                </>
+              )}
+              {status === "error" && (
+                 <>
+                  <Icon name="warning" onBackground="danger-strong" size="xl" />
+                  <Heading as="h3" variant="heading-default-m">Oops!</Heading>
+                  <Text onBackground="neutral-weak" align="center">
+                    Something went wrong. Please try sending your message again.
+                  </Text>
+                  <Button
+                    onClick={handleCloseModal}
+                    variant="danger"
+                    fillWidth
+                    className={styles.modalCloseButton}
+                    prefixIcon="close"
+                  >
+                    Close
+                  </Button>
+                </>
+              )}
+            </Column>
+          </div>
+        </div>
       )}
 
       <RevealFx delay={0.1}>
         <Flex fillWidth horizontal="center">
           <div className={styles.mainContent}>
-            {/* The interactive form */}
             <form onSubmit={handleSubmit} className={styles.formColumn}>
               <Column gap="24">
                 <Heading as="h2" variant="heading-default-m">Send a Message</Heading>
@@ -98,7 +128,6 @@ export default function ContactClient() {
               </Column>
             </form>
 
-            {/* The sidebar content */}
             <Column className={styles.sidebarColumn} gap="32">
               <Column gap="16">
                 <Heading as="h2" variant="heading-default-m">Other Ways to Reach Me</Heading>
