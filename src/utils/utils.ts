@@ -69,13 +69,24 @@ function getMDXData(dir: string): MdxContent[] {
 }
 
 export function getAllProjects(): MdxContent[] {
-  // ✅ REMOVED: Date sorting is no longer needed here
-  return getMDXData("src/app/work/projects");
+  const projects = getMDXData("src/app/work/projects");
+  
+  // Sort by publishedAt date (newest first)
+  return projects.sort((a, b) => {
+    const dateA = new Date(a.metadata.publishedAt);
+    const dateB = new Date(b.metadata.publishedAt);
+    return dateB.getTime() - dateA.getTime();
+  });
 }
 
 export function getProjectBySlug(slug: string): MdxContent | undefined {
   const allProjects = getAllProjects();
   return allProjects.find((p) => p.slug === slug);
+}
+
+export function getMostRecentProject(): MdxContent | null {
+  const projects = getAllProjects();
+  return projects.length > 0 ? projects[0] : null;
 }
 
 export function getAllArticles() {
@@ -90,3 +101,4 @@ export function getAllArticles() {
     content: "",
   }));
 }
+

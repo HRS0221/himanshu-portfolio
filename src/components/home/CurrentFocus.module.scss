@@ -1,0 +1,93 @@
+.currentFocus {
+  width: 100%;
+  padding: 48px 0;
+}
+
+.focusGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.focusCard {
+  background: rgba(var(--color-surface-rgb), 0.5);
+  border: 1px solid rgba(var(--color-border-neutral-alpha-weak-rgb), 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    border-color: rgba(var(--color-brand-weak-rgb), 0.3);
+    background: rgba(var(--color-surface-rgb), 0.7);
+  }
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(var(--color-brand-weak-rgb), 0.1);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.focusTitle {
+  color: var(--color-text-neutral-strong);
+}
+
+.focusDescription {
+  line-height: 1.5;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.active {
+  background: rgba(34, 197, 94, 0.1);
+  color: rgb(34, 197, 94);
+}
+
+.ongoing {
+  background: rgba(59, 130, 246, 0.1);
+  color: rgb(59, 130, 246);
+}
+
+.learning {
+  background: rgba(245, 158, 11, 0.1);
+  color: rgb(245, 158, 11);
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .focusGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .currentFocus {
+    padding: 32px 0;
+  }
+  
+  .focusCard {
+    padding: 20px;
+    gap: 12px;
+  }
+  
+  .iconContainer {
+    width: 40px;
+    height: 40px;
+  }
+} 

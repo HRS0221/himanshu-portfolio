@@ -81,11 +81,12 @@ export default async function Work() {
             </Flex>
           </RevealFx>
           {featuredProjects.map((project, index) => (
-          <FeaturedProjectCard
-              key={project.slug}
-              project={project}
-              index={index}
-          />
+          <div key={project.slug} id={`project-${project.slug}`}>
+            <FeaturedProjectCard
+                project={project}
+                index={index}
+            />
+          </div>
           ))}
         </Column>
       )}
@@ -104,7 +105,7 @@ export default async function Work() {
 
           <Flex wrap gap="24" className={styles.gridContainer}>
             {otherProjects.map((project, index) => (
-              <div key={project.slug} className={styles.gridItem}>
+              <div key={project.slug} id={`project-${project.slug}`} className={styles.gridItem}>
                 <ProjectGridCard
                   project={project}
                   index={index}

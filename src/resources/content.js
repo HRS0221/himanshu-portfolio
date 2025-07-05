@@ -51,11 +51,6 @@ const social = [
     icon: "x",
     link: "https://x.com/Wiser_0221",
   },
-  {
-    name: "Email",
-    icon: "email",
-    link: `mailto:${person.email}`,
-  },
 ];
 
 
