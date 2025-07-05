@@ -5,9 +5,13 @@
 
 .articlesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 320px);
   gap: 24px;
   margin-bottom: 32px;
+  justify-content: center;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .articleCard {
@@ -16,6 +20,8 @@
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.2s ease;
+  width: 320px;
+  max-width: 100%;
   
   &:hover {
     transform: translateY(-4px);
@@ -61,18 +67,56 @@
   opacity: 0.7;
 }
 
-// Mobile responsiveness
-@media (max-width: 768px) {
+// Large tablet responsiveness
+@media (max-width: 1024px) {
   .articlesGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 320px);
     gap: 20px;
+    padding: 0 16px;
+  }
+}
+
+// Tablet responsiveness
+@media (max-width: 768px) {
+  .recentArticles {
+    padding: 32px 16px;
   }
   
-  .recentArticles {
-    padding: 32px 0;
+  .articlesGrid {
+    grid-template-columns: repeat(2, 280px);
+    gap: 16px;
+    padding: 0;
+  }
+  
+  .articleCard {
+    width: 280px;
   }
   
   .imageContainer {
     height: 160px;
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 640px) {
+  .articlesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+  }
+  
+  .articleCard {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .articlesGrid {
+    max-width: 100%;
+  }
+  
+  .articleCard {
+    max-width: 100%;
   }
 } 

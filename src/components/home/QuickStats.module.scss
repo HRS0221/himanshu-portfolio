@@ -3,23 +3,37 @@
   padding: 48px 0;
 }
 
+.headingSection {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 32px auto;
+  padding: 0 16px;
+}
+
 .statsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 280px);
   gap: 24px;
   margin-bottom: 32px;
+  justify-content: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .statCard {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background: rgba(var(--color-surface-rgb), 0.5);
   border: 1px solid rgba(var(--color-border-neutral-alpha-weak-rgb), 0.2);
   border-radius: 12px;
   padding: 24px;
   text-align: center;
   transition: all 0.2s ease;
+  min-height: 200px;
+  width: 280px;
   
   &:hover {
     transform: translateY(-4px);
@@ -35,40 +49,88 @@
   color: var(--color-text-brand-default);
   margin-bottom: 8px;
   line-height: 1;
+  text-align: center;
 }
 
 .statLabel {
   margin-bottom: 8px;
   color: var(--color-text-neutral-strong);
+  text-align: center;
+  width: 100%;
 }
 
 .statDescription {
   opacity: 0.7;
   line-height: 1.4;
+  text-align: center;
+  width: 100%;
 }
 
-// Mobile responsiveness
-@media (max-width: 768px) {
+// Large desktop responsiveness
+@media (max-width: 1200px) {
   .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(2, 280px);
+    gap: 20px;
+    padding: 0 16px;
+  }
+}
+
+// Tablet responsiveness
+@media (max-width: 768px) {
+  .quickStats {
+    padding: 32px 16px;
   }
   
-  .quickStats {
-    padding: 32px 0;
+  .headingSection {
+    padding: 0;
+  }
+  
+  .statsGrid {
+    grid-template-columns: repeat(2, 260px);
+    gap: 16px;
+    padding: 0;
   }
   
   .statCard {
-    padding: 20px;
+    padding: 20px 16px;
+    min-height: 180px;
+    width: 260px;
   }
   
   .statNumber {
     font-size: 2rem;
   }
+  
+  .statLabel {
+    font-size: 0.9rem;
+  }
+  
+  .statDescription {
+    font-size: 0.8rem;
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 640px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 400px;
+  }
+  
+  .statCard {
+    width: 100%;
+    max-width: 400px;
+    min-height: 160px;
+  }
 }
 
 @media (max-width: 480px) {
   .statsGrid {
-    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  
+  .statCard {
+    max-width: 100%;
   }
 } 

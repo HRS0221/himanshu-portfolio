@@ -1,29 +1,18 @@
 import { Column, Heading, Text, RevealFx, Flex } from "@once-ui-system/core";
 import styles from "./QuickStats.module.scss";
+import { calculateStatsFromData, getProjectsCount } from "../../utils/utils";
 
 export default function QuickStats() {
-  const stats = [
-    {
-      number: "50+",
-      label: "Articles Published",
-      description: "AI & ML insights on LinkedIn"
-    },
-    {
-      number: "2",
-      label: "National Hackathons",
-      description: "SIH 2022, SUNHACKS 2022"
-    },
-    {
-      number: "5+",
-      label: "Certifications",
-      description: "DataCamp, Google"
-    },
-  ];
+  // Get the actual projects count from the server
+  const projectsCount = getProjectsCount();
+  
+  // Automatically calculate stats from About section data
+  const stats = calculateStatsFromData(projectsCount);
 
   return (
     <section className={styles.quickStats}>
-      <RevealFx>
-        <Flex fillWidth horizontal="center" marginBottom="32">
+      <div className={styles.headingSection}>
+        <RevealFx>
           <Column horizontal="center" gap="16" maxWidth="s">
             <Heading as="h2" variant="display-strong-m" align="center">
               By the Numbers
@@ -32,8 +21,8 @@ export default function QuickStats() {
               A quick overview of my journey and achievements
             </Text>
           </Column>
-        </Flex>
-      </RevealFx>
+        </RevealFx>
+      </div>
 
       <div className={styles.statsGrid}>
         {stats.map((stat, index) => (

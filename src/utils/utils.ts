@@ -102,3 +102,66 @@ export function getAllArticles() {
   }));
 }
 
+// Server-side function to count project files
+export const getProjectsCount = () => {
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const projectsDir = path.join(process.cwd(), 'src/app/work/projects');
+    if (fs.existsSync(projectsDir)) {
+      const files = fs.readdirSync(projectsDir);
+      return files.filter((file: string) => file.endsWith('.mdx')).length;
+    }
+  } catch (error) {
+    console.error('Error counting projects:', error);
+  }
+  return 7; // Fallback count
+};
+
+// Function to calculate stats from About section data
+export const calculateStatsFromData = (projectsCount?: number) => {
+  // Import the data dynamically to avoid circular dependencies
+  const { articles, about } = require('../resources/content');
+  
+  // Calculate articles count
+  const articlesCount = articles.items.length;
+  
+  // Calculate hackathons count from achievements - only count participation, not organization
+  const hackathonsCount = about.achievements.items.filter((achievement: any) => 
+    (achievement.title.toLowerCase().includes('hackathon') || 
+     achievement.title.toLowerCase().includes('sih') ||
+     achievement.title.toLowerCase().includes('sunhacks')) &&
+    !achievement.title.toLowerCase().includes('lead') &&
+    !achievement.title.toLowerCase().includes('organiz')
+  ).length;
+  
+  // Calculate certifications count
+  const certificationsCount = about.credentials.items.length;
+  
+  // Use provided projects count or fallback to 7
+  const finalProjectsCount = projectsCount || 7;
+  
+  return [
+    {
+      number: `${articlesCount}+`,
+      label: "Articles Published",
+      description: "AI & ML insights on LinkedIn"
+    },
+    {
+      number: hackathonsCount.toString(),
+      label: "National Hackathons",
+      description: "SIH 2022, SUNHACKS 2022"
+    },
+    {
+      number: `${certificationsCount}+`,
+      label: "Certifications",
+      description: "DataCamp, Google"
+    },
+    {
+      number: `${finalProjectsCount}+`,
+      label: "Projects Completed",
+      description: "AI, ML & Data Science"
+    },
+  ];
+};
+
