@@ -41,7 +41,7 @@ export default async function Work() {
   // ✅ END: NEW LOGIC FOR FILTERING AND RANKING
 
   return (
-    <Column maxWidth="m" gap="40" paddingY="64">
+    <Column maxWidth="m" gap="40" paddingY="32">
       <Schema
         as="webPage"
         baseURL={baseURL}
