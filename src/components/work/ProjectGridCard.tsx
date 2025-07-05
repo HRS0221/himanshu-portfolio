@@ -1,10 +1,7 @@
-// src/components/work/ProjectGridCard.tsx
-
 import {
   Column,
   Flex,
   Heading,
-  Media,
   Tag,
   Button,
   RevealFx,
@@ -12,10 +9,23 @@ import {
 } from "@once-ui-system/core";
 import type { MdxContent } from "../../utils/utils";
 import styles from "./ProjectGridCard.module.scss";
+import ProjectImageCarousel from "./ProjectImageCarousel";
 
 interface ProjectGridCardProps {
   project: MdxContent;
   index: number;
+}
+
+function formatDate(dateString: string) {
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  if (!dateString || isNaN(new Date(dateString).getTime())) {
+    return "Date not available";
+  }
+  return new Date(dateString).toLocaleDateString("en-US", options);
 }
 
 export default function ProjectGridCard({
@@ -30,36 +40,50 @@ export default function ProjectGridCard({
         border="neutral-alpha-weak"
         radius="l"
       >
-        <a
-          href={project.metadata.outputLink || project.metadata.link || "#"}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Media
-            className={styles.projectImage}
-            src={
-              project.metadata.images?.[0] ||
-              "/images/projects/placeholder.jpg"
-            }
-            alt={project.metadata.title}
-            aspectRatio="16 / 10"
+        <div className={styles.imageContainer}>
+          <ProjectImageCarousel
+            images={project.metadata.images || []}
+            title={project.metadata.title}
+            projectIndex={index}
           />
-        </a>
+        </div>
 
-        {/* ✅ FIX: Removed the invalid 'flexGrow' prop. The stylesheet handles this. */}
         <Column className={styles.contentWrapper} gap="16">
-          {project.metadata.tag && (
-            <Tag label={project.metadata.tag} variant="neutral" />
-          )}
+          <Flex gap="8" vertical="center" wrap>
+            <Tag label={project.metadata.tag || "Project"} variant="neutral" size="s" />
+            <Text size="s" onBackground="neutral-medium">•</Text>
+            <Text size="s" onBackground="neutral-medium">
+              {formatDate(project.metadata.publishedAt)}
+            </Text>
+          </Flex>
 
           <Heading as="h4" variant="heading-strong-s">
             {project.metadata.title}
           </Heading>
 
-          {project.metadata.summary && (
-            <Text onBackground="neutral-weak" size="s">
-              {project.metadata.summary}
-            </Text>
+          {project.metadata.summary && Array.isArray(project.metadata.summary) ? (
+            <Column
+              as="ul"
+              className={styles.summaryList}
+              style={{ paddingLeft: '20px' }}
+            >
+              {project.metadata.summary.map((point, i) => (
+                <Text
+                  as="li"
+                  key={i}
+                  onBackground="neutral-weak"
+                  size="s"
+                  className={styles.summaryListItem}
+                  dangerouslySetInnerHTML={{ __html: point }}
+                />
+              ))}
+            </Column>
+          ) : (
+            <Text
+              onBackground="neutral-weak"
+              size="s"
+              dangerouslySetInnerHTML={{ __html: project.metadata.summary || "" }}
+            />
           )}
 
           {project.metadata.techStack &&
@@ -80,6 +104,7 @@ export default function ProjectGridCard({
               variant="primary"
               size="m"
               arrowIcon
+              className={styles.projectButton}
             >
               View Code
             </Button>
@@ -91,6 +116,7 @@ export default function ProjectGridCard({
               variant="secondary"
               size="m"
               arrowIcon
+              className={styles.projectButton}
             >
               View Output
             </Button>

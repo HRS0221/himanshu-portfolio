@@ -1,5 +1,3 @@
-// Complete code for the NEW file: src/components/work/FeaturedProjectCard.module.scss
-
 .cardContainer {
   display: flex;
   flex-direction: row;
@@ -8,38 +6,81 @@
   width: 100%;
   padding: 24px 0;
 
-  // On mobile, stack everything vertically
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 24px;
   }
 }
 
-// Modifier for the reversed layout (image on the right)
 .cardContainer.reversed {
   flex-direction: row-reverse;
 
   @media (max-width: 768px) {
-    flex-direction: column; // Keep it stacked on mobile
+    flex-direction: column;
   }
 }
 
 .imageWrapper {
-  flex: 1.2; // Make the image column slightly larger
+  display: block;
+  flex: 1.2;
   min-width: 0;
-
-  .projectImage {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-
-    &:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    }
+  border-radius: var(--radius-l);
+  overflow: hidden; 
+  box-shadow: none; // Removed box-shadow to eliminate white line
+  transition: transform 0.3s ease;
+  max-height: 400px; // Set a reasonable max height
+  border: none !important; // Ensure no borders
+  outline: none !important; // Remove any outlines
+  text-decoration: none !important; // Remove any text decoration
+  
+  &:hover {
+    transform: scale(1.03);
   }
 }
 
+.projectImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important; // Changed to cover to eliminate gaps
+  background-color: #f5f5f5; // Light background for any empty space
+  border-radius: var(--radius-l) !important; // Force border radius
+  border-top-left-radius: var(--radius-l) !important;
+  border-top-right-radius: var(--radius-l) !important;
+  border-bottom-left-radius: var(--radius-l) !important;
+  border-bottom-right-radius: var(--radius-l) !important;
+  border: none !important; // Remove any borders
+  outline: none !important; // Remove any outlines
+  box-shadow: none !important; // Remove any box shadows
+}
+
 .textWrapper {
-  flex: 1; // The text column
+  flex: 1;
   min-width: 0;
+}
+
+.summaryList {
+  gap: 0;
+  margin: 0;
+}
+
+.summaryListItem {
+  padding-bottom: 2px;
+  margin-bottom: 0;
+}
+
+// --- Glowing effect for project buttons ---
+.projectButton {
+  --glow-rgb: 139, 92, 246; // Violet glow (same as contact form)
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(var(--glow-rgb), 0.35),
+                0 0 30px rgba(var(--glow-rgb), 0.2);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
 }

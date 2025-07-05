@@ -9,6 +9,8 @@ export type Team = {
   avatar: string;
   linkedIn: string;
 };
+
+// ✅ ADDED: 'featured' and 'order' to the Metadata type
 export type Metadata = {
   title: string;
   publishedAt: string;
@@ -20,7 +22,10 @@ export type Metadata = {
   link?: string;
   outputLink?: string;
   techStack?: string[];
+  featured?: boolean;
+  order?: number;
 };
+
 export type MdxContent = { metadata: Metadata; slug: string; content: string };
 
 function getMDXFiles(dir: string) {
@@ -43,6 +48,8 @@ function getMDXData(dir: string): MdxContent[] {
   return mdxFiles.map((file) => {
     const { data, content } = readMDXFile(path.join(process.cwd(), dir, file));
     const slug = path.basename(file, path.extname(file));
+    
+    // ✅ ADDED: Logic to read the new properties
     const metadata: Metadata = {
       title: data.title || "Untitled Project",
       publishedAt: data.publishedAt || new Date().toISOString(),
@@ -54,18 +61,16 @@ function getMDXData(dir: string): MdxContent[] {
       link: data.link || "",
       outputLink: data.outputLink || "",
       techStack: data.techStack || [],
+      featured: data.featured || false, // Default to not featured
+      order: data.order || 999,      // Default to a high number to appear last
     };
     return { metadata, slug, content };
   });
 }
 
 export function getAllProjects(): MdxContent[] {
-  const projects = getMDXData("src/app/work/projects");
-  return projects.sort(
-    (a, b) =>
-      new Date(b.metadata.publishedAt).getTime() -
-      new Date(a.metadata.publishedAt).getTime()
-  );
+  // ✅ REMOVED: Date sorting is no longer needed here
+  return getMDXData("src/app/work/projects");
 }
 
 export function getProjectBySlug(slug: string): MdxContent | undefined {

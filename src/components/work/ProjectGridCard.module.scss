@@ -1,5 +1,5 @@
 .card {
-  padding: 20px; // or var(--o-spacing-20) if you have it
+  padding: 20px;
   overflow: hidden;
   transition:
     transform 0.3s ease,
@@ -13,14 +13,14 @@
   }
 }
 
-.projectImage {
-  width: 100%;
+.imageContainer {
+  margin-bottom: 16px;
   border-radius: 12px;
-  margin-bottom: 16px; // Space below image
-  object-fit: cover;
-
+  overflow: hidden;
+  
   .card:hover & {
     transform: scale(1.05);
+    transition: transform 0.3s ease;
   }
 }
 
@@ -28,12 +28,40 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px; // Space between tag, title, summary, tech stack
-  margin-bottom: 16px; // Space below content before buttons
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .buttonWrapper {
   display: flex;
   gap: 12px;
-  margin-top: 8px; // Space above buttons
+  margin-top: 8px;
+}
+
+/* ✅ START: ADDED STYLES FOR SUMMARY LIST */
+.summaryList {
+  gap: 0; // Explicitly set gap to 0 to override defaults
+  margin: 0;
+}
+
+.summaryListItem {
+  padding-bottom: 2px; // Adds a small, tight space between points
+  margin-bottom: 0;    // Removes any default margin from the Text component
+}
+/* ✅ END: ADDED STYLES FOR SUMMARY LIST */
+
+// --- Glowing effect for project buttons ---
+.projectButton {
+  --glow-rgb: 139, 92, 246; // Violet glow (same as contact form)
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(var(--glow-rgb), 0.35),
+                0 0 30px rgba(var(--glow-rgb), 0.2);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
 }

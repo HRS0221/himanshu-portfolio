@@ -7,11 +7,13 @@ import {
   HiEnvelope,
   HiCalendarDays,
   HiArrowRight,
+  HiArrowLeft,
   HiOutlineEye,
   HiOutlineEyeSlash,
   HiOutlineDocument,
   HiOutlineGlobeAsiaAustralia,
   HiOutlineRocketLaunch,
+  HiXMark,
 } from "react-icons/hi2";
 
 import {
@@ -27,6 +29,8 @@ import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads } from "react-icons/fa6
 export const iconLibrary: Record<string, IconType> = {
   arrowUpRight: HiArrowUpRight,
   arrowRight: HiArrowRight,
+  arrowLeft: HiArrowLeft,
+  close: HiXMark,
   email: HiEnvelope,
   globe: HiOutlineGlobeAsiaAustralia,
   person: PiUserCircleDuotone,

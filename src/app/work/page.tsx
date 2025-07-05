@@ -21,16 +21,24 @@ export async function generateMetadata() {
     title: work.title,
     description: work.description,
     baseURL: baseURL,
-    image: "/images/og/home.jpg", // ✅ FIX: Using static OG image
+    image: "/images/og/home.jpg",
     path: work.path,
   });
 }
 
 export default async function Work() {
   const allProjects = getAllProjects();
-  const numberOfFeatured = 3;
-  const featuredProjects = allProjects.slice(0, numberOfFeatured);
-  const otherProjects = allProjects.slice(numberOfFeatured);
+  
+  // ✅ START: NEW LOGIC FOR FILTERING AND RANKING
+  // Filter projects into two groups based on the 'featured' flag
+  const featuredProjects = allProjects
+    .filter((p) => p.metadata.featured)
+    .sort((a, b) => a.metadata.order! - b.metadata.order!);
+
+  const otherProjects = allProjects
+    .filter((p) => !p.metadata.featured)
+    .sort((a, b) => a.metadata.order! - b.metadata.order!);
+  // ✅ END: NEW LOGIC FOR FILTERING AND RANKING
 
   return (
     <Column maxWidth="m" gap="40" paddingY="64">
@@ -40,7 +48,7 @@ export default async function Work() {
         path={work.path}
         title={work.title}
         description={work.description}
-        image="/images/og/home.jpg" // ✅ FIX: Using static OG image
+        image="/images/og/home.jpg"
         author={{
           name: person.name,
           url: `${baseURL}/about`,
