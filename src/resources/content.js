@@ -25,6 +25,8 @@ const newsletter = {
       living in an AI-driven world.
     </>
   ),
+  imagePath: "/images/newsletter/NewsletterImg.png",
+  subscribeLink: "https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7085106786910769152",
 };
 
 const social = [

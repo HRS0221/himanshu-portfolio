@@ -15,7 +15,7 @@ import {
 } from "@once-ui-system/core";
 
 import { home, about, person, newsletter, baseURL } from "../resources";
-import { Mailchimp } from "../components";
+import NewsletterCard from "../components/NewsletterCard";
 import RecentArticles from "../components/home/RecentArticles";
 import QuickStats from "../components/home/QuickStats";
 import CurrentFocus from "../components/home/CurrentFocus";
@@ -49,7 +49,7 @@ export default function Home() {
         path={home.path}
         title={home.title}
         description={home.description}
-        image="/images/og/home.jpg" // ✅ FIX: Using static OG image
+        image="/images/og/home.jpg"
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
@@ -131,26 +131,23 @@ export default function Home() {
         </RevealFx>
       </Column>
 
-      {/* Quick Stats Section */}
-      <QuickStats />
+      {/* Current Focus Section */}
+      <CurrentFocus />
 
       {/* Recent Articles Section */}
       <RecentArticles />
 
-      {/* Current Focus Section */}
-      <CurrentFocus />
+      {/* Quick Stats Section */}
+      <QuickStats />
 
-      {/* Enhanced Newsletter Section */}
+      {/* Newsletter Section */}
       {newsletter.display && (
-        <div style={{ 
-          background: "rgba(var(--color-surface-rgb), 0.3)",
-          borderRadius: "16px",
-          padding: "32px",
-          border: "1px solid rgba(var(--color-border-neutral-alpha-weak-rgb), 0.2)",
-          marginTop: "32px"
-        }}>
-          <Mailchimp newsletter={newsletter} />
-        </div>
+        <NewsletterCard
+          title={newsletter.title}
+          description={newsletter.description}
+          imagePath={newsletter.imagePath}
+          subscribeLink={newsletter.subscribeLink}
+        />
       )}
     </Column>
   );

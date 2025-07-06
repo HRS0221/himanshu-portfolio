@@ -1,6 +1,6 @@
 .quickStats {
   width: 100%;
-  padding: 48px 0;
+  padding: 32px 0;
 }
 
 .headingSection {
@@ -31,9 +31,11 @@
   border-radius: 12px;
   padding: 24px;
   text-align: center;
-  transition: all 0.2s ease;
   min-height: 200px;
   width: 280px;
+  
+  // Only apply transitions to specific properties that should animate
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
   
   &:hover {
     transform: translateY(-4px);
@@ -50,6 +52,19 @@
   margin-bottom: 8px;
   line-height: 1;
   text-align: center;
+  position: relative;
+  z-index: 1;
+  
+  // Add subtle pulsing animation to make numbers feel alive
+  animation: numberPulse 3s ease-in-out infinite;
+}
+
+.animatedNumber {
+  display: inline-block;
+  transition: all 0.1s ease;
+  
+  // Add a subtle glow effect to the animated numbers
+  text-shadow: 0 0 10px rgba(var(--color-brand-rgb), 0.3);
 }
 
 .statLabel {
@@ -66,6 +81,18 @@
   width: 100%;
 }
 
+// Animation keyframes for subtle number pulsing
+@keyframes numberPulse {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 0 10px rgba(var(--color-brand-rgb), 0.3);
+  }
+  50% {
+    transform: scale(1.08);
+    text-shadow: 0 0 20px rgba(var(--color-brand-rgb), 0.5);
+  }
+}
+
 // Large desktop responsiveness
 @media (max-width: 1200px) {
   .statsGrid {
@@ -78,7 +105,7 @@
 // Tablet responsiveness
 @media (max-width: 768px) {
   .quickStats {
-    padding: 32px 16px;
+    padding: 24px 16px;
   }
   
   .headingSection {

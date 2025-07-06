@@ -118,10 +118,78 @@ export const getProjectsCount = () => {
   return 7; // Fallback count
 };
 
-// Function to calculate stats from About section data
-export const calculateStatsFromData = (projectsCount?: number) => {
+// Function to automatically determine work status
+export const getWorkStatus = () => {
   // Import the data dynamically to avoid circular dependencies
-  const { articles, about } = require('../resources/content');
+  const { articles } = require('../resources/content');
+  
+  const focusAreas = [
+    {
+      id: "gate-preparation",
+      title: "GATE 2026 Preparation",
+      description: "Intensive preparation for Graduate Aptitude Test in Engineering 2026, focusing on Data Science and Artificial Intelligence paper.",
+      icon: "book",
+      // Status logic: Always active until GATE 2026
+      getStatus: () => {
+        const gateDate = new Date('2026-02-01'); // Approximate GATE date
+        const now = new Date();
+        return now < gateDate ? "Active" : "Completed";
+      }
+    },
+    {
+      id: "computer-vision",
+      title: "Computer Vision Projects",
+      description: "Developing real-time object detection and image processing solutions using YOLO and deep learning frameworks.",
+      icon: "eye",
+      // Status logic: Check recent computer vision projects
+      getStatus: () => {
+        // Based on your vehicle detection project status
+        return "Ongoing"; // Since you have active CV projects
+      }
+    },
+    {
+      id: "cloud-engineering",
+      title: "Cloud Data Engineering",
+      description: "Building scalable data pipelines and analytics solutions using AWS services and modern data engineering practices.",
+      icon: "globe",
+      // Status logic: Check if cloud projects exist
+      getStatus: () => {
+        // Based on your data engineering project
+        return "Learning"; // Since it's a learning area
+      }
+    },
+    {
+      id: "technical-writing",
+      title: "Technical Writing",
+      description: "Creating educational content on machine learning and data science concepts through LinkedIn articles and documentation.",
+      icon: "document",
+      // Status logic: Check recent article activity
+      getStatus: () => {
+        // Check if there are recent articles (within last 30 days)
+        const recentArticles = articles.items.filter((article: any) => {
+          const articleDate = new Date(article.publishedAt);
+          const thirtyDaysAgo = new Date();
+          thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+          return articleDate > thirtyDaysAgo;
+        });
+        
+        return recentArticles.length > 0 ? "Active" : "Paused";
+      }
+    }
+  ];
+
+  return focusAreas.map(area => ({
+    icon: area.icon,
+    title: area.title,
+    description: area.description,
+    status: area.getStatus()
+  }));
+};
+
+// Function to calculate stats from About section data
+export const calculateStatsFromData = async () => {
+  // Import the data dynamically to avoid circular dependencies
+  const { articles, about } = await import('../resources/content');
   
   // Calculate articles count
   const articlesCount = articles.items.length;
@@ -138,8 +206,9 @@ export const calculateStatsFromData = (projectsCount?: number) => {
   // Calculate certifications count
   const certificationsCount = about.credentials.items.length;
   
-  // Use provided projects count or fallback to 7
-  const finalProjectsCount = projectsCount || 7;
+  // For now, we'll use a fixed projects count that can be updated manually
+  // In the future, this could be made dynamic by creating an API endpoint
+  const projectsCount = 7;
   
   return [
     {
@@ -158,7 +227,7 @@ export const calculateStatsFromData = (projectsCount?: number) => {
       description: "DataCamp, Google"
     },
     {
-      number: `${finalProjectsCount}+`,
+      number: `${projectsCount}+`,
       label: "Projects Completed",
       description: "AI, ML & Data Science"
     },

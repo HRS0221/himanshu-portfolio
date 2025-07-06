@@ -1,38 +1,66 @@
+"use client";
+
 import { Column, Heading, Text, RevealFx, Flex, Icon } from "@once-ui-system/core";
 import styles from "./CurrentFocus.module.scss";
+import { getWorkStatus } from "../../utils/utils";
+import { useState, useEffect, useMemo } from "react";
 
 export default function CurrentFocus() {
-  const focusItems = [
+  const [focusItems, setFocusItems] = useState([
     {
-      icon: "school",
+      icon: "book",
       title: "GATE 2026 Preparation",
-      description: "Intensive preparation for Graduate Aptitude Test in Engineering 2026, focusing on Computer Science and Information Technology subjects.",
+      description: "Intensive preparation for Graduate Aptitude Test in Engineering 2026, focusing on Data Science and Artificial Intelligence paper.",
       status: "Active"
     },
     {
-      icon: "visibility",
+      icon: "eye",
       title: "Computer Vision Projects",
       description: "Developing real-time object detection and image processing solutions using YOLO and deep learning frameworks.",
       status: "Ongoing"
     },
     {
-      icon: "cloud",
+      icon: "globe",
       title: "Cloud Data Engineering",
       description: "Building scalable data pipelines and analytics solutions using AWS services and modern data engineering practices.",
       status: "Learning"
     },
     {
-      icon: "edit",
+      icon: "document",
       title: "Technical Writing",
       description: "Creating educational content on machine learning and data science concepts through LinkedIn articles and documentation.",
       status: "Active"
     }
-  ];
+  ]);
+
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Only load work status once when component mounts
+    if (!isLoaded) {
+      const loadWorkStatus = () => {
+        try {
+          const workStatus = getWorkStatus();
+          setFocusItems(workStatus);
+          setIsLoaded(true);
+        } catch (error) {
+          console.error('Error loading work status:', error);
+          // Keep the default items if there's an error
+          setIsLoaded(true);
+        }
+      };
+
+      loadWorkStatus();
+    }
+  }, [isLoaded]); // Only depend on isLoaded to prevent re-runs
+
+  // Memoize the focus items to prevent unnecessary re-renders
+  const memoizedFocusItems = useMemo(() => focusItems, [focusItems]);
 
   return (
     <section className={styles.currentFocus}>
-      <RevealFx>
-        <Flex fillWidth horizontal="center" marginBottom="32">
+      <div className={styles.headingSection}>
+        <RevealFx>
           <Column horizontal="center" gap="16" maxWidth="s">
             <Heading as="h2" variant="display-strong-m" align="center">
               Currently Working On
@@ -41,12 +69,12 @@ export default function CurrentFocus() {
               My current focus areas and ongoing projects
             </Text>
           </Column>
-        </Flex>
-      </RevealFx>
+        </RevealFx>
+      </div>
 
       <div className={styles.focusGrid}>
-        {focusItems.map((item, index) => (
-          <RevealFx key={index} delay={0.1 * (index + 1)}>
+        {memoizedFocusItems.map((item, index) => (
+          <RevealFx key={`focus-${index}-${item.title}`} delay={0.1 * (index + 1)}>
             <div className={styles.focusCard}>
               <div className={styles.iconContainer}>
                 <Icon name={item.icon} size="l" />
