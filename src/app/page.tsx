@@ -60,7 +60,7 @@ export default async function Home() {
         }}
       />
 
-      {/* --- Hero Section (commented for debugging) --- 
+      {/* --- Hero Section (uncommented for debugging) --- */}
       <Column fillWidth paddingY="32" gap="40" horizontal="start" className="hero-section">
         {home.featured.display && mostRecentProject && (
           <RevealFx>
@@ -128,7 +128,6 @@ export default async function Home() {
           </Button>
         </RevealFx>
       </Column>
-      */}
 
       {/* --- Current Focus Section (commented for debugging) --- 
       <CurrentFocus />
