@@ -18,7 +18,7 @@ import RecentArticles from "../components/home/RecentArticles";
 import RecentProjects from "../components/home/RecentProjects";
 import QuickStats from "../components/home/QuickStats";
 import CurrentFocus from "../components/home/CurrentFocus";
-import { getMostRecentProject, getAllProjects } from "../utils/utils";
+import { getMostRecentProject, getAllProjects, calculateStatsFromData } from "../utils/utils";
 import styles from "../components/about/about.module.scss";
 
 // Make the page async so you can use await for server-side data fetching
@@ -26,6 +26,7 @@ export default async function Home() {
   // Fetch data server-side
   const mostRecentProject = await getMostRecentProject();
   const allProjects = await getAllProjects() || [];
+  const stats = await calculateStatsFromData();
 
 
   
@@ -139,7 +140,7 @@ export default async function Home() {
       <RecentArticles />
 
       {/* --- Quick Stats Section (uncommented for debugging) --- */}
-      <QuickStats />
+      <QuickStats stats={stats} />
 
       {/* --- Newsletter Section (commented for debugging) --- 
       {newsletter.display && (

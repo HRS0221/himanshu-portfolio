@@ -2,8 +2,7 @@
 
 import { Column, Heading, Text, RevealFx, Flex } from "@once-ui-system/core";
 import styles from "./QuickStats.module.scss";
-import { calculateStatsFromData } from "../../utils/utils";
-import { useState, useEffect, useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 
 // Component for animated counting
 const AnimatedNumber = ({ value, suffix = "" }: { value: string; suffix?: string }) => {
@@ -40,52 +39,7 @@ const AnimatedNumber = ({ value, suffix = "" }: { value: string; suffix?: string
   return <span className={styles.animatedNumber}>{displayValue}</span>;
 };
 
-export default function QuickStats() {
-  const [stats, setStats] = useState([
-    {
-      number: "50+",
-      label: "Articles Published",
-      description: "AI & ML insights on LinkedIn"
-    },
-    {
-      number: "2",
-      label: "National Hackathons",
-      description: "SIH 2022, SUNHACKS 2022"
-    },
-    {
-      number: "5+",
-      label: "Certifications",
-      description: "DataCamp, Google"
-    },
-    {
-      number: "7+",
-      label: "Projects Completed",
-      description: "AI, ML & Data Science"
-    },
-  ]);
-
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    // Only load stats once when component mounts
-    if (!isLoaded) {
-      const loadStats = async () => {
-        try {
-          // Automatically calculate stats from About section data
-          const calculatedStats = await calculateStatsFromData();
-          setStats(calculatedStats);
-          setIsLoaded(true);
-        } catch (error) {
-          console.error('Error loading stats:', error);
-          // Keep the default stats if there's an error
-          setIsLoaded(true);
-        }
-      };
-
-      loadStats();
-    }
-  }, [isLoaded]); // Only depend on isLoaded to prevent re-runs
-
+export default function QuickStats({ stats }) {
   // Memoize the stats to prevent unnecessary re-renders
   const memoizedStats = useMemo(() => stats, [stats]);
 
