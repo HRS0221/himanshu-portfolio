@@ -135,9 +135,8 @@ export default async function Home() {
       {/* --- Recent Projects Section (uncommented for debugging) --- */}
       <RecentProjects projects={allProjects} />
 
-      {/* --- Recent Articles Section (commented for debugging) --- 
+      {/* --- Recent Articles Section (uncommented for debugging) --- */}
       <RecentArticles />
-      */}
 
       {/* --- Quick Stats Section (commented for debugging) --- 
       <QuickStats />
