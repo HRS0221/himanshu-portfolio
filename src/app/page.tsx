@@ -129,9 +129,8 @@ export default async function Home() {
         </RevealFx>
       </Column>
 
-      {/* --- Current Focus Section (commented for debugging) --- 
+      {/* --- Current Focus Section (uncommented for debugging) --- */}
       <CurrentFocus />
-      */}
 
       {/* --- Recent Projects Section (commented for debugging) --- 
       <RecentProjects projects={allProjects} />
