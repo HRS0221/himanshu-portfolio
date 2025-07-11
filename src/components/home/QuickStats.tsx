@@ -4,6 +4,12 @@ import { Column, Heading, Text, RevealFx, Flex } from "@once-ui-system/core";
 import styles from "./QuickStats.module.scss";
 import { useMemo, useState, useEffect } from "react";
 
+type Stat = {
+  number: string;
+  label: string;
+  description: string;
+};
+
 // Component for animated counting
 const AnimatedNumber = ({ value, suffix = "" }: { value: string; suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState("0");
@@ -39,7 +45,7 @@ const AnimatedNumber = ({ value, suffix = "" }: { value: string; suffix?: string
   return <span className={styles.animatedNumber}>{displayValue}</span>;
 };
 
-export default function QuickStats({ stats }) {
+export default function QuickStats({ stats }: { stats: Stat[] }) {
   // Memoize the stats to prevent unnecessary re-renders
   const memoizedStats = useMemo(() => stats, [stats]);
 
