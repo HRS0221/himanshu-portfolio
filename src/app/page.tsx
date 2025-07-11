@@ -142,7 +142,7 @@ export default async function Home() {
       {/* --- Quick Stats Section (uncommented for debugging) --- */}
       <QuickStats stats={stats} />
 
-      {/* --- Newsletter Section (commented for debugging) --- 
+      {/* --- Newsletter Section (uncommented, all sections now visible) --- */}
       {newsletter.display && (
         <NewsletterCard
           title={newsletter.title}
@@ -151,7 +151,6 @@ export default async function Home() {
           subscribeLink={newsletter.subscribeLink}
         />
       )}
-      */}
     </Column>
   );
 }
