@@ -2,11 +2,11 @@
 
 import { Column, Heading, Text, RevealFx, Flex, Icon } from "@once-ui-system/core";
 import styles from "./CurrentFocus.module.scss";
-import { getWorkStatus } from "../../utils/utils";
-import { useState, useEffect, useMemo } from "react";
+import { useMemo } from "react";
 
 export default function CurrentFocus() {
-  const [focusItems, setFocusItems] = useState([
+  // Use only the default focusItems array
+  const focusItems = [
     {
       icon: "book",
       title: "GATE 2026 Preparation",
@@ -31,28 +31,7 @@ export default function CurrentFocus() {
       description: "Creating educational content on machine learning and data science concepts through LinkedIn articles and documentation.",
       status: "Active"
     }
-  ]);
-
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    // Only load work status once when component mounts
-    if (!isLoaded) {
-      const loadWorkStatus = () => {
-        try {
-          const workStatus = getWorkStatus();
-          setFocusItems(workStatus);
-          setIsLoaded(true);
-        } catch (error) {
-          console.error('Error loading work status:', error);
-          // Keep the default items if there's an error
-          setIsLoaded(true);
-        }
-      };
-
-      loadWorkStatus();
-    }
-  }, [isLoaded]); // Only depend on isLoaded to prevent re-runs
+  ];
 
   // Memoize the focus items to prevent unnecessary re-renders
   const memoizedFocusItems = useMemo(() => focusItems, [focusItems]);
