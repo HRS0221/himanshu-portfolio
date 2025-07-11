@@ -1,0 +1,259 @@
+---
+title: "World Layoff Data Analysis & Visualization"
+
+publishedAt: "2024-02-15"
+
+order: 4
+
+status: "completed"
+
+completionDate: "2024-02-15"
+
+category: "data-analysis"
+
+featured: false
+
+summary:
+  - "Conducted comprehensive analysis of global layoff data from 3,282 companies across multiple industries"
+  - "Created interactive visualizations revealing layoff trends, industry patterns, and geographic distributions"
+  - "Applied advanced statistical analysis including outlier detection and correlation analysis"
+  - "Generated actionable insights for understanding workforce dynamics and economic trends"
+
+images:
+  - "/images/projects/layoff_percent.png"
+  - "/images/projects/layoff by country.png"
+  - "/images/projects/highest layoff companies.png"
+  - "/images/projects/layoff_overtime.png"
+  - "/images/projects/trend_of_layoff.png"
+  - "/images/projects/layoff_across_industries.png"
+
+link: "https://github.com/HRS0221/world-layoff-analysis"
+
+outputLink: "https://your-dashboard-url.com"
+
+tag: "Data Analysis"
+
+techStack:
+  - "Python"
+  - "Pandas"
+  - "NumPy"
+  - "Seaborn"
+  - "Matplotlib"
+  - "Plotly"
+  - "Jupyter Notebook"
+  - "Data Visualization"
+  - "Statistical Analysis"
+---
+
+## Project Overview
+
+This project analyzes comprehensive layoff data from companies worldwide, providing insights into workforce dynamics, industry trends, and economic patterns. The analysis covers 3,282 companies across various industries and geographic locations, offering a detailed view of global employment trends.
+
+## What I Built
+
+### Data Analysis Pipeline
+- **Data Collection**: Comprehensive dataset of 3,282 company layoffs
+- **Data Cleaning**: Handling missing values, outliers, and data inconsistencies
+- **Statistical Analysis**: Advanced analytics including outlier detection and correlation analysis
+- **Visualization**: Interactive charts and graphs for trend analysis
+
+### Key Features
+- **Multi-dimensional Analysis**: Company, industry, geographic, and temporal analysis
+- **Outlier Detection**: Statistical methods to identify and handle outliers
+- **Trend Analysis**: Time-series analysis of layoff patterns
+- **Interactive Visualizations**: Dynamic charts for better data exploration
+
+## Technical Implementation
+
+### Data Structure
+The dataset contains 12 columns with comprehensive information:
+- **Company Information**: Name, location, industry, stage
+- **Layoff Data**: Number of layoffs, percentage of workforce
+- **Financial Data**: Funds raised, company stage
+- **Temporal Data**: Date of layoffs, date added to dataset
+- **Geographic Data**: Country and headquarters location
+
+### Data Processing Pipeline
+```python
+# Data Loading and Initial Analysis
+df = pd.read_csv('layoffs_data.csv')
+print(f"Dataset Shape: {df.shape}")
+print(f"Columns: {df.columns.tolist()}")
+
+# Missing Value Analysis
+missing_values = (df.isna().mean() * 100).round(1)
+print("Missing Values Percentage:")
+print(missing_values)
+
+# Data Cleaning
+df.dropna(inplace=True)
+df.drop(columns=['List_of_Employees_Laid_Off', 'Source', 'Date_Added'], inplace=True)
+df.rename(columns={'Laid_Off_Count': 'Layoffs'}, inplace=True)
+```
+
+### Statistical Analysis
+```python
+def detect_outliers(df, column_names):
+    outlier_data = []
+    
+    for column_name in column_names:
+        data = df[column_name]
+        
+        # Calculate quartiles and IQR
+        q1, q3 = np.percentile(data, [25, 75])
+        iqr = q3 - q1
+        
+        # Define outlier limits
+        low_lim, upp_lim = q1 - 1.5 * iqr, q3 + 1.5 * iqr
+        
+        # Find outliers
+        outliers = df[(data < low_lim) | (data > upp_lim)][column_name]
+        num_outliers = len(outliers)
+        percent_outliers = round(num_outliers / len(df) * 100, 1)
+        
+        outlier_data.append([column_name, num_outliers, percent_outliers, 
+                           round(low_lim, 1), round(upp_lim, 1)])
+    
+    return pd.DataFrame(outlier_data, columns=['Column', 'Number of Outliers', 
+                                              '% Outliers', 'Lower Limit', 'Upper Limit'])
+```
+
+## Challenges & Solutions
+
+### Challenge 1: Data Quality Issues
+**Problem**: Missing values, inconsistent data formats, and outliers
+**Solution**:
+- Implemented comprehensive data cleaning pipeline
+- Used statistical methods for outlier detection
+- Applied appropriate data transformations
+
+### Challenge 2: Complex Visualizations
+**Problem**: Creating meaningful visualizations for multi-dimensional data
+**Solution**:
+- Used multiple visualization libraries (Seaborn, Matplotlib, Plotly)
+- Created interactive charts for better exploration
+- Implemented subplot arrangements for comprehensive analysis
+
+### Challenge 3: Statistical Accuracy
+**Problem**: Ensuring statistical validity of analysis
+**Solution**:
+- Applied proper outlier detection methods (IQR-based)
+- Used appropriate statistical measures
+- Implemented data validation checks
+
+## Results & Insights
+
+### Key Findings
+1. **Industry Trends**: Technology and retail sectors showed highest layoff rates
+2. **Geographic Patterns**: Certain countries experienced more layoffs than others
+3. **Company Size Impact**: Larger companies tended to have more layoffs
+4. **Temporal Patterns**: Seasonal and cyclical patterns in layoff data
+5. **Financial Correlation**: Relationship between funds raised and layoff percentages
+
+### Visualizations Created
+1. **Layoff Percentage Distribution**: Box plots and histograms showing distribution
+2. **Geographic Analysis**: Country-wise layoff patterns
+3. **Company Analysis**: Companies with highest layoff counts
+4. **Temporal Trends**: Layoff patterns over time
+5. **Industry Analysis**: Layoff trends across different industries
+6. **Correlation Analysis**: Relationships between different variables
+
+## What I Learned
+
+### Technical Skills
+- **Data Analysis**: Comprehensive data exploration and statistical analysis
+- **Data Visualization**: Creating meaningful and interactive visualizations
+- **Statistical Methods**: Outlier detection, correlation analysis, and trend analysis
+- **Python Libraries**: Advanced usage of Pandas, NumPy, Seaborn, and Plotly
+- **Jupyter Notebooks**: Effective data science workflow
+
+### Analytical Skills
+- **Data Cleaning**: Handling real-world data quality issues
+- **Statistical Thinking**: Applying statistical concepts to business problems
+- **Insight Generation**: Extracting meaningful insights from complex datasets
+- **Storytelling**: Communicating findings through visualizations
+
+## Code Snippets
+
+### Outlier Detection and Visualization
+```python
+def detect_outliers(df, column_names):
+    col_len = len(column_names)
+    num_columns = min(col_len, 3)
+    num_rows = 2 * ((col_len + num_columns - 1) // num_columns)
+    
+    fig, axes = plt.subplots(num_rows, num_columns, figsize=(5 * num_columns, 3 * num_rows))
+    
+    for i, column_name in enumerate(column_names):
+        data = df[column_name]
+        q1, q3 = np.percentile(data, [25, 75])
+        iqr = q3 - q1
+        low_lim, upp_lim = q1 - 1.5 * iqr, q3 + 1.5 * iqr
+        
+        row_index, col_index = divmod(i, num_columns * 2)
+        ax_box, ax_hist = axes[row_index, col_index], axes[row_index + 1, col_index]
+        
+        # Boxplot
+        sns.boxplot(x=data, ax=ax_box)
+        ax_box.axvline(low_lim, color='brown', linestyle='--', label=f'Lower: {low_lim:.1f}')
+        ax_box.axvline(upp_lim, color='brown', linestyle='--', label=f'Upper: {upp_lim:.1f}')
+        
+        # Histogram
+        sns.histplot(data, bins=20, ax=ax_hist, color='purple')
+        ax_hist.set_yscale('log')
+    
+    plt.tight_layout()
+    plt.savefig('layoff_percent.png')
+    plt.show()
+```
+
+### Interactive Visualization
+```python
+fig_industries_box = px.box(
+    clean_df,
+    x='Industry',
+    y='Layoffs',
+    title='Layoffs Distribution by Industry',
+    color='Industry'
+)
+
+fig_industries_box.update_layout(
+    xaxis_title="Industry",
+    yaxis_title="Number of Layoffs",
+    showlegend=False
+)
+
+fig_industries_box.show()
+```
+
+### Correlation Analysis
+```python
+# Correlation matrix
+correlation_matrix = clean_df[['Layoffs', 'Percentage', 'Funds_Raised']].corr()
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', center=0,
+            square=True, linewidths=0.5)
+plt.title('Correlation Matrix of Key Variables')
+plt.tight_layout()
+plt.show()
+```
+
+## Future Improvements
+
+1. **Real-time Data**: Integrate with live data sources for current trends
+2. **Predictive Modeling**: Implement ML models to predict layoff trends
+3. **Interactive Dashboard**: Create web-based dashboard for exploration
+4. **Geographic Mapping**: Add interactive maps for geographic analysis
+5. **Industry Deep-dive**: Detailed analysis of specific industries
+
+## Project Impact
+
+This project demonstrates my ability to:
+- **Data Analysis**: Handle complex, real-world datasets effectively
+- **Statistical Analysis**: Apply proper statistical methods and validation
+- **Data Visualization**: Create meaningful and informative visualizations
+- **Insight Generation**: Extract actionable insights from data
+- **Technical Communication**: Present findings clearly and effectively
+
+The project showcases practical application of data science techniques and demonstrates my proficiency in data analysis, visualization, and statistical thinking, making it a valuable addition to my portfolio. 

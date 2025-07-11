@@ -1,7 +1,7 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import React, { ReactNode } from "react";
 import { 
-  HeadingLink,
+  Heading,
   Text,
   InlineCode,
   CodeBlock,
@@ -41,11 +41,20 @@ function slugify(node: React.ReactNode): string {
 
 function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
   const CustomHeading = ({ children }: { children?: React.ReactNode }) => {
-    const slug = slugify(children);
+    const asTag = `h${level}` as keyof JSX.IntrinsicElements;
+    const variantMap = {
+      1: "display-strong-xs",
+      2: "heading-strong-xl",
+      3: "heading-strong-l",
+      4: "heading-strong-m",
+      5: "heading-strong-s",
+      6: "heading-strong-xs",
+    } as const;
+    const variant = variantMap[level];
     return (
-      <HeadingLink as={`h${level}`} id={slug} marginTop="24" marginBottom="12">
+      <Heading as={asTag} variant={variant} marginTop="24" marginBottom="12">
         {children}
-      </HeadingLink>
+      </Heading>
     );
   };
   CustomHeading.displayName = `H${level}`;

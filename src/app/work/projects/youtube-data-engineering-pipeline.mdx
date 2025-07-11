@@ -1,0 +1,179 @@
+---
+title: "YouTube Trending Videos Data Engineering Pipeline"
+
+publishedAt: "2024-01-15"
+
+order: 1
+
+status: "completed"
+
+completionDate: "2024-01-15"
+
+category: "data-engineering"
+
+featured: true
+
+summary:
+  - "Built an end-to-end data engineering pipeline analyzing YouTube trending videos across 10 global regions"
+  - "Processed 400MB+ of structured data using AWS cloud services (S3, Glue, Lambda, Athena)"
+  - "Created interactive dashboards revealing video performance patterns and audience engagement trends"
+  - "Implemented Hive-style partitioning for efficient data querying and cost optimization"
+
+images:
+  - "/images/projects/DashboardImg1.jpg"
+  - "/images/projects/DashboardImg2.jpg"
+  - "/images/projects/DashboardImg3.jpg"
+
+link: "https://github.com/HRS0221/Data-Engineering-Youtube-Data-Analysis"
+
+
+
+tag: "Data Engineering"
+
+techStack:
+  - "AWS S3"
+  - "AWS Glue"
+  - "AWS Lambda"
+  - "Amazon Athena"
+  - "Amazon QuickSight"
+  - "Python"
+  - "SQL"
+  - "Apache Hive"
+  - "Data Partitioning"
+---
+
+## Project Overview
+
+This project demonstrates a complete data engineering workflow for analyzing YouTube trending videos across 10 different countries. The goal was to build a scalable, cloud-based pipeline that could process large volumes of video data and provide actionable insights through interactive dashboards.
+
+## What I Built
+
+### Data Pipeline Architecture
+- **Data Ingestion**: Collected YouTube trending video data from 10 regions (US, UK, India, Japan, Korea, Mexico, Russia, France, Germany, Canada)
+- **Storage**: Implemented AWS S3 with Hive-style partitioning by region for efficient querying
+- **Processing**: Used AWS Glue for ETL transformations and data cataloging
+- **Querying**: Leveraged Amazon Athena for serverless SQL queries
+- **Visualization**: Created interactive dashboards using Amazon QuickSight
+
+### Key Features
+- **Multi-region Analysis**: Processed data from 10 different countries
+- **Scalable Architecture**: Cloud-native design handling 400MB+ of data
+- **Cost Optimization**: Implemented data partitioning to reduce query costs
+- **Interactive Dashboards**: Real-time insights into video performance patterns
+
+## Technical Implementation
+
+### Data Structure
+The project processed two types of data:
+- **Video Statistics**: CSV files containing trending video data (title, views, likes, comments, etc.)
+- **Category Metadata**: JSON files mapping category IDs to category names
+
+### AWS Services Used
+1. **S3 Bucket**: `himanshu-de-on-youtube-raw-useast1-dev`
+   - Raw data storage with region-based partitioning
+   - Separate folders for statistics and reference data
+
+2. **AWS Glue**: 
+   - Data cataloging and ETL transformations
+   - Schema discovery and data type inference
+
+3. **Amazon Athena**:
+   - Serverless SQL queries on S3 data
+   - Cost-effective analysis without managing infrastructure
+
+4. **Amazon QuickSight**:
+   - Interactive dashboards and visualizations
+   - Real-time data exploration
+
+### Data Partitioning Strategy
+Implemented Hive-style partitioning by region:
+```
+s3://bucket/youtube/raw_statistics/region=us/
+s3://bucket/youtube/raw_statistics/region=in/
+s3://bucket/youtube/raw_statistics/region=jp/
+```
+
+## Challenges & Solutions
+
+### Challenge 1: Large Data Volume
+**Problem**: Processing 400MB+ of data across multiple regions
+**Solution**: Implemented cloud-native architecture with AWS services for scalability
+
+### Challenge 2: Data Organization
+**Problem**: Managing data from 10 different regions efficiently
+**Solution**: Used Hive-style partitioning to organize data by region, enabling efficient querying
+
+### Challenge 3: Cost Optimization
+**Problem**: Minimizing AWS service costs while maintaining performance
+**Solution**: Leveraged serverless services (Athena, Lambda) and implemented data partitioning
+
+## Results & Insights
+
+### Dashboard Deliverables
+Created three comprehensive dashboards:
+1. **Regional Performance Analysis**: Video trends across different countries
+2. **Engagement Metrics**: Views, likes, comments, and dislikes patterns
+3. **Category Analysis**: Performance by video categories
+
+### Key Findings
+- Identified regional differences in video preferences
+- Discovered optimal posting times for maximum engagement
+- Analyzed correlation between video length and viewer retention
+- Mapped trending topics across different cultures
+
+## What I Learned
+
+### Technical Skills
+- **AWS Cloud Services**: Hands-on experience with S3, Glue, Lambda, Athena, QuickSight
+- **Data Partitioning**: Understanding of Hive-style partitioning for efficient data access
+- **ETL Pipeline Design**: End-to-end data engineering workflow
+- **Cost Optimization**: Strategies for minimizing cloud service costs
+
+### Data Engineering Best Practices
+- **Scalable Architecture**: Designing systems that can handle growing data volumes
+- **Data Organization**: Importance of proper data structuring for efficient querying
+- **Cloud-Native Solutions**: Leveraging serverless services for cost-effectiveness
+- **Data Visualization**: Creating meaningful insights from raw data
+
+## Code Snippets
+
+### AWS CLI Commands for Data Upload
+```bash
+# Copy reference data to S3
+aws s3 cp . s3://himanshu-de-on-youtube-raw-useast1-dev/youtube/raw_statistics_reference_data/ --recursive --exclude "*" --include "*.json"
+
+# Copy regional data with partitioning
+aws s3 cp USvideos.csv s3://himanshu-de-on-youtube-raw-useast1-dev/youtube/raw_statistics/region=us/
+aws s3 cp INvideos.csv s3://himanshu-de-on-youtube-raw-useast1-dev/youtube/raw_statistics/region=in/
+```
+
+### Sample Athena Query
+```sql
+SELECT 
+    region,
+    category_name,
+    COUNT(*) as video_count,
+    AVG(views) as avg_views
+FROM youtube_data
+WHERE publish_date >= '2024-01-01'
+GROUP BY region, category_name
+ORDER BY avg_views DESC
+```
+
+## Future Improvements
+
+1. **Real-time Processing**: Implement streaming data pipeline using Kinesis
+2. **Machine Learning**: Add predictive analytics for video performance
+3. **API Integration**: Connect to YouTube API for live data updates
+4. **Advanced Analytics**: Implement sentiment analysis on video comments
+
+## Project Impact
+
+This project showcases my ability to:
+- Design and implement end-to-end data engineering solutions
+- Work with large-scale data processing in the cloud
+- Create meaningful visualizations and insights
+- Optimize costs while maintaining performance
+- Handle multi-region data analysis
+
+The skills gained from this project directly apply to real-world data engineering challenges and demonstrate my proficiency with modern cloud technologies. 

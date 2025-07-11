@@ -78,7 +78,7 @@ export default async function RootLayout({
                    });
                    const resolveTheme = (themeValue) => {
                      if (!themeValue || themeValue === 'system') {
-                       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                       return 'dark'; // Always default to dark mode
                      }
                      return themeValue;
                    };
@@ -112,6 +112,7 @@ export default async function RootLayout({
           margin="0"
           padding="0"
           horizontal="center"
+          suppressHydrationWarning
         >
           <Background
             position="fixed"

@@ -1,0 +1,229 @@
+---
+title: "Moving Vehicle Number Plate Detection System"
+
+publishedAt: "2022-12-15"
+
+order: 2
+
+status: "completed"
+
+completionDate: "2022-12-15"
+
+category: "computer-vision"
+
+featured: true
+
+summary:
+  - "Developed a real-time number plate detection system using YOLOv7 and deep learning for Smart India Hackathon 2022"
+  - "Built a Flask web application with image and video processing capabilities"
+  - "Integrated multiple OCR methods (EasyOCR and Plate Recognizer API) for robust text extraction"
+  - "Achieved Grand Finalist status competing against 50+ teams at the national level"
+
+images:
+  - "/images/projects/cover-01.jpg"
+  - "/images/projects/cover-02.jpg"
+  - "/images/projects/cover-03.jpg"
+  - "/images/projects/cover-04.jpg"
+
+link: "https://github.com/HRS0221/Smart-India-Hackathon-2022"
+
+outputLink: "https://your-demo-url.com"
+
+tag: "Computer Vision"
+
+techStack:
+  - "YOLOv7"
+  - "OpenCV"
+  - "EasyOCR"
+  - "Flask"
+  - "Python"
+  - "Deep Learning"
+  - "Computer Vision"
+  - "ONNX Runtime"
+  - "Plate Recognizer API"
+---
+
+## Project Overview
+
+This project was developed for Smart India Hackathon 2022 (Software Edition) and focuses on detecting and recognizing vehicle registration plates from moving vehicles in real-time. The system uses advanced computer vision techniques and deep learning to identify number plates and extract text for further processing.
+
+## What I Built
+
+### Core System Architecture
+- **Object Detection**: YOLOv7 model for license plate detection
+- **Text Recognition**: Dual OCR approach using EasyOCR and Plate Recognizer API
+- **Web Interface**: Flask-based web application for easy interaction
+- **Video Processing**: Real-time processing capabilities for moving vehicles
+
+### Key Features
+- **Real-time Detection**: Processes images and videos in real-time
+- **Multi-format Support**: Handles both image uploads and video streams
+- **Dual OCR Strategy**: Combines local EasyOCR with cloud-based Plate Recognizer API
+- **Pattern Validation**: Validates number plate formats using regex patterns
+- **Web Interface**: User-friendly Flask web application
+
+## Technical Implementation
+
+### Deep Learning Pipeline
+1. **YOLOv7 Model**: Pre-trained model converted to ONNX format for efficient inference
+2. **Image Preprocessing**: Letterboxing and normalization for model input
+3. **Object Detection**: Bounding box detection with confidence scores
+4. **ROI Extraction**: Region of Interest extraction for text recognition
+
+### OCR Implementation
+```python
+# Dual OCR Strategy
+def extract_text(ROI):
+    # Local OCR using EasyOCR
+    results = reader.readtext(ROI, detail=0)
+    # Pattern validation and text cleaning
+    return processed_text
+
+def Plate_Recognizer(img_path):
+    # Cloud-based OCR using Plate Recognizer API
+    response = requests.post(
+        'https://api.platerecognizer.com/v1/plate-reader/',
+        files=dict(upload=fp),
+        headers={'Authorization': 'Token YOUR_TOKEN'}
+    )
+    return response.json()
+```
+
+### Web Application
+- **Flask Backend**: RESTful API for image processing
+- **File Upload**: Support for image and video files
+- **Real-time Processing**: Immediate feedback on detection results
+- **Result Display**: Visual output with bounding boxes and extracted text
+
+## Challenges & Solutions
+
+### Challenge 1: Real-time Performance
+**Problem**: Processing moving vehicles requires fast inference
+**Solution**: 
+- Used ONNX Runtime for optimized model inference
+- Implemented efficient image preprocessing
+- Optimized OCR pipeline for speed
+
+### Challenge 2: Text Recognition Accuracy
+**Problem**: Number plate text can be blurry or distorted
+**Solution**:
+- Implemented dual OCR strategy (EasyOCR + Plate Recognizer API)
+- Added pattern validation using regex
+- Implemented fallback mechanisms
+
+### Challenge 3: Moving Vehicle Detection
+**Problem**: Detecting plates from moving vehicles is challenging
+**Solution**:
+- Used YOLOv7 for robust object detection
+- Implemented video processing capabilities
+- Added frame-by-frame analysis
+
+## Results & Achievements
+
+### Performance Metrics
+- **Detection Accuracy**: High accuracy in detecting license plates
+- **Text Recognition**: Improved accuracy with dual OCR approach
+- **Processing Speed**: Real-time processing capabilities
+- **Competition Success**: Grand Finalist at Smart India Hackathon 2022
+
+### Key Features Delivered
+1. **Image Processing**: Upload and process static images
+2. **Video Processing**: Real-time video stream analysis
+3. **Text Extraction**: Accurate number plate text recognition
+4. **Pattern Validation**: Indian number plate format validation
+5. **Web Interface**: User-friendly application
+
+## What I Learned
+
+### Technical Skills
+- **Computer Vision**: Deep understanding of object detection and image processing
+- **Deep Learning**: Practical experience with YOLO models and ONNX
+- **Web Development**: Flask application development and deployment
+- **API Integration**: Working with external OCR services
+- **Real-time Processing**: Optimizing systems for live video streams
+
+### Project Management
+- **Team Collaboration**: Worked with 5 team members effectively
+- **Competition Experience**: Participated in national-level hackathon
+- **Problem Solving**: Tackled real-world computer vision challenges
+- **Documentation**: Created comprehensive project documentation
+
+## Code Snippets
+
+### YOLO Detection Function
+```python
+def get_detections(img):
+    # Image preprocessing
+    image, ratio, dwdh = letterbox(image, auto=False)
+    image = image.transpose((2, 0, 1))
+    image = np.expand_dims(image, 0)
+    
+    # Model inference
+    outputs = session.run(outname, inp)[0]
+    
+    # Post-processing
+    for i,(batch_id,x0,y0,x1,y1,cls_id,score) in enumerate(outputs):
+        box = np.array([x0,y0,x1,y1])
+        box -= np.array(dwdh*2)
+        box /= ratio
+        box = box.round().astype(np.int32).tolist()
+        roi.append(box.copy())
+    
+    return ori_images[0], outputs, roi
+```
+
+### Flask Web Application
+```python
+@app.route('/',methods=['POST','GET'])
+def index():
+    if request.method == 'POST':
+        upload_file = request.files['image_name']
+        filename = upload_file.filename
+        path_save = os.path.join(UPLOAD_PATH, filename)
+        upload_file.save(path_save)
+        
+        # Process image
+        text_list, Detected, D_status, Recognized, R_status = object_detection(path_save, filename)
+        
+        return render_template('index.html', 
+                             upload=True, 
+                             upload_image=filename, 
+                             text=text_list)
+    
+    return render_template('index.html', upload=False)
+```
+
+### Pattern Validation
+```python
+def validate_number_plate(text):
+    # Indian number plate patterns
+    patterns = [
+        r'^\w{2}\d{2}\w{2}\d{4}$',  # MH12AB1234
+        r'^\w{2}\d{2}\w{3}$',       # MH12ABC
+        r'\w{2}\d{2}\w{1}\d{4}$'    # MH12A1234
+    ]
+    
+    for pattern in patterns:
+        if re.match(pattern, text):
+            return True
+    return False
+```
+
+## Future Improvements
+
+1. **Enhanced Accuracy**: Implement more advanced OCR models
+2. **Real-time Video**: Optimize for live video streams
+3. **Mobile App**: Develop mobile application for field use
+4. **Database Integration**: Store and track detected vehicles
+5. **Multi-language Support**: Support for different number plate formats
+
+## Project Impact
+
+This project demonstrates my ability to:
+- **Computer Vision**: Implement complex object detection systems
+- **Deep Learning**: Work with state-of-the-art models like YOLOv7
+- **Full-stack Development**: Build complete web applications
+- **Problem Solving**: Tackle real-world challenges in computer vision
+- **Team Collaboration**: Work effectively in competitive environments
+
+The project showcases practical application of computer vision and deep learning concepts, making it a valuable addition to my portfolio and demonstrating my technical capabilities in AI and machine learning. 

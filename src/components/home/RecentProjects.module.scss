@@ -1,0 +1,28 @@
+.recentProjects {
+  width: 100%;
+  padding: 32px 0 64px 0;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 360px);
+  gap: 32px;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  
+  // Responsive breakpoints
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 360px);
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 360px);
+    gap: 24px;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+} 

@@ -97,30 +97,15 @@ export default function ProjectGridCard({
         </Column>
 
         <Flex className={styles.buttonWrapper} gap="12">
-          {project.metadata.link && (
             <Button
-              href={project.metadata.link}
-              target="_blank"
+            href={`/work/${project.slug}`}
               variant="primary"
               size="m"
               arrowIcon
               className={styles.projectButton}
             >
-              View Code
+            Explore
             </Button>
-          )}
-          {project.metadata.outputLink && (
-            <Button
-              href={project.metadata.outputLink}
-              target="_blank"
-              variant="secondary"
-              size="m"
-              arrowIcon
-              className={styles.projectButton}
-            >
-              View Output
-            </Button>
-          )}
         </Flex>
       </Column>
     </RevealFx>

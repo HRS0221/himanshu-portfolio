@@ -17,14 +17,18 @@ import {
 import { home, about, person, newsletter, baseURL } from "../resources";
 import NewsletterCard from "../components/NewsletterCard";
 import RecentArticles from "../components/home/RecentArticles";
+import RecentProjects from "../components/home/RecentProjects";
 import QuickStats from "../components/home/QuickStats";
 import CurrentFocus from "../components/home/CurrentFocus";
-import { getMostRecentProject } from "../utils/utils";
+import { getMostRecentProject, getAllProjects } from "../utils/utils";
 import styles from "../components/about/about.module.scss";
 
 export default function Home() {
   // Get the most recent project
   const mostRecentProject = getMostRecentProject();
+  
+  // Get all projects for the RecentProjects component
+  const allProjects = getAllProjects() || [];
   
   // Create the featured project title
   const featuredTitle = mostRecentProject ? (
@@ -133,6 +137,9 @@ export default function Home() {
 
       {/* Current Focus Section */}
       <CurrentFocus />
+
+      {/* Recent Projects Section */}
+      <RecentProjects projects={allProjects} />
 
       {/* Recent Articles Section */}
       <RecentArticles />
