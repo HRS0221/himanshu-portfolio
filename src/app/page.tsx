@@ -60,7 +60,7 @@ export default async function Home() {
         }}
       />
 
-      {/* Enhanced Hero Section */}
+      {/* --- Hero Section (commented for debugging) --- 
       <Column fillWidth paddingY="32" gap="40" horizontal="start" className="hero-section">
         {home.featured.display && mostRecentProject && (
           <RevealFx>
@@ -92,23 +92,18 @@ export default async function Home() {
             </Badge>
           </RevealFx>
         )}
-
-        {/* Enhanced Text Content */}
         <Column maxWidth="s" gap="24">
           <RevealFx delay={0.1}>
             <Heading wrap="balance" variant="display-strong-l" style={{ lineHeight: "1.2" }}>
               {home.headline}
             </Heading>
           </RevealFx>
-
           <RevealFx delay={0.2}>
             <Text onBackground="neutral-weak" variant="heading-default-xl" style={{ lineHeight: "1.6" }}>
               {home.subline}
             </Text>
           </RevealFx>
         </Column>
-
-        {/* Enhanced CTA Button */}
         <RevealFx delay={0.3}>
           <Button
             id="about"
@@ -133,20 +128,25 @@ export default async function Home() {
           </Button>
         </RevealFx>
       </Column>
+      */}
 
-      {/* Current Focus Section */}
+      {/* --- Current Focus Section (commented for debugging) --- 
       <CurrentFocus />
+      */}
 
-      {/* Recent Projects Section */}
+      {/* --- Recent Projects Section (commented for debugging) --- 
       <RecentProjects projects={allProjects} />
+      */}
 
-      {/* Recent Articles Section */}
+      {/* --- Recent Articles Section (commented for debugging) --- 
       <RecentArticles />
+      */}
 
-      {/* Quick Stats Section */}
+      {/* --- Quick Stats Section (commented for debugging) --- 
       <QuickStats />
+      */}
 
-      {/* Newsletter Section */}
+      {/* --- Newsletter Section (commented for debugging) --- 
       {newsletter.display && (
         <NewsletterCard
           title={newsletter.title}
@@ -155,6 +155,7 @@ export default async function Home() {
           subscribeLink={newsletter.subscribeLink}
         />
       )}
+      */}
     </Column>
   );
 }
