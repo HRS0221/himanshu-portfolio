@@ -138,9 +138,8 @@ export default async function Home() {
       {/* --- Recent Articles Section (uncommented for debugging) --- */}
       <RecentArticles />
 
-      {/* --- Quick Stats Section (commented for debugging) --- 
+      {/* --- Quick Stats Section (uncommented for debugging) --- */}
       <QuickStats />
-      */}
 
       {/* --- Newsletter Section (commented for debugging) --- 
       {newsletter.display && (
