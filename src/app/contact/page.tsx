@@ -8,8 +8,7 @@ import {
   Schema,
   Text,
 } from "@once-ui-system/core";
-import { baseURL, contact } from "../../resources";
-import ContactClient from "./ContactClient"; // Import the new client component
+import { baseURL, contact, person } from "../../resources";
 
 // This is a Server Component, so generateMetadata is allowed
 export async function generateMetadata() {
@@ -21,7 +20,7 @@ export async function generateMetadata() {
   });
 }
 
-// The page is now much cleaner. It handles the overall layout and metadata.
+// Simplified contact page to fix build error
 export default function Contact() {
   return (
     <Column maxWidth="m" gap="40" paddingY="64" horizontal="center">
@@ -46,8 +45,24 @@ export default function Contact() {
         </Flex>
       </RevealFx>
       
-      {/* The interactive parts are rendered here */}
-      <ContactClient />
+      {/* Simple contact form for now */}
+      <RevealFx delay={0.1}>
+        <Flex fillWidth horizontal="center">
+          <Column gap="24" maxWidth="s">
+            <Heading as="h2" variant="heading-default-m">Get in Touch</Heading>
+            <Text onBackground="neutral-weak" align="center">
+              I'm always open to discussing new opportunities and interesting projects.
+            </Text>
+            <Flex horizontal="center">
+              <a href={`mailto:${person.email}`} style={{ textDecoration: 'none' }}>
+                <Text variant="body-default-l" weight="strong">
+                  {person.email}
+                </Text>
+              </a>
+            </Flex>
+          </Column>
+        </Flex>
+      </RevealFx>
 
     </Column>
   );
