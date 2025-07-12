@@ -66,8 +66,7 @@ export default async function Home() {
         {home.featured.display && (
           <RevealFx>
             <a
-              href="/resume.pdf"
-              download="Himanshu_Salunke_Resume.pdf"
+              href="/api/download-resume"
               style={{ textDecoration: "none" }}
             >
               <Badge
