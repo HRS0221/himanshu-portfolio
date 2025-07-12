@@ -22,7 +22,6 @@ export type Metadata = {
   techStack?: string[];
   featured?: boolean;
   order?: number;
-  category?: string;
   status?: string;
   completionDate?: string;
 };
@@ -63,7 +62,6 @@ function getMDXData(dir: string): MdxContent[] {
       techStack: data.techStack || [],
       featured: data.featured || false,
       order: data.order || 999,
-      category: data.category || "",
       status: data.status || "",
       completionDate: data.completionDate || "",
     };

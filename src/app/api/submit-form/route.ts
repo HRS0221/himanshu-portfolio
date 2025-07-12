@@ -1,48 +1,68 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
-export async function POST(request: NextRequest) {
+// This reads the secret URL you stored in Vercel's Environment Variables
+const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
+
+export async function POST(request: Request) {
+  // Check if the Slack Webhook URL is set up correctly
+  if (!SLACK_WEBHOOK_URL) {
+    return NextResponse.json({ error: 'Slack Webhook URL is not configured.' }, { status: 500 });
+  }
+
   try {
-    const body = await request.json();
-    const { name, email, message } = body;
+    // 1. Get the form data from the frontend's request
+    const submission = await request.json();
+    const { name, email, message } = submission;
 
-    // Validate required fields
-    if (!name || !email || !message) {
-      return NextResponse.json({ 
-        error: 'Missing required fields: name, email, and message are required.' 
-      }, { status: 400 });
-    }
-
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json({ 
-        error: 'Invalid email format.' 
-      }, { status: 400 });
-    }
-
-    const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
-    
-    if (!slackWebhookUrl) {
-      console.error('SLACK_WEBHOOK_URL environment variable is not configured');
-      return NextResponse.json({ 
-        error: 'Contact form is not properly configured. Please try again later.' 
-      }, { status: 500 });
-    }
-
+    // 2. Format the data into a nice-looking Slack message using "Block Kit"
     const slackMessage = {
-      text: `New contact form submission from ${name}`,
       blocks: [
         {
-          type: "section",
+          type: 'header',
           text: {
-            type: "mrkdwn",
-            text: `*New Contact Form Submission*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`
-          }
-        }
-      ]
+            type: 'plain_text',
+            text: '📬 New Portfolio Message',
+            emoji: true,
+          },
+        },
+        {
+          type: 'divider',
+        },
+        {
+          type: 'section',
+          fields: [
+            {
+              type: 'mrkdwn',
+              text: `*From:*\n${name}`,
+            },
+            {
+              type: 'mrkdwn',
+              text: `*Email:*\n${email}`,
+            },
+          ],
+        },
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: `*Message:*\n${message}`,
+          },
+        },
+        {
+          type: 'context',
+          elements: [
+            {
+              type: 'plain_text',
+              text: `Received on: ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })}`,
+              emoji: true,
+            },
+          ],
+        },
+      ],
     };
 
-    const response = await fetch(slackWebhookUrl, {
+    // 3. Send the message to your secret Slack Webhook URL
+    await fetch(SLACK_WEBHOOK_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -50,15 +70,11 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify(slackMessage),
     });
 
-    if (!response.ok) {
-      throw new Error(`Slack API responded with status: ${response.status}`);
-    }
+    // 4. Send a success response back to your frontend form
+    return NextResponse.json({ success: true });
 
-    return NextResponse.json({ message: 'Message sent successfully!' });
   } catch (error) {
-    console.error('Failed to process contact form request:', error);
-    return NextResponse.json({ 
-      error: 'Failed to send message. Please try again later.' 
-    }, { status: 500 });
+    console.error('Failed to process request:', error);
+    return NextResponse.json({ error: 'Failed to process request.' }, { status: 500 });
   }
 }

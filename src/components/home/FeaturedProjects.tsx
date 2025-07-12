@@ -56,7 +56,7 @@ export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                     paddingY="8"
                     border="brand-alpha-medium"
                   >
-                    {project.metadata.category}
+                    {project.metadata.tag}
                   </Badge>
                   {project.metadata.status && (
                     <Badge

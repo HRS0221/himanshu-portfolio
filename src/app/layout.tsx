@@ -12,7 +12,7 @@ import {
   opacity,
   SpacingToken,
 } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers, ErrorBoundary } from "../components";
+import { Footer, Header, Providers, ErrorBoundary } from "../components";
 import { baseURL, effects, fonts, style, dataStyle, home } from "../resources";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -161,7 +161,7 @@ export default async function RootLayout({
           <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
             <Flex horizontal="center" fillWidth minHeight="0">
               <ErrorBoundary>
-                <RouteGuard>{children}</RouteGuard>
+                {children}
               </ErrorBoundary>
             </Flex>
           </Flex>

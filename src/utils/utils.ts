@@ -24,6 +24,8 @@ export type Metadata = {
   techStack?: string[];
   featured?: boolean;
   order?: number;
+  status?: string;
+  completionDate?: string;
 };
 
 export type MdxContent = { metadata: Metadata; slug: string; content: string };
@@ -80,6 +82,8 @@ function getMDXData(dir: string): MdxContent[] {
       techStack: data.techStack || [],
       featured: data.featured || false, // Default to not featured
       order: data.order || 999,      // Default to a high number to appear last
+      status: data.status || "in-progress", // Default to in-progress
+      completionDate: data.completionDate || "",
     };
     return { metadata, slug, content };
   });
@@ -228,9 +232,11 @@ export const calculateStatsFromData = async () => {
   // Calculate certifications count
   const certificationsCount = about.credentials.items.length;
   
-  // For now, we'll use a fixed projects count that can be updated manually
-  // In the future, this could be made dynamic by creating an API endpoint
-  const projectsCount = 7;
+  // ✅ AUTO-FETCH: Count completed projects from MDX files
+  const allProjects = getAllProjects();
+  const completedProjectsCount = allProjects.filter(project => 
+    project.metadata.status === "completed"
+  ).length;
   
   return [
     {
@@ -249,7 +255,7 @@ export const calculateStatsFromData = async () => {
       description: "DataCamp, Google"
     },
     {
-      number: `${projectsCount}+`,
+      number: `${completedProjectsCount}+`,
       label: "Projects Completed",
       description: "AI, ML & Data Science"
     },

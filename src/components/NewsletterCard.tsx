@@ -81,15 +81,10 @@ export default function NewsletterCard({
             <div className={styles.imageContainer}>
               <img
                 src={imagePath}
-                alt="Newsletter"
-                style={{
-                  width: "100%",
-                  height: "200px",
-                  objectFit: "cover",
-                  borderRadius: "12px",
-                }}
+                alt="LinkedIn Newsletter Preview"
+                className={styles.newsletterImage}
                 onError={(e) => {
-                  // Hide image if it fails to load
+                  console.error("Newsletter image failed to load:", imagePath);
                   e.currentTarget.style.display = "none";
                 }}
               />

@@ -69,31 +69,31 @@ export default async function Home() {
               href="/api/download-resume"
               style={{ textDecoration: "none" }}
             >
-              <Badge
-                background="brand-alpha-weak"
-                paddingX="12"
-                paddingY="8"
-                border="brand-alpha-medium"
-                arrow
-                style={{
-                  backdropFilter: "blur(8px)",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)"
-                }}
-              >
-                <Row paddingY="2" gap="8" vertical="center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    style={{ marginLeft: '-4px' }}
-                  >
+            <Badge
+              background="brand-alpha-weak"
+              paddingX="12"
+              paddingY="8"
+              border="brand-alpha-medium"
+              arrow
+              style={{
+                backdropFilter: "blur(8px)",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)"
+              }}
+            >
+              <Row paddingY="2" gap="8" vertical="center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                  style={{ marginLeft: '-4px' }}
+                >
                     <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-                  </svg>
+                </svg>
                   Get My Resume
-                </Row>
-              </Badge>
+              </Row>
+            </Badge>
             </a>
           </RevealFx>
         )}
