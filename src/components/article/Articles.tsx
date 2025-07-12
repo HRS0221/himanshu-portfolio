@@ -1,6 +1,6 @@
 "use client";
 
-import { Column, Card, Heading, Text, RevealFx } from "@once-ui-system/core";
+import { Column, Card, Heading, Text, RevealFx, SmartLink, Flex, Media, Tag } from "@once-ui-system/core";
 import type { MdxContent } from "../../utils/utils";
 import styles from "./Posts.module.scss";
 import { formatDate } from "../../utils/formatDate";
