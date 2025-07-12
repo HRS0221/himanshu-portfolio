@@ -152,6 +152,15 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
+.modalImageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .closeButton {
   position: absolute;
   top: -50px;
@@ -191,7 +200,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   color: white;
-  z-index: 10 !important;
+  z-index: 1003 !important;
   
   &:hover {
     background: rgba(255, 255, 255, 0.3) !important;
@@ -222,6 +231,7 @@
   border-radius: 20px;
   font-size: 14px;
   font-weight: 500;
+  z-index: 1001;
 }
 
 // Animations
@@ -261,28 +271,107 @@
     right: 8px;
     font-size: 11px;
     padding: 3px 6px;
+    z-index: 1001;
   }
   
   .modalNavButton {
-    width: 24px;
-    height: 24px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: 2px solid rgba(255, 255, 255, 0.5);
   }
   
   .modalPrevButton {
-    left: 10px;
+    left: 16px;
   }
   
   .modalNextButton {
-    right: 10px;
+    right: 16px;
   }
   
   .closeButton {
-    top: 10px;
-    right: 10px;
+    top: 16px;
+    right: 16px;
+    width: 44px !important;
+    height: 44px !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: 2px solid rgba(255, 255, 255, 0.5);
   }
   
   .modalCounter {
-    bottom: 10px;
+    bottom: 8px;
+    z-index: 1001;
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  
+  .modalContent {
+    max-width: 95vw;
+    max-height: 95vh;
+    padding: 0 16px;
+  }
+  
+  .modalImageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modalDotIndicators {
+    bottom: 8px;
+    gap: 8px;
+  }
+  
+  .modalDot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalNavButton {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .modalPrevButton {
+    left: 8px;
+  }
+  
+  .modalNextButton {
+    right: 8px;
+  }
+  
+  .closeButton {
+    top: 8px;
+    right: 8px;
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .modalContent {
+    max-width: 100vw;
+    max-height: 100vh;
+    padding: 0 8px;
+  }
+  
+  .modalCounter {
+    bottom: 4px;
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+  
+  .modalDotIndicators {
+    bottom: 4px;
+    gap: 6px;
+  }
+  
+  .modalDot {
+    width: 6px;
+    height: 6px;
   }
 }
 

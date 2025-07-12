@@ -1,6 +1,6 @@
 import { baseURL, person } from "../../resources";
 import { articles } from "../../resources";
-import BlogListClient from "./BlogListClient";
+import ArticleListClient from "./ArticleListClient";
 import { Meta, Schema } from "@once-ui-system/core";
 
 export async function generateMetadata() {
@@ -10,17 +10,17 @@ export async function generateMetadata() {
       "Explore 50+ thought-provoking articles on AI, machine learning, and data, written by Himanshu Salunke.",
     baseURL: baseURL,
     image: "/images/og/home.jpg", // ✅ FIX: Using static OG image
-    path: "/blog",
+    path: "/article",
   });
 }
 
-export default function BlogPage() {
+export default function ArticlePage() {
   return (
     <>
       <Schema
-        as="blogPosting"
+        as="article"
         baseURL={baseURL}
-        path="/blog"
+        path="/article"
         title={articles.title}
         description="Explore 50+ thought-provoking articles on AI, machine learning, and data, written by Himanshu Salunke."
         image="/images/articles/Machine-Learning.png"
@@ -30,7 +30,7 @@ export default function BlogPage() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <BlogListClient />
+      <ArticleListClient />
     </>
   );
 }

@@ -54,8 +54,8 @@ export default function RecentProjects({ projects }: RecentProjectsProps) {
                     background="neutral-alpha-weak"
                     border="neutral-strong"
                     style={{
-                      width: "360px",
-                      maxWidth: "100%",
+                      width: "100%",
+                      maxWidth: "360px",
                       overflow: "hidden",
                       boxShadow: "0 12px 32px rgba(0, 0, 0, 0.15)",
                       transition: "all 0.3s ease",

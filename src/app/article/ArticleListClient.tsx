@@ -3,7 +3,7 @@
 import { Column, Card, Heading, Text, RevealFx } from "@once-ui-system/core";
 import { articles } from "../../resources";
 
-export default function BlogListClient() {
+export default function ArticleListClient() {
   const filteredArticles = articles.items.filter(
     (article) => article.title && article.image && article.link
   );

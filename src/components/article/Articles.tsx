@@ -1,20 +1,9 @@
-// Complete code for: src/components/blog/Article.tsx
-// This includes the fix from before AND the new hydration warning suppression.
-
 "use client";
 
-import {
-  Column,
-  Flex,
-  Heading,
-  Media,
-  SmartLink,
-  Tag,
-  Text,
-} from "@once-ui-system/core";
+import { Column, Card, Heading, Text, RevealFx } from "@once-ui-system/core";
+import type { MdxContent } from "../../utils/utils";
 import styles from "./Posts.module.scss";
 import { formatDate } from "../../utils/formatDate";
-import { MdxContent } from "../../utils/utils";
 
 interface ArticleProps {
   article: MdxContent;

@@ -15,25 +15,25 @@ export function Posts({
   thumbnail = false,
   direction,
 }: PostsProps) {
-  let allBlogs = getAllArticles();
+  let allArticles = getAllArticles();
 
-  const sortedBlogs = allBlogs.sort((a, b) => {
+  const sortedArticles = allArticles.sort((a, b) => {
     return (
       new Date(b.metadata.publishedAt).getTime() -
       new Date(a.metadata.publishedAt).getTime()
     );
   });
 
-  const displayedBlogs = range
-    ? sortedBlogs.slice(
+  const displayedArticles = range
+    ? sortedArticles.slice(
         range[0] - 1,
-        range.length === 2 ? range[1] : sortedBlogs.length
+        range.length === 2 ? range[1] : sortedArticles.length
       )
-    : sortedBlogs;
+    : sortedArticles;
 
   return (
     <>
-      {displayedBlogs.length > 0 && (
+      {displayedArticles.length > 0 && (
         <Grid
           columns={columns}
           mobileColumns="1"
@@ -41,7 +41,7 @@ export function Posts({
           marginBottom="40"
           gap="12"
         >
-          {displayedBlogs.map((post) => (
+          {displayedArticles.map((post) => (
             <Article
               key={post.slug}
               article={post}

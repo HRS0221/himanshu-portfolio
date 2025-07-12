@@ -54,16 +54,6 @@ export default function ProjectImageCarousel({
     setModalImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      closeModal();
-    } else if (e.key === 'ArrowLeft') {
-      prevModalImage();
-    } else if (e.key === 'ArrowRight') {
-      nextModalImage();
-    }
-  };
-
   // Add/remove modalOpen class to body for disabling hover/transform effects
   useEffect(() => {
     if (isModalOpen) {
@@ -162,7 +152,6 @@ export default function ProjectImageCarousel({
           <div 
             className={styles.modalOverlay} 
             onClick={closeModal}
-            onKeyDown={handleKeyDown}
             tabIndex={-1}
           >
             <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
@@ -211,13 +200,6 @@ export default function ProjectImageCarousel({
                       aria-label={`Go to image ${index + 1}`}
                     />
                   ))}
-                </div>
-              )}
-              
-              {/* Image Counter */}
-              {images.length > 1 && (
-                <div className={styles.imageCounter}>
-                  {modalImageIndex + 1} of {images.length}
                 </div>
               )}
             </div>

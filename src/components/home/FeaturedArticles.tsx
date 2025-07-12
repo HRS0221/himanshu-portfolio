@@ -138,7 +138,7 @@ export default function FeaturedArticles() {
       <RevealFx>
         <Column horizontal="center">
           <Button
-            href="/blog"
+            href="/article"
             variant="primary"
             size="m"
             arrowIcon

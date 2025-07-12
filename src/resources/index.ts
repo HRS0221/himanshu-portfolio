@@ -5,7 +5,7 @@ export {
   home,
   about,
   articles,
-  blog, // ✅ Now exported
+  article, // ✅ Now exported
   work,
   contact,
   skills,

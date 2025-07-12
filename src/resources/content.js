@@ -580,9 +580,9 @@ const articles = {
   ],
 };
 
-const blog = {
+const article = {
   ...articles,
-  path: "/blog",
+  path: "/article",
   label: "Articles",
   description: `Explore 40+ AI articles written by ${person.name}, covering Machine Learning, Deep Learning, and more.`,
 };
@@ -634,7 +634,7 @@ export {
   home,
   about,
   articles,
-  blog,
+  article,
   work,
   contact, // ✅ Make sure this line is here
   skills,

@@ -9,7 +9,7 @@ import {
   display,
   home,
   about,
-  blog,
+  article,
   work,
   contact,
 } from "../resources";
@@ -23,7 +23,7 @@ export const Header = () => {
     { key: "home", href: "/", icon: "home", data: home, exact: true },
     { key: "about", href: "/about", icon: "person", data: about, exact: true },
     { key: "work", href: "/work", icon: "grid", data: work, exact: false },
-    { key: "blog", href: "/blog", icon: "book", data: blog, exact: false },
+    { key: "article", href: "/article", icon: "book", data: article, exact: false },
     { key: "contact", href: "/contact", icon: "email", data: contact, exact: true },
   ];
 

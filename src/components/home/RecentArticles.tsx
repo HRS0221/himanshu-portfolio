@@ -123,7 +123,7 @@ export default function RecentArticles() {
       <RevealFx delay={0.4}>
         <Flex fillWidth horizontal="center" marginTop="48">
           <Button
-            href="/blog"
+            href="/article"
             variant="secondary"
             size="m"
             arrowIcon

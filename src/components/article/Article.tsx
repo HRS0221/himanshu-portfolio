@@ -1,5 +1,3 @@
-// Complete updated code for: src/components/blog/Article.tsx
-
 "use client";
 
 import {

@@ -1,12 +1,12 @@
 // Complete corrected code for: src/app/sitemap.ts
 
 import { getAllArticles, getAllProjects } from "../utils/utils";
-import { baseURL, routes as routesConfig, blog, work } from "../resources";
+import { baseURL, routes as routesConfig, article, work } from "../resources";
 
 export default async function sitemap() {
-  // Use getAllArticles to fetch blog posts
+  // Use getAllArticles to fetch article posts
   const articles = getAllArticles().map((post) => ({
-    url: `${baseURL}${blog.path}/${post.slug}`,
+    url: `${baseURL}${article.path}/${post.slug}`,
     lastModified: new Date(post.metadata.publishedAt).toISOString(),
   }));
 

@@ -1,5 +1,3 @@
-// Complete code for the NEW file: src/components/blog/HomepageArticleCard.tsx
-
 "use client"; // This marks the component as interactive and safe for event handlers
 
 import { Column, Card, Heading, Text, RevealFx } from "@once-ui-system/core";

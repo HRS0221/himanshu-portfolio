@@ -36,8 +36,8 @@ export default function ProjectGridCard({
     <RevealFx translateY={50} delay={index * 0.05}>
       <Column
         className={styles.card}
-        background="neutral-weak"
-        border="neutral-alpha-weak"
+        background="neutral-alpha-weak"
+        border="neutral-strong"
         radius="l"
       >
         <div className={styles.imageContainer}>
