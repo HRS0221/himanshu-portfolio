@@ -28,6 +28,23 @@ export type Metadata = {
 
 export type MdxContent = { metadata: Metadata; slug: string; content: string };
 
+// Article type for LinkedIn articles
+export type ArticleItem = {
+  title: string;
+  image: string;
+  link: string;
+  publishedAt: string;
+  slug: string;
+};
+
+// Achievement type for about section
+export type Achievement = {
+  title: string;
+  description: string;
+  date?: string;
+  link?: string;
+};
+
 function getMDXFiles(dir: string) {
   const fullPath = path.join(process.cwd(), dir);
   if (!fs.existsSync(fullPath)) {
@@ -95,7 +112,7 @@ export function getMostRecentProject(): MdxContent | null {
 }
 
 export function getAllArticles() {
-  return articlesData.items.map((article: any) => ({
+  return articlesData.items.map((article: ArticleItem) => ({
     slug: article.slug,
     metadata: {
       title: article.title,
@@ -171,7 +188,7 @@ export const getWorkStatus = () => {
       // Status logic: Check recent article activity
       getStatus: () => {
         // Check if there are recent articles (within last 30 days)
-        const recentArticles = articles.items.filter((article: any) => {
+        const recentArticles = articles.items.filter((article: ArticleItem) => {
           const articleDate = new Date(article.publishedAt);
           const thirtyDaysAgo = new Date();
           thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
@@ -200,7 +217,7 @@ export const calculateStatsFromData = async () => {
   const articlesCount = articles.items.length;
   
   // Calculate hackathons count from achievements - only count participation, not organization
-  const hackathonsCount = about.achievements.items.filter((achievement: any) => 
+  const hackathonsCount = about.achievements.items.filter((achievement: Achievement) => 
     (achievement.title.toLowerCase().includes('hackathon') || 
      achievement.title.toLowerCase().includes('sih') ||
      achievement.title.toLowerCase().includes('sunhacks')) &&

@@ -85,14 +85,8 @@ export default function RecentArticles() {
                         borderBottom: "1px solid rgba(255,255,255,0.1)",
                       }}
                       onError={(e) => {
-                        console.error("Image failed to load:", article.image);
+                        // Hide image if it fails to load
                         e.currentTarget.style.display = "none";
-                      }}
-                      onLoad={() => {
-                        console.log(
-                          "Image loaded successfully:",
-                          article.image
-                        );
                       }}
                     />
                     <Column align="center" gap="12" padding="20">

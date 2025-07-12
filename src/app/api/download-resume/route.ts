@@ -1,11 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 
 export async function GET(request: NextRequest) {
   try {
     // Path to the resume file in the public folder
     const resumePath = join(process.cwd(), 'public', 'resume.pdf');
+    
+    // Check if file exists
+    if (!existsSync(resumePath)) {
+      return new NextResponse('Resume file not found', { status: 404 });
+    }
     
     // Read the file
     const fileBuffer = readFileSync(resumePath);
@@ -21,6 +26,6 @@ export async function GET(request: NextRequest) {
     return response;
   } catch (error) {
     console.error('Error serving resume:', error);
-    return new NextResponse('Resume not found', { status: 404 });
+    return new NextResponse('Internal server error', { status: 500 });
   }
 } 

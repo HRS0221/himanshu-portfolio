@@ -13,11 +13,14 @@ import {
   RevealFx,
 } from "@once-ui-system/core";
 import { person } from "../../resources";
+import { LoadingSpinner } from "../../components";
 import styles from "./page.module.scss";
+
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export default function ContactClient() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<FormStatus>("idle");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -32,19 +35,20 @@ export default function ContactClient() {
     setStatus("submitting");
 
     try {
-      // ✅ THIS IS THE FINAL CHANGE: We are now calling your own API.
       const response = await fetch("/api/submit-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
-        setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        throw new Error("Submission failed");
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Submission failed");
       }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error(error);
       setStatus("error");
@@ -54,6 +58,12 @@ export default function ContactClient() {
   const handleCloseModal = () => {
     setStatus("idle");
   };
+
+  const isSubmitting = status === "submitting";
+
+  if (isSubmitting) {
+    return <LoadingSpinner message="Sending your message..." />;
+  }
 
   return (
     <>
@@ -80,7 +90,7 @@ export default function ContactClient() {
                 </>
               )}
               {status === "error" && (
-                 <>
+                <>
                   <Icon name="warning" onBackground="danger-strong" size="xl" />
                   <Heading as="h3" variant="heading-default-m">Oops!</Heading>
                   <Text onBackground="neutral-weak" align="center">
@@ -110,19 +120,51 @@ export default function ContactClient() {
                 <Heading as="h2" variant="heading-default-m">Send a Message</Heading>
                 <Column gap="16">
                   <Text as="label" htmlFor="name" variant="body-default-m">Name</Text>
-                  <Input type="text" id="name" name="name" placeholder="Your Name" required value={formData.name} onChange={handleChange} />
+                  <Input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder="Your Name" 
+                    required 
+                    value={formData.name} 
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                  />
                 </Column>
                 <Column gap="16">
                   <Text as="label" htmlFor="email" variant="body-default-m">Email</Text>
-                  <Input type="email" id="email" name="email" placeholder="your.email@example.com" required value={formData.email} onChange={handleChange} />
+                  <Input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="your.email@example.com" 
+                    required 
+                    value={formData.email} 
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                  />
                 </Column>
                 <Column gap="16">
                   <Text as="label" htmlFor="message" variant="body-default-m">Message</Text>
-                  <Textarea id="message" name="message" placeholder="Your message..." rows={5} required value={formData.message} onChange={handleChange} />
+                  <Textarea 
+                    id="message" 
+                    name="message" 
+                    placeholder="Your message..." 
+                    rows={5} 
+                    required 
+                    value={formData.message} 
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                  />
                 </Column>
                 <Flex horizontal="start" paddingTop="8">
-                  <Button type="submit" size="l" className={styles.submitButton} disabled={status === 'submitting'}>
-                    {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                  <Button 
+                    type="submit" 
+                    size="l" 
+                    className={styles.submitButton} 
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </Flex>
               </Column>

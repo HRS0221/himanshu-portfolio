@@ -61,7 +61,7 @@ export default async function Home() {
         }}
       />
 
-      {/* --- Hero Section (uncommented for debugging) --- */}
+      {/* Hero Section */}
       <Column fillWidth paddingY="32" gap="40" horizontal="start" className="hero-section">
         {home.featured.display && (
           <RevealFx>
@@ -134,19 +134,19 @@ export default async function Home() {
         </RevealFx>
       </Column>
 
-      {/* --- Current Focus Section (uncommented for debugging) --- */}
+      {/* Current Focus Section */}
       <CurrentFocus />
 
-      {/* --- Recent Projects Section (uncommented for debugging) --- */}
+      {/* Recent Projects Section */}
       <RecentProjects projects={allProjects} />
 
-      {/* --- Recent Articles Section (uncommented for debugging) --- */}
+      {/* Recent Articles Section */}
       <RecentArticles />
 
-      {/* --- Quick Stats Section (uncommented for debugging) --- */}
+      {/* Quick Stats Section */}
       <QuickStats stats={stats} />
 
-      {/* --- Newsletter Section (uncommented, all sections now visible) --- */}
+      {/* Newsletter Section */}
       {newsletter.display && (
         <NewsletterCard
           title={newsletter.title}
