@@ -5,7 +5,7 @@ export { Mailchimp } from "./Mailchimp";
 export { ProjectCard } from "./ProjectCard";
 export { HeadingLink } from "./HeadingLink";
 
-export { ErrorBoundary } from "./ErrorBoundary";
+
 export { Providers } from "./Providers";
 export { ScrollToHash } from "./ScrollToHash";
 export { ThemeToggle } from "./ThemeToggle";

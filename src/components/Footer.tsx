@@ -1,6 +1,6 @@
 import { Flex, IconButton, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "../resources";
-import styles from "./Footer.module.scss";
+
 import { SiCodechef, SiLeetcode } from "react-icons/si";
 import { IconType } from "react-icons";
 import React from "react";
@@ -22,7 +22,6 @@ export const Footer = () => {
       mobileDirection="column"
     >
       <Flex
-        className={styles.mobile}
         maxWidth="m"
         paddingY="8"
         paddingX="16"

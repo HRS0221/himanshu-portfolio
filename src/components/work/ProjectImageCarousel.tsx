@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Icon } from '@once-ui-system/core';
 import styles from './ProjectImageCarousel.module.scss';
-import Portal from "../Portal";
+
 
 interface ProjectImageCarouselProps {
   images: string[];
@@ -148,12 +148,11 @@ export default function ProjectImageCarousel({
 
       {/* Modal */}
       {isModalOpen && (
-        <Portal>
-          <div 
-            className={styles.modalOverlay} 
-            onClick={closeModal}
-            tabIndex={-1}
-          >
+        <div 
+          className={styles.modalOverlay} 
+          onClick={closeModal}
+          tabIndex={-1}
+        >
             <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
               <button className={styles.closeButton} onClick={closeModal}>
                 <Icon name="close" size="m" />
@@ -204,8 +203,7 @@ export default function ProjectImageCarousel({
               )}
             </div>
           </div>
-        </Portal>
-      )}
+        )}
     </>
   );
 } 

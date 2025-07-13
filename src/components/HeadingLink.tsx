@@ -3,7 +3,7 @@
 import React from "react";
 import { Heading, Flex, IconButton, useToast } from "@once-ui-system/core";
 
-import styles from "./HeadingLink.module.scss";
+
 
 interface HeadingLinkProps {
   id: string;
@@ -54,15 +54,13 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({
     <Flex
       style={style}
       onClick={() => copyURL(id)}
-      className={styles.control}
       vertical="center"
       gap="4"
     >
-      <Heading className={styles.text} id={id} variant={variant} as={asTag}>
+      <Heading id={id} variant={variant} as={asTag}>
         {children}
       </Heading>
       <IconButton
-        className={styles.visibility}
         size="s"
         icon="openLink"
         variant="ghost"
