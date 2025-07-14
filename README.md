@@ -66,82 +66,17 @@ A modern, responsive portfolio website built with Next.js 15, featuring a clean 
 
 ```
 himanshu-portfolio-main/
-├── .github/                   # GitHub configuration
-│   └── FUNDING.yml           # GitHub funding configuration
 ├── public/                    # Static assets
 │   ├── favicon.svg           # Site favicon
 │   ├── resume.pdf            # Resume file
 │   ├── images/               # Images and media assets
 │   │   ├── avatar.jpg        # Profile avatar
-│   │   ├── articles/         # Article cover images
-│   │   │   ├── Adaptive Hierarchical.jpg
-│   │   │   ├── Autoencoders.jpg
-│   │   │   ├── BackPropagation.jpg
-│   │   │   ├── Bagging and Boosting.jpg
-│   │   │   ├── Bandit Problems.jpg
-│   │   │   ├── Bayesian Learning.jpg
-│   │   │   ├── Biological Neural Network.jpg
-│   │   │   ├── Classification and Regression Tree.jpg
-│   │   │   ├── Convolution Network.jpg
-│   │   │   ├── Decision Tree.jpg
-│   │   │   ├── Deep Learning.jpg
-│   │   │   ├── Deep Models.jpg
-│   │   │   ├── Explainable AI.jpg
-│   │   │   ├── Full RL.jpg
-│   │   │   ├── Function Approximation.jpg
-│   │   │   ├── GAN.jpg
-│   │   │   ├── Gradient Descent.jpg
-│   │   │   ├── Hypothesis.jpg
-│   │   │   ├── K-Means.jpg
-│   │   │   ├── Kohonen Algorithm.jpg
-│   │   │   ├── Lasso and Ridge.jpg
-│   │   │   ├── Least Mean Square.jpg
-│   │   │   ├── Linear Factor Methods.jpg
-│   │   │   ├── Linear Regression.jpg
-│   │   │   ├── Linear Reward.jpg
-│   │   │   ├── Logistic Regression.jpg
-│   │   │   ├── Machine-Learning.jpg
-│   │   │   ├── Markov Decision.jpg
-│   │   │   ├── Maximum Likelihood Estimation.jpg
-│   │   │   ├── Mcculloch and Hebb Network.jpg
-│   │   │   ├── Monte Carlo.jpg
-│   │   │   ├── Multilayer and feedforward.jpg
-│   │   │   ├── Overfitting and Underfitting.jpg
-│   │   │   ├── Perceptron, Gradient Descent, Delta Rule.jpg
-│   │   │   ├── Policy Evaluation.jpg
-│   │   │   ├── Polynomial Regression.jpg
-│   │   │   ├── Recurrent Neural Network.jpg
-│   │   │   ├── Regularization Techniques.jpg
-│   │   │   ├── Reinforcement Learning.jpg
-│   │   │   ├── Support Vector Machine.jpg
-│   │   │   ├── Temporal Difference.jpg
-│   │   │   └── Terminologies of ANN.jpg
+│   │   ├── articles/         # Article cover images (40+ ML articles)
 │   │   ├── gallery/          # Gallery images
-│   │   │   ├── horizontal-1.jpg
-│   │   │   ├── horizontal-2.jpg
-│   │   │   ├── horizontal-3.jpg
-│   │   │   ├── horizontal-4.jpg
-│   │   │   ├── vertical-1.jpg
-│   │   │   ├── vertical-2.jpg
-│   │   │   ├── vertical-3.jpg
-│   │   │   └── vertical-4.jpg
 │   │   ├── icons/            # Icon assets
 │   │   ├── newsletter/       # Newsletter images
-│   │   │   └── NewsletterImg.png
 │   │   ├── og/               # Open Graph images
-│   │   │   └── home.jpg
 │   │   └── projects/         # Project images
-│   │       ├── avatar-01.jpg
-│   │       ├── cover-01.jpg
-│   │       ├── cover-02.jpg
-│   │       ├── cover-03.jpg
-│   │       ├── cover-04.jpg
-│   │       ├── DashboardImg1.jpg
-│   │       ├── DashboardImg2.jpg
-│   │       ├── DashboardImg3.jpg
-│   │       ├── image-01.jpg
-│   │       ├── image-02.jpg
-│   │       └── image-03.jpg
 │   └── trademarks/           # Brand assets
 │       ├── wordmark-dark.svg
 │       └── wordmark-light.svg
@@ -191,28 +126,14 @@ himanshu-portfolio-main/
 │   │   │   ├── Posts.module.scss
 │   │   │   └── Posts.tsx
 │   │   ├── home/             # Homepage components
-│   │   │   ├── CallToActionCard.module.scss
-│   │   │   ├── CallToActionCard.tsx
 │   │   │   ├── CurrentFocus.module.scss
 │   │   │   ├── CurrentFocus.tsx
-│   │   │   ├── FeaturedArticles.tsx
-│   │   │   ├── FeaturedContentGrid.module.scss
-│   │   │   ├── FeaturedContentGrid.tsx
-│   │   │   ├── FeaturedProjects.module.scss
-│   │   │   ├── FeaturedProjects.tsx
-│   │   │   ├── FeaturedProjectsWrapper.tsx
-│   │   │   ├── HomepageArticleCard.tsx
-│   │   │   ├── HomepageIntro.module.scss
 │   │   │   ├── QuickStats.module.scss
 │   │   │   ├── QuickStats.tsx
 │   │   │   ├── RecentArticles.module.scss
 │   │   │   ├── RecentArticles.tsx
 │   │   │   ├── RecentProjects.module.scss
-│   │   │   ├── RecentProjects.tsx
-│   │   │   ├── SkillCard.module.scss
-│   │   │   ├── SkillCard.tsx
-│   │   │   ├── SkillsSection.module.scss
-│   │   │   └── SkillsSection.tsx
+│   │   │   └── RecentProjects.tsx
 │   │   ├── work/             # Project components
 │   │   │   ├── FeaturedProjectCard.module.scss
 │   │   │   ├── FeaturedProjectCard.tsx
@@ -222,9 +143,6 @@ himanshu-portfolio-main/
 │   │   │   ├── ProjectImageCarousel.tsx
 │   │   │   ├── Projects.module.scss
 │   │   │   └── Projects.tsx
-│   │   ├── ui/               # UI components
-│   │   ├── breakpoints.scss  # Responsive breakpoints
-│   │   ├── ErrorBoundary.tsx # Error handling
 │   │   ├── Footer.module.scss
 │   │   ├── Footer.tsx        # Site footer
 │   │   ├── Header.module.scss
@@ -235,11 +153,8 @@ himanshu-portfolio-main/
 │   │   ├── LoadingSpinner.tsx
 │   │   ├── Mailchimp.tsx     # Newsletter integration
 │   │   ├── mdx.tsx           # MDX components
-│   │   ├── MdxRenderer.tsx   # MDX rendering
 │   │   ├── NewsletterCard.module.scss
 │   │   ├── NewsletterCard.tsx
-│   │   ├── Portal.tsx        # Portal component
-│   │   ├── ProjectCard.module.scss
 │   │   ├── ProjectCard.tsx   # Project cards
 │   │   ├── Providers.tsx     # Context providers
 │   │   ├── ScrollToHash.tsx  # Smooth scrolling
@@ -430,7 +345,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Email**: contact.himanshusalunke@gmail.com
 - **LinkedIn**: [Himanshu Salunke](https://www.linkedin.com/in/hr0221/)
 - **GitHub**: [HRS0221](https://github.com/HRS0221)
-- **Portfolio**: [himanshusalunke.vercel.app](https://himanshusalunke.vercel.app)
+- **Portfolio**: [himanshu-portfolio-six.vercel.app](https://himanshu-portfolio-six.vercel.app)
 
 ## 🙏 Acknowledgments
 

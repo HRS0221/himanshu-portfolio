@@ -65,6 +65,12 @@
   animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+:root[data-theme='light'] .modalContent, html.light .modalContent, body.light .modalContent {
+  background-color: #fff;
+  border: 1px solid #d1d5db; /* visible gray border */
+  color: #222;
+}
+
 .modalCloseButton {
   --glow-rgb: 107, 114, 128; // Neutral gray glow
   transition: transform 0.3s ease, box-shadow 0.3s ease;
