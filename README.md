@@ -345,7 +345,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Email**: contact.himanshusalunke@gmail.com
 - **LinkedIn**: [Himanshu Salunke](https://www.linkedin.com/in/hr0221/)
 - **GitHub**: [HRS0221](https://github.com/HRS0221)
-- **Portfolio**: [himanshu-portfolio-six.vercel.app](https://himanshu-portfolio-six.vercel.app)
+- **Portfolio**: [himanshusalunke.vercel.app](https://himanshusalunke.vercel.app)
 
 ## 🙏 Acknowledgments
 

@@ -1,7 +1,7 @@
 import { Logo } from "@once-ui-system/core";
 
 // ✅ Add baseURL at the top
-const baseURL = "https://himanshu-portfolio-six.vercel.app/"; // Change to your custom domain later
+const baseURL = "https://himanshusalunke.vercel.app/"; // Updated to new portfolio link
 
 const person = {
   firstName: "Himanshu",
