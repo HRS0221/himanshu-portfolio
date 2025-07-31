@@ -61,7 +61,8 @@ const home = {
   image: "/images/og/home.jpg",
   label: "Home",
   title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
+  // description: `Portfolio website showcasing my work as a ${person.role}`,
+  description: `Portfolio website showcasing my work`,
   headline: <>Transforming raw data into real-world impact</>,
   featured: {
     display: true,
