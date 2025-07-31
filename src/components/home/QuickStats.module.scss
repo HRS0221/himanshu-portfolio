@@ -34,22 +34,75 @@
   min-height: 200px;
   width: 280px;
   position: relative;
+  overflow: hidden;
   
   // Enhanced transitions for glowing effects
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   
   // Subtle constant glow
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 
+    0 4px 12px rgba(59, 130, 246, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+  
+  // Sweeping light effect
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(59, 130, 246, 0.1),
+      rgba(59, 130, 246, 0.15),
+      rgba(59, 130, 246, 0.1),
+      transparent
+    );
+    transition: left 0.8s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  // Background glow effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.05) 0%,
+      rgba(59, 130, 246, 0.02) 50%,
+      rgba(59, 130, 246, 0.05) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+    pointer-events: none;
+  }
   
   &:hover {
     transform: translateY(-4px) scale(1.02);
     border-color: rgba(59, 130, 246, 0.4);
-    background: rgba(var(--color-surface-rgb), 0.7);
+    background: rgba(var(--color-surface-rgb), 0.8);
     box-shadow: 
       0 8px 24px rgba(59, 130, 246, 0.15),
       0 4px 12px rgba(59, 130, 246, 0.1),
       0 2px 6px rgba(0, 0, 0, 0.1),
       0 0 0 1px rgba(59, 130, 246, 0.2);
+    
+    &::before {
+      left: 100%;
+    }
+    
+    &::after {
+      opacity: 1;
+    }
   }
 }
 
@@ -60,6 +113,8 @@
   margin-bottom: 8px;
   line-height: 1;
   text-align: center;
+  position: relative;
+  z-index: 2;
   transition: all 0.3s ease;
   
   // Add subtle pulsing animation to make numbers feel alive
@@ -78,6 +133,8 @@
 .animatedNumber {
   display: inline-block;
   transition: all 0.1s ease;
+  position: relative;
+  z-index: 2;
   
   // Add a subtle glow effect to the animated numbers
   text-shadow: 0 0 10px rgba(var(--color-brand-rgb), 0.3);
@@ -93,6 +150,8 @@
   color: var(--color-text-neutral-strong);
   text-align: center;
   width: 100%;
+  position: relative;
+  z-index: 2;
   transition: all 0.3s ease;
   
   // Enhanced text glow on hover
@@ -108,6 +167,8 @@
   line-height: 1.4;
   text-align: center;
   width: 100%;
+  position: relative;
+  z-index: 2;
   transition: all 0.3s ease;
   
   // Enhanced text glow on hover
@@ -168,6 +229,7 @@
   
   .statNumber {
     font-size: 2rem;
+    z-index: 2;
     
     .statCard:hover & {
       animation-play-state: paused;
@@ -178,6 +240,7 @@
   
   .statLabel {
     font-size: 0.9rem;
+    z-index: 2;
     
     .statCard:hover & {
       text-shadow: 0 0 6px rgba(59, 130, 246, 0.25);
@@ -186,10 +249,15 @@
   
   .statDescription {
     font-size: 0.8rem;
+    z-index: 2;
     
     .statCard:hover & {
       text-shadow: 0 0 4px rgba(59, 130, 246, 0.2);
     }
+  }
+  
+  .animatedNumber {
+    z-index: 2;
   }
 }
 
@@ -206,6 +274,22 @@
     max-width: 400px;
     min-height: 160px;
   }
+  
+  .statNumber {
+    z-index: 2;
+  }
+  
+  .statLabel {
+    z-index: 2;
+  }
+  
+  .statDescription {
+    z-index: 2;
+  }
+  
+  .animatedNumber {
+    z-index: 2;
+  }
 }
 
 @media (max-width: 480px) {
@@ -215,5 +299,21 @@
   
   .statCard {
     max-width: 100%;
+  }
+  
+  .statNumber {
+    z-index: 2;
+  }
+  
+  .statLabel {
+    z-index: 2;
+  }
+  
+  .statDescription {
+    z-index: 2;
+  }
+  
+  .animatedNumber {
+    z-index: 2;
   }
 } 
