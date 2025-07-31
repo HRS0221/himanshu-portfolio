@@ -68,6 +68,7 @@ export default async function Home() {
             <a
               href="/api/download-resume"
               style={{ textDecoration: "none" }}
+              className="resume-button-link"
             >
             <Badge
               background="brand-alpha-weak"
@@ -75,9 +76,11 @@ export default async function Home() {
               paddingY="8"
               border="brand-alpha-medium"
               arrow
+              className="resume-button-badge"
               style={{
                 backdropFilter: "blur(8px)",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)"
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                transition: "all 0.3s ease"
               }}
             >
               <Row paddingY="2" gap="8" vertical="center">

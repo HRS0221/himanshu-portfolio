@@ -61,19 +61,21 @@ export default function RecentArticles() {
                       width: "320px",
                       maxWidth: "100%",
                       overflow: "hidden",
-                      boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
-                      transition: "transform 0.3s ease",
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
                       justifyContent: "flex-start",
+                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                      boxShadow: "0 4px 12px rgba(59, 130, 246, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05)",
                     }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.transform = "scale(1.03)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.transform = "scale(1)")
-                    }
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "translateY(-4px) scale(1.02)";
+                      e.currentTarget.style.boxShadow = "0 8px 24px rgba(59, 130, 246, 0.15), 0 4px 12px rgba(59, 130, 246, 0.1), 0 2px 6px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(59, 130, 246, 0.2)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "translateY(0) scale(1)";
+                      e.currentTarget.style.boxShadow = "0 4px 12px rgba(59, 130, 246, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05)";
+                    }}
                   >
                     <img
                       src={article.image}
@@ -83,6 +85,13 @@ export default function RecentArticles() {
                         width: "100%",
                         objectFit: "cover",
                         borderBottom: "1px solid rgba(255,255,255,0.1)",
+                        transition: "transform 0.3s ease",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = "scale(1.05)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = "scale(1)";
                       }}
                       onError={(e) => {
                         // Hide image if it fails to load
@@ -90,7 +99,21 @@ export default function RecentArticles() {
                       }}
                     />
                     <Column align="center" gap="12" padding="20">
-                      <Text variant="heading-strong-s" align="center">
+                      <Text 
+                        variant="heading-strong-s" 
+                        align="center"
+                        style={{
+                          transition: "text-shadow 0.3s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                          const target = e.currentTarget as HTMLElement;
+                          target.style.textShadow = "0 0 8px rgba(59, 130, 246, 0.3), 0 0 16px rgba(59, 130, 246, 0.2)";
+                        }}
+                        onMouseLeave={(e) => {
+                          const target = e.currentTarget as HTMLElement;
+                          target.style.textShadow = "none";
+                        }}
+                      >
                         {article.title}
                       </Text>
                       <Text 

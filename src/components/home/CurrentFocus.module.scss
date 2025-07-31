@@ -30,15 +30,135 @@
   gap: 16px;
   width: 100%;
   max-width: 320px;
+  position: relative;
+  overflow: hidden;
   
-  // Only apply transitions to specific properties that should animate
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  // Enhanced transitions for smooth animations
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // Subtle constant glow
+  box-shadow: 
+    0 4px 12px rgba(59, 130, 246, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+  
+  // Sweeping light effect
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(59, 130, 246, 0.1),
+      rgba(59, 130, 246, 0.15),
+      rgba(59, 130, 246, 0.1),
+      transparent
+    );
+    transition: left 0.8s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  // Background glow effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.05) 0%,
+      rgba(59, 130, 246, 0.02) 50%,
+      rgba(59, 130, 246, 0.05) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+    pointer-events: none;
+  }
   
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-    border-color: rgba(var(--color-brand-weak-rgb), 0.3);
-    background: rgba(var(--color-surface-rgb), 0.7);
+    transform: translateY(-4px) scale(1.02);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 
+      0 8px 24px rgba(59, 130, 246, 0.15),
+      0 4px 12px rgba(59, 130, 246, 0.1),
+      0 2px 6px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(59, 130, 246, 0.2);
+    background: rgba(var(--color-surface-rgb), 0.8);
+    
+    &::before {
+      left: 100%;
+    }
+    
+    &::after {
+      opacity: 1;
+    }
+    
+    // Enhanced icon container glow
+    .iconContainer {
+      background: rgba(59, 130, 246, 0.15);
+      box-shadow: 
+        0 0 15px rgba(59, 130, 246, 0.3),
+        0 0 30px rgba(59, 130, 246, 0.2),
+        inset 0 0 15px rgba(59, 130, 246, 0.1);
+      transform: scale(1.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    
+    // Enhanced title glow
+    .focusTitle {
+      color: var(--color-brand-strong);
+      text-shadow: 
+        0 0 8px rgba(59, 130, 246, 0.3),
+        0 0 16px rgba(59, 130, 246, 0.2);
+      transform: scale(1.01);
+    }
+    
+    // Enhanced description glow
+    .focusDescription {
+      color: var(--color-text-neutral-medium);
+      text-shadow: 0 0 4px rgba(59, 130, 246, 0.2);
+    }
+    
+    // Enhanced status badge glows
+    .status.active {
+      box-shadow: 
+        0 0 10px rgba(34, 197, 94, 0.3),
+        0 0 20px rgba(34, 197, 94, 0.2),
+        inset 0 0 8px rgba(34, 197, 94, 0.1);
+      transform: scale(1.03);
+    }
+    
+    .status.ongoing {
+      box-shadow: 
+        0 0 10px rgba(59, 130, 246, 0.3),
+        0 0 20px rgba(59, 130, 246, 0.2),
+        inset 0 0 8px rgba(59, 130, 246, 0.1);
+      transform: scale(1.03);
+    }
+    
+    .status.learning {
+      box-shadow: 
+        0 0 10px rgba(245, 158, 11, 0.3),
+        0 0 20px rgba(245, 158, 11, 0.2),
+        inset 0 0 8px rgba(245, 158, 11, 0.1);
+      transform: scale(1.03);
+    }
+    
+    .status.paused {
+      box-shadow: 
+        0 0 10px rgba(156, 163, 175, 0.3),
+        0 0 20px rgba(156, 163, 175, 0.2),
+        inset 0 0 8px rgba(156, 163, 175, 0.1);
+      transform: scale(1.03);
+    }
   }
 }
 
@@ -48,17 +168,21 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: rgba(var(--color-brand-weak-rgb), 0.1);
+  background: rgba(59, 130, 246, 0.08);
   border-radius: 8px;
   flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.15);
 }
 
 .focusTitle {
   color: var(--color-text-neutral-strong);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .focusDescription {
   line-height: 1.5;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .status {
@@ -70,6 +194,7 @@
   letter-spacing: 0.5px;
   position: relative;
   animation: statusPulse 2s ease-in-out infinite;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .active {
@@ -193,6 +318,26 @@
     padding: 20px;
     gap: 12px;
     max-width: 100%;
+    
+         &:hover {
+       transform: translateY(-2px) scale(1.01);
+       border-color: rgba(59, 130, 246, 0.3);
+       box-shadow: 
+         0 6px 20px rgba(59, 130, 246, 0.12),
+         0 3px 8px rgba(0, 0, 0, 0.08),
+         0 0 0 1px rgba(59, 130, 246, 0.15);
+       
+       .iconContainer {
+         transform: scale(1.05);
+         box-shadow: 
+           0 0 10px rgba(59, 130, 246, 0.25),
+           0 0 20px rgba(59, 130, 246, 0.15);
+       }
+       
+       .focusTitle {
+         text-shadow: 0 0 6px rgba(59, 130, 246, 0.25);
+       }
+     }
   }
   
   .iconContainer {
