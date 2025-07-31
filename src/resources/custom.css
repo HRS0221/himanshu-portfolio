@@ -88,6 +88,50 @@ a:focus-visible {
   --glow-rgb: 59, 130, 246; /* Bright blue glow - more visible in light mode */
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.glowing-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--glow-rgb), 0.2),
+    rgba(var(--glow-rgb), 0.4),
+    rgba(var(--glow-rgb), 0.6),
+    rgba(var(--glow-rgb), 0.4),
+    rgba(var(--glow-rgb), 0.2),
+    transparent
+  );
+  transition: left 0.8s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.glowing-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--glow-rgb), 0.15) 0%,
+    rgba(var(--glow-rgb), 0.08) 50%,
+    rgba(var(--glow-rgb), 0.15) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .glowing-button:hover {
@@ -97,8 +141,15 @@ a:focus-visible {
     0 0 25px rgba(var(--glow-rgb), 0.6),
     0 0 50px rgba(var(--glow-rgb), 0.4),
     0 0 75px rgba(var(--glow-rgb), 0.2),
-    0 0 100px rgba(var(--glow-rgb), 0.1),
-    inset 0 0 20px rgba(var(--glow-rgb), 0.1);
+    0 0 100px rgba(var(--glow-rgb), 0.1);
+}
+
+.glowing-button:hover::before {
+  left: 100%;
+}
+
+.glowing-button:hover::after {
+  opacity: 1;
 }
 
 .glowing-button:active {
@@ -463,7 +514,157 @@ a:focus-visible {
   }
 }
 
+/* Enhanced hover effects for social icons in footer */
+footer [data-component="icon-button"] {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 8px;
+}
 
+footer [data-component="icon-button"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.1),
+    rgba(59, 130, 246, 0.2),
+    rgba(59, 130, 246, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
+  z-index: 1;
+  pointer-events: none;
+}
 
+footer [data-component="icon-button"]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.08) 0%,
+    rgba(59, 130, 246, 0.04) 50%,
+    rgba(59, 130, 246, 0.08) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
 
+footer [data-component="icon-button"]:hover {
+  transform: translateY(-2px) scale(1.1) !important;
+  box-shadow: 
+    0 4px 12px rgba(59, 130, 246, 0.2),
+    0 2px 6px rgba(59, 130, 246, 0.1),
+    0 0 0 1px rgba(59, 130, 246, 0.3) !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+}
 
+footer [data-component="icon-button"]:hover::before {
+  left: 100%;
+}
+
+footer [data-component="icon-button"]:hover::after {
+  opacity: 1;
+}
+
+/* Enhanced icon glow on hover */
+footer [data-component="icon-button"]:hover svg {
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4)) !important;
+  transform: scale(1.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Mobile responsive adjustments for social icons */
+@media (max-width: 768px) {
+  footer [data-component="icon-button"]:hover {
+    transform: translateY(-1px) scale(1.05) !important;
+  }
+  
+  footer [data-component="icon-button"]:hover svg {
+    transform: scale(1.05) !important;
+  }
+}
+
+/* Enhanced hover effects for social icons in footer */
+footer [data-component="icon-button"] {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 8px;
+}
+
+footer [data-component="icon-button"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.1),
+    rgba(59, 130, 246, 0.2),
+    rgba(59, 130, 246, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+footer [data-component="icon-button"]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.08) 0%,
+    rgba(59, 130, 246, 0.04) 50%,
+    rgba(59, 130, 246, 0.08) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+footer [data-component="icon-button"]:hover {
+  transform: translateY(-2px) scale(1.1) !important;
+  box-shadow: 
+    0 4px 12px rgba(59, 130, 246, 0.2),
+    0 2px 6px rgba(59, 130, 246, 0.1),
+    0 0 0 1px rgba(59, 130, 246, 0.3) !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+footer [data-component="icon-button"]:hover::before {
+  left: 100%;
+}
+
+footer [data-component="icon-button"]:hover::after {
+  opacity: 1;
+}
+
+/* Enhanced icon glow on hover */
+footer [data-component="icon-button"]:hover svg {
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4)) !important;
+  transform: scale(1.1) !important;
+  transition: all 0.3s ease !important;
+}

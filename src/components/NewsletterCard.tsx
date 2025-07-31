@@ -113,7 +113,7 @@ export default function NewsletterCard({
               </Text>
 
               <Button
-                href="https://www.linkedin.com/newsletters/7123456789012345678"
+                href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7085106786910769152"
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="primary"
