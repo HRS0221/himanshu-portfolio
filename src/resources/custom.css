@@ -515,14 +515,36 @@ a:focus-visible {
 }
 
 /* Enhanced hover effects for social icons in footer */
-footer [data-component="icon-button"] {
+footer a[href*="github"],
+footer a[href*="linkedin"],
+footer a[href*="twitter"],
+footer a[href*="instagram"],
+footer a[href*="youtube"],
+footer a[href*="codechef"],
+footer a[href*="leetcode"],
+footer button,
+footer [data-component="icon-button"],
+footer .IconButton,
+footer a,
+footer svg {
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   border-radius: 8px;
 }
 
-footer [data-component="icon-button"]::before {
+/* Sweeping light effect for social icons */
+footer a[href*="github"]::before,
+footer a[href*="linkedin"]::before,
+footer a[href*="twitter"]::before,
+footer a[href*="instagram"]::before,
+footer a[href*="youtube"]::before,
+footer a[href*="codechef"]::before,
+footer a[href*="leetcode"]::before,
+footer button::before,
+footer [data-component="icon-button"]::before,
+footer .IconButton::before,
+footer a::before {
   content: '';
   position: absolute;
   top: 0;
@@ -542,7 +564,18 @@ footer [data-component="icon-button"]::before {
   pointer-events: none;
 }
 
-footer [data-component="icon-button"]::after {
+/* Background glow effect for social icons */
+footer a[href*="github"]::after,
+footer a[href*="linkedin"]::after,
+footer a[href*="twitter"]::after,
+footer a[href*="instagram"]::after,
+footer a[href*="youtube"]::after,
+footer a[href*="codechef"]::after,
+footer a[href*="leetcode"]::after,
+footer button::after,
+footer [data-component="icon-button"]::after,
+footer .IconButton::after,
+footer a::after {
   content: '';
   position: absolute;
   top: 0;
@@ -552,9 +585,9 @@ footer [data-component="icon-button"]::after {
   border-radius: 8px;
   background: linear-gradient(
     135deg,
-    rgba(59, 130, 246, 0.08) 0%,
-    rgba(59, 130, 246, 0.04) 50%,
-    rgba(59, 130, 246, 0.08) 100%
+    rgba(59, 130, 246, 0.05) 0%,
+    rgba(59, 130, 246, 0.02) 50%,
+    rgba(59, 130, 246, 0.05) 100%
   );
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -562,7 +595,17 @@ footer [data-component="icon-button"]::after {
   pointer-events: none;
 }
 
-footer [data-component="icon-button"]:hover {
+footer a[href*="github"]:hover,
+footer a[href*="linkedin"]:hover,
+footer a[href*="twitter"]:hover,
+footer a[href*="instagram"]:hover,
+footer a[href*="youtube"]:hover,
+footer a[href*="codechef"]:hover,
+footer a[href*="leetcode"]:hover,
+footer button:hover,
+footer [data-component="icon-button"]:hover,
+footer .IconButton:hover,
+footer a:hover {
   transform: translateY(-2px) scale(1.1) !important;
   box-shadow: 
     0 4px 12px rgba(59, 130, 246, 0.2),
@@ -571,16 +614,46 @@ footer [data-component="icon-button"]:hover {
   background: rgba(59, 130, 246, 0.1) !important;
 }
 
-footer [data-component="icon-button"]:hover::before {
+footer a[href*="github"]:hover::before,
+footer a[href*="linkedin"]:hover::before,
+footer a[href*="twitter"]:hover::before,
+footer a[href*="instagram"]:hover::before,
+footer a[href*="youtube"]:hover::before,
+footer a[href*="codechef"]:hover::before,
+footer a[href*="leetcode"]:hover::before,
+footer button:hover::before,
+footer [data-component="icon-button"]:hover::before,
+footer .IconButton:hover::before,
+footer a:hover::before {
   left: 100%;
 }
 
-footer [data-component="icon-button"]:hover::after {
+footer a[href*="github"]:hover::after,
+footer a[href*="linkedin"]:hover::after,
+footer a[href*="twitter"]:hover::after,
+footer a[href*="instagram"]:hover::after,
+footer a[href*="youtube"]:hover::after,
+footer a[href*="codechef"]:hover::after,
+footer a[href*="leetcode"]:hover::after,
+footer button:hover::after,
+footer [data-component="icon-button"]:hover::after,
+footer .IconButton:hover::after,
+footer a:hover::after {
   opacity: 1;
 }
 
-/* Enhanced icon glow on hover */
-footer [data-component="icon-button"]:hover svg {
+/* Enhanced SVG icon glow on hover */
+footer a[href*="github"]:hover svg,
+footer a[href*="linkedin"]:hover svg,
+footer a[href*="twitter"]:hover svg,
+footer a[href*="instagram"]:hover svg,
+footer a[href*="youtube"]:hover svg,
+footer a[href*="codechef"]:hover svg,
+footer a[href*="leetcode"]:hover svg,
+footer button:hover svg,
+footer [data-component="icon-button"]:hover svg,
+footer .IconButton:hover svg,
+footer a:hover svg {
   filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4)) !important;
   transform: scale(1.1) !important;
   transition: all 0.3s ease !important;
@@ -588,83 +661,31 @@ footer [data-component="icon-button"]:hover svg {
 
 /* Mobile responsive adjustments for social icons */
 @media (max-width: 768px) {
-  footer [data-component="icon-button"]:hover {
+  footer a[href*="github"]:hover,
+  footer a[href*="linkedin"]:hover,
+  footer a[href*="twitter"]:hover,
+  footer a[href*="instagram"]:hover,
+  footer a[href*="youtube"]:hover,
+  footer a[href*="codechef"]:hover,
+  footer a[href*="leetcode"]:hover,
+  footer button:hover,
+  footer [data-component="icon-button"]:hover,
+  footer .IconButton:hover,
+  footer a:hover {
     transform: translateY(-1px) scale(1.05) !important;
   }
   
-  footer [data-component="icon-button"]:hover svg {
+  footer a[href*="github"]:hover svg,
+  footer a[href*="linkedin"]:hover svg,
+  footer a[href*="twitter"]:hover svg,
+  footer a[href*="instagram"]:hover svg,
+  footer a[href*="youtube"]:hover svg,
+  footer a[href*="codechef"]:hover svg,
+  footer a[href*="leetcode"]:hover svg,
+  footer button:hover svg,
+  footer [data-component="icon-button"]:hover svg,
+  footer .IconButton:hover svg,
+  footer a:hover svg {
     transform: scale(1.05) !important;
   }
-}
-
-/* Enhanced hover effects for social icons in footer */
-footer [data-component="icon-button"] {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  border-radius: 8px;
-}
-
-footer [data-component="icon-button"]::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(59, 130, 246, 0.1),
-    rgba(59, 130, 246, 0.2),
-    rgba(59, 130, 246, 0.1),
-    transparent
-  );
-  transition: left 0.6s ease;
-  z-index: 1;
-  pointer-events: none;
-}
-
-footer [data-component="icon-button"]::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 8px;
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.08) 0%,
-    rgba(59, 130, 246, 0.04) 50%,
-    rgba(59, 130, 246, 0.08) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 0;
-  pointer-events: none;
-}
-
-footer [data-component="icon-button"]:hover {
-  transform: translateY(-2px) scale(1.1) !important;
-  box-shadow: 
-    0 4px 12px rgba(59, 130, 246, 0.2),
-    0 2px 6px rgba(59, 130, 246, 0.1),
-    0 0 0 1px rgba(59, 130, 246, 0.3) !important;
-  background: rgba(59, 130, 246, 0.1) !important;
-}
-
-footer [data-component="icon-button"]:hover::before {
-  left: 100%;
-}
-
-footer [data-component="icon-button"]:hover::after {
-  opacity: 1;
-}
-
-/* Enhanced icon glow on hover */
-footer [data-component="icon-button"]:hover svg {
-  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4)) !important;
-  transform: scale(1.1) !important;
-  transition: all 0.3s ease !important;
 }

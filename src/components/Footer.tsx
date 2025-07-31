@@ -1,11 +1,9 @@
-"use client";
-
 import { Flex, IconButton, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "../resources";
 
 import { SiCodechef, SiLeetcode } from "react-icons/si";
 import { IconType } from "react-icons";
-import React, { MouseEvent } from "react";
+import React from "react";
 
 const customIcons: { [key: string]: IconType } = {
   CodeChef: SiCodechef,
@@ -60,50 +58,6 @@ export const Footer = () => {
                   tooltip={item.name}
                   size="s"
                   variant="ghost"
-                  style={{
-                    position: "relative",
-                    overflow: "hidden",
-                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                    borderRadius: "8px",
-                  }}
-                  onMouseEnter={(e: MouseEvent<HTMLElement>) => {
-                    const target = e.currentTarget as HTMLElement;
-                    target.style.transform = "translateY(-2px) scale(1.1)";
-                    target.style.boxShadow = "0 4px 12px rgba(59, 130, 246, 0.2), 0 2px 6px rgba(59, 130, 246, 0.1), 0 0 0 1px rgba(59, 130, 246, 0.3)";
-                    target.style.background = "rgba(59, 130, 246, 0.1)";
-                    
-                    // Add sweeping light effect
-                    const before = document.createElement('div');
-                    before.style.cssText = `
-                      position: absolute;
-                      top: 0;
-                      left: -100%;
-                      width: 100%;
-                      height: 100%;
-                      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1), transparent);
-                      transition: left 0.6s ease;
-                      z-index: 1;
-                      pointer-events: none;
-                    `;
-                    before.id = 'sweeping-light';
-                    target.appendChild(before);
-                    
-                    setTimeout(() => {
-                      before.style.left = '100%';
-                    }, 10);
-                  }}
-                  onMouseLeave={(e: MouseEvent<HTMLElement>) => {
-                    const target = e.currentTarget as HTMLElement;
-                    target.style.transform = "translateY(0) scale(1)";
-                    target.style.boxShadow = "none";
-                    target.style.background = "transparent";
-                    
-                    // Remove sweeping light effect
-                    const before = target.querySelector('#sweeping-light');
-                    if (before) {
-                      target.removeChild(before);
-                    }
-                  }}
                 >
                   <IconComponent />
                 </IconButton>
@@ -119,50 +73,6 @@ export const Footer = () => {
                   tooltip={item.name}
                   size="s"
                   variant="ghost"
-                  style={{
-                    position: "relative",
-                    overflow: "hidden",
-                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                    borderRadius: "8px",
-                  }}
-                  onMouseEnter={(e: MouseEvent<HTMLElement>) => {
-                    const target = e.currentTarget as HTMLElement;
-                    target.style.transform = "translateY(-2px) scale(1.1)";
-                    target.style.boxShadow = "0 4px 12px rgba(59, 130, 246, 0.2), 0 2px 6px rgba(59, 130, 246, 0.1), 0 0 0 1px rgba(59, 130, 246, 0.3)";
-                    target.style.background = "rgba(59, 130, 246, 0.1)";
-                    
-                    // Add sweeping light effect
-                    const before = document.createElement('div');
-                    before.style.cssText = `
-                      position: absolute;
-                      top: 0;
-                      left: -100%;
-                      width: 100%;
-                      height: 100%;
-                      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1), transparent);
-                      transition: left 0.6s ease;
-                      z-index: 1;
-                      pointer-events: none;
-                    `;
-                    before.id = 'sweeping-light';
-                    target.appendChild(before);
-                    
-                    setTimeout(() => {
-                      before.style.left = '100%';
-                    }, 10);
-                  }}
-                  onMouseLeave={(e: MouseEvent<HTMLElement>) => {
-                    const target = e.currentTarget as HTMLElement;
-                    target.style.transform = "translateY(0) scale(1)";
-                    target.style.boxShadow = "none";
-                    target.style.background = "transparent";
-                    
-                    // Remove sweeping light effect
-                    const before = target.querySelector('#sweeping-light');
-                    if (before) {
-                      target.removeChild(before);
-                    }
-                  }}
                 />
               );
             }

@@ -356,4 +356,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Built with ❤️ using Next.js, TypeScript, and modern web technologies. ab
+Built with ❤️ using Next.js, TypeScript, and modern web technologies. 
