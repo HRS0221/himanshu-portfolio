@@ -118,9 +118,10 @@ export default function RecentArticles() {
         <Flex fillWidth horizontal="center" marginTop="48">
           <Button
             href="/article"
-            variant="secondary"
+            variant="primary"
             size="m"
             arrowIcon
+            className="glowing-button"
           >
             View All Articles
           </Button>

@@ -56,7 +56,60 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
-/* Enhanced card hover effects */
+/* Enhanced button effects for homepage */
+.enhanced-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.enhanced-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(var(--color-brand-rgb), 0.25) !important;
+}
+
+.enhanced-button::before {
+  content: '';
+  position: absolute; 
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(var(--color-brand-rgb), 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.enhanced-button:hover::before {
+  left: 100%;
+}
+
+/* Glowing button effects - same as Send Message button */
+.glowing-button {
+  --glow-rgb: 59, 130, 246; /* Bright blue glow - more visible in light mode */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.glowing-button:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--glow-rgb), 0.6);
+  box-shadow: 
+    0 0 25px rgba(var(--glow-rgb), 0.6),
+    0 0 50px rgba(var(--glow-rgb), 0.4),
+    0 0 75px rgba(var(--glow-rgb), 0.2),
+    0 0 100px rgba(var(--glow-rgb), 0.1),
+    inset 0 0 20px rgba(var(--glow-rgb), 0.1);
+}
+
+.glowing-button:active {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 0 15px rgba(var(--glow-rgb), 0.8),
+    0 0 30px rgba(var(--glow-rgb), 0.6),
+    0 0 45px rgba(var(--glow-rgb), 0.4);
+}
+
+/* Enhanced card hover effects - more specific selectors */
 .card-hover {
   transition: all 0.2s ease;
 }
@@ -82,4 +135,198 @@ a:focus-visible {
 .aboutButtonFlushRoot > .once-ui-button,
 .aboutButtonFlushRoot > button {
   padding-left: 0 !important;
+}
+
+/* Custom cursor effects */
+.custom-cursor {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 1) 0%, rgba(59, 130, 246, 0.9) 40%, rgba(59, 130, 246, 0.6) 70%, transparent 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  transition: transform 0.05s ease;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 30px rgba(59, 130, 246, 1);
+  border: 2px solid rgba(59, 130, 246, 0.8);
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.9) 0%, rgba(59, 130, 246, 0.6) 50%, transparent 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999998;
+  transition: all 0.1s ease;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
+}
+
+/* Star trail effects */
+.cursor-star {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 60%, transparent 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999997;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 25px rgba(255, 255, 255, 0.6);
+  animation: starTwinkle 0.8s ease-in-out infinite;
+}
+
+.cursor-star:nth-child(1) { animation-delay: 0s; }
+.cursor-star:nth-child(2) { animation-delay: 0.1s; }
+.cursor-star:nth-child(3) { animation-delay: 0.2s; }
+.cursor-star:nth-child(4) { animation-delay: 0.3s; }
+.cursor-star:nth-child(5) { animation-delay: 0.4s; }
+.cursor-star:nth-child(6) { animation-delay: 0.5s; }
+.cursor-star:nth-child(7) { animation-delay: 0.6s; }
+.cursor-star:nth-child(8) { animation-delay: 0.7s; }
+
+/* Star twinkle animation */
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+/* Space dust effect */
+.cursor-dust {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999996;
+  mix-blend-mode: screen;
+  animation: dustFloat 1.2s ease-in-out infinite;
+}
+
+.cursor-dust:nth-child(1) { animation-delay: 0s; }
+.cursor-dust:nth-child(2) { animation-delay: 0.2s; }
+.cursor-dust:nth-child(3) { animation-delay: 0.4s; }
+.cursor-dust:nth-child(4) { animation-delay: 0.6s; }
+.cursor-dust:nth-child(5) { animation-delay: 0.8s; }
+.cursor-dust:nth-child(6) { animation-delay: 1s; }
+
+/* Dust float animation */
+@keyframes dustFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.7);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(-20px) scale(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.7);
+  }
+}
+
+/* Hide default cursor on interactive elements */
+a:hover,
+button:hover,
+input:hover,
+textarea:hover {
+  cursor: none;
+}
+
+/* Enhanced cursor for interactive elements */
+.custom-cursor.interactive {
+  transform: scale(1.8);
+  background: radial-gradient(circle, rgba(59, 130, 246, 1) 0%, rgba(59, 130, 246, 0.9) 40%, rgba(59, 130, 246, 0.6) 70%, transparent 100%);
+  box-shadow: 0 0 40px rgba(59, 130, 246, 1), 0 0 80px rgba(59, 130, 246, 0.5);
+  border: 3px solid rgba(59, 130, 246, 1);
+}
+
+/* Cursor pulse effect */
+@keyframes cursorPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.custom-cursor.pulse {
+  animation: cursorPulse 2s ease-in-out infinite;
+}
+
+/* Click burst effects */
+.click-burst {
+  position: fixed;
+  pointer-events: none;
+  z-index: 999995;
+  animation: clickBurst 1s ease-out forwards;
+}
+
+.click-star {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 60%, transparent 100%);
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 0.6);
+  animation: clickStarFly 1s ease-out forwards;
+}
+
+.click-star:nth-child(1) { animation-delay: 0s; }
+.click-star:nth-child(2) { animation-delay: 0.1s; }
+.click-star:nth-child(3) { animation-delay: 0.2s; }
+.click-star:nth-child(4) { animation-delay: 0.3s; }
+.click-star:nth-child(5) { animation-delay: 0.4s; }
+.click-star:nth-child(6) { animation-delay: 0.5s; }
+.click-star:nth-child(7) { animation-delay: 0.6s; }
+.click-star:nth-child(8) { animation-delay: 0.7s; }
+.click-star:nth-child(9) { animation-delay: 0.8s; }
+.click-star:nth-child(10) { animation-delay: 0.9s; }
+.click-star:nth-child(11) { animation-delay: 1s; }
+.click-star:nth-child(12) { animation-delay: 1.1s; }
+
+/* Click burst animation */
+@keyframes clickBurst {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Click star fly animation */
+@keyframes clickStarFly {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--fly-x), var(--fly-y)) scale(1);
+    opacity: 0;
+  }
 }

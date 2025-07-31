@@ -113,12 +113,12 @@ export default function NewsletterCard({
               </Text>
 
               <Button
-                href={subscribeLink}
+                href="https://www.linkedin.com/newsletters/7123456789012345678"
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="primary"
                 size="m"
-                className={styles.subscribeButton}
+                className={`${styles.subscribeButton} glowing-button`}
               >
                 Subscribe on LinkedIn
               </Button>

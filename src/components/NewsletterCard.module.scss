@@ -68,10 +68,11 @@
   margin-top: 8px;
   transition: all 0.2s ease;
   
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(var(--color-brand-rgb), 0.3);
-  }
+  // Remove conflicting hover effects - let the glowing-button class handle it
+  // &:hover {
+  //   transform: translateY(-2px);
+  //   box-shadow: 0 6px 20px rgba(var(--color-brand-rgb), 0.3);
+  // }
 }
 
 // Tablet responsiveness

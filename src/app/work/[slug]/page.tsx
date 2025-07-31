@@ -46,7 +46,7 @@ export default async function ProjectPage({ params }: PageProps) {
   return (
     <Column maxWidth="m" paddingY="64">
       <div style={{ marginTop: '40px', marginBottom: '16px' }}>
-        <Link href="/work" passHref legacyBehavior>
+        <Link href="/work">
           <Button variant="secondary" size="s" arrowIcon>
             ← Back
           </Button>

@@ -194,9 +194,10 @@ export default function RecentProjects({ projects }: RecentProjectsProps) {
         <Flex fillWidth horizontal="center" marginTop="48">
           <Button
             href="/work"
-            variant="secondary"
+            variant="primary"
             size="m"
             arrowIcon
+            className="glowing-button"
           >
             View All Projects
           </Button>
