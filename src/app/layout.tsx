@@ -14,7 +14,6 @@ import {
 } from "@once-ui-system/core";
 import { Footer, Header, Providers } from "../components";
 import { baseURL, effects, fonts, style, dataStyle, home } from "../resources";
-import CustomCursor from "../components/CustomCursor";
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -167,7 +166,6 @@ export default async function RootLayout({
           <Footer />
           <Analytics />
           <SpeedInsights />
-          <CustomCursor />
         </Column>
       </Providers>
     </Flex>
