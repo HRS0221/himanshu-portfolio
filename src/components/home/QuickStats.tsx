@@ -8,6 +8,7 @@ type Stat = {
   number: string;
   label: string;
   description: string;
+  icon: string;
 };
 
 // Component for animated counting
@@ -68,6 +69,14 @@ export default function QuickStats({ stats }: { stats: Stat[] }) {
         {memoizedStats.map((stat, index) => (
           <RevealFx key={`stat-${index}-${stat.number}`} delay={0.1 * (index + 1)}>
             <div className={styles.statCard}>
+              <div className={styles.statIcon} style={{ 
+                fontSize: '2.5rem', 
+                marginBottom: '12px',
+                opacity: 0.8,
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+              }}>
+                {stat.icon}
+              </div>
               <div className={styles.statNumber}>
                 <AnimatedNumber value={stat.number} />
               </div>

@@ -8,25 +8,25 @@ export default function CurrentFocus() {
   // Use only the default focusItems array
   const focusItems = [
     {
-      icon: "book",
+      icon: "📚",
       title: "GATE 2026 Preparation",
       description: "Intensive preparation for Graduate Aptitude Test in Engineering 2026, focusing on Data Science and Artificial Intelligence paper.",
       status: "Active"
     },
     {
-      icon: "eye",
+      icon: "👁️",
       title: "Computer Vision Projects",
       description: "Developing real-time object detection and image processing solutions using YOLO and deep learning frameworks.",
       status: "Ongoing"
     },
     {
-      icon: "globe",
+      icon: "☁️",
       title: "Cloud Data Engineering",
       description: "Building scalable data pipelines and analytics solutions using AWS services and modern data engineering practices.",
       status: "Learning"
     },
     {
-      icon: "document",
+      icon: "✍️",
       title: "Technical Writing",
       description: "Creating educational content on machine learning and data science concepts through LinkedIn articles and documentation.",
       status: "Active"
@@ -56,7 +56,9 @@ export default function CurrentFocus() {
           <RevealFx key={`focus-${index}-${item.title}`} delay={0.1 * (index + 1)}>
             <div className={styles.focusCard}>
               <div className={styles.iconContainer}>
-                <Icon name={item.icon} size="l" />
+                <span style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {item.icon}
+                </span>
               </div>
               <Column gap="12" flex={1}>
                 <Flex horizontal="space-between" vertical="center">

@@ -242,22 +242,26 @@ export const calculateStatsFromData = async () => {
     {
       number: `${articlesCount}+`,
       label: "Articles Published",
-      description: "AI & ML insights on LinkedIn"
+      description: "AI & ML insights on LinkedIn",
+      icon: "✍️"
     },
     {
       number: hackathonsCount.toString(),
       label: "National Hackathons",
-      description: "SIH 2022, SUNHACKS 2022"
+      description: "SIH 2022, SUNHACKS 2022",
+      icon: "🏆"
     },
     {
       number: `${certificationsCount}+`,
       label: "Certifications",
-      description: "DataCamp, Google"
+      description: "DataCamp, Google",
+      icon: "🎓"
     },
     {
       number: `${completedProjectsCount}+`,
       label: "Projects Completed",
-      description: "AI, ML & Data Science"
+      description: "AI, ML & Data Science",
+      icon: "🚀"
     },
   ];
 };

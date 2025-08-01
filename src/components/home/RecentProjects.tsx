@@ -104,16 +104,18 @@ export default function RecentProjects({ projects }: RecentProjectsProps) {
                           background: "linear-gradient(transparent, rgba(0,0,0,0.7))",
                         }}
                       />
-                      {/* Tag */}
-                      {project.metadata.tag && (
-                        <div
-                          style={{
-                            position: "absolute",
-                            top: "16px",
-                            left: "16px",
-                            zIndex: 2,
-                          }}
-                        >
+
+                      
+                                              {/* Tag */}
+                        {project.metadata.tag && (
+                          <div
+                            style={{
+                              position: "absolute",
+                              top: "16px",
+                              left: "16px",
+                              zIndex: 2,
+                            }}
+                          >
                           <Tag
                             label={project.metadata.tag}
                             variant="brand"
