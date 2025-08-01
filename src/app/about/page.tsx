@@ -426,70 +426,85 @@ export default function About() {
         </Flex>
         {about.work.display && (
           <section>
-            {" "}
-            <Heading
-              as="h2"
-              id={about.work.title}
-              variant="display-strong-s"
-              marginBottom="m"
-            >
-              {about.work.title}
-            </Heading>{" "}
             <Column fillWidth gap="l" marginBottom="40">
-              {" "}
+              {/* Work Experience Header Card */}
+              <Flex
+                className={styles.workHeaderCard}
+                fillWidth
+                padding="l"
+                radius="l"
+                horizontal="center"
+                vertical="center"
+              >
+                <Heading
+                  as="h2"
+                  id={about.work.title}
+                  variant="display-strong-s"
+                  className={styles.textAlign}
+                >
+                  {about.work.title}
+                </Heading>
+              </Flex>
+              
+              {/* Work Experience Cards */}
               {about.work.experiences.map(
                 (experience: WorkExperience, index: number) => (
-                  <Column key={`${experience.company}-${index}`} fillWidth>
-                    {" "}
-                    <Flex
-                      fillWidth
-                      horizontal="space-between"
-                      vertical="end"
-                      marginBottom="4"
-                    >
-                      {" "}
-                      <Text
-                        id={experience.company}
-                        variant="heading-strong-l"
+                  <Flex
+                    key={`${experience.company}-${index}`}
+                    className={styles.workCard}
+                    fillWidth
+                    padding="xs"
+                    radius="xs"
+                  >
+                    <Column fillWidth>
+                      <Flex
+                        fillWidth
+                        horizontal="space-between"
+                        vertical="end"
+                        marginBottom="4"
                       >
-                        {experience.company}
-                      </Text>{" "}
+                        <Text
+                          id={experience.company}
+                          variant="heading-strong-l"
+                        >
+                          {experience.company}
+                        </Text>
+                        <Text
+                          variant="heading-default-xs"
+                          onBackground="neutral-weak"
+                        >
+                          {experience.timeframe}
+                        </Text>
+                      </Flex>
                       <Text
-                        variant="heading-default-xs"
-                        onBackground="neutral-weak"
+                        variant="body-default-s"
+                        onBackground="brand-weak"
+                        marginBottom="m"
                       >
-                        {experience.timeframe}
-                      </Text>{" "}
-                    </Flex>{" "}
-                    <Text
-                      variant="body-default-s"
-                      onBackground="brand-weak"
-                      marginBottom="m"
-                    >
-                      {experience.role}
-                    </Text>{" "}
-                    <Column
-                      as="ul"
-                      gap="16"
-                      style={{ listStyleType: "disc", paddingLeft: "20px" }}
-                    >
-                      {" "}
-                      {experience.achievements.map(
-                        (achievement: React.ReactNode, achIndex: number) => (
-                          <Text
-                            as="li"
-                            variant="body-default-m"
-                            key={`${experience.company}-ach-${achIndex}`}
-                          >
-                            {achievement}
-                          </Text>
-                        )
-                      )}{" "}
-                    </Column>{" "}
-                  </Column>
+                        {experience.role}
+                      </Text>
+                      <Column
+                        as="ul"
+                        gap="16"
+                        style={{ listStyleType: "disc", paddingLeft: "20px" }}
+                      >
+                        {experience.achievements.map(
+                          (achievement: React.ReactNode, achIndex: number) => (
+                            <Text
+                              as="li"
+                              variant="body-default-m"
+                              key={`${experience.company}-ach-${achIndex}`}
+                            >
+                              {achievement}
+                            </Text>
+                          )
+                        )}
+                      </Column>
+                    </Column>
+                  </Flex>
                 )
-              )}{" "}
-            </Column>{" "}
+              )}
+            </Column>
           </section>
         )}
         {about.studies.display && (
