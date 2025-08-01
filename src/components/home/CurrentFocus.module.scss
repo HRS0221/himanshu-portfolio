@@ -308,16 +308,17 @@
   }
   
   .focusGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
     gap: 20px;
-    padding: 0;
-    max-width: 500px;
+    padding: 0 16px;
+    justify-content: center;
   }
   
   .focusCard {
     padding: 20px;
     gap: 12px;
-    max-width: 100%;
+    max-width: 320px;
+    width: 100%;
     
          &:hover {
        transform: translateY(-2px) scale(1.01);
@@ -343,5 +344,19 @@
   .iconContainer {
     width: 40px;
     height: 40px;
+  }
+}
+
+// Half window mode responsiveness
+@media (max-height: 800px) and (max-width: 1200px) {
+  .focusGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .focusCard {
+    max-width: 320px;
+    width: 100%;
   }
 } 

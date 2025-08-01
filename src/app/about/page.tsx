@@ -24,10 +24,15 @@ interface Institution {
   timeframe: string;
   cgpa: string;
 }
-interface Skill {
+interface SkillItem {
   title: string;
-  description: React.ReactNode;
-  images: any[];
+  description: string;
+}
+
+interface SkillCategory {
+  title: string;
+  description: string;
+  items: SkillItem[];
 }
 interface Credential {
   name: string;
@@ -60,15 +65,47 @@ const ListItem = ({
 }: {
   title: string;
   description: React.ReactNode;
-}) => (
-  <Column gap="4">
-    {" "}
+}) => {
+  // Define symbols for different types of achievements
+  const getAchievementSymbol = (title: string) => {
+    const lowerTitle = title.toLowerCase();
+    
+    if (lowerTitle.includes('hackathon') || lowerTitle.includes('competition')) {
+      return '🏆';
+    } else if (lowerTitle.includes('lead') || lowerTitle.includes('coordinator')) {
+      return '👑';
+    } else if (lowerTitle.includes('finalist') || lowerTitle.includes('winner')) {
+      return '🥇';
+    } else if (lowerTitle.includes('team') || lowerTitle.includes('collaboration')) {
+      return '🤝';
+    } else if (lowerTitle.includes('innovation') || lowerTitle.includes('creative')) {
+      return '💡';
+    } else if (lowerTitle.includes('national') || lowerTitle.includes('international')) {
+      return '🌍';
+    } else {
+      return '⭐';
+    }
+  };
+
+  return (
+    <Flex
+      className={styles.achievementCard}
+      fillWidth
+      padding="l"
+      radius="l"
+    >
+      <div className={styles.achievementIcon}>
+        <span style={{ fontSize: '24px' }}>{getAchievementSymbol(title)}</span>
+      </div>
+      <Column gap="4" flex={1}>
     <Text variant="heading-strong-s" onBackground="neutral-strong">
       {title}
-    </Text>{" "}
-    <Text onBackground="neutral-weak">{description}</Text>{" "}
+        </Text>
+        <Text onBackground="neutral-weak">{description}</Text>
   </Column>
+    </Flex>
 );
+};
 const CredentialItem = ({
   name,
   issuer,
@@ -81,29 +118,30 @@ const CredentialItem = ({
   link: string;
 }) => (
   <Flex
+    className={styles.credentialCard}
+    fillWidth
     horizontal="space-between"
     vertical="center"
-    paddingY="16"
-    borderBottom="neutral-alpha-weak"
+    padding="l"
+    radius="l"
   >
-    {" "}
     <Column>
-      {" "}
       <Text variant="heading-default-s" onBackground="neutral-strong">
         {name}
-      </Text>{" "}
+      </Text>
       <Text size="s" onBackground="neutral-medium">
         {issuer} • {date}
-      </Text>{" "}
-    </Column>{" "}
+      </Text>
+    </Column>
     <Button
       href={link}
       target="_blank"
       variant="secondary"
       size="s"
-      label="View"
+      label="Verify"
       arrowIcon
-    />{" "}
+      className={styles.verifyButton}
+    />
   </Flex>
 );
 
@@ -142,7 +180,7 @@ export default function About() {
     {
       title: about.technical.title,
       display: about.technical.display,
-      items: about.technical.skills.map((skill: Skill) => skill.title),
+      items: about.technical.categories.map((category: SkillCategory) => category.title),
     },
     {
       title: about.credentials.title,
@@ -393,10 +431,16 @@ export default function About() {
                 >
                   {about.studies.title}
                 </Heading>
-                <Column fillWidth gap="m">
+                <div className={styles.educationTimeline}>
                   {about.studies.institutions.map(
                     (institution: Institution, index: number) => (
-                      <Column key={`${institution.institution}-${index}`} fillWidth>
+                      <div key={`${institution.institution}-${index}`} className={styles.timelineItem}>
+                        <div className={styles.timelineDot}></div>
+                        {index < about.studies.institutions.length - 1 && (
+                          <div className={styles.timelineLine}></div>
+                        )}
+                        <div className={styles.timelineContent}>
+                          <Column fillWidth gap="4">
                         <Text
                           variant="heading-strong-m"
                           onBackground="neutral-strong"
@@ -406,7 +450,6 @@ export default function About() {
                         <Text
                           variant="body-default-m"
                           onBackground="brand-weak"
-                          marginBottom="4"
                         >
                           {institution.degree}
                         </Text>
@@ -417,9 +460,11 @@ export default function About() {
                           {institution.timeframe} • {institution.cgpa}
                         </Text>
                       </Column>
+                        </div>
+                      </div>
                     )
                   )}
-                </Column>
+                </div>
               </Column>
             </Flex>
           )}
@@ -446,16 +491,16 @@ export default function About() {
                 </Heading>
               </Flex>
               
-              {/* Work Experience Cards */}
+              {/* Work Experience Timeline */}
+              <div className={styles.workTimeline}>
               {about.work.experiences.map(
                 (experience: WorkExperience, index: number) => (
-                  <Flex
-                    key={`${experience.company}-${index}`}
-                    className={styles.workCard}
-                    fillWidth
-                    padding="xs"
-                    radius="xs"
-                  >
+                    <div key={`${experience.company}-${index}`} className={styles.workTimelineItem}>
+                      <div className={styles.workTimelineDot}></div>
+                      {index < about.work.experiences.length - 1 && (
+                        <div className={styles.workTimelineLine}></div>
+                      )}
+                      <div className={styles.workTimelineContent}>
                     <Column fillWidth>
                       <Flex
                         fillWidth
@@ -501,94 +546,124 @@ export default function About() {
                         )}
                       </Column>
                     </Column>
-                  </Flex>
+                      </div>
+                    </div>
                 )
               )}
+              </div>
             </Column>
           </section>
         )}
-        {about.studies.display && (
-          <section>
-            {" "}
-            <Heading
-              as="h2"
-              id={about.studies.title}
-              variant="display-strong-s"
-              marginBottom="m"
-            >
-              {about.studies.title}
-            </Heading>{" "}
-            <Column fillWidth gap="l" marginBottom="40">
-              {" "}
-              {about.studies.institutions.map(
-                (institution: Institution, index: number) => (
-                  <ListItem
-                    key={index}
-                    title={institution.institution}
-                    description={`${institution.degree} • ${institution.timeframe} (${institution.cgpa})`}
-                  />
-                )
-              )}{" "}
-            </Column>{" "}
-          </section>
-        )}
         {about.technical.display && (
-          <section>
-            {" "}
+          <section className={styles.skillsSection}>
+            {/* Tech Stack Header Card */}
+            <Flex
+              className={styles.techStackHeaderCard}
+              fillWidth
+              padding="l"
+              radius="l"
+              horizontal="center"
+              vertical="center"
+              marginBottom="l"
+            >
             <Heading
               as="h2"
               id={about.technical.title}
               variant="display-strong-s"
-              marginBottom="m"
+                className={styles.textAlign}
             >
               {about.technical.title}
-            </Heading>{" "}
-            <Column fillWidth gap="l" marginBottom="40">
-              {" "}
-              {about.technical.skills.map((skill: Skill, index: number) => (
-                <ListItem
-                  key={index}
-                  title={skill.title}
-                  description={skill.description}
-                />
-              ))}{" "}
-            </Column>{" "}
+              </Heading>
+            </Flex>
+            <div className={styles.skillsSection}>
+              {about.technical.categories.map((category: SkillCategory, index: number) => {
+                // Define symbols for each skill category
+                const getSkillSymbol = (title: string) => {
+                  switch (title.toLowerCase()) {
+                    case 'my ai universe':
+                      return '🚀';
+                    case 'code arsenal':
+                      return '⚔️';
+                    case 'cloud & infrastructure':
+                      return '☁️';
+                    case 'web development stack':
+                      return '🌐';
+                    case 'data visualization suite':
+                      return '📊';
+                    default:
+                      return '⭐';
+                  }
+                };
+
+                return (
+                  <div key={index} className={styles.skillsCategory}>
+                    <div className={styles.skillsCategoryHeader}>
+                      <div className={styles.skillsCategoryIcon}>
+                        <span style={{ fontSize: '24px' }}>{getSkillSymbol(category.title)}</span>
+                      </div>
+                      <h3 className={styles.skillsCategoryTitle}>
+                        {category.title}
+                      </h3>
+                    </div>
+                    
+                    <p className={styles.skillsCategoryDescription}>
+                      {category.description}
+                    </p>
+                    
+                    <div className={styles.skillsItemsGrid}>
+                      {category.items.map((item: SkillItem, itemIndex: number) => (
+                        <div key={itemIndex} className={styles.skillsItemCard}>
+                          <h4 className={styles.skillsItemTitle}>
+                            {item.title}
+                          </h4>
+                          <p className={styles.skillsItemDescription}>
+                            {item.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </section>
         )}
-        {about.credentials.display && (
-          <section>
-            {" "}
-            <Heading
-              as="h2"
-              id={about.credentials.title}
-              variant="display-strong-s"
-              marginBottom="m"
-            >
-              {about.credentials.title}
-            </Heading>{" "}
-            <Column fillWidth marginBottom="40">
-              {" "}
-              {about.credentials.items.map(
-                (cred: Credential, index: number) => (
-                  <CredentialItem key={index} {...cred} />
-                )
-              )}{" "}
-            </Column>{" "}
-          </section>
-        )}
+        {/* Achievements and Credentials Side by Side */}
+        {(about.achievements.display || about.credentials.display) && (
+          <Flex
+            fillWidth
+            mobileDirection="column"
+            horizontal="center"
+            gap="l"
+            marginBottom="xl"
+          >
+            {/* Achievements Section */}
         {about.achievements.display && (
-          <section>
-            {" "}
+              <Flex
+                className={styles.achievementsCard}
+                fillWidth
+                mobileDirection="column"
+                horizontal="center"
+                padding="l"
+                radius="l"
+                flex={1}
+              >
+                <Column
+                  fillWidth
+                  minHeight="160"
+                  marginBottom="32"
+                  maxWidth={100}
+                >
             <Heading
               as="h2"
               id={about.achievements.title}
               variant="display-strong-s"
               marginBottom="m"
+                    className={styles.textAlign}
             >
               {about.achievements.title}
-            </Heading>{" "}
-            <Column fillWidth gap="l" marginBottom="40">
-              {" "}
+                  </Heading>
+                  <Column fillWidth gap="m">
               {about.achievements.items.map(
                 (ach: Achievement, index: number) => (
                   <ListItem
@@ -597,9 +672,48 @@ export default function About() {
                     description={ach.description}
                   />
                 )
-              )}{" "}
-            </Column>{" "}
-          </section>
+                    )}
+                  </Column>
+                </Column>
+              </Flex>
+            )}
+
+            {/* Credentials Section */}
+            {about.credentials.display && (
+              <Flex
+                className={styles.credentialsCard}
+                fillWidth
+                mobileDirection="column"
+                horizontal="center"
+                padding="l"
+                radius="l"
+                flex={1}
+              >
+                <Column
+                  fillWidth
+                  marginBottom="32"
+                  maxWidth={100}
+                >
+                  <Heading
+                    as="h2"
+                    id={about.credentials.title}
+                    variant="display-strong-s"
+                    marginBottom="m"
+                    className={styles.textAlign}
+                  >
+                    {about.credentials.title}
+                  </Heading>
+                  <Column fillWidth gap="m">
+                    {about.credentials.items.map(
+                      (cred: Credential, index: number) => (
+                        <CredentialItem key={index} {...cred} />
+                      )
+                    )}
+                  </Column>
+                </Column>
+              </Flex>
+            )}
+          </Flex>
         )}
       </Column>
     </Column>

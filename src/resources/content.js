@@ -183,36 +183,135 @@ const about = {
   },
   technical: {
     display: true,
-    title: "Technical Skills",
-    skills: [
+     title: "My Tech Stack",
+    categories: [
       {
-        title: "Areas of Focus",
-        description:
-          "Computer Vision, Image Processing, Machine Learning, Deep Learning, Data Analysis, Microsoft Excel",
-        images: [],
+        title: "My AI Universe",
+        description: "The core AI technologies and ML frameworks I use to build intelligent solutions and deploy models in production.",
+        items: [
+          {
+            title: "Large Language Models",
+            description: "Building chatbots and text generation systems for real-world applications"
+          },
+          {
+            title: "Generative AI",
+            description: "Creating AI-powered content and automated creative workflows"
+          },
+          {
+            title: "Transformers",
+            description: "Fine-tuning pre-trained models for custom NLP tasks"
+          },
+          {
+            title: "LangChain",
+            description: "Building AI chatbots and automated workflow systems"
+          },
+          {
+            title: "TensorFlow & PyTorch",
+            description: "Training deep learning models for computer vision and NLP projects"
+          },
+          {
+            title: "Computer Vision",
+            description: "Building image recognition systems with OpenCV and deep learning"
+          },
+          {
+            title: "Data Analysis",
+            description: "Extracting insights using Pandas, NumPy, and scikit-learn"
+          }
+        ]
       },
       {
-        title: "Languages",
-        description: "Python, SQL, Java, C, C++, HTML, CSS",
-        images: [],
+        title: "Code Arsenal",
+        description: "The core languages I use daily to write code, analyze data, and build scalable applications.",
+        items: [
+          {
+            title: "Python",
+            description: "My go-to language for ML models, data analysis, and automation"
+          },
+          {
+            title: "JavaScript/TypeScript",
+            description: "Creating interactive web applications and modern user interfaces"
+          },
+          {
+            title: "SQL",
+            description: "Querying databases and performing complex data transformations"
+          },
+          {
+            title: "Java",
+            description: "Building scalable applications and enterprise-level systems"
+          }
+        ]
       },
       {
-        title: "Frameworks & Libraries",
-        description: "Flask, Tensorflow, PyTorch, Keras, YOLO, scikit-learn",
-        images: [],
+        title: "Cloud & Infrastructure",
+        description: "The cloud platforms and infrastructure tools I use to deploy, scale, and manage applications and ML models.",
+        items: [
+          {
+            title: "AWS Services",
+            description: "Lambda, S3, Glue, and Athena for scalable cloud infrastructure"
+          },
+          {
+            title: "Google Cloud AI",
+            description: "Training and deploying ML models on scalable infrastructure"
+          },
+          {
+            title: "Docker & Kubernetes",
+            description: "Containerizing and orchestrating applications at scale"
+          },
+          {
+            title: "OpenAI API",
+            description: "Integrating GPT models into applications and chatbots"
+          },
+          {
+            title: "Vercel",
+            description: "Deploying web applications and portfolios quickly"
+          }
+        ]
       },
       {
-        title: "Technologies",
-        description:
-          "QuickSight, Amazon Athena, AWS Glue, AWS Lambda, Amazon S3, IBM Watson Studio, Docker",
-        images: [],
+        title: "Web Development Stack",
+        description: "The modern web technologies I use to build fast, responsive, and user-friendly applications.",
+        items: [
+          {
+            title: "Next.js & React",
+            description: "Building fast, SEO-friendly web applications with dynamic interfaces"
+          },
+          {
+            title: "TypeScript",
+            description: "Writing maintainable, type-safe JavaScript code"
+          },
+          {
+            title: "SASS/SCSS",
+            description: "Organizing and maintaining scalable CSS architecture"
+          },
+          {
+            title: "Flask",
+            description: "Building lightweight web APIs and backend services"
+          }
+        ]
       },
       {
-        title: "Developer Tools",
-        description: "Tableau, PowerBI",
-        images: [],
-      },
-    ],
+        title: "Data Visualization Suite",
+        description: "The tools I use to create interactive dashboards and compelling visualizations for stakeholders.",
+        items: [
+          {
+            title: "Plotly",
+            description: "Creating interactive dashboards and dynamic data visualizations"
+          },
+          {
+            title: "Tableau & PowerBI",
+            description: "Building business intelligence dashboards and reports"
+          },
+          {
+            title: "Jupyter Notebooks",
+            description: "Documenting data science workflow and sharing insights"
+          },
+          {
+            title: "Matplotlib & Seaborn",
+            description: "Generating publication-quality plots and statistical visualizations"
+          }
+        ]
+      }
+    ]
   },
   credentials: {
     display: true,

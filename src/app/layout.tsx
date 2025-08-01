@@ -12,7 +12,7 @@ import {
   opacity,
   SpacingToken,
 } from "@once-ui-system/core";
-import { Footer, Header, Providers } from "../components";
+import { Footer, Header, Providers, BackToTop } from "../components";
 import { baseURL, effects, fonts, style, dataStyle, home } from "../resources";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -164,6 +164,7 @@ export default async function RootLayout({
             </Flex>
           </Flex>
           <Footer />
+          <BackToTop />
           <Analytics />
           <SpeedInsights />
         </Column>

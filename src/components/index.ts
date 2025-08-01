@@ -11,3 +11,4 @@ export { ScrollToHash } from "./ScrollToHash";
 export { ThemeToggle } from "./ThemeToggle";
 export { CustomMDX } from "./mdx";
 export { default as LoadingSpinner } from "./LoadingSpinner";
+export { default as BackToTop } from "./BackToTop";
