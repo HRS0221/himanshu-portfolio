@@ -9,7 +9,7 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "GATE - 2026 Aspirant",
+  role: "Aspiring Data Scientist",
   avatar: "/images/avatar.jpg",
   email: "contact.himanshusalunke@gmail.com",
   languages: ["English", "Hindi", "Marathi"],
@@ -90,7 +90,7 @@ const about = {
   title: `About – ${person.name}`,
   description: `Meet ${person.name}, ${person.role} from ${person.location}`,
   tableOfContent: {
-    display: true,
+    display: false,
     subItems: false,
   },
   avatar: {
@@ -162,16 +162,22 @@ const about = {
     institutions: [
       {
         institution:
-          "R. C. Patel Institute of Technology, An Autonomous Institute",
+          "R. C. Patel Institute of Technology, Shirpur, An Autonomous Institute",
         degree: "Bachelor of Technology in Data Science",
         timeframe: "Dec 2021 – June 2024",
         cgpa: "CGPA: 7.39",
       },
       {
-        institution: "R. C. Patel Polytechnic",
-        degree: "Diploma in Computer Science",
+        institution: "R. C. Patel Polytechnic, Shirpur",
+        degree: "Diploma in Computer Science and Engineering",
         timeframe: "Aug 2017 – May 2021",
         cgpa: "CGPA: 9.4",
+      },
+      {
+        institution: "K. S. K. New City High School, Dhule",
+        degree: "SSC",
+        timeframe: "March 2016 – March 2017",
+        cgpa: "Grade: 50.00%",
       },
     ],
   },

@@ -9,10 +9,9 @@ import {
   Tag,
   Text,
   Meta,
-  Schema,
+  Schema, 
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "../../resources";
-import TableOfContents from "../../components/about/TableOfContents";
 import styles from "../../components/about/about.module.scss";
 import React from "react";
 import { SiCodechef, SiLeetcode } from "react-icons/si";
@@ -167,343 +166,427 @@ export default function About() {
         description={about.description}
         author={{ name: person.name, url: `${baseURL}${about.path}` }}
       />
-      {about.tableOfContent.display && (
-        <Column
-          left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
-          position="fixed"
-          paddingLeft="24"
-          gap="32"
-          hide="s"
-        >
-          <TableOfContents structure={structure} about={about} />
-        </Column>
-      )}
-      <Flex fillWidth mobileDirection="column" horizontal="center">
-        <Column
-          className={styles.avatar}
-          position="sticky"
-          minWidth="160"
-          paddingX="l"
-          paddingBottom="xl"
-          gap="m"
-          flex={3}
+      <Flex fillWidth mobileDirection="column" horizontal="center" vertical="center">
+        {/* Hero Card */}
+        <Flex
+          className={styles.heroCard}
+          fillWidth
+          mobileDirection="column"
           horizontal="center"
+          vertical="center"
+          padding="l"
+          marginBottom="xl"
         >
-          <Avatar src={person.avatar} size="xl" />
-          {person.languages.length > 0 && (
-            <Flex wrap gap="8">
-              {person.languages.map((language: string) => (
-                <Tag key={language} size="l">
-                  {language}
-                </Tag>
-              ))}
-            </Flex>
-          )}
-        </Column>
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
-            id={about.intro.title}
-            fillWidth
-            minHeight="160"
+            className={styles.avatar}
+            position="sticky"
+            minWidth="160"
+            paddingX="l"
+            paddingBottom="m"
+            gap="m"
+            flex={3}
+            horizontal="center"
             vertical="center"
-            marginBottom="32"
           >
-            {about.calendar.display && (
-              <Flex
-                fitWidth
-                border="brand-alpha-medium"
-                className={styles.blockAlign}
-                style={{ backdropFilter: "blur(var(--static-space-1))" }}
-                background="brand-alpha-weak"
-                radius="full"
-                padding="4"
-                gap="8"
-                marginBottom="m"
-                vertical="center"
-              >
-                {" "}
-                <Icon
-                  paddingLeft="12"
-                  name="calendar"
-                  onBackground="brand-weak"
-                />{" "}
-                <Flex paddingX="8">Schedule a call</Flex>{" "}
-                <IconButton
-                  href={about.calendar.link}
-                  data-border="rounded"
-                  variant="secondary"
-                  icon="chevronRight"
-                />{" "}
+            <Avatar src={person.avatar} size="xl" />
+            {person.languages.length > 0 && (
+              <Flex gap="8" horizontal="center">
+                {person.languages.map((language: string) => (
+                  <Tag key={language} size="l">
+                    {language}
+                  </Tag>
+                ))}
               </Flex>
             )}
-            <Heading className={styles.textAlign} variant="display-strong-xl">
-              {person.name}
-            </Heading>
-            <Text
-              className={styles.textAlign}
-              variant="display-default-xs"
-              onBackground="neutral-weak"
-            >
-              {person.role}
-            </Text>
-            <Flex
-              className={styles.blockAlign}
-              paddingTop="20"
-              paddingBottom="8"
-              gap="8"
-              wrap
-              horizontal="center"
-              fitWidth
-            >
-              {social.map((item) => {
-                if (!item.link) return null;
-                if (item.name in customIcons) {
-                  const IconComponent = customIcons[item.name];
-                  return (
-                    <React.Fragment key={item.name}>
-                      <Button
-                        className="s-flex-hide"
-                        href={item.link}
-                        target="_blank"
-                        size="s"
-                        weight="default"
-                        variant="secondary"
-                      >
-                        <Flex as="span" vertical="center" gap="8">
-                          <IconComponent size={16} />
-                          {item.name}
-                        </Flex>
-                      </Button>
-                      <IconButton
-                        className="s-flex-show"
-                        href={item.link}
-                        target="_blank"
-                        tooltip={item.name}
-                        size="l"
-                        variant="secondary"
-                      >
-                        <IconComponent size={24} />
-                      </IconButton>
-                    </React.Fragment>
-                  );
-                }
-                if (item.icon) {
-                  return (
-                    <React.Fragment key={item.name}>
-                      <Button
-                        className="s-flex-hide"
-                        href={item.link}
-                        target="_blank"
-                        prefixIcon={item.icon}
-                        label={item.name}
-                        size="s"
-                        weight="default"
-                        variant="secondary"
-                      />
-                      <IconButton
-                        className="s-flex-show"
-                        size="l"
-                        key={`${item.name}-icon`}
-                        href={item.link}
-                        target="_blank"
-                        icon={item.icon}
-                        variant="secondary"
-                      />
-                    </React.Fragment>
-                  );
-                }
-                return null;
-              })}
-            </Flex>
           </Column>
-          {about.intro.display && (
-            <section>
-              {" "}
-              <Heading
-                as="h2"
-                id={about.intro.title}
-                variant="display-strong-s"
-                marginBottom="m"
+          <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+            <Column
+              id={about.intro.title}
+              fillWidth
+              minHeight="160"
+              vertical="center"
+              marginBottom="32"
+            >
+              {about.calendar.display && (
+                <Flex
+                  fitWidth
+                  border="brand-alpha-medium"
+                  className={styles.blockAlign}
+                  style={{ backdropFilter: "blur(var(--static-space-1))" }}
+                  background="brand-alpha-weak"
+                  radius="full"
+                  padding="4"
+                  gap="8"
+                  marginBottom="m"
+                  vertical="center"
+                >
+                  {" "}
+                  <Icon
+                    paddingLeft="12"
+                    name="calendar"
+                    onBackground="brand-weak"
+                  />{" "}
+                  <Flex paddingX="8">Schedule a call</Flex>{" "}
+                  <IconButton
+                    href={about.calendar.link}
+                    data-border="rounded"
+                    variant="secondary"
+                    icon="chevronRight"
+                  />{" "}
+                </Flex>
+              )}
+              <Heading className={styles.textAlign} variant="display-strong-xl">
+                {person.name}
+              </Heading>
+              <Text
+                className={styles.textAlign}
+                variant="display-default-xs"
+                onBackground="neutral-weak"
               >
-                {about.intro.title}
-              </Heading>{" "}
-              <Column fillWidth gap="m" marginBottom="xl">
-                {" "}
+                {person.role}
+              </Text>
+              <Flex
+                className={styles.blockAlign}
+                paddingTop="20"
+                paddingBottom="8"
+                gap="8"
+                wrap
+                horizontal="center"
+                fitWidth
+              >
+                {social.map((item) => {
+                  if (!item.link) return null;
+                  if (item.name in customIcons) {
+                    const IconComponent = customIcons[item.name];
+                    return (
+                      <React.Fragment key={item.name}>
+                        <Button
+                          className="s-flex-hide"
+                          href={item.link}
+                          target="_blank"
+                          size="s"
+                          weight="default"
+                          variant="secondary"
+                        >
+                          <Flex as="span" vertical="center" gap="8">
+                            <IconComponent size={16} />
+                            {item.name}
+                          </Flex>
+                        </Button>
+                        <IconButton
+                          className="s-flex-show"
+                          href={item.link}
+                          target="_blank"
+                          tooltip={item.name}
+                          size="l"
+                          variant="secondary"
+                        >
+                          <IconComponent size={24} />
+                        </IconButton>
+                      </React.Fragment>
+                    );
+                  }
+                  if (item.icon) {
+                    return (
+                      <React.Fragment key={item.name}>
+                        <Button
+                          className="s-flex-hide"
+                          href={item.link}
+                          target="_blank"
+                          prefixIcon={item.icon}
+                          label={item.name}
+                          size="s"
+                          weight="default"
+                          variant="secondary"
+                        />
+                        <IconButton
+                          className="s-flex-show"
+                          size="l"
+                          key={`${item.name}-icon`}
+                          href={item.link}
+                          target="_blank"
+                          icon={item.icon}
+                          variant="secondary"
+                        />
+                      </React.Fragment>
+                    );
+                  }
+                  return null;
+                })}
+              </Flex>
+            </Column>
+          </Column>
+        </Flex>
+      </Flex>
+      
+      {/* Content Sections Below Hero Card */}
+      <Column className={styles.blockAlign}>
+        {/* Journey and Education Cards Row - Exactly Half Hero Card */}
+        <Flex
+          fillWidth
+          mobileDirection="column"
+          horizontal="center"
+          gap="l"
+          marginBottom="xl"
+        >
+          {/* Journey Card */}
+          {about.intro.display && (
+            <Flex
+              className={styles.journeyCard}
+              fillWidth
+              mobileDirection="column"
+              horizontal="center"
+              padding="l"
+              radius="l"
+              flex={1}
+            >
+              <Column
+                fillWidth
+                minHeight="160"
+                vertical="center"
+                marginBottom="32"
+                maxWidth={100}
+              >
+                <Heading
+                  as="h2"
+                  id={about.intro.title}
+                  variant="display-strong-s"
+                  marginBottom="m"
+                  className={styles.textAlign}
+                >
+                  {about.intro.title}
+                </Heading>
                 <Text
                   onBackground="neutral-weak"
-                  variant="body-default-l"
-                  style={{ lineHeight: "1.7" }}
+                  variant="body-default-m"
+                  style={{ lineHeight: "1.4", maxWidth: "100%" }}
                 >
                   {about.intro.description}
-                </Text>{" "}
-              </Column>{" "}
-            </section>
+                </Text>
+              </Column>
+            </Flex>
           )}
-          {about.work.display && (
-            <section>
-              {" "}
-              <Heading
-                as="h2"
-                id={about.work.title}
-                variant="display-strong-s"
-                marginBottom="m"
+
+          {/* Education Card */}
+          {about.studies.display && (
+            <Flex
+              className={styles.educationCard}
+              fillWidth
+              mobileDirection="column"
+              horizontal="center"
+              padding="l"
+              radius="l"
+              flex={1}
+            >
+              <Column
+                fillWidth
+                minHeight="160"
+                marginBottom="32"
+                maxWidth={100}
               >
-                {about.work.title}
-              </Heading>{" "}
-              <Column fillWidth gap="l" marginBottom="40">
-                {" "}
-                {about.work.experiences.map(
-                  (experience: WorkExperience, index: number) => (
-                    <Column key={`${experience.company}-${index}`} fillWidth>
-                      {" "}
-                      <Flex
-                        fillWidth
-                        horizontal="space-between"
-                        vertical="end"
-                        marginBottom="4"
-                      >
-                        {" "}
+                <Heading
+                  as="h2"
+                  id={about.studies.title}
+                  variant="display-strong-s"
+                  marginBottom="m"
+                  className={styles.textAlign}
+                >
+                  {about.studies.title}
+                </Heading>
+                <Column fillWidth gap="m">
+                  {about.studies.institutions.map(
+                    (institution: Institution, index: number) => (
+                      <Column key={`${institution.institution}-${index}`} fillWidth>
                         <Text
-                          id={experience.company}
-                          variant="heading-strong-l"
+                          variant="heading-strong-m"
+                          onBackground="neutral-strong"
                         >
-                          {experience.company}
-                        </Text>{" "}
+                          {institution.institution}
+                        </Text>
                         <Text
-                          variant="heading-default-xs"
+                          variant="body-default-m"
+                          onBackground="brand-weak"
+                          marginBottom="4"
+                        >
+                          {institution.degree}
+                        </Text>
+                        <Text
+                          variant="body-default-s"
                           onBackground="neutral-weak"
                         >
-                          {experience.timeframe}
-                        </Text>{" "}
-                      </Flex>{" "}
+                          {institution.timeframe} • {institution.cgpa}
+                        </Text>
+                      </Column>
+                    )
+                  )}
+                </Column>
+              </Column>
+            </Flex>
+          )}
+        </Flex>
+        {about.work.display && (
+          <section>
+            {" "}
+            <Heading
+              as="h2"
+              id={about.work.title}
+              variant="display-strong-s"
+              marginBottom="m"
+            >
+              {about.work.title}
+            </Heading>{" "}
+            <Column fillWidth gap="l" marginBottom="40">
+              {" "}
+              {about.work.experiences.map(
+                (experience: WorkExperience, index: number) => (
+                  <Column key={`${experience.company}-${index}`} fillWidth>
+                    {" "}
+                    <Flex
+                      fillWidth
+                      horizontal="space-between"
+                      vertical="end"
+                      marginBottom="4"
+                    >
+                      {" "}
                       <Text
-                        variant="body-default-s"
-                        onBackground="brand-weak"
-                        marginBottom="m"
+                        id={experience.company}
+                        variant="heading-strong-l"
                       >
-                        {experience.role}
+                        {experience.company}
                       </Text>{" "}
-                      <Column
-                        as="ul"
-                        gap="16"
-                        style={{ listStyleType: "disc", paddingLeft: "20px" }}
+                      <Text
+                        variant="heading-default-xs"
+                        onBackground="neutral-weak"
                       >
-                        {" "}
-                        {experience.achievements.map(
-                          (achievement: React.ReactNode, achIndex: number) => (
-                            <Text
-                              as="li"
-                              variant="body-default-m"
-                              key={`${experience.company}-ach-${achIndex}`}
-                            >
-                              {achievement}
-                            </Text>
-                          )
-                        )}{" "}
-                      </Column>{" "}
-                    </Column>
-                  )
-                )}{" "}
-              </Column>{" "}
-            </section>
-          )}
-          {about.studies.display && (
-            <section>
+                        {experience.timeframe}
+                      </Text>{" "}
+                    </Flex>{" "}
+                    <Text
+                      variant="body-default-s"
+                      onBackground="brand-weak"
+                      marginBottom="m"
+                    >
+                      {experience.role}
+                    </Text>{" "}
+                    <Column
+                      as="ul"
+                      gap="16"
+                      style={{ listStyleType: "disc", paddingLeft: "20px" }}
+                    >
+                      {" "}
+                      {experience.achievements.map(
+                        (achievement: React.ReactNode, achIndex: number) => (
+                          <Text
+                            as="li"
+                            variant="body-default-m"
+                            key={`${experience.company}-ach-${achIndex}`}
+                          >
+                            {achievement}
+                          </Text>
+                        )
+                      )}{" "}
+                    </Column>{" "}
+                  </Column>
+                )
+              )}{" "}
+            </Column>{" "}
+          </section>
+        )}
+        {about.studies.display && (
+          <section>
+            {" "}
+            <Heading
+              as="h2"
+              id={about.studies.title}
+              variant="display-strong-s"
+              marginBottom="m"
+            >
+              {about.studies.title}
+            </Heading>{" "}
+            <Column fillWidth gap="l" marginBottom="40">
               {" "}
-              <Heading
-                as="h2"
-                id={about.studies.title}
-                variant="display-strong-s"
-                marginBottom="m"
-              >
-                {about.studies.title}
-              </Heading>{" "}
-              <Column fillWidth gap="l" marginBottom="40">
-                {" "}
-                {about.studies.institutions.map(
-                  (institution: Institution, index: number) => (
-                    <ListItem
-                      key={index}
-                      title={institution.institution}
-                      description={`${institution.degree} • ${institution.timeframe} (${institution.cgpa})`}
-                    />
-                  )
-                )}{" "}
-              </Column>{" "}
-            </section>
-          )}
-          {about.technical.display && (
-            <section>
-              {" "}
-              <Heading
-                as="h2"
-                id={about.technical.title}
-                variant="display-strong-s"
-                marginBottom="m"
-              >
-                {about.technical.title}
-              </Heading>{" "}
-              <Column fillWidth gap="l" marginBottom="40">
-                {" "}
-                {about.technical.skills.map((skill: Skill, index: number) => (
+              {about.studies.institutions.map(
+                (institution: Institution, index: number) => (
                   <ListItem
                     key={index}
-                    title={skill.title}
-                    description={skill.description}
+                    title={institution.institution}
+                    description={`${institution.degree} • ${institution.timeframe} (${institution.cgpa})`}
                   />
-                ))}{" "}
-              </Column>{" "}
-            </section>
-          )}
-          {about.credentials.display && (
-            <section>
+                )
+              )}{" "}
+            </Column>{" "}
+          </section>
+        )}
+        {about.technical.display && (
+          <section>
+            {" "}
+            <Heading
+              as="h2"
+              id={about.technical.title}
+              variant="display-strong-s"
+              marginBottom="m"
+            >
+              {about.technical.title}
+            </Heading>{" "}
+            <Column fillWidth gap="l" marginBottom="40">
               {" "}
-              <Heading
-                as="h2"
-                id={about.credentials.title}
-                variant="display-strong-s"
-                marginBottom="m"
-              >
-                {about.credentials.title}
-              </Heading>{" "}
-              <Column fillWidth marginBottom="40">
-                {" "}
-                {about.credentials.items.map(
-                  (cred: Credential, index: number) => (
-                    <CredentialItem key={index} {...cred} />
-                  )
-                )}{" "}
-              </Column>{" "}
-            </section>
-          )}
-          {about.achievements.display && (
-            <section>
+              {about.technical.skills.map((skill: Skill, index: number) => (
+                <ListItem
+                  key={index}
+                  title={skill.title}
+                  description={skill.description}
+                />
+              ))}{" "}
+            </Column>{" "}
+          </section>
+        )}
+        {about.credentials.display && (
+          <section>
+            {" "}
+            <Heading
+              as="h2"
+              id={about.credentials.title}
+              variant="display-strong-s"
+              marginBottom="m"
+            >
+              {about.credentials.title}
+            </Heading>{" "}
+            <Column fillWidth marginBottom="40">
               {" "}
-              <Heading
-                as="h2"
-                id={about.achievements.title}
-                variant="display-strong-s"
-                marginBottom="m"
-              >
-                {about.achievements.title}
-              </Heading>{" "}
-              <Column fillWidth gap="l" marginBottom="40">
-                {" "}
-                {about.achievements.items.map(
-                  (ach: Achievement, index: number) => (
-                    <ListItem
-                      key={index}
-                      title={ach.title}
-                      description={ach.description}
-                    />
-                  )
-                )}{" "}
-              </Column>{" "}
-            </section>
-          )}
-        </Column>
-      </Flex>
+              {about.credentials.items.map(
+                (cred: Credential, index: number) => (
+                  <CredentialItem key={index} {...cred} />
+                )
+              )}{" "}
+            </Column>{" "}
+          </section>
+        )}
+        {about.achievements.display && (
+          <section>
+            {" "}
+            <Heading
+              as="h2"
+              id={about.achievements.title}
+              variant="display-strong-s"
+              marginBottom="m"
+            >
+              {about.achievements.title}
+            </Heading>{" "}
+            <Column fillWidth gap="l" marginBottom="40">
+              {" "}
+              {about.achievements.items.map(
+                (ach: Achievement, index: number) => (
+                  <ListItem
+                    key={index}
+                    title={ach.title}
+                    description={ach.description}
+                  />
+                )
+              )}{" "}
+            </Column>{" "}
+          </section>
+        )}
+      </Column>
     </Column>
   );
 }
