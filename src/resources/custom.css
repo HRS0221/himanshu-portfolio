@@ -515,18 +515,11 @@ a:focus-visible {
 }
 
 /* Enhanced hover effects for social icons in footer */
-footer a[href*="github"],
-footer a[href*="linkedin"],
-footer a[href*="twitter"],
-footer a[href*="instagram"],
-footer a[href*="youtube"],
-footer a[href*="codechef"],
-footer a[href*="leetcode"],
-footer button,
-footer [data-component="icon-button"],
-footer .IconButton,
-footer a,
-footer svg {
+footer a[href*="github.com/HRS0221"],
+footer a[href*="linkedin.com/in/hr0221"],
+footer a[href*="x.com/Wiser_0221"],
+footer a[href*="codechef.com/users/hr0221"],
+footer a[href*="leetcode.com/u/himanshusalunke"] {
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -534,17 +527,11 @@ footer svg {
 }
 
 /* Sweeping light effect for social icons */
-footer a[href*="github"]::before,
-footer a[href*="linkedin"]::before,
-footer a[href*="twitter"]::before,
-footer a[href*="instagram"]::before,
-footer a[href*="youtube"]::before,
-footer a[href*="codechef"]::before,
-footer a[href*="leetcode"]::before,
-footer button::before,
-footer [data-component="icon-button"]::before,
-footer .IconButton::before,
-footer a::before {
+footer a[href*="github.com/HRS0221"]::before,
+footer a[href*="linkedin.com/in/hr0221"]::before,
+footer a[href*="x.com/Wiser_0221"]::before,
+footer a[href*="codechef.com/users/hr0221"]::before,
+footer a[href*="leetcode.com/u/himanshusalunke"]::before {
   content: '';
   position: absolute;
   top: 0;
@@ -565,17 +552,11 @@ footer a::before {
 }
 
 /* Background glow effect for social icons */
-footer a[href*="github"]::after,
-footer a[href*="linkedin"]::after,
-footer a[href*="twitter"]::after,
-footer a[href*="instagram"]::after,
-footer a[href*="youtube"]::after,
-footer a[href*="codechef"]::after,
-footer a[href*="leetcode"]::after,
-footer button::after,
-footer [data-component="icon-button"]::after,
-footer .IconButton::after,
-footer a::after {
+footer a[href*="github.com/HRS0221"]::after,
+footer a[href*="linkedin.com/in/hr0221"]::after,
+footer a[href*="x.com/Wiser_0221"]::after,
+footer a[href*="codechef.com/users/hr0221"]::after,
+footer a[href*="leetcode.com/u/himanshusalunke"]::after {
   content: '';
   position: absolute;
   top: 0;
@@ -595,17 +576,11 @@ footer a::after {
   pointer-events: none;
 }
 
-footer a[href*="github"]:hover,
-footer a[href*="linkedin"]:hover,
-footer a[href*="twitter"]:hover,
-footer a[href*="instagram"]:hover,
-footer a[href*="youtube"]:hover,
-footer a[href*="codechef"]:hover,
-footer a[href*="leetcode"]:hover,
-footer button:hover,
-footer [data-component="icon-button"]:hover,
-footer .IconButton:hover,
-footer a:hover {
+footer a[href*="github.com/HRS0221"]:hover,
+footer a[href*="linkedin.com/in/hr0221"]:hover,
+footer a[href*="x.com/Wiser_0221"]:hover,
+footer a[href*="codechef.com/users/hr0221"]:hover,
+footer a[href*="leetcode.com/u/himanshusalunke"]:hover {
   transform: translateY(-2px) scale(1.1) !important;
   box-shadow: 
     0 4px 12px rgba(59, 130, 246, 0.2),
@@ -614,46 +589,28 @@ footer a:hover {
   background: rgba(59, 130, 246, 0.1) !important;
 }
 
-footer a[href*="github"]:hover::before,
-footer a[href*="linkedin"]:hover::before,
-footer a[href*="twitter"]:hover::before,
-footer a[href*="instagram"]:hover::before,
-footer a[href*="youtube"]:hover::before,
-footer a[href*="codechef"]:hover::before,
-footer a[href*="leetcode"]:hover::before,
-footer button:hover::before,
-footer [data-component="icon-button"]:hover::before,
-footer .IconButton:hover::before,
-footer a:hover::before {
+footer a[href*="github.com/HRS0221"]:hover::before,
+footer a[href*="linkedin.com/in/hr0221"]:hover::before,
+footer a[href*="x.com/Wiser_0221"]:hover::before,
+footer a[href*="codechef.com/users/hr0221"]:hover::before,
+footer a[href*="leetcode.com/u/himanshusalunke"]:hover::before {
   left: 100%;
 }
 
-footer a[href*="github"]:hover::after,
-footer a[href*="linkedin"]:hover::after,
-footer a[href*="twitter"]:hover::after,
-footer a[href*="instagram"]:hover::after,
-footer a[href*="youtube"]:hover::after,
-footer a[href*="codechef"]:hover::after,
-footer a[href*="leetcode"]:hover::after,
-footer button:hover::after,
-footer [data-component="icon-button"]:hover::after,
-footer .IconButton:hover::after,
-footer a:hover::after {
+footer a[href*="github.com/HRS0221"]:hover::after,
+footer a[href*="linkedin.com/in/hr0221"]:hover::after,
+footer a[href*="x.com/Wiser_0221"]:hover::after,
+footer a[href*="codechef.com/users/hr0221"]:hover::after,
+footer a[href*="leetcode.com/u/himanshusalunke"]:hover::after {
   opacity: 1;
 }
 
 /* Enhanced SVG icon glow on hover */
-footer a[href*="github"]:hover svg,
-footer a[href*="linkedin"]:hover svg,
-footer a[href*="twitter"]:hover svg,
-footer a[href*="instagram"]:hover svg,
-footer a[href*="youtube"]:hover svg,
-footer a[href*="codechef"]:hover svg,
-footer a[href*="leetcode"]:hover svg,
-footer button:hover svg,
-footer [data-component="icon-button"]:hover svg,
-footer .IconButton:hover svg,
-footer a:hover svg {
+footer a[href*="github.com/HRS0221"]:hover svg,
+footer a[href*="linkedin.com/in/hr0221"]:hover svg,
+footer a[href*="x.com/Wiser_0221"]:hover svg,
+footer a[href*="codechef.com/users/hr0221"]:hover svg,
+footer a[href*="leetcode.com/u/himanshusalunke"]:hover svg {
   filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4)) !important;
   transform: scale(1.1) !important;
   transition: all 0.3s ease !important;
@@ -661,31 +618,19 @@ footer a:hover svg {
 
 /* Mobile responsive adjustments for social icons */
 @media (max-width: 768px) {
-  footer a[href*="github"]:hover,
-  footer a[href*="linkedin"]:hover,
-  footer a[href*="twitter"]:hover,
-  footer a[href*="instagram"]:hover,
-  footer a[href*="youtube"]:hover,
-  footer a[href*="codechef"]:hover,
-  footer a[href*="leetcode"]:hover,
-  footer button:hover,
-  footer [data-component="icon-button"]:hover,
-  footer .IconButton:hover,
-  footer a:hover {
+  footer a[href*="github.com/HRS0221"]:hover,
+  footer a[href*="linkedin.com/in/hr0221"]:hover,
+  footer a[href*="x.com/Wiser_0221"]:hover,
+  footer a[href*="codechef.com/users/hr0221"]:hover,
+  footer a[href*="leetcode.com/u/himanshusalunke"]:hover {
     transform: translateY(-1px) scale(1.05) !important;
   }
   
-  footer a[href*="github"]:hover svg,
-  footer a[href*="linkedin"]:hover svg,
-  footer a[href*="twitter"]:hover svg,
-  footer a[href*="instagram"]:hover svg,
-  footer a[href*="youtube"]:hover svg,
-  footer a[href*="codechef"]:hover svg,
-  footer a[href*="leetcode"]:hover svg,
-  footer button:hover svg,
-  footer [data-component="icon-button"]:hover svg,
-  footer .IconButton:hover svg,
-  footer a:hover svg {
+  footer a[href*="github.com/HRS0221"]:hover svg,
+  footer a[href*="linkedin.com/in/hr0221"]:hover svg,
+  footer a[href*="x.com/Wiser_0221"]:hover svg,
+  footer a[href*="codechef.com/users/hr0221"]:hover svg,
+  footer a[href*="leetcode.com/u/himanshusalunke"]:hover svg {
     transform: scale(1.05) !important;
   }
 }
