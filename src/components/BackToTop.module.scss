@@ -6,21 +6,21 @@
   width: 48px !important;
   height: 48px !important;
   border-radius: 50% !important;
-  background: #007bff !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
   border: none !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   opacity: 1 !important;
   transform: none !important;
 
   &:hover {
-    background: #0056b3 !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4) !important;
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6) !important;
   }
 
   &:active {
-    transform: translateY(0) !important;
+    transform: translateY(-1px) scale(1.02) !important;
   }
 
   // Ensure text color works in both themes
@@ -30,6 +30,14 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+}
+
+.arrowIcon {
+  transition: transform 0.3s ease !important;
+  
+  .backToTopButton:hover & {
+    transform: translateY(-1px) !important;
+  }
 }
 
 // Mobile responsiveness
