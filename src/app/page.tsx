@@ -18,6 +18,8 @@ import RecentArticles from "../components/home/RecentArticles";
 import RecentProjects from "../components/home/RecentProjects";
 import QuickStats from "../components/home/QuickStats";
 import CurrentFocus from "../components/home/CurrentFocus";
+import AnimatedSubline from "../components/AnimatedSubline";
+import AnimatedHeadline from "../components/AnimatedHeadline";
 import { getMostRecentProject, getAllProjects, calculateStatsFromData } from "../utils/utils";
 import styles from "../components/about/about.module.scss";
 
@@ -103,13 +105,16 @@ export default async function Home() {
         <Column maxWidth="s" gap="24">
           <RevealFx delay={0.1}>
             <Heading wrap="balance" variant="display-strong-l" style={{ lineHeight: "1.2" }}>
-              {home.headline}
+              <AnimatedHeadline />
             </Heading>
           </RevealFx>
           <RevealFx delay={0.2}>
-            <Text onBackground="neutral-weak" variant="heading-default-xl" style={{ lineHeight: "1.6" }}>
-              {home.subline}
-            </Text>
+            <div style={{ lineHeight: "1.6" }}>
+              <Text onBackground="neutral-weak" variant="heading-default-xl" style={{ marginBottom: "8px", fontWeight: "500" }}>
+                Preparing for GATE - 2026 while building AI that matters. Aspiring Data Scientist passionate about building intelligent solutions with Python, Machine Learning, and AI. Currently building innovative AI projects.
+              </Text>
+              <AnimatedSubline />
+            </div>
           </RevealFx>
         </Column>
         <RevealFx delay={0.3}>

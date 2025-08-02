@@ -63,7 +63,7 @@ const home = {
   title: `${person.name}'s Portfolio`,
   // description: `Portfolio website showcasing my work as a ${person.role}`,
   description: `Portfolio website showcasing my work`,
-  headline: <>Transforming raw data into real-world impact</>,
+  headline: <>Hey, I'm Himanshu 👋</>,
   featured: {
     display: true,
     title: (
@@ -78,8 +78,7 @@ const home = {
   },
   subline: (
     <>
-      I'm Himanshu - decoding data, designing intelligence.
-      <br /> Preparing for GATE - 2026 while building AI that matters.
+      Data Scientist crafting intelligent solutions with Python, Machine Learning, and AI. Currently preparing for GATE - 2026 while building innovative AI products.
     </>
   ),
 };
@@ -264,6 +263,10 @@ const about = {
           {
             title: "Vercel",
             description: "Deploying web applications and portfolios quickly"
+          },
+          {
+            title: "Slack",
+            description: "Team collaboration and communication for project coordination"
           }
         ]
       },
