@@ -1,38 +1,13 @@
-"use client";
-
 import { Column, Heading, Text, RevealFx, Flex, Icon } from "@once-ui-system/core";
 import styles from "./CurrentFocus.module.scss";
 import { useMemo } from "react";
+import { type FocusItem } from "../../utils/currentFocus";
 
-export default function CurrentFocus() {
-  // Use only the default focusItems array
-  const focusItems = [
-    {
-      icon: "📚",
-      title: "GATE 2026 Preparation",
-      description: "Intensive preparation for Graduate Aptitude Test in Engineering 2026, focusing on Data Science and Artificial Intelligence paper.",
-      status: "Active"
-    },
-    {
-      icon: "👁️",
-      title: "Computer Vision Projects",
-      description: "Developing real-time object detection and image processing solutions using YOLO and deep learning frameworks.",
-      status: "Ongoing"
-    },
-    {
-      icon: "☁️",
-      title: "Cloud Data Engineering",
-      description: "Building scalable data pipelines and analytics solutions using AWS services and modern data engineering practices.",
-      status: "Learning"
-    },
-    {
-      icon: "✍️",
-      title: "Technical Writing",
-      description: "Creating educational content on machine learning and data science concepts through LinkedIn articles and documentation.",
-      status: "Active"
-    }
-  ];
+interface CurrentFocusProps {
+  focusItems: FocusItem[];
+}
 
+export default function CurrentFocus({ focusItems }: CurrentFocusProps) {
   // Memoize the focus items to prevent unnecessary re-renders
   const memoizedFocusItems = useMemo(() => focusItems, [focusItems]);
 

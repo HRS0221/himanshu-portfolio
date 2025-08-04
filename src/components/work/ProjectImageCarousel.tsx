@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Icon } from '@once-ui-system/core';
 import styles from './ProjectImageCarousel.module.scss';
-
+import Portal from "../Portal";
 
 interface ProjectImageCarouselProps {
   images: string[];
@@ -52,6 +52,16 @@ export default function ProjectImageCarousel({
 
   const prevModalImage = () => {
     setModalImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    } else if (e.key === 'ArrowLeft') {
+      prevModalImage();
+    } else if (e.key === 'ArrowRight') {
+      nextModalImage();
+    }
   };
 
   // Add/remove modalOpen class to body for disabling hover/transform effects
@@ -148,11 +158,13 @@ export default function ProjectImageCarousel({
 
       {/* Modal */}
       {isModalOpen && (
-        <div 
-          className={styles.modalOverlay} 
-          onClick={closeModal}
-          tabIndex={-1}
-        >
+        <Portal>
+          <div 
+            className={styles.modalOverlay} 
+            onClick={closeModal}
+            onKeyDown={handleKeyDown}
+            tabIndex={-1}
+          >
             <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
               <button className={styles.closeButton} onClick={closeModal}>
                 <Icon name="close" size="m" />
@@ -201,9 +213,12 @@ export default function ProjectImageCarousel({
                   ))}
                 </div>
               )}
+              
+
             </div>
           </div>
-        )}
+        </Portal>
+      )}
     </>
   );
 } 

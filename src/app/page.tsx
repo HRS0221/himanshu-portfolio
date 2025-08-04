@@ -21,6 +21,7 @@ import CurrentFocus from "../components/home/CurrentFocus";
 import AnimatedSubline from "../components/AnimatedSubline";
 import AnimatedHeadline from "../components/AnimatedHeadline";
 import { getMostRecentProject, getAllProjects, calculateStatsFromData } from "../utils/utils";
+import { getCurrentFocus } from "../utils/currentFocus";
 import styles from "../components/about/about.module.scss";
 
 // Make the page async so you can use await for server-side data fetching
@@ -29,6 +30,7 @@ export default async function Home() {
   const mostRecentProject = await getMostRecentProject();
   const allProjects = await getAllProjects() || [];
   const stats = await calculateStatsFromData();
+  const currentFocusData = await getCurrentFocus();
 
 
   
@@ -117,33 +119,33 @@ export default async function Home() {
             </div>
           </RevealFx>
         </Column>
-        <RevealFx delay={0.3}>
-          <Button
-            id="about"
-            data-border="rounded"
-            href={about.path}
-            variant="secondary"
-            size="m"
-            weight="default"
-            arrowIcon
-          >
-            <Flex gap="8" vertical="center" paddingRight="4">
-              {about.avatar.display && (
-                <Avatar
-                  marginRight="8"
-                  style={{ marginLeft: "-0.75rem" }}
-                  src={person.avatar}
-                  size="m"
-                />
-              )}
-              {about.title}
-            </Flex>
-          </Button>
-        </RevealFx>
+                  <RevealFx delay={0.3}>
+            <Button
+              id="about"
+              data-border="rounded"
+              href={about.path}
+              variant="secondary"
+              size="m"
+              weight="default"
+              arrowIcon
+            >
+              <Flex gap="8" vertical="center" paddingRight="4">
+                {about.avatar.display && (
+                  <Avatar
+                    marginRight="8"
+                    style={{ marginLeft: "-0.75rem" }}
+                    src={person.avatar}
+                    size="m"
+                  />
+                )}
+                {about.title}
+              </Flex>
+            </Button>
+          </RevealFx>
       </Column>
 
       {/* Current Focus Section */}
-      <CurrentFocus />
+      <CurrentFocus focusItems={currentFocusData.focusItems} />
 
       {/* Recent Projects Section */}
       <RecentProjects projects={allProjects} />

@@ -375,6 +375,7 @@ const about = {
   },
 };
 
+// ✅ Articles are now managed in MDX file for dynamic updates
 // ✅ This 'articles' object has been re-ordered from oldest to newest
 const articles = {
   display: true,

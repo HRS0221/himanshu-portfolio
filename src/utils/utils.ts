@@ -220,14 +220,16 @@ export const calculateStatsFromData = async () => {
   // Calculate articles count
   const articlesCount = articles.items.length;
   
-  // Calculate hackathons count from achievements - only count participation, not organization
-  const hackathonsCount = about.achievements.items.filter((achievement: Achievement) => 
-    (achievement.title.toLowerCase().includes('hackathon') || 
-     achievement.title.toLowerCase().includes('sih') ||
-     achievement.title.toLowerCase().includes('sunhacks')) &&
-    !achievement.title.toLowerCase().includes('lead') &&
-    !achievement.title.toLowerCase().includes('organiz')
-  ).length;
+  // Calculate hackathons count from achievements - check for hackathon/hackathons in title or description
+  const hackathonsCount = about.achievements.items.filter((achievement: Achievement) => {
+    const titleLower = achievement.title.toLowerCase();
+    const descriptionLower = achievement.description.toLowerCase();
+    
+    return (titleLower.includes('hackathon') || 
+            titleLower.includes('hackathons') ||
+            descriptionLower.includes('hackathon') || 
+            descriptionLower.includes('hackathons'));
+  }).length;
   
   // Calculate certifications count
   const certificationsCount = about.credentials.items.length;
