@@ -59,13 +59,13 @@ export default function ProjectCard({
             )}
 
           {/* Bottom Row: Date and View Project Link */}
-          <Flex className={styles.bottomRow} vertical="center" justify="space-between">
+          <Flex className={styles.bottomRow} vertical="center" horizontal="space-between">
             <Text className={styles.projectDate}>
               {formatDate(project.metadata.publishedAt)}
             </Text>
             <Button
               href={`/work/${project.slug}`}
-              variant="neutral"
+              variant="secondary"
               size="s"
               className={styles.viewProjectButton}
             >
