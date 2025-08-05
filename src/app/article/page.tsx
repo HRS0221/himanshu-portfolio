@@ -22,7 +22,7 @@ export default function ArticlePage() {
         path="/article"
         title={articles.title}
         description="Explore 50+ thought-provoking articles on AI, machine learning, and data, written by Himanshu Salunke."
-        image="/api/og"
+        image="/images/og/home.jpg"
         author={{
           name: person.name,
           url: `${baseURL}/about`,
