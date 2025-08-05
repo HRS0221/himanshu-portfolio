@@ -8,7 +8,6 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const title = searchParams.get('title') || 'Himanshu Salunke';
     const description = searchParams.get('description') || 'Aspiring Data Scientist & ML Engineer';
-    const type = searchParams.get('type') || 'default';
 
     return new ImageResponse(
       (
@@ -23,9 +22,9 @@ export async function GET(request: NextRequest) {
             backgroundColor: '#0f172a',
             backgroundImage: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
             position: 'relative',
+            fontFamily: 'Geist, Inter, system-ui, sans-serif',
           }}
         >
-          {/* Background pattern */}
           <div
             style={{
               position: 'absolute',
@@ -36,8 +35,7 @@ export async function GET(request: NextRequest) {
               backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.08) 0%, transparent 50%)',
             }}
           />
-
-          {/* Main content */}
+          
           <div
             style={{
               display: 'flex',
@@ -49,7 +47,6 @@ export async function GET(request: NextRequest) {
               zIndex: 1,
             }}
           >
-            {/* Logo */}
             <div
               style={{
                 display: 'flex',
@@ -74,8 +71,7 @@ export async function GET(request: NextRequest) {
                 H
               </div>
             </div>
-
-            {/* Title */}
+            
             <div
               style={{
                 fontSize: '64px',
@@ -87,8 +83,7 @@ export async function GET(request: NextRequest) {
             >
               {title}
             </div>
-
-            {/* Description */}
+            
             <div
               style={{
                 fontSize: '32px',
@@ -100,8 +95,7 @@ export async function GET(request: NextRequest) {
             >
               {description}
             </div>
-
-            {/* Tech stack badges */}
+            
             <div
               style={{
                 display: 'flex',
@@ -111,24 +105,56 @@ export async function GET(request: NextRequest) {
                 marginBottom: '40px',
               }}
             >
-              {['Python', 'Machine Learning', 'AI', 'Data Science'].map((tech) => (
-                <div
-                  key={tech}
-                  style={{
-                    padding: '8px 16px',
-                    borderRadius: '20px',
-                    background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
-                    color: 'white',
-                    fontSize: '18px',
-                    fontWeight: '600',
-                  }}
-                >
-                  {tech}
-                </div>
-              ))}
+              <div
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                  color: 'white',
+                  fontSize: '18px',
+                  fontWeight: '600',
+                }}
+              >
+                Python
+              </div>
+              <div
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                  color: 'white',
+                  fontSize: '18px',
+                  fontWeight: '600',
+                }}
+              >
+                Machine Learning
+              </div>
+              <div
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                  color: 'white',
+                  fontSize: '18px',
+                  fontWeight: '600',
+                }}
+              >
+                AI
+              </div>
+              <div
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                  color: 'white',
+                  fontSize: '18px',
+                  fontWeight: '600',
+                }}
+              >
+                Data Science
+              </div>
             </div>
-
-            {/* Website URL */}
+            
             <div
               style={{
                 fontSize: '24px',
@@ -139,8 +165,7 @@ export async function GET(request: NextRequest) {
               himanshusalunke.vercel.app
             </div>
           </div>
-
-          {/* Decorative accent line */}
+          
           <div
             style={{
               position: 'absolute',
