@@ -26,9 +26,15 @@ export async function generateMetadata({ params }: PageProps) {
   if (!project) {
     return {};
   }
+  
+  // Handle summary which can be string or string[]
+  const description = Array.isArray(project.metadata.summary) 
+    ? project.metadata.summary[0] || "A project by " + person.name
+    : project.metadata.summary || "A project by " + person.name;
+    
   return Meta.generate({
     title: project.metadata.title,
-    description: project.metadata.summary || "A project by " + person.name,
+    description: description,
     baseURL: baseURL,
     image: project.metadata.images?.[0] || "",
     path: `/work/${project.slug}`,
@@ -60,7 +66,9 @@ export default async function ProjectPage({ params }: PageProps) {
         baseURL={baseURL}
         path={`/work/${project.slug}`}
         title={project.metadata.title}
-        description={project.metadata.summary || ""}
+        description={Array.isArray(project.metadata.summary) 
+          ? project.metadata.summary[0] || ""
+          : project.metadata.summary || ""}
         image={project.metadata.images?.[0] || ""}
         author={{
           name: person.name,
