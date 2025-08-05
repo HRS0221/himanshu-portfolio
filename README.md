@@ -1,66 +1,68 @@
 # Himanshu Salunke - Portfolio Website
 
-A modern, responsive portfolio website built with Next.js 15, featuring a clean design, dark mode, and comprehensive project showcase. This portfolio demonstrates expertise in data science, machine learning, and software development.
+A modern, responsive portfolio website built with Next.js 15, featuring a clean design, dark mode, and comprehensive project showcase. This portfolio demonstrates expertise in data science, machine learning, and software development with a focus on AI and ML technologies.
 
 > **Note**: This portfolio is based on the [Once UI Portfolio Template](https://github.com/once-ui-system/magic-portfolio) by Once UI System. I've customized it extensively to showcase my projects and skills while maintaining the excellent foundation they provided.
 
 ## 🌟 Features
 
 ### Core Features
-- **Modern Design**: Clean, professional interface with smooth animations
-- **Dark Mode**: Built-in dark theme with system preference detection
-- **Responsive Layout**: Optimized for all devices and screen sizes
-- **Performance Optimized**: Fast loading with Next.js 15 optimizations
-- **SEO Optimized**: Meta tags, sitemap, and structured data
+- **Modern Design**: Clean, professional interface with smooth animations and glassmorphism effects
+- **Enhanced Header**: Custom-designed navigation with unique SVG icons and responsive layout
+- **Dark Mode**: Built-in dark theme with system preference detection and smooth transitions
+- **Responsive Layout**: Optimized for all devices and screen sizes with adaptive navigation
+- **Performance Optimized**: Fast loading with Next.js 15 optimizations and code splitting
+- **SEO Optimized**: Meta tags, sitemap, and structured data for better search visibility
 - **Analytics**: Vercel Analytics and Speed Insights integration
 
 ### Content Management
-- **MDX Support**: Rich content with Markdown and React components
-- **Dynamic Project Showcase**: Easy project addition and management
-- **Article System**: Technical blog posts and insights
-- **Contact Form**: Integrated with Slack notifications
-- **Newsletter Integration**: LinkedIn newsletter subscription
+- **MDX Support**: Rich content with Markdown and React components for projects
+- **Dynamic Project Showcase**: 7 comprehensive data science and ML projects
+- **Article System**: 40+ technical blog posts covering AI/ML concepts
+- **Contact Form**: Integrated with Slack notifications for real-time alerts
+- **Newsletter Integration**: LinkedIn newsletter subscription system
 
 ### Technical Features
 - **TypeScript**: Full type safety and better development experience
-- **SASS/SCSS**: Advanced styling with CSS modules
-- **Component Library**: Custom UI system with Once UI
+- **SASS/SCSS**: Advanced styling with CSS modules and custom animations
+- **Component Library**: Custom UI system with Once UI and enhanced components
 - **Image Optimization**: Next.js Image component with WebP/AVIF support
 - **Code Splitting**: Optimized bundle sizes and lazy loading
+- **Custom Icons**: Unique SVG icons designed specifically for navigation
 
 ## 🛠️ Technology Stack
 
 ### Frontend Framework
-- **Next.js 15.3.1** - React framework with App Router
-- **React 19.0.0** - Latest React with concurrent features
-- **TypeScript 5.8.3** - Type-safe JavaScript
+- **Next.js 15.3.1** - React framework with App Router and latest features
+- **React 19.0.0** - Latest React with concurrent features and improved performance
+- **TypeScript 5.8.3** - Type-safe JavaScript with strict configuration
 
 ### UI & Styling
-- **@once-ui-system/core 1.2.4** - Custom design system
-- **SASS 1.86.3** - Advanced CSS preprocessing
-- **React Icons 5.5.0** - Icon library
-- **Classnames 2.5.1** - Conditional CSS classes
+- **@once-ui-system/core 1.2.4** - Custom design system with enhanced components
+- **SASS 1.86.3** - Advanced CSS preprocessing with modern features
+- **React Icons 5.5.0** - Icon library with custom SVG implementations
+- **Classnames 2.5.1** - Conditional CSS classes for dynamic styling
 
 ### Content & Data
-- **MDX** - Markdown with React components
-- **@next/mdx 15.3.1** - MDX support for Next.js
-- **next-mdx-remote 5.0.0** - Remote MDX content
-- **gray-matter 4.0.3** - Front matter parsing
+- **MDX** - Markdown with React components for rich project content
+- **@next/mdx 15.3.1** - MDX support for Next.js with custom extensions
+- **next-mdx-remote 5.0.0** - Remote MDX content processing
+- **gray-matter 4.0.3** - Front matter parsing for metadata
 
 ### Development Tools
-- **ESLint 9.25.0** - Code linting
-- **Biome** - Fast formatter and linter
-- **Node.js** - Runtime environment
+- **ESLint 9.25.0** - Code linting with strict rules
+- **Biome** - Fast formatter and linter with modern configuration
+- **Node.js** - Runtime environment with latest LTS features
 
 ### Deployment & Analytics
-- **Vercel** - Hosting and deployment platform
-- **@vercel/analytics 1.5.0** - Web analytics
-- **@vercel/speed-insights 1.2.0** - Performance monitoring
+- **Vercel** - Hosting and deployment platform with edge functions
+- **@vercel/analytics 1.5.0** - Web analytics and user behavior tracking
+- **@vercel/speed-insights 1.2.0** - Performance monitoring and Core Web Vitals
 
 ### External Integrations
-- **Slack Webhooks** - Contact form notifications
-- **LinkedIn Newsletter** - Newsletter subscription
-- **Google Fonts** - Typography (Geist font family)
+- **Slack Webhooks** - Contact form notifications and real-time alerts
+- **LinkedIn Newsletter** - Newsletter subscription and content distribution
+- **Google Fonts** - Typography (Geist font family) for modern aesthetics
 
 ## 📁 Project Structure
 
@@ -72,11 +74,32 @@ himanshu-portfolio-main/
 │   ├── images/               # Images and media assets
 │   │   ├── avatar.jpg        # Profile avatar
 │   │   ├── articles/         # Article cover images (40+ ML articles)
+│   │   │   ├── Machine-Learning.jpg
+│   │   │   ├── Hypothesis.jpg
+│   │   │   ├── Linear Regression.jpg
+│   │   │   ├── Deep Learning.jpg
+│   │   │   ├── Reinforcement Learning.jpg
+│   │   │   └── ... (40+ more ML concept images)
 │   │   ├── gallery/          # Gallery images
-│   │   ├── icons/            # Icon assets
+│   │   │   ├── horizontal-1.jpg
+│   │   │   ├── horizontal-2.jpg
+│   │   │   ├── vertical-1.jpg
+│   │   │   └── vertical-2.jpg
 │   │   ├── newsletter/       # Newsletter images
+│   │   │   └── NewsletterImg.png
 │   │   ├── og/               # Open Graph images
+│   │   │   └── home.jpg
 │   │   └── projects/         # Project images
+│   │       ├── cover-01.jpg
+│   │       ├── cover-02.jpg
+│   │       ├── cover-03.jpg
+│   │       ├── cover-04.jpg
+│   │       ├── image-01.jpg
+│   │       ├── image-02.jpg
+│   │       ├── image-03.jpg
+│   │       ├── DashboardImg1.jpg
+│   │       ├── DashboardImg2.jpg
+│   │       └── DashboardImg3.jpg
 │   └── trademarks/           # Brand assets
 │       ├── wordmark-dark.svg
 │       └── wordmark-light.svg
@@ -99,7 +122,7 @@ himanshu-portfolio-main/
 │   │   ├── work/             # Projects page
 │   │   │   ├── [slug]/       # Dynamic project pages
 │   │   │   │   └── page.tsx
-│   │   │   ├── projects/     # MDX project files
+│   │   │   ├── projects/     # MDX project files (7 projects)
 │   │   │   │   ├── exploratory-data-analysis-iris.mdx
 │   │   │   │   ├── moving-vehicle-number-plate-detection.mdx
 │   │   │   │   ├── sentiment-analysis-with-bert.mdx
@@ -109,22 +132,14 @@ himanshu-portfolio-main/
 │   │   │   │   └── youtube-data-engineering-pipeline.mdx
 │   │   │   ├── page.tsx
 │   │   │   └── WorkPage.module.scss
-│   │   ├── layout.tsx        # Root layout
+│   │   ├── layout.tsx        # Root layout with providers
 │   │   ├── not-found.tsx     # 404 page
 │   │   ├── page.tsx          # Homepage
-│   │   ├── robots.ts         # Robots.txt
+│   │   ├── robots.ts         # Robots.txt generation
 │   │   └── sitemap.ts        # Sitemap generation
 │   ├── components/           # React components
 │   │   ├── about/            # About page components
-│   │   │   ├── about.module.scss
-│   │   │   └── TableOfContents.tsx
-│   │   ├── article/          # Article components
-│   │   │   ├── Article.tsx
-│   │   │   ├── Articles.tsx
-│   │   │   ├── HomepageArticleCard.tsx
-│   │   │   ├── Post.tsx
-│   │   │   ├── Posts.module.scss
-│   │   │   └── Posts.tsx
+│   │   │   └── about.module.scss
 │   │   ├── home/             # Homepage components
 │   │   │   ├── CurrentFocus.module.scss
 │   │   │   ├── CurrentFocus.tsx
@@ -137,17 +152,23 @@ himanshu-portfolio-main/
 │   │   ├── work/             # Project components
 │   │   │   ├── FeaturedProjectCard.module.scss
 │   │   │   ├── FeaturedProjectCard.tsx
+│   │   │   ├── ProjectCard.module.scss
+│   │   │   ├── ProjectCard.tsx
 │   │   │   ├── ProjectGridCard.module.scss
 │   │   │   ├── ProjectGridCard.tsx
 │   │   │   ├── ProjectImageCarousel.module.scss
 │   │   │   ├── ProjectImageCarousel.tsx
+│   │   │   ├── ProjectPageButtons.tsx
 │   │   │   ├── Projects.module.scss
-│   │   │   └── Projects.tsx
-│   │   ├── Footer.module.scss
+│   │   │   ├── Projects.tsx
+│   │   │   └── WorkPageClient.tsx
+│   │   ├── AnimatedHeadline.tsx
+│   │   ├── AnimatedSubline.tsx
+│   │   ├── BackToTop.module.scss
+│   │   ├── BackToTop.tsx
 │   │   ├── Footer.tsx        # Site footer
-│   │   ├── Header.module.scss
-│   │   ├── Header.tsx        # Site header
-│   │   ├── HeadingLink.module.scss
+│   │   ├── Header.module.scss # Enhanced header styles
+│   │   ├── Header.tsx        # Enhanced header with custom icons
 │   │   ├── HeadingLink.tsx   # Heading links
 │   │   ├── index.ts          # Component exports
 │   │   ├── LoadingSpinner.tsx
@@ -155,20 +176,23 @@ himanshu-portfolio-main/
 │   │   ├── mdx.tsx           # MDX components
 │   │   ├── NewsletterCard.module.scss
 │   │   ├── NewsletterCard.tsx
+│   │   ├── Portal.tsx
 │   │   ├── ProjectCard.tsx   # Project cards
 │   │   ├── Providers.tsx     # Context providers
 │   │   ├── ScrollToHash.tsx  # Smooth scrolling
 │   │   ├── ThemeToggle.module.scss
 │   │   └── ThemeToggle.tsx   # Theme switcher
+│   ├── data/                 # Data files
+│   │   └── currentFocus.json
 │   ├── resources/            # Configuration and content
 │   │   ├── content.js        # Site content and metadata
 │   │   ├── custom.css        # Custom global styles
-│   │   ├── icons.ts          # Icon definitions
+│   │   ├── icons.ts          # Custom SVG icon definitions
 │   │   ├── index.ts          # Resource exports
 │   │   └── once-ui.config.js # Once UI configuration
 │   └── utils/                # Utility functions
+│       ├── currentFocus.ts
 │       ├── formatDate.ts     # Date formatting
-│       ├── server-utils.ts   # Server-side utilities
 │       └── utils.ts          # General utilities
 ├── .env.example              # Environment variables example
 ├── .eslintrc.json            # ESLint configuration
@@ -178,7 +202,6 @@ himanshu-portfolio-main/
 ├── next.config.mjs           # Next.js configuration
 ├── package-lock.json         # Dependency lock file
 ├── package.json              # Dependencies and scripts
-├── project-structure.txt     # This file structure
 ├── README.md                 # Project documentation
 ├── tsconfig.json             # TypeScript configuration
 └── tsconfig.tsbuildinfo      # TypeScript build info
@@ -207,6 +230,7 @@ himanshu-portfolio-main/
    Create a `.env.local` file in the root directory:
    ```env
    SLACK_WEBHOOK_URL=your_slack_webhook_url
+   NEXT_PUBLIC_BASE_URL=https://your-domain.com
    ```
 
 4. **Run the development server**
@@ -225,45 +249,41 @@ himanshu-portfolio-main/
 - `npm run clean` - Clean build cache
 - `npm run lint` - Run ESLint
 
-## 📝 Adding Content
+## 📝 Content Overview
 
-### Adding New Projects
+### Projects (7 Data Science & ML Projects)
+1. **Exploratory Data Analysis - Iris Dataset** - Comprehensive EDA with statistical insights
+2. **Moving Vehicle Number Plate Detection** - Computer vision project using OpenCV
+3. **Sentiment Analysis with BERT** - NLP project using transformer models
+4. **Uplifting Happiness Index** - Data analysis and visualization project
+5. **World Layoff Data Analysis** - Global layoff trends analysis
+6. **World's Biggest Data Breaches** - Cybersecurity data analysis
+7. **YouTube Data Engineering Pipeline** - ETL pipeline and data engineering
 
-1. Create a new `.mdx` file in `src/app/work/projects/`
-2. Use the following frontmatter structure:
+### Articles (40+ AI/ML Articles)
+Comprehensive series covering:
+- **Machine Learning Fundamentals** - Linear/Logistic Regression, Decision Trees
+- **Deep Learning** - Neural Networks, CNN, RNN, Backpropagation
+- **Advanced ML** - SVM, K-Means, Ensemble Methods, Bayesian Learning
+- **Reinforcement Learning** - MDP, Monte Carlo, Temporal Difference
+- **AI Ethics & Explainability** - SHAP, Interpretable AI
+- **Generative AI** - GANs, Autoencoders, Transformers
 
-```yaml
----
-title: "Your Project Title"
-publishedAt: "2024-01-01"
-order: 1
-status: "completed"
-featured: true
-summary:
-  - "First bullet point about the project"
-  - "Second bullet point about the project"
-images:
-  - "/images/projects/image1.jpg"
-  - "/images/projects/image2.jpg"
-link: "https://github.com/yourusername/project"
-tag: "Data Science"
-techStack:
-  - "Python"
-  - "Pandas"
-  - "Machine Learning"
----
-```
-
-3. Add project images to `public/images/projects/`
-4. The project will automatically appear on the homepage and work page
-
-### Adding Articles
-
-1. Create a new `.mdx` file in `src/app/article/`
-2. Use similar frontmatter structure as projects
-3. Articles will appear in the articles section
+### Technical Skills
+- **AI/ML Stack**: TensorFlow, PyTorch, LangChain, OpenAI API
+- **Programming**: Python, JavaScript/TypeScript, SQL, Java
+- **Cloud & Infrastructure**: AWS, Google Cloud, Docker, Kubernetes
+- **Web Development**: Next.js, React, SASS, Flask
+- **Data Visualization**: Plotly, Tableau, PowerBI, Matplotlib
 
 ## 🎨 Customization
+
+### Enhanced Header Features
+- **Custom SVG Icons**: Unique navigation icons designed specifically for the portfolio
+- **Responsive Design**: Adaptive layout that works on all screen sizes
+- **Glassmorphism Effects**: Modern blur and transparency effects
+- **Smooth Animations**: Hover effects and transitions
+- **Theme Integration**: Seamless dark/light mode switching
 
 ### Theme Configuration
 Edit `src/resources/once-ui.config.js` to customize:
@@ -274,41 +294,46 @@ Edit `src/resources/once-ui.config.js` to customize:
 
 ### Content Management
 Update `src/resources/content.js` to modify:
-- Personal information
-- Social media links
-- Newsletter settings
-- Site metadata
+- Personal information and bio
+- Social media links and profiles
+- Newsletter settings and configuration
+- Site metadata and SEO settings
 
 ### Styling
 - Global styles: `src/resources/custom.css`
 - Component styles: Individual `.module.scss` files
 - Design system: `@once-ui-system/core`
+- Custom icons: `src/resources/icons.ts`
 
 ## 📊 Performance Optimizations
 
-- **Image Optimization**: WebP/AVIF formats with responsive sizes
-- **Code Splitting**: Automatic chunk splitting with 250KB limits
+- **Image Optimization**: WebP/AVIF formats with responsive sizes and lazy loading
+- **Code Splitting**: Automatic chunk splitting with 250KB limits for optimal loading
 - **Bundle Optimization**: Tree shaking and dead code elimination
 - **Caching**: Static generation with ISR for dynamic content
 - **Analytics**: Performance monitoring with Vercel Speed Insights
+- **Header Optimization**: Efficient rendering with custom SVG icons
 
 ## 🔧 Configuration Files
 
 ### Next.js Configuration (`next.config.mjs`)
 - MDX support with custom extensions
-- Image optimization settings
-- Webpack optimizations
-- Build optimizations
+- Image optimization settings with modern formats
+- Webpack optimizations for better performance
+- Build optimizations and chunk splitting
+- Package import optimization
 
 ### TypeScript Configuration (`tsconfig.json`)
-- Strict type checking
+- Strict type checking for better code quality
 - Path aliases for clean imports
-- Modern JavaScript features
+- Modern JavaScript features enabled
+- Comprehensive type coverage
 
 ### Biome Configuration (`biome.json`)
-- Code formatting rules
-- Linting configuration
-- Import organization
+- Code formatting rules with 100 character line width
+- Linting configuration with recommended rules
+- Import organization and sorting
+- Modern JavaScript formatting
 
 ## 🌐 Deployment
 
@@ -316,17 +341,34 @@ Update `src/resources/content.js` to modify:
 1. Connect your GitHub repository to Vercel
 2. Set environment variables in Vercel dashboard
 3. Deploy automatically on push to main branch
+4. Enable analytics and speed insights
 
 ### Environment Variables
 - `SLACK_WEBHOOK_URL` - For contact form notifications
-- `NEXT_PUBLIC_BASE_URL` - Your domain URL
+- `NEXT_PUBLIC_BASE_URL` - Your domain URL for SEO
 
 ## 📈 Analytics & Monitoring
 
 - **Vercel Analytics**: Track page views and user behavior
-- **Speed Insights**: Monitor Core Web Vitals
-- **Error Tracking**: Built-in error boundaries
+- **Speed Insights**: Monitor Core Web Vitals and performance metrics
+- **Error Tracking**: Built-in error boundaries and monitoring
 - **SEO**: Automatic sitemap and meta tag generation
+- **Performance**: Real-time monitoring of loading times
+
+## 🎯 Recent Enhancements
+
+### Header Improvements
+- **Custom Navigation Icons**: Unique SVG icons for Home, About, Work, Articles, and Contact
+- **Responsive Design**: Optimized for all screen sizes and zoom levels
+- **Enhanced Styling**: Glassmorphism effects and smooth animations
+- **Better Accessibility**: Improved focus states and keyboard navigation
+- **Performance**: Optimized rendering and reduced bundle size
+
+### Content Updates
+- **40+ AI/ML Articles**: Comprehensive coverage of machine learning concepts
+- **7 Data Science Projects**: Real-world projects with detailed documentation
+- **Enhanced About Section**: Detailed technical skills and achievements
+- **Professional Credentials**: Multiple certifications and achievements
 
 ## 🤝 Contributing
 
@@ -346,14 +388,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **LinkedIn**: [Himanshu Salunke](https://www.linkedin.com/in/hr0221/)
 - **GitHub**: [HRS0221](https://github.com/HRS0221)
 - **Portfolio**: [himanshusalunke.vercel.app](https://himanshusalunke.vercel.app)
+- **Newsletter**: [The Minimalist Life](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7085106786910769152)
 
 ## 🙏 Acknowledgments
 
 - **Once UI System** - For the excellent [Magic Portfolio Template](https://github.com/once-ui-system/magic-portfolio) that served as the foundation for this project
-- **Next.js Team** - For the amazing React framework
-- **Vercel** - For hosting and deployment platform
+- **Next.js Team** - For the amazing React framework and continuous improvements
+- **Vercel** - For hosting and deployment platform with excellent developer experience
 - **React Community** - For the incredible ecosystem and tools
+- **AI/ML Community** - For the knowledge and resources that inspired the content
 
 ---
 
 Built with ❤️ using Next.js, TypeScript, and modern web technologies. 
+
+*Last updated: December 2024* 

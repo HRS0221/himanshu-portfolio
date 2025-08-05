@@ -22,10 +22,10 @@ export const Header = () => {
 
   const navLinks = [
     { key: "home", href: "/", icon: "home", data: home, exact: true },
-    { key: "about", href: "/about", icon: "person", data: about, exact: true },
-    { key: "work", href: "/work", icon: "grid", data: work, exact: false },
-    { key: "article", href: "/article", icon: "book", data: article, exact: false },
-    { key: "contact", href: "/contact", icon: "email", data: contact, exact: true },
+    { key: "about", href: "/about", icon: "about", data: about, exact: true },
+    { key: "work", href: "/work", icon: "work", data: work, exact: false },
+    { key: "article", href: "/article", icon: "article", data: article, exact: false },
+    { key: "contact", href: "/contact", icon: "contact", data: contact, exact: true },
   ];
 
   return (
@@ -114,7 +114,7 @@ export const Header = () => {
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" className={styles.navDivider} />
                   <div className={styles.themeToggleWrapper}>
-                    <ThemeToggle />
+                  <ThemeToggle />
                   </div>
                 </>
               )}
