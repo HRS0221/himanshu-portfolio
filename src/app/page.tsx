@@ -63,7 +63,7 @@ export default async function Home() {
           url: `${baseURL}${about.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
-        sameAs={Object.values(sameAs).filter((url: string) => url !== "")}
+        sameAs={Object.values(sameAs).filter((url): url is string => typeof url === 'string' && url !== "")}
       />
 
       {/* Hero Section */}

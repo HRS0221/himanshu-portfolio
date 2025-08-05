@@ -32,7 +32,7 @@ export default function Contact() {
         title={contact.title}
         description={contact.description}
         author={{ name: person.name, url: `${baseURL}/about` }}
-        sameAs={Object.values(sameAs).filter((url: string) => url !== "")}
+        sameAs={Object.values(sameAs).filter((url): url is string => typeof url === 'string' && url !== "")}
       />
 
       <RevealFx>

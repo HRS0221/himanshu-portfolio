@@ -28,7 +28,7 @@ export default function ArticlePage() {
           url: `${baseURL}/about`,
           image: `${baseURL}${person.avatar}`,
         }}
-        sameAs={Object.values(sameAs).filter((url: string) => url !== "")}
+        sameAs={Object.values(sameAs).filter((url): url is string => typeof url === 'string' && url !== "")}
       />
       <ArticleListClient />
     </>

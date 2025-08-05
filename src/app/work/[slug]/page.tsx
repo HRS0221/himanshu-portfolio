@@ -74,7 +74,7 @@ export default async function ProjectPage({ params }: PageProps) {
           name: person.name,
           url: `${baseURL}/about`,
         }}
-        sameAs={Object.values(sameAs).filter((url: string) => url !== "")}
+        sameAs={Object.values(sameAs).filter((url): url is string => typeof url === 'string' && url !== "")}
       />
 
              <Column gap="16" paddingBottom="40">

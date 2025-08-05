@@ -11,7 +11,7 @@ import {
   Meta,
   Schema, 
 } from "@once-ui-system/core";
-import { baseURL, about, person, social } from "../../resources";
+import { baseURL, about, person, social, sameAs } from "../../resources";
 import styles from "../../components/about/about.module.scss";
 import React from "react";
 import { SiCodechef, SiLeetcode } from "react-icons/si";
@@ -203,7 +203,7 @@ export default function About() {
         title={about.title}
         description={about.description}
         author={{ name: person.name, url: `${baseURL}${about.path}` }}
-        sameAs={Object.values(sameAs).filter(url => url !== "")}
+        sameAs={Object.values(sameAs).filter((url): url is string => typeof url === 'string' && url !== "")}
       />
       <Flex fillWidth mobileDirection="column" horizontal="center" vertical="center">
         {/* Hero Card */}
