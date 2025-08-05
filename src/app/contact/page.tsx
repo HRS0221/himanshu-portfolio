@@ -8,7 +8,7 @@ import {
   Schema,
   Text,
 } from "@once-ui-system/core";
-import { baseURL, contact } from "../../resources";
+import { baseURL, contact, person, sameAs } from "../../resources";
 import ContactClient from "./ContactClient"; // Import the new client component
 
 // This is a Server Component, so generateMetadata is allowed
@@ -31,6 +31,8 @@ export default function Contact() {
         path={contact.path}
         title={contact.title}
         description={contact.description}
+        author={{ name: person.name, url: `${baseURL}/about` }}
+        sameAs={Object.values(sameAs).filter((url: string) => url !== "")}
       />
 
       <RevealFx>

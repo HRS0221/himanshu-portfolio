@@ -203,6 +203,7 @@ export default function About() {
         title={about.title}
         description={about.description}
         author={{ name: person.name, url: `${baseURL}${about.path}` }}
+        sameAs={Object.values(sameAs).filter(url => url !== "")}
       />
       <Flex fillWidth mobileDirection="column" horizontal="center" vertical="center">
         {/* Hero Card */}

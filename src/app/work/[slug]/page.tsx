@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getAllProjects, getProjectBySlug } from "../../../utils/utils";
 import { Column, Heading, Text, Meta, Schema, Flex, Button, Tag } from "@once-ui-system/core";
-import { baseURL, person } from "../../../resources";
+import { baseURL, person, sameAs } from "../../../resources";
 import { CustomMDX } from "../../../components/mdx";
 import React, { Suspense } from "react";
 import Link from "next/link";
@@ -74,6 +74,7 @@ export default async function ProjectPage({ params }: PageProps) {
           name: person.name,
           url: `${baseURL}/about`,
         }}
+        sameAs={Object.values(sameAs).filter((url: string) => url !== "")}
       />
 
              <Column gap="16" paddingBottom="40">

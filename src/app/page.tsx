@@ -12,7 +12,7 @@ import {
   Schema,
 } from "@once-ui-system/core";
 
-import { home, about, person, newsletter, baseURL } from "../resources";
+import { home, about, person, newsletter, baseURL, sameAs } from "../resources";
 import NewsletterCard from "../components/NewsletterCard";
 import RecentArticles from "../components/home/RecentArticles";
 import RecentProjects from "../components/home/RecentProjects";
@@ -57,12 +57,13 @@ export default async function Home() {
         path={home.path}
         title={home.title}
         description={home.description}
-        image="/images/og/home.jpg"
+        image="/api/og"
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
+        sameAs={Object.values(sameAs).filter((url: string) => url !== "")}
       />
 
       {/* Hero Section */}
@@ -113,7 +114,7 @@ export default async function Home() {
           <RevealFx delay={0.2}>
             <div style={{ lineHeight: "1.6" }}>
               <Text onBackground="neutral-weak" variant="heading-default-xl" style={{ marginBottom: "8px", fontWeight: "500" }}>
-                Preparing for GATE - 2026 while building AI that matters. Aspiring Data Scientist passionate about building intelligent solutions with Python, Machine Learning, and AI. Currently building innovative AI projects.
+                Preparing for GATE - 2026 while building AI that matters. Aspiring Data Scientist passionate about building intelligent solutions with Python, Machine Learning, and AI. Currently building innovative AI projects and learning new technologies.
               </Text>
               <AnimatedSubline />
             </div>

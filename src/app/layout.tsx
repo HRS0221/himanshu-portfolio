@@ -24,7 +24,7 @@ export async function generateMetadata() {
     description: home.description,
     baseURL: baseURL,
     path: home.path,
-    image: "/images/og/home.jpg", // ✅ FIX: Using static OG image
+    image: `${baseURL}api/og?title=${encodeURIComponent(home.title)}&description=${encodeURIComponent(home.description)}`, // ✅ Updated: Using automatic OG image generation
   });
 }
 

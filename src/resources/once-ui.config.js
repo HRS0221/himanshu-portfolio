@@ -170,18 +170,42 @@ const mailchimp = {
 
 // default schema data
 const schema = {
-  logo: "",
-  type: "Organization",
-  name: "Once UI",
+  logo: "/favicon.svg",
+  type: "Person",
+  name: "Himanshu Salunke",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: "contact.himanshusalunke@gmail.com",
+  url: baseURL,
+  image: `${baseURL}images/avatar.jpg`,
+  jobTitle: "Aspiring Data Scientist & ML Engineer",
+  worksFor: {
+    "@type": "Organization",
+    "name": "Student"
+  },
+  knowsAbout: [
+    "Machine Learning",
+    "Artificial Intelligence", 
+    "Data Science",
+    "Python",
+    "Deep Learning",
+    "Computer Vision",
+    "Natural Language Processing"
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    "name": "R. C. Patel Institute of Technology, Shirpur"
+  }
 };
 
-// social links
+// social links for SEO
 const sameAs = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  linkedin: "https://www.linkedin.com/in/hr0221/",
+  github: "https://github.com/HRS0221",
+  twitter: "https://x.com/Wiser_0221",
+  codechef: "https://www.codechef.com/users/hr0221",
+  leetcode: "https://leetcode.com/u/himanshusalunke/",
+  threads: "",
+  discord: ""
 };
 
 export {

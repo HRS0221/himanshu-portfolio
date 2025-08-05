@@ -9,7 +9,7 @@ import {
   Flex,
   Line,
 } from "@once-ui-system/core";
-import { baseURL, person, work } from "../../resources";
+import { baseURL, person, work, sameAs } from "../../resources";
 import type { MdxContent } from "../../utils/utils";
 
 import FeaturedProjectCard from "./FeaturedProjectCard";
@@ -34,12 +34,13 @@ export default function WorkPageClient({
         path={work.path}
         title={work.title}
         description={work.description}
-        image="/images/og/home.jpg"
+        image="/api/og"
         author={{
           name: person.name,
           url: `${baseURL}/about`,
           image: `${baseURL}${person.avatar}`,
         }}
+        sameAs={Object.values(sameAs).filter((url: string) => url !== "")}
       />
       <RevealFx>
         <Flex fillWidth horizontal="center">

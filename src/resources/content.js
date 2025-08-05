@@ -9,7 +9,7 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Aspiring Data Scientist",
+  role: "Aspiring Data Scientist & ML Engineer",
   avatar: "/images/avatar.jpg",
   email: "contact.himanshusalunke@gmail.com",
   languages: ["English", "Hindi", "Marathi"],
@@ -58,7 +58,7 @@ const social = [
 
 const home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: "/api/og",
   label: "Home",
   title: `${person.name}'s Portfolio`,
   // description: `Portfolio website showcasing my work as a ${person.role}`,
@@ -78,7 +78,7 @@ const home = {
   },
   subline: (
     <>
-      Data Scientist crafting intelligent solutions with Python, Machine Learning, and AI. Currently preparing for GATE - 2026 while building innovative AI products.
+      Aspiring Data Scientist passionate about building intelligent solutions with Python, Machine Learning, and AI. Currently preparing for GATE - 2026 while building innovative AI projects.
     </>
   ),
 };

@@ -1,8 +1,6 @@
 # Himanshu Salunke - Portfolio Website
 
-A modern, responsive portfolio website built with Next.js 15, featuring a clean design, dark mode, and comprehensive project showcase. This portfolio demonstrates expertise in data science, machine learning, and software development with a focus on AI and ML technologies.
-
-> **Note**: This portfolio is based on the [Once UI Portfolio Template](https://github.com/once-ui-system/magic-portfolio) by Once UI System. I've customized it extensively to showcase my projects and skills while maintaining the excellent foundation they provided.
+A modern, responsive portfolio website built with Next.js 15, featuring a clean design, dark mode, and comprehensive project showcase. This portfolio demonstrates my journey as an aspiring data scientist, showcasing projects in machine learning, AI, and software development.
 
 ## 🌟 Features
 
@@ -13,6 +11,7 @@ A modern, responsive portfolio website built with Next.js 15, featuring a clean 
 - **Responsive Layout**: Optimized for all devices and screen sizes with adaptive navigation
 - **Performance Optimized**: Fast loading with Next.js 15 optimizations and code splitting
 - **SEO Optimized**: Meta tags, sitemap, and structured data for better search visibility
+- **Automatic OG Images**: Dynamic Open Graph image generation using Vercel OG
 - **Analytics**: Vercel Analytics and Speed Insights integration
 
 ### Content Management
@@ -58,6 +57,7 @@ A modern, responsive portfolio website built with Next.js 15, featuring a clean 
 - **Vercel** - Hosting and deployment platform with edge functions
 - **@vercel/analytics 1.5.0** - Web analytics and user behavior tracking
 - **@vercel/speed-insights 1.2.0** - Performance monitoring and Core Web Vitals
+- **@vercel/og 0.6.2** - Dynamic Open Graph image generation
 
 ### External Integrations
 - **Slack Webhooks** - Contact form notifications and real-time alerts
@@ -80,15 +80,8 @@ himanshu-portfolio-main/
 │   │   │   ├── Deep Learning.jpg
 │   │   │   ├── Reinforcement Learning.jpg
 │   │   │   └── ... (40+ more ML concept images)
-│   │   ├── gallery/          # Gallery images
-│   │   │   ├── horizontal-1.jpg
-│   │   │   ├── horizontal-2.jpg
-│   │   │   ├── vertical-1.jpg
-│   │   │   └── vertical-2.jpg
 │   │   ├── newsletter/       # Newsletter images
 │   │   │   └── NewsletterImg.png
-│   │   ├── og/               # Open Graph images
-│   │   │   └── home.jpg
 │   │   └── projects/         # Project images
 │   │       ├── cover-01.jpg
 │   │       ├── cover-02.jpg
@@ -100,9 +93,6 @@ himanshu-portfolio-main/
 │   │       ├── DashboardImg1.jpg
 │   │       ├── DashboardImg2.jpg
 │   │       └── DashboardImg3.jpg
-│   └── trademarks/           # Brand assets
-│       ├── wordmark-dark.svg
-│       └── wordmark-light.svg
 ├── src/                      # Source code
 │   ├── app/                  # Next.js App Router
 │   │   ├── about/            # About page
@@ -110,6 +100,8 @@ himanshu-portfolio-main/
 │   │   ├── api/              # API routes
 │   │   │   ├── download-resume/
 │   │   │   │   └── route.ts
+│   │   │   ├── og/           # Dynamic OG image generation
+│   │   │   │   └── route.tsx
 │   │   │   └── submit-form/
 │   │   │       └── route.ts
 │   │   ├── article/          # Articles listing
@@ -260,6 +252,12 @@ himanshu-portfolio-main/
 6. **World's Biggest Data Breaches** - Cybersecurity data analysis
 7. **YouTube Data Engineering Pipeline** - ETL pipeline and data engineering
 
+### Current Status
+- **Student**: Currently preparing for GATE - 2026
+- **Focus**: Building AI/ML projects and learning new technologies
+- **Goal**: Transitioning into a Data Scientist role
+- **Work Experience**: Design engineering background with UI/UX expertise
+
 ### Articles (40+ AI/ML Articles)
 Comprehensive series covering:
 - **Machine Learning Fundamentals** - Linear/Logistic Regression, Decision Trees
@@ -313,6 +311,7 @@ Update `src/resources/content.js` to modify:
 - **Caching**: Static generation with ISR for dynamic content
 - **Analytics**: Performance monitoring with Vercel Speed Insights
 - **Header Optimization**: Efficient rendering with custom SVG icons
+- **TypeScript Safety**: Strict type checking and error-free compilation
 
 ## 🔧 Configuration Files
 
@@ -354,6 +353,7 @@ Update `src/resources/content.js` to modify:
 - **Error Tracking**: Built-in error boundaries and monitoring
 - **SEO**: Automatic sitemap and meta tag generation
 - **Performance**: Real-time monitoring of loading times
+- **TypeScript Compilation**: Error-free build process with strict type checking
 
 ## 🎯 Recent Enhancements
 
@@ -369,6 +369,17 @@ Update `src/resources/content.js` to modify:
 - **7 Data Science Projects**: Real-world projects with detailed documentation
 - **Enhanced About Section**: Detailed technical skills and achievements
 - **Professional Credentials**: Multiple certifications and achievements
+- **Work Experience**: Design engineering background with UI/UX expertise
+- **Accurate Status**: Properly reflects current student status and career goals
+
+### Technical Improvements
+- **Automatic OG Image Generation**: Dynamic Open Graph images using Vercel OG API
+- **Enhanced SEO**: Comprehensive Schema.org structured data with social media links
+- **Removed Unused Assets**: Cleaned up gallery folder, trademarks, and static OG images
+- **Enhanced Favicon**: Modern geometric H logo with gradient design
+- **Optimized Performance**: Reduced bundle size and improved loading times
+- **Removed Third-party Branding**: Cleaned up all Once UI references and credits
+- **Fixed TypeScript Errors**: Resolved all compilation issues and type safety
 
 ## 🤝 Contributing
 
@@ -392,11 +403,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Once UI System** - For the excellent [Magic Portfolio Template](https://github.com/once-ui-system/magic-portfolio) that served as the foundation for this project
 - **Next.js Team** - For the amazing React framework and continuous improvements
 - **Vercel** - For hosting and deployment platform with excellent developer experience
 - **React Community** - For the incredible ecosystem and tools
 - **AI/ML Community** - For the knowledge and resources that inspired the content
+- **TypeScript Community** - For robust type safety and developer experience
 
 ---
 
