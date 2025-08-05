@@ -14,7 +14,7 @@ export type Team = {
 export type Metadata = {
   title: string;
   publishedAt: string;
-  summary?: string;
+  summary?: string | string[];
   image?: string;
   images?: string[];
   tag?: string;
@@ -72,7 +72,7 @@ function getMDXData(dir: string): MdxContent[] {
     const metadata: Metadata = {
       title: data.title || "Untitled Project",
       publishedAt: data.publishedAt || new Date().toISOString(),
-      summary: data.summary || "",
+      summary: data.summary || [],
       image: data.image || "",
       images: data.images || [],
       tag: data.tag || "",
@@ -221,9 +221,18 @@ export const calculateStatsFromData = async () => {
   const articlesCount = articles.items.length;
   
   // Calculate hackathons count from achievements - check for hackathon/hackathons in title or description
+  // Exclude leadership/organizational roles, only count actual participation
   const hackathonsCount = about.achievements.items.filter((achievement: Achievement) => {
     const titleLower = achievement.title.toLowerCase();
     const descriptionLower = achievement.description.toLowerCase();
+    
+    // Skip if it's a leadership/organizational role (contains "lead", "coordinated", "overseeing")
+    if (titleLower.includes('lead') || 
+        descriptionLower.includes('led') || 
+        descriptionLower.includes('coordinated') || 
+        descriptionLower.includes('overseeing')) {
+      return false;
+    }
     
     return (titleLower.includes('hackathon') || 
             titleLower.includes('hackathons') ||
@@ -263,7 +272,7 @@ export const calculateStatsFromData = async () => {
       number: `${completedProjectsCount}+`,
       label: "Projects Completed",
       description: "AI, ML & Data Science",
-      icon: "🚀"
+      icon: "��"
     },
   ];
 };

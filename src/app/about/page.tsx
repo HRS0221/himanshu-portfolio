@@ -699,7 +699,7 @@ export default function About() {
                     id={about.credentials.title}
                     variant="display-strong-s"
                     marginBottom="m"
-                    className={styles.textAlign}
+                    className={styles.textAlign}  
                   >
                     {about.credentials.title}
                   </Heading>

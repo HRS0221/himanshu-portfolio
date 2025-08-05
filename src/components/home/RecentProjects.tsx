@@ -25,6 +25,17 @@ function getStatusVariant(status: string) {
   }
 }
 
+// Helper function to shorten summary points for homepage
+function shortenSummaryPoint(point: string): string {
+  // Remove the "as measured by Y doing Z" part to make it shorter
+  const parts = point.split(' as measured by ');
+  if (parts.length > 1) {
+    // Keep only the "accomplished X" part
+    return parts[0] + '.';
+  }
+  return point;
+}
+
 export default function RecentProjects({ projects }: RecentProjectsProps) {
   // Safety check: if projects is undefined or empty, return empty array
   if (!projects || !Array.isArray(projects)) {
@@ -71,7 +82,7 @@ export default function RecentProjects({ projects }: RecentProjectsProps) {
                     overflow: "hidden",
                     display: "flex",
                     flexDirection: "column",
-                    height: "100%",
+                    alignSelf: "start",
                     transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                     boxShadow: "0 4px 12px rgba(59, 130, 246, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05)",
                   }}
@@ -128,7 +139,7 @@ export default function RecentProjects({ projects }: RecentProjectsProps) {
                      </div>
 
                     {/* Project Content */}
-                    <Column gap="16" padding="24" style={{ flex: 1 }}>
+                    <Column gap="s" padding="12" style={{ flex: 1 }}>
                       {/* Title */}
                       <Heading 
                         as="h3" 
@@ -151,26 +162,42 @@ export default function RecentProjects({ projects }: RecentProjectsProps) {
 
                       {/* Summary */}
                       {project.metadata.summary && (
-                        <Text 
-                          size="s" 
-                          onBackground="neutral-weak"
-                          style={{ 
-                            lineHeight: "1.5",
-                            display: "-webkit-box",
-                            WebkitLineClamp: 3,
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
-                          }}
-                        >
+                        <div style={{ lineHeight: "1.5" }}>
                           {Array.isArray(project.metadata.summary) 
-                            ? project.metadata.summary[0] 
-                            : project.metadata.summary}
-                        </Text>
+                            ? project.metadata.summary.slice(0, 2).map((point: string, index: number) => (
+                                <div key={index} style={{ 
+                                  fontSize: "14px", 
+                                  marginBottom: "6px",
+                                  color: "var(--color-neutral-weak)",
+                                  display: "-webkit-box",
+                                  WebkitLineClamp: 2,
+                                  WebkitBoxOrient: "vertical",
+                                  overflow: "hidden",
+                                }}>
+                                  • {shortenSummaryPoint(point)}
+                                </div>
+                              ))
+                            : (
+                              <Text 
+                                size="s" 
+                                onBackground="neutral-weak"
+                                style={{ 
+                                  lineHeight: "1.5",
+                                  display: "-webkit-box",
+                                  WebkitLineClamp: 3,
+                                  WebkitBoxOrient: "vertical",
+                                  overflow: "hidden",
+                                }}
+                              >
+                                {project.metadata.summary}
+                              </Text>
+                            )}
+                        </div>
                       )}
 
                       {/* Tech Stack */}
                       {project.metadata.techStack && project.metadata.techStack.length > 0 && (
-                        <Flex gap="s" wrap style={{ marginTop: "8px" }}>
+                        <Flex gap="s" wrap style={{ marginTop: "6px" }}>
                           {project.metadata.techStack.slice(0, 3).map((tech, techIndex) => (
                             <Tag
                               key={techIndex}
@@ -216,7 +243,7 @@ export default function RecentProjects({ projects }: RecentProjectsProps) {
                       )}
 
                       {/* Date and Status */}
-                      <Flex gap="8" vertical="center" wrap style={{ marginTop: "auto" }}>
+                      <Flex gap="8" vertical="center" wrap style={{ marginTop: "12px" }}>
                         <Text 
                           size="s" 
                           onBackground="neutral-medium"
@@ -241,7 +268,7 @@ export default function RecentProjects({ projects }: RecentProjectsProps) {
                       </Flex>
 
                                              {/* Project Buttons */}
-                       <Flex gap="8" wrap style={{ marginTop: "16px" }}>
+                       <Flex gap="8" wrap style={{ marginTop: "12px" }}>
                          <Button
                            href={`/work/${project.slug}`}
                            variant="primary"

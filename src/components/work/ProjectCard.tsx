@@ -41,12 +41,16 @@ export default function ProjectCard({
           </Heading>
 
           {/* Project Description */}
-          <Text className={styles.projectDescription}>
+          <div className={styles.projectDescription}>
             {Array.isArray(project.metadata.summary) 
-              ? project.metadata.summary.join(' ')
+              ? project.metadata.summary.map((point: string, index: number) => (
+                  <div key={index} style={{ marginBottom: '8px', fontSize: '14px', lineHeight: '1.5' }}>
+                    • {point}
+                  </div>
+                ))
               : project.metadata.summary || ""
             }
-          </Text>
+          </div>
 
           {/* Tech Stack Tags */}
           {project.metadata.techStack &&
