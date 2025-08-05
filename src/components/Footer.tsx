@@ -31,19 +31,7 @@ export const Footer = () => {
       >
         <Text variant="body-default-s" onBackground="neutral-strong">
           <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">Designed & Developed by {person.name}</Text>
-          <Text onBackground="neutral-weak" paddingX="4">/</Text>
-          <Text as="span" onBackground="neutral-weak" style={{ fontSize: '0.95em' }}>
-            Based on the Magic Portfolio Template by{' '}
-            <a
-              href="https://github.com/once-ui-system/magic-portfolio"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: 'underline', color: '#06b6d4', fontWeight: 600 }}
-            >
-              Once UI
-            </a>
-          </Text>
+          <Text paddingX="4">🎨 Crafted with passion by {person.name} 🎨</Text>
         </Text>
         <Flex gap="16">
           {social.map((item) => {
