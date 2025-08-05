@@ -35,6 +35,22 @@ export default function ProjectCard({
       <div className={styles.card}>
         {/* Content Section - No Image */}
         <div className={styles.contentWrapper}>
+          {/* Category Tag */}
+          {project.metadata.tag && (
+            <Flex style={{ marginBottom: '12px' }}>
+              <Tag 
+                label={project.metadata.tag} 
+                variant="brand" 
+                size="s"
+                style={{
+                  backgroundColor: "rgba(59, 130, 246, 0.1)",
+                  color: "rgb(59, 130, 246)",
+                  border: "1px solid rgba(59, 130, 246, 0.3)",
+                }}
+              />
+            </Flex>
+          )}
+
           {/* Project Title */}
           <Heading as="h3" variant="heading-strong-s" className={styles.projectTitle}>
             {project.metadata.title}

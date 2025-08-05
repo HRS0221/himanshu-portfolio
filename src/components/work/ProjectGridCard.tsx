@@ -66,7 +66,16 @@ export default function ProjectGridCard({
 
         <Column className={styles.contentWrapper} gap="16">
           <Flex gap="8" vertical="center" wrap>
-            <Tag label={project.metadata.tag || "Project"} variant="neutral" size="s" />
+            <Tag 
+              label={project.metadata.tag || "Project"} 
+              variant="brand" 
+              size="s"
+              style={{
+                backgroundColor: "rgba(59, 130, 246, 0.1)",
+                color: "rgb(59, 130, 246)",
+                border: "1px solid rgba(59, 130, 246, 0.3)",
+              }}
+            />
             <Text size="s" onBackground="neutral-medium">•</Text>
             <Text size="s" onBackground="neutral-medium">
               {formatDate(project.metadata.publishedAt)}
@@ -199,23 +208,23 @@ export default function ProjectGridCard({
               className={styles.projectButton}
               style={{
                 transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                backgroundColor: "rgba(34, 197, 94, 0.1)",
-                color: "rgb(34, 197, 94)",
-                border: "1px solid rgba(34, 197, 94, 0.3)",
+                backgroundColor: "rgba(147, 51, 234, 0.1)",
+                color: "rgb(147, 51, 234)",
+                border: "1px solid rgba(147, 51, 234, 0.3)",
               }}
               onMouseEnter={(e: React.MouseEvent<HTMLElement>) => {
                 const target = e.currentTarget as HTMLElement;
                 target.style.transform = "translateY(-2px) scale(1.02)";
-                target.style.boxShadow = "0 8px 25px rgba(34, 197, 94, 0.25), 0 4px 12px rgba(34, 197, 94, 0.15)";
-                target.style.backgroundColor = "rgba(34, 197, 94, 0.15)";
-                target.style.border = "1px solid rgba(34, 197, 94, 0.5)";
+                target.style.boxShadow = "0 8px 25px rgba(147, 51, 234, 0.25), 0 4px 12px rgba(147, 51, 234, 0.15)";
+                target.style.backgroundColor = "rgba(147, 51, 234, 0.15)";
+                target.style.border = "1px solid rgba(147, 51, 234, 0.5)";
               }}
               onMouseLeave={(e: React.MouseEvent<HTMLElement>) => {
                 const target = e.currentTarget as HTMLElement;
                 target.style.transform = "translateY(0) scale(1)";
                 target.style.boxShadow = "none";
-                target.style.backgroundColor = "rgba(34, 197, 94, 0.1)";
-                target.style.border = "1px solid rgba(34, 197, 94, 0.3)";
+                target.style.backgroundColor = "rgba(147, 51, 234, 0.1)";
+                target.style.border = "1px solid rgba(147, 51, 234, 0.3)";
               }}
             >
               <Flex gap="xs" vertical="center">

@@ -272,7 +272,7 @@ export const calculateStatsFromData = async () => {
       number: `${completedProjectsCount}+`,
       label: "Projects Completed",
       description: "AI, ML & Data Science",
-      icon: "��"
+      icon: "🚀"
     },
   ];
 };
