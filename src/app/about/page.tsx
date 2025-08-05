@@ -155,7 +155,7 @@ export async function generateMetadata() {
     title: about.title,
     description: about.description,
     baseURL: baseURL,
-    image: `${baseURL}api/og?title=${encodeURIComponent(about.title)}&description=${encodeURIComponent(about.description)}`,
+    image: "/images/og/home.jpg",
     path: about.path,
   });
 }

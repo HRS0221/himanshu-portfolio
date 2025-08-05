@@ -8,7 +8,7 @@ export async function generateMetadata() {
     description:
       "Explore 50+ thought-provoking articles on AI, machine learning, and data, written by Himanshu Salunke.",
     baseURL: baseURL,
-    image: `${baseURL}api/og?title=${encodeURIComponent(articles.title)}&description=${encodeURIComponent("Explore 50+ thought-provoking articles on AI, machine learning, and data, written by Himanshu Salunke.")}`,
+    image: "/images/og/home.jpg",
     path: "/article",
   });
 }

@@ -17,7 +17,7 @@ export async function generateMetadata() {
     title: work.title,
     description: work.description,
     baseURL: baseURL,
-    image: `${baseURL}api/og?title=${encodeURIComponent(work.title)}&description=${encodeURIComponent(work.description)}`,
+    image: "/images/og/home.jpg",
     path: work.path,
   });
 }
