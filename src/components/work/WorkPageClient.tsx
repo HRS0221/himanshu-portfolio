@@ -45,11 +45,11 @@ export default function WorkPageClient({
         <Flex fillWidth horizontal="center">
           <Column horizontal="center" gap="16" maxWidth="s">
             <Heading as="h1" variant="display-strong-l" align="center">
-              My Work & Projects
+              🚀 My Innovation Lab
             </Heading>
             <Text onBackground="neutral-weak" align="center">
-              Here are some of the projects I've worked on. Each one represents
-              a challenge I was excited to solve.
+              🚀 Crafting intelligent solutions through code, data, and innovation. 
+              Each project represents a unique journey of problem-solving and growth.
             </Text>
           </Column>
         </Flex>

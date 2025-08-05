@@ -11,9 +11,15 @@ export default function ArticleListClient() {
   return (
     <Column maxWidth="xl" paddingTop="32" paddingBottom="64" gap="40">
       <RevealFx translateY="8" delay={0.1} fillWidth horizontal="center">
-        <Heading variant="display-strong-l" align="center">
-          {articles.title}
-        </Heading>
+        <Column horizontal="center" gap="16" maxWidth="s">
+          <Heading variant="display-strong-l" align="center">
+            {articles.title}
+          </Heading>
+          <Text onBackground="neutral-weak" align="center">
+            📚 Sharing knowledge, insights, and discoveries from my journey in AI and machine learning. 
+            Each article is a piece of my learning adventure.
+          </Text>
+        </Column>
       </RevealFx>
 
       <RevealFx translateY="16" delay={0.2}>

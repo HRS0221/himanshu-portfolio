@@ -379,7 +379,7 @@ const about = {
 // ✅ This 'articles' object has been re-ordered from oldest to newest
 const articles = {
   display: true,
-  title: "My AI Articles",
+  title: "AI Insights & Knowledge",
   label: "Articles",
   items: [
     {
@@ -699,7 +699,7 @@ const article = {
 
 const work = {
   path: "/work",
-  label: "Work",
+  label: "Projects",
   title: `Projects - ${person.name}`,
   description: `Design and dev projects by ${person.name}`,
 };
