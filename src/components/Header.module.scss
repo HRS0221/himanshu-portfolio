@@ -1,8 +1,29 @@
 
 
-.position {
+.header {
     position: sticky;
     top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 70px;
+    backdrop-filter: blur(20px);
+    background: rgba(var(--color-page-background-rgb), 0.95);
+    border-bottom: 1px solid rgba(var(--color-border-neutral-alpha-weak-rgb), 0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.headerContent {
+    height: 100%;
+    max-width: 100%;
+    position: relative;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
 }
 
 .mask {
@@ -13,15 +34,700 @@
     mask-size: 100% 100%;
 }
 
+// Enhanced Brand Section
+.brandSection {
+    flex: 0 0 auto;
+    min-width: 0;
+    max-width: 200px;
+}
+
+.brand {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover {
+        text-decoration: none;
+        transform: translateY(-2px);
+        
+        .logoIcon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 16px 40px rgba(59, 130, 246, 0.4),
+                0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .logoRing {
+            transform: scale(1.2) rotate(-10deg);
+            opacity: 1;
+        }
+        
+        .logoShine {
+            transform: translateX(100%);
+        }
+        
+        .brandGlow {
+            opacity: 1;
+            transform: scale(1.3);
+        }
+        
+        .brandName {
+            color: var(--brand-on-background);
+            text-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+        }
+        
+        .brandLine {
+            width: 100%;
+            opacity: 1;
+        }
+    }
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+}
+
+.logoIcon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.logoInner {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, 
+        #3b82f6 0%, 
+        #1d4ed8 30%, 
+        #3b82f6 70%, 
+        #1e40af 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 20px rgba(59, 130, 246, 0.3),
+        0 4px 10px rgba(59, 130, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0 0 1px rgba(59, 130, 246, 0.3);
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+            rgba(255, 255, 255, 0.2) 0%, 
+            transparent 50%, 
+            rgba(0, 0, 0, 0.1) 100%);
+        border-radius: inherit;
+    }
+}
+
+.logoRing {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 14px;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: inherit;
+        animation: rotate 3s linear infinite;
+    }
+}
+
+.logoShine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.6), 
+        transparent);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+}
+
+.logoGlow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle,
+        rgba(59, 130, 246, 0.3) 0%,
+        rgba(59, 130, 246, 0.1) 50%,
+        transparent 70%
+    );
+    border-radius: inherit;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.logoInitial {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.4),
+        0 0 10px rgba(255, 255, 255, 0.3);
+    letter-spacing: -0.025em;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    position: relative;
+    z-index: 2;
+}
+
+.logoText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    min-width: 0;
+    flex: 1;
+}
+
+.brandName {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--neutral-on-background);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.brandSubtitle {
+    font-size: 0.625rem;
+    color: var(--neutral-on-background-weak);
+    font-weight: 500;
+    margin-top: 0.125rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.brandLine {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        #3b82f6, 
+        rgba(59, 130, 246, 0.6));
+    border-radius: 1px;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.brandGlow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(
+        circle,
+        rgba(59, 130, 246, 0.25) 0%,
+        rgba(59, 130, 246, 0.12) 40%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// Enhanced Navigation Section
+.navSection {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+    max-width: 500px;
+}
+
+.navContainer {
+    background: rgba(var(--color-page-background-rgb), 0.95) !important;
+    border: 1px solid rgba(var(--color-border-neutral-alpha-weak-rgb), 0.6) !important;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        0 6px 20px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(var(--color-border-neutral-alpha-weak-rgb), 0.4) !important;
+    backdrop-filter: blur(24px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: visible;
+    width: fit-content;
+    min-width: fit-content;
+    max-width: none;
+    
+    &:hover {
+        box-shadow: 
+            0 16px 48px rgba(0, 0, 0, 0.18),
+            0 8px 24px rgba(0, 0, 0, 0.1),
+            0 0 0 1px rgba(59, 130, 246, 0.5) !important;
+        transform: translateY(-3px);
+    }
+}
+
+.navBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(59, 130, 246, 0.04) 0%, 
+        rgba(59, 130, 246, 0.02) 50%, 
+        rgba(59, 130, 246, 0.04) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.navContainer:hover .navBackground {
+    opacity: 1;
+}
+
+.navLinks {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 4px;
+    flex-wrap: nowrap;
+    width: fit-content;
+    min-width: fit-content;
+    overflow: visible;
+    
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.navButton {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px !important;
+    min-width: 0;
+    flex-shrink: 0;
+    white-space: nowrap;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, 
+            transparent, 
+            rgba(59, 130, 246, 0.15), 
+            transparent);
+        transition: left 0.6s ease;
+    }
+    
+    &:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 
+            0 8px 20px rgba(59, 130, 246, 0.25),
+            0 4px 12px rgba(59, 130, 246, 0.15) !important;
+    }
+    
+    &:hover::before {
+        left: 100%;
+    }
+    
+    &[data-selected="true"] {
+        background: rgba(59, 130, 246, 0.15) !important;
+        color: var(--brand-on-background) !important;
+        box-shadow: 
+            0 6px 16px rgba(59, 130, 246, 0.3),
+            0 3px 8px rgba(59, 130, 246, 0.2) !important;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                #3b82f6, 
+                rgba(59, 130, 246, 0.9));
+            border-radius: 2px;
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+        }
+    }
+}
+
+.navDivider {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0;
+    
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.themeToggleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    white-space: nowrap;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, 
+            transparent, 
+            rgba(59, 130, 246, 0.15), 
+            transparent);
+        transition: left 0.6s ease;
+    }
+    
+    &:hover {
+        background: rgba(var(--color-neutral-alpha-weak-rgb), 0.5);
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    }
+    
+    &:hover::before {
+        left: 100%;
+    }
+}
+
+// Enhanced Actions Section
+.actionsSection {
+    flex: 0 0 auto;
+    min-width: 0;
+    max-width: 150px;
+}
+
+.actions {
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+        opacity: 1;
+    }
+}
+
+// Responsive Design for different zoom levels and screen sizes
+@media (max-width: 1400px) {
+    .headerContent {
+        padding: 0 10px;
+        gap: 10px;
+    }
+    
+    .navLinks {
+        gap: 1px;
+        padding: 3px;
+    }
+    
+    .navButton {
+        padding: 5px 8px !important;
+        gap: 3px;
+    }
+    
+    .brandSection {
+        max-width: 180px;
+    }
+    
+    .navSection {
+        max-width: 450px;
+    }
+    
+    .navContainer {
+        width: fit-content;
+        min-width: fit-content;
+    }
+}
+
+@media (max-width: 1200px) {
+    .headerContent {
+        padding: 0 8px;
+        gap: 8px;
+    }
+    
+    .navLinks {
+        gap: 0px;
+        padding: 2px;
+    }
+    
+    .navButton {
+        padding: 4px 6px !important;
+        gap: 2px;
+    }
+    
+    .logoContainer {
+        gap: 8px;
+    }
+    
+    .logoIcon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .logoInner {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .logoInitial {
+        font-size: 1.125rem;
+    }
+    
+    .brandName {
+        font-size: 1rem;
+    }
+    
+    .brandSubtitle {
+        font-size: 0.55rem;
+    }
+    
+    .brandSection {
+        max-width: 160px;
+    }
+    
+    .navSection {
+        max-width: 400px;
+    }
+    
+    .navContainer {
+        width: fit-content;
+        min-width: fit-content;
+    }
+}
+
+@media (max-width: 1024px) {
+    .headerContent {
+        padding: 0 6px;
+        gap: 6px;
+    }
+    
+    .navLinks {
+        gap: 0px;
+        padding: 1px;
+    }
+    
+    .navButton {
+        padding: 3px 5px !important;
+        gap: 1px;
+    }
+    
+    .logoContainer {
+        gap: 6px;
+    }
+    
+    .logoIcon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .logoInner {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .logoInitial {
+        font-size: 1rem;
+    }
+    
+    .brandName {
+        font-size: 0.875rem;
+    }
+    
+    .brandSubtitle {
+        font-size: 0.5rem;
+    }
+    
+    .brandSection {
+        max-width: 140px;
+    }
+    
+    .navSection {
+        max-width: 350px;
+    }
+    
+    .navContainer {
+        width: fit-content;
+        min-width: fit-content;
+    }
+}
+
 @media (max-width: 768px) {
-    .position {
-        top: auto;
+    .header {
         position: fixed;
-        bottom: var(--static-space-24);
+        top: auto;
+        bottom: 0;
+        backdrop-filter: blur(24px);
+        background: rgba(var(--color-page-background-rgb), 0.95);
+        border-top: 1px solid rgba(var(--color-border-neutral-alpha-weak-rgb), 0.5);
+        border-bottom: none;
+        height: 65px;
+    }
+
+    .headerContent {
+        height: 100%;
+        padding: 0 10px;
+        gap: 0;
     }
 
     .mask {
         transform: rotate(180deg);
         bottom: 0;
+    }
+    
+    .brandSection {
+        display: none;
+    }
+    
+    .navSection {
+        flex: 1;
+        max-width: none;
+    }
+    
+    .navContainer {
+        max-width: 100%;
+        padding: 6px !important;
+    }
+    
+    .navLinks {
+        gap: 6px !important;
+        padding: 3px !important;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    
+    .navButton {
+        padding: 5px 7px !important;
+        gap: 3px;
+        flex-shrink: 0;
+    }
+    
+    .actionsSection {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        height: 60px;
+    }
+    
+    .headerContent {
+        padding: 0 8px;
+    }
+    
+    .navContainer {
+        max-width: 100%;
+        padding: 4px !important;
+    }
+    
+    .navLinks {
+        gap: 4px !important;
+        padding: 2px !important;
+    }
+    
+    .navButton {
+        padding: 4px 6px !important;
+        gap: 2px;
+    }
+}
+
+// Special handling for zoom levels
+@media screen and (max-width: 1400px) and (min-width: 1201px) {
+    .navLinks {
+        gap: 1px;
+    }
+    
+    .navButton {
+        padding: 4px 7px !important;
+    }
+}
+
+@media screen and (max-width: 1100px) and (min-width: 1025px) {
+    .navLinks {
+        gap: 0px;
+    }
+    
+    .navButton {
+        padding: 3px 6px !important;
     }
 }

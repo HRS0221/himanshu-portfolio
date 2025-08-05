@@ -156,9 +156,16 @@ export default async function RootLayout({
               color: effects.lines.color,
             }}
           />
-          <Flex fillWidth minHeight="16" hide="s" />
           <Header />
-          <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
+          <Flex 
+            zIndex={0} 
+            fillWidth 
+            padding="l" 
+            horizontal="center" 
+            flex={1}
+            className="main-content"
+            style={{ minHeight: 'calc(100vh - 80px)' }}
+          >
             <Flex horizontal="center" fillWidth minHeight="0">
               {children}
             </Flex>

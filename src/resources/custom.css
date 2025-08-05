@@ -692,3 +692,21 @@ footer a[href*="leetcode.com/u/himanshusalunke"]:hover svg {
     0 2px 6px rgba(0, 0, 0, 0.1),
     0 0 0 1px rgba(59, 130, 246, 0.2) !important;
 }
+
+/* Header and Layout Adjustments */
+.main-content {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+/* Ensure footer doesn't get covered by header */
+body {
+  padding-bottom: 0;
+}
+
+/* Mobile header adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding-bottom: 5rem;
+  }
+}
