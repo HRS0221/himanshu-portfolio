@@ -155,7 +155,7 @@ export async function generateMetadata() {
     title: about.title,
     description: about.description,
     baseURL: baseURL,
-    image: "/images/og/home.jpg", // ✅ FIX: Using static OG image
+    image: `${baseURL}api/og?title=${encodeURIComponent(about.title)}&description=${encodeURIComponent(about.description)}`,
     path: about.path,
   });
 }
