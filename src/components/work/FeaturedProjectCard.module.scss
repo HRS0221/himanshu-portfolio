@@ -1,62 +1,37 @@
-.cardContainer {
+.card {
+  padding: 16px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 48px;
-  width: 100%;
-  padding: 24px 0;
+  flex-direction: column;
+  min-height: 280px;
+  position: relative;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 24px;
-  }
-}
-
-.cardContainer.reversed {
-  flex-direction: row-reverse;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-}
-
-.imageWrapper {
-  display: block;
-  flex: 1.2;
-  min-width: 0;
-  border-radius: var(--radius-l);
-  overflow: hidden; 
-  box-shadow: none; // Removed box-shadow to eliminate white line
-  transition: transform 0.3s ease;
-  max-height: 400px; // Set a reasonable max height
-  border: none !important; // Ensure no borders
-  outline: none !important; // Remove any outlines
-  text-decoration: none !important; // Remove any text decoration
-  
   &:hover {
-    transform: scale(1.03);
+    transform: translateY(-4px) scale(1.02);
+    border-color: rgba(59, 130, 246, 0.4) !important;
+    background: rgba(var(--color-surface-rgb), 0.8) !important;
+    box-shadow: 
+      0 8px 24px rgba(59, 130, 246, 0.15),
+      0 4px 12px rgba(59, 130, 246, 0.1),
+      0 2px 6px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(59, 130, 246, 0.2) !important;
   }
 }
 
-.projectImage {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover !important; // Changed to cover to eliminate gaps
-  background-color: #f5f5f5; // Light background for any empty space
-  border-radius: var(--radius-l) !important; // Force border radius
-  border-top-left-radius: var(--radius-l) !important;
-  border-top-right-radius: var(--radius-l) !important;
-  border-bottom-left-radius: var(--radius-l) !important;
-  border-bottom-right-radius: var(--radius-l) !important;
-  border: none !important; // Remove any borders
-  outline: none !important; // Remove any outlines
-  box-shadow: none !important; // Remove any box shadows
+.contentWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
-.textWrapper {
-  flex: 1;
-  min-width: 0;
+.buttonWrapper {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
 .summaryList {
@@ -65,22 +40,27 @@
 }
 
 .summaryListItem {
-  padding-bottom: 2px;
+  padding-bottom: 4px;
   margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 13px;
 }
 
-// --- Glowing effect for project buttons ---
 .projectButton {
-  --glow-rgb: 139, 92, 246; // Violet glow (same as contact form)
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease;
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 15px rgba(var(--glow-rgb), 0.35),
-                0 0 30px rgba(var(--glow-rgb), 0.2);
-  }
-
-  &:active {
     transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 16px;
+    min-height: 280px;
+  }
+  
+  .contentWrapper {
+    gap: 12px;
   }
 }

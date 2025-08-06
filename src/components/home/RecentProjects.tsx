@@ -3,7 +3,6 @@
 import { Column, Heading, Text, RevealFx, Flex, Button, Card, Tag } from "@once-ui-system/core";
 import { MdxContent } from "../../utils/utils";
 import styles from "./RecentProjects.module.scss";
-import ProjectImageCarousel from "../work/ProjectImageCarousel";
 
 interface RecentProjectsProps {
   projects: MdxContent[];
@@ -95,48 +94,55 @@ export default function RecentProjects({ projects }: RecentProjectsProps) {
                       e.currentTarget.style.boxShadow = "0 4px 12px rgba(59, 130, 246, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05)";
                     }}
                   >
-                                         {/* Project Image Carousel */}
-                     <div style={{ position: "relative", height: "200px", overflow: "hidden" }}>
-                       <ProjectImageCarousel
-                         images={project.metadata.images || [project.metadata.image || "/images/projects/cover-01.jpg"]}
-                         title={project.metadata.title}
-                         projectIndex={index}
-                         layout="grid"
-                       />
-                       
-                       {/* Tag */}
-                       {project.metadata.tag && (
-                         <div
-                           style={{
-                             position: "absolute",
-                             top: "16px",
-                             left: "16px",
-                             zIndex: 2,
-                           }}
-                         >
-                           <Tag
-                             label={project.metadata.tag}
-                             variant="brand"
-                             size="s"
-                             style={{
-                               backdropFilter: "blur(8px)",
-                               backgroundColor: "rgba(0,0,0,0.8)",
-                               transition: "all 0.3s ease",
-                             }}
-                             onMouseEnter={(e: React.MouseEvent<HTMLElement>) => {
-                               const target = e.currentTarget as HTMLElement;
-                               target.style.boxShadow = "0 0 10px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.2)";
-                               target.style.transform = "scale(1.05)";
-                             }}
-                             onMouseLeave={(e: React.MouseEvent<HTMLElement>) => {
-                               const target = e.currentTarget as HTMLElement;
-                               target.style.boxShadow = "none";
-                               target.style.transform = "scale(1)";
-                             }}
-                           />
-                         </div>
-                       )}
-                     </div>
+                  {/* Project Image */}
+                  <div style={{ position: "relative", height: "200px", overflow: "hidden" }}>
+                    <img
+                      src={project.metadata.image || "/images/projects/cover-01.jpg"}
+                      alt={project.metadata.title}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                      onError={(e) => {
+                        // Fallback to default image if the main image fails to load
+                        e.currentTarget.src = "/images/projects/cover-01.jpg";
+                      }}
+                    />
+                    
+                    {/* Tag */}
+                    {project.metadata.tag && ( 
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "16px",
+                          left: "16px",
+                          zIndex: 2,
+                        }}
+                      >
+                        <Tag
+                          label={project.metadata.tag}
+                          variant="brand"
+                          size="s"
+                          style={{
+                            backdropFilter: "blur(8px)",
+                            backgroundColor: "rgba(0,0,0,0.8)",
+                            transition: "all 0.3s ease",
+                          }}
+                          onMouseEnter={(e: React.MouseEvent<HTMLElement>) => {
+                            const target = e.currentTarget as HTMLElement;
+                            target.style.boxShadow = "0 0 10px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.2)";
+                            target.style.transform = "scale(1.05)";
+                          }}
+                          onMouseLeave={(e: React.MouseEvent<HTMLElement>) => {
+                            const target = e.currentTarget as HTMLElement;
+                            target.style.boxShadow = "none";
+                            target.style.transform = "scale(1)";
+                          }}
+                        />
+                      </div>
+                    )}
+                  </div>
 
                     {/* Project Content */}
                     <Column gap="s" padding="12" style={{ flex: 1 }}>

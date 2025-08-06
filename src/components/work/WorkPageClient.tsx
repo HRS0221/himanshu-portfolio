@@ -67,14 +67,17 @@ export default function WorkPageClient({
                 <Line fillWidth />
             </Flex>
           </RevealFx>
-          {featuredProjects.map((project, index) => (
-          <div key={project.slug} id={`project-${project.slug}`}>
-            <FeaturedProjectCard
-                project={project}
-                index={index}
-            />
-          </div>
-          ))}
+          
+          <Flex wrap gap="24" className={styles.gridContainer}>
+            {featuredProjects.map((project, index) => (
+              <div key={project.slug} id={`project-${project.slug}`} className={styles.gridItem}>
+                <FeaturedProjectCard
+                    project={project}
+                    index={index}
+                />
+              </div>
+            ))}
+          </Flex>
         </Column>
       )}
 
