@@ -1,46 +1,13 @@
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   
-  // Large desktop screens (1400px and above)
-  @media (min-width: 1400px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  // Desktop screens (1200px - 1399px)
-  @media (max-width: 1399px) and (min-width: 1200px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  // Medium desktop/small laptop (1000px - 1199px)
-  @media (max-width: 1199px) and (min-width: 1000px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  // Tablet landscape (768px - 999px)
-  @media (max-width: 999px) and (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  // Tablet portrait (600px - 767px)
-  @media (max-width: 767px) and (min-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  
-  // Large mobile (480px - 599px)
-  @media (max-width: 599px) and (min-width: 480px) {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  
-  // Mobile (below 480px)
-  @media (max-width: 479px) {
+  // Single column only on mobile
+  @media (max-width: 650px) {
     grid-template-columns: 1fr;
     gap: 16px;
     padding: 0 16px;

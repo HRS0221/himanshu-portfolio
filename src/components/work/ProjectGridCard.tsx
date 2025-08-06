@@ -43,14 +43,9 @@ export default function ProjectGridCard({
     <RevealFx translateY={25} delay={index * 0.03}>
       <Column
         className={styles.card}
-        background="brand-alpha-weak"
-        border="brand-strong"
+        background="neutral-alpha-weak"
+        border="neutral-strong"
         radius="l"
-        style={{
-          background: `rgba(var(--color-surface-rgb), 0.5)`,
-          border: `1px solid rgba(var(--color-border-neutral-alpha-weak-rgb), 0.2)`,
-          boxShadow: `0 4px 12px rgba(59, 130, 246, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05)`,
-        }}
       >
         <Column className={styles.contentWrapper} gap="12">
           <Flex gap="8" vertical="center" wrap>

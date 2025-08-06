@@ -1,21 +1,15 @@
 .card {
   padding: 16px;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
   min-height: 280px;
   position: relative;
 
   &:hover {
-    transform: translateY(-4px) scale(1.02);
-    border-color: rgba(59, 130, 246, 0.4) !important;
-    background: rgba(var(--color-surface-rgb), 0.8) !important;
-    box-shadow: 
-      0 8px 24px rgba(59, 130, 246, 0.15),
-      0 4px 12px rgba(59, 130, 246, 0.1),
-      0 2px 6px rgba(0, 0, 0, 0.1),
-      0 0 0 1px rgba(59, 130, 246, 0.2) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
   }
 }
 
