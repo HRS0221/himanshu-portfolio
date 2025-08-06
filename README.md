@@ -57,7 +57,7 @@ A modern, responsive portfolio website built with Next.js 15, featuring a clean 
 - **Vercel** - Hosting and deployment platform with edge functions
 - **@vercel/analytics 1.5.0** - Web analytics and user behavior tracking
 - **@vercel/speed-insights 1.2.0** - Performance monitoring and Core Web Vitals
-- **@vercel/og 0.6.2** - Dynamic Open Graph image generation
+- **@vercel/og 0.6.8** - Dynamic Open Graph image generation
 
 ### External Integrations
 - **Slack Webhooks** - Contact form notifications and real-time alerts
@@ -100,8 +100,6 @@ himanshu-portfolio-main/
 │   │   ├── api/              # API routes
 │   │   │   ├── download-resume/
 │   │   │   │   └── route.ts
-│   │   │   ├── og/           # Dynamic OG image generation
-│   │   │   │   └── route.tsx
 │   │   │   └── submit-form/
 │   │   │       └── route.ts
 │   │   ├── article/          # Articles listing
@@ -380,6 +378,8 @@ Update `src/resources/content.js` to modify:
 - **Optimized Performance**: Reduced bundle size and improved loading times
 - **Removed Third-party Branding**: Cleaned up all Once UI references and credits
 - **Fixed TypeScript Errors**: Resolved all compilation issues and type safety
+- **Simplified Contact Form**: Streamlined contact form without OTP verification
+- **Clean API Structure**: Removed unused OTP-related API routes and dependencies
 
 ## 🤝 Contributing
 
