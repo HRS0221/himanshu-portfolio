@@ -13,7 +13,7 @@ import {
   SpacingToken,
 } from "@once-ui-system/core";
 import { Footer, Header, Providers, BackToTop } from "../components";
-import { baseURL, effects, fonts, style, dataStyle, home } from "../resources";
+import { baseURL, effects, fonts, style, dataStyle, home, person } from "../resources";
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";

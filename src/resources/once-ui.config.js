@@ -1,7 +1,7 @@
 import { home } from "./content";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "himanshusalunke.vercel.app";
+const baseURL = "https://himanshusalunke.vercel.app";
 
 const routes = {
   "/": true,

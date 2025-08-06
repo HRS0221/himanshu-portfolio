@@ -81,7 +81,7 @@ himanshu-portfolio-main/
 │   │   │   ├── Reinforcement Learning.jpg
 │   │   │   └── ... (40+ more ML concept images)
 │   │   ├── newsletter/       # Newsletter images
-│   │   │   └── NewsletterImg.png
+│   │   │   └── NewsletterImg.jpg
 │   │   └── projects/         # Project images
 │   │       ├── cover-01.jpg
 │   │       ├── cover-02.jpg
