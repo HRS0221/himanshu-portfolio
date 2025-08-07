@@ -8,7 +8,7 @@ export async function generateMetadata() {
     description:
       "Explore 40+ thought-provoking articles on AI, machine learning, and data, written by Himanshu Salunke.",
     baseURL: baseURL,
-    image: "/images/og/home.jpg",
+    image: `${baseURL}images/og/home.jpg`,
     path: "/article",
   });
 }
@@ -22,7 +22,7 @@ export default function ArticlePage() {
         path="/article"
         title={articles.title}
         description="Explore 50+ thought-provoking articles on AI, machine learning, and data, written by Himanshu Salunke."
-        image="/images/og/home.jpg"
+        image={`${baseURL}images/og/home.jpg`}
         author={{
           name: person.name,
           url: `${baseURL}/about`,

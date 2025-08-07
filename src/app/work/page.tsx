@@ -17,7 +17,7 @@ export async function generateMetadata() {
     title: work.title,
     description: work.description,
     baseURL: baseURL,
-    image: "/images/og/home.jpg",
+    image: `${baseURL}images/og/home.jpg`,
     path: work.path,
   });
 }

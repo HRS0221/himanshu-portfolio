@@ -34,7 +34,7 @@ export default function WorkPageClient({
         path={work.path}
         title={work.title}
         description={work.description}
-        image="/images/og/home.jpg"
+        image={`${baseURL}images/og/home.jpg`}
         author={{
           name: person.name,
           url: `${baseURL}/about`,

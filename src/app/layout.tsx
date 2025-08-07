@@ -24,7 +24,7 @@ export async function generateMetadata() {
     description: home.description,
     baseURL: baseURL,
     path: home.path,
-    image: "/images/og/home.jpg",
+    image: `${baseURL}images/og/home.jpg`,
   });
 }
 

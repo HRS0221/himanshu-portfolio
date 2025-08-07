@@ -57,7 +57,7 @@ export default async function Home() {
         path={home.path}
         title={home.title}
         description={home.description}
-        image="/images/og/home.jpg"
+        image={`${baseURL}images/og/home.jpg`}
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
