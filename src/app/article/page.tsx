@@ -6,7 +6,7 @@ export async function generateMetadata() {
   return Meta.generate({
     title: articles.title,
     description:
-      "Explore 50+ thought-provoking articles on AI, machine learning, and data, written by Himanshu Salunke.",
+      "Explore 40+ thought-provoking articles on AI, machine learning, and data, written by Himanshu Salunke.",
     baseURL: baseURL,
     image: "/images/og/home.jpg",
     path: "/article",

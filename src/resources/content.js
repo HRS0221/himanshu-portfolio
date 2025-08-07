@@ -60,7 +60,7 @@ const home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
+  title: `${person.name} - Data Scientist & ML Engineer`,
   // description: `Portfolio website showcasing my work as a ${person.role}`,
   description: `Portfolio website showcasing my work`,
   headline: <>Hey, I'm Himanshu 👋</>,

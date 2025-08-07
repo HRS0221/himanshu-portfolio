@@ -1,4 +1,4 @@
-# Himanshu Salunke - Portfolio Website
+# Himanshu Salunke - Data Scientist & ML Engineer
 
 A modern, responsive portfolio website built with Next.js 15, featuring a clean design, dark mode, and comprehensive project showcase. This portfolio demonstrates my journey as an aspiring data scientist, showcasing projects in machine learning, AI, and software development.
 
